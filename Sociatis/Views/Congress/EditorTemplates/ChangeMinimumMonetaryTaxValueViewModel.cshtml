@@ -1,0 +1,9 @@
+﻿@model Sociatis.Models.Congress.ChangeMinimumMonetaryTaxValueViewModel
+
+@{
+    ViewData.TemplateInfo.HtmlFieldPrefix = "";
+}
+
+@Html.LabelFor(m => m.NewTaxValue)
+@Html.TextBoxFor(m => m.NewTaxValue)
+@Html.ValidationMessageFor(m => m.NewTaxValue)

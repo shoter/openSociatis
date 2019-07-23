@@ -1,0 +1,43 @@
+﻿@model Sociatis.Models.Party.PartiesListViewModel
+
+@{
+    ViewBag.Title = Model.CountryName + " parties";
+}
+
+<div class="ContentBox">
+    <h3>@Model.CountryName's parties</h3>
+
+    <a class="button green" href="@Url.Action("Create", "Party")">Create party</a>
+
+    @foreach(var party in Model.Infos)
+    {
+        <div class="flex shortInfo">
+            <div class="miniAvatars">
+                @Html.DisplayFor(m => party.PartyAvatar)
+            </div>
+            <div>
+                <text><a href="@Url.Action("View", "Party", new { partyID = party.PartyID })">@party.PartyName</a></text>
+                <text>
+                @if (party.MemberCount > 0)
+                {
+                    @:@party.MemberCount member@(PluralHelper.S(party.MemberCount))
+                }
+                else
+                {
+                    @:No members
+                }
+                </text>
+                @if (party.CongressmenCount > 0)
+                {
+                <text>@party.CongressmenCount congressmen</text>
+                }
+            </div>
+        </div>
+    }
+
+    @using (Html.BeginForm(RouteDataHelper.ActionName + "Post", RouteDataHelper.ControllerName, FormMethod.Post, new { countryID = Model.CountryID }))
+    {
+        @PagingParamHtmlHelper.Render(Model.PagingParam)
+    }
+</div>
+

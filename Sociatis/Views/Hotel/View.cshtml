@@ -1,0 +1,44 @@
+﻿@model Sociatis.Models.Hotels.HotelViewModel
+@{
+    ViewBag.Title = Model.Info.Name;
+}
+@Html.DisplayFor(m => m.Info)
+
+<div class="contentBox">
+    <h4>Rent a room</h4>
+    @using (Html.BeginForm("RentRoom", "Hotel", new { hotelID = Model.Info.ID }, FormMethod.Post, null))
+    {
+        <div class="row">
+            <div class="small-12 medium-4 columns">
+                <label>Room</label>
+                <select id="roomRentQuality" name="quality" >
+                    @foreach (var room in Model.Rooms)
+                    {
+                        <option  value="@room.Quality">Room Q@(room.Quality)</option>
+                    }
+                </select>
+            </div>
+            <div class="small-12 medium-4 columns">
+                <label>Night to sleep</label>
+                <input name="nights" id="roomRentNights" type="number" min="1" max="999" placeholder="Number of nights" />
+            </div>
+            <div class="small-12 medium-4 columns">
+                <div>
+                    <label>Total Cost:</label>
+                    <span id="roomRentCost">-</span> @Model.CurrencySymbol
+                </div>
+            </div>
+        </div>
+        <div style="overflow:auto">
+            <button id="rentRoom" class="pull-right button green" disabled>Rent a room</button>
+        </div>
+    }
+</div>
+
+@section scripts
+{
+    <script>
+        Sociatis.Global.HotelID = @Model.Info.ID;
+    </script>
+    <script src="~/Scripts/hotel/sociatis.hotel.index.js"></script>
+}

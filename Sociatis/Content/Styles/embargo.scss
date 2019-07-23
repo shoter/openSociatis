@@ -1,0 +1,23 @@
+﻿@import "definitions.scss";
+
+
+#embargoesView
+{
+    .embargo
+    {
+        border: 1px rgba(33, 91, 178, 0.25) solid;
+        margin-left: 1rem;
+        background-color: rgba(46, 172, 255, 0.15);
+        border-radius: 5px;
+
+        a
+        {
+            margin-right: 1rem;
+        }
+
+        h5
+        {
+            font-weight: 600;
+        }
+    }
+}

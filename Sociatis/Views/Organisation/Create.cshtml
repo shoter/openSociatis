@@ -1,0 +1,67 @@
+﻿@model Sociatis.Models.Organisation.CreateOrganisationViewModel
+@{
+    ViewBag.Title = "Create Company";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+@using (Html.BeginForm())
+{
+    @Html.ValidationSummary()
+    <div class="row">
+        <h3>
+            Create Organisation
+        </h3>
+    </div>
+    <hr />
+    <div class="row">
+        <div class="large-1 hide-for-medium-only hide-for-small-only columns">&nbsp;</div>
+        <div class="large-8 medium-10 small-12 columns">
+            <div class="row">
+                <div class="small-4 columns">
+                    @Html.DisplayNameFor(m => m.OrganisationName)
+                </div>
+                <div class="small-8 columns">
+                    @Html.TextBoxFor(m => m.OrganisationName)
+                    @Html.ValidationMessageFor(m => m.OrganisationName)
+                </div>
+
+                <div class="small-4 columns">
+                    @Html.DisplayNameFor(m => m.CountryID)
+                    @Html.HiddenFor(m => m.CountryID)
+                </div>
+                <div class="small-8 columns">
+                    <p>
+                        @Html.DisplayFor(m => m.CountryName)
+                    </p>
+                </div>
+
+                <hr/>
+                <div class="small-12 columns">
+                    <p>Creation fee : </p>
+                    @Html.Partial("~/Views/Wallet/MoneyPrintout.cshtml", Model.Fees)
+                </div>
+             
+
+
+                
+            </div>
+            <div class="pull-right">
+                <div class="expanded button-group">
+                    <a href="#" onclick="$(this).closest('form').submit()" class="button">Create Organisation</a>
+                    <a href="@Url.Action("Index", "Home")" class="secondary button">Go back</a>
+                </div>
+            </div>
+        </div>
+
+
+        <div class="large-3 medium-2 hide-for-small-only columns">&nbsp;</div>
+
+    </div>
+
+
+
+}
+
+@section scripts{
+    <script type="text/javascript" src="~/Scripts/Sociatis.account.register.js"></script>
+
+}

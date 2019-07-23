@@ -1,0 +1,105 @@
+﻿@model Sociatis.Models.Companies.CreateContractJobOfferViewModel
+
+@{
+    ViewBag.Title = "Create contract job offer";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+@using (Html.BeginForm())
+{
+    <div class="row ContentBox">
+
+        @Html.Action("TopBar", new { ID = Model.CompanyID })
+
+        @Html.HiddenFor(m => m.CompanyID)
+        <hr />
+
+        @Html.ValidationSummary()
+
+        <div class="row">
+            <div class="small-4 columns">
+                Skill
+            </div>
+            <div class="small-4 columns">
+                @Html.TextBoxFor(m => m.MinSkill, new { Placeholder = "Minimum skill" })
+            </div>
+            <div class="small-4 columns">&nbsp;</div>
+        </div>
+        <div class="row">
+            <div class="small-4 columns">
+                @Html.DisplayNameFor(m => m.MinimumSalary)
+            </div>
+            <div class="small-4 columns">
+                @Html.TextBoxFor(m => m.MinimumSalary, new { placeholder = "Minimum salary" })
+                @Html.ValidationMessageFor(m => m.MinimumSalary)
+
+            </div>
+            <div class="small-4 columns">
+                <p class="money">
+                    @Html.DisplayFor(m => m.JobMarketFee.Image)
+                </p>
+            </div>
+        </div>
+
+        <div class="row">
+            <div class="small-4 columns">
+                @Html.DisplayNameFor(m => m.MinHP)
+            </div>
+            <div class="small-4 columns">
+                @Html.TextBoxFor(m => m.MinHP, new { placeholder = "Minimum HP" })
+                @Html.ValidationMessageFor(m => m.MinHP)
+            </div>
+            <div class="small-4 columns">
+                    @Html.DisplayFor(m => Images.HpCross.VM)
+            </div>
+        </div>
+
+        <div class="row">
+            <div class="small-4 columns">
+                @Html.DisplayNameFor(m => m.Length)
+            </div>
+            <div class="small-4 columns">
+                @Html.TextBoxFor(m => m.Length, new { placeholder = "Length" })
+                @Html.ValidationMessageFor(m => m.Length)
+            </div>
+            <div class="small-4 columns">
+                &nbsp;
+            </div>
+        </div>
+
+        <div class="row">
+            <div class="small-4 columns">
+                @Html.DisplayNameFor(m => m.Amount)
+            </div>
+            <div class="small-4 columns end">
+                @Html.TextBoxFor(m => m.Amount)
+            </div>
+        </div>
+
+        <div class="row">
+            <div class="small-4 columns" data->
+                @Html.DisplayNameFor(m => m.JobMarketFee)
+            </div>
+            <div class="small-8 columns">
+                <span class="marketFee">
+                    @Html.DisplayFor(m => m.JobMarketFee)
+                </span>
+                @Html.CheckBoxFor(m => m.PostOfferOnJobMarket)
+                @Html.DisplayNameFor(m => m.PostOfferOnJobMarket)
+                @Html.ValidationMessageFor(m => m.PostOfferOnJobMarket)
+            </div>
+        </div>
+
+        <div class="row">
+            <div class="small-8 columns">&nbsp;</div>
+            <div class="small-3 text-right columns">
+                <a href="#" onclick="$(this).closest('form').submit()" class="button">Create</a>
+            </div>
+            <div class="small-1 columns" />
+        </div>
+
+
+
+
+    </div>
+}

@@ -1,0 +1,14 @@
+﻿@import "info.scss";
+@import "constructionView.scss";
+@import "CreateDelivery.scss";
+.construction-bar
+{
+    background-color: rgb(104, 96, 83);
+    height: 10px;
+}
+
+.construction-bar-big
+{
+    @extend .construction-bar;
+    height: 1.3rem;
+}

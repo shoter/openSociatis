@@ -1,0 +1,50 @@
+﻿@model Sociatis.Models.MonetaryMarket.AddMonetaryOfferViewModel
+    
+
+@Html.ValidationSummary()
+<div class="ContentBox">
+    @using (Html.BeginForm(RouteDataHelper.ActionName, RouteDataHelper.ControllerName, FormMethod.Post))
+    {
+        <div class="row">
+            <div class="small-6 medium-4  columns">
+                <label>
+                    Offer:
+                </label>
+                @Html.RadioButtonFor(m => m.OfferType, Model.OfferType)
+                <label class="green">B</label>
+                @Html.RadioButtonFor(m => m.OfferType, Model.OfferType)
+                <label class="red">S</label>
+            </div>
+            <div class="small-6 medium-4  columns">
+                <label>Sell currency: </label>
+                @Html.DropDownListFor(m => m.SellCurrencyID, Model.Currencies)
+            </div>
+            <div class="small-6 medium-4  columns">
+                <label>Amount: </label>
+                @Html.TextBoxFor(m => m.Amount)
+            </div>
+        </div>
+        <div class="row">
+            <div class="medium-4 columns hide-for-small-only">
+                &nbsp;
+            </div>
+            <div class="small-6 medium-4  columns">
+                <label>Bought currency</label>
+                @Html.DropDownListFor(m => m.BuyCurrencyID, Model.Currencies)
+            </div>
+            <div class="small-6 medium-4  columns">
+                <label>Rate : </label>
+                <span class="input-group">
+                    @Html.TextBoxFor(m => m.Rate)
+                    <span class="input-addon">
+                        PLN
+                    </span>
+                </span>
+            </div>
+            
+        </div>
+
+        <button class="pull-right button blue">Create offer</button>
+    }
+</div>
+

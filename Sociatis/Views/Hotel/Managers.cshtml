@@ -1,0 +1,41 @@
+﻿@model Sociatis.Models.Hotels.HotelManagersViewModel
+
+@{
+    ViewBag.Title = Model.Info.Name + "'s managers";
+}
+
+@Html.DisplayFor(m => m.Info)
+
+<div class="contentBox">
+    <h4>Managers</h4>
+
+    @using (Html.BeginForm("AddManager", RouteDataHelper.ControllerName, new { hotelID = Model.Info.ID }, FormMethod.Post))
+    {
+        <div class="addManager">
+            <div class="centerHorizontalFlex">
+                <span class="managerNew">
+                    New Manager:
+                </span>
+                @Html.Render(Model.ManagerSelector)
+            </div>
+            <div class="centerHorizontalFlex">
+                <button class="button green">Add</button>
+            </div>
+        </div>
+    }
+
+    <div class="managers">
+        @Html.EditorFor(m => m.Managers)
+    </div>
+
+
+</div>
+
+<script>
+    Sociatis.Global.HotelID = @Model.Info.ID;
+</script>
+
+@section scripts
+{
+    <script src="~/Scripts/hotel/sociatis.hotel.managers.js"></script>
+}

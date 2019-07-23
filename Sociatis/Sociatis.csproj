@@ -1,0 +1,1744 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="14.0" DefaultTargets="Build" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <Import Project="..\packages\Microsoft.Net.Compilers.1.0.0\build\Microsoft.Net.Compilers.props" Condition="Exists('..\packages\Microsoft.Net.Compilers.1.0.0\build\Microsoft.Net.Compilers.props')" />
+  <Import Project="$(MSBuildExtensionsPath32)\Microsoft\VisualStudio\v$(VisualStudioVersion)\TypeScript\Microsoft.TypeScript.Default.props" Condition="Exists('$(MSBuildExtensionsPath32)\Microsoft\VisualStudio\v$(VisualStudioVersion)\TypeScript\Microsoft.TypeScript.Default.props')" />
+  <Import Project="$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props" Condition="Exists('$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props')" />
+  <Import Project="$(MSBuildExtensionsPath32)\Microsoft\VisualStudio\v$(VisualStudioVersion)\WebApplications\Microsoft.WebApplication.targets" />
+  <PropertyGroup>
+    <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
+    <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
+    <ProductVersion>
+    </ProductVersion>
+    <SchemaVersion>2.0</SchemaVersion>
+    <ProjectGuid>{63373534-8FA2-4FD6-A1CE-6804CA777542}</ProjectGuid>
+    <ProjectTypeGuids>{349c5851-65df-11da-9384-00065b846f21};{fae04ec0-301f-11d3-bf4b-00c04f79efbc}</ProjectTypeGuids>
+    <OutputType>Library</OutputType>
+    <AppDesignerFolder>Properties</AppDesignerFolder>
+    <RootNamespace>Sociatis</RootNamespace>
+    <AssemblyName>Sociatis</AssemblyName>
+    <TargetFrameworkVersion>v4.5.2</TargetFrameworkVersion>
+	<DeployDefaultTargetFrameworkVersion>4.5.2</DeployDefaultTargetFrameworkVersion>
+    <MvcBuildViews>false</MvcBuildViews>
+    <UseIISExpress>true</UseIISExpress>
+    <IISExpressSSLPort />
+    <IISExpressAnonymousAuthentication />
+    <IISExpressWindowsAuthentication />
+    <IISExpressUseClassicPipelineMode />
+    <UseGlobalApplicationHostFile />
+    <NuGetPackageImportStamp>
+    </NuGetPackageImportStamp>
+    <TypeScriptToolsVersion>1.8</TypeScriptToolsVersion>
+    <Use64BitIISExpress />
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
+    <DebugSymbols>true</DebugSymbols>
+    <DebugType>full</DebugType>
+    <Optimize>false</Optimize>
+    <OutputPath>bin\</OutputPath>
+    <DefineConstants>TRACE;DEBUG;JsonDebug</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+    <LangVersion>default</LangVersion>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|AnyCPU' ">
+    <DebugType>pdbonly</DebugType>
+    <Optimize>true</Optimize>
+    <OutputPath>bin\</OutputPath>
+    <DefineConstants>TRACE;FORCE_HTTPS</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <ItemGroup>
+    <Reference Include="Antlr3.Runtime, Version=3.4.1.9004, Culture=neutral, PublicKeyToken=eb42632606e9261f, processorArchitecture=MSIL">
+      <HintPath>..\packages\Antlr.3.4.1.9004\lib\Antlr3.Runtime.dll</HintPath>
+    </Reference>
+    <Reference Include="DataTables.AspNet.Core, Version=2.0.2.0, Culture=neutral, processorArchitecture=MSIL">
+      <HintPath>..\packages\DataTables.AspNet.Core.2.0.2\lib\net45\DataTables.AspNet.Core.dll</HintPath>
+    </Reference>
+    <Reference Include="DataTables.AspNet.Mvc5, Version=2.0.2.0, Culture=neutral, processorArchitecture=MSIL">
+      <HintPath>..\packages\DataTables.AspNet.Mvc5.2.0.2\lib\net45\DataTables.AspNet.Mvc5.dll</HintPath>
+    </Reference>
+    <Reference Include="Elmah, Version=1.2.14706.0, Culture=neutral, processorArchitecture=MSIL">
+      <HintPath>..\packages\elmah.corelibrary.1.2.2\lib\Elmah.dll</HintPath>
+    </Reference>
+    <Reference Include="EntityFramework, Version=6.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089, processorArchitecture=MSIL">
+      <HintPath>..\packages\EntityFramework.6.2.0\lib\net45\EntityFramework.dll</HintPath>
+    </Reference>
+    <Reference Include="EntityFramework.SqlServer, Version=6.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089, processorArchitecture=MSIL">
+      <HintPath>..\packages\EntityFramework.6.2.0\lib\net45\EntityFramework.SqlServer.dll</HintPath>
+    </Reference>
+    <Reference Include="Glimpse.Ado, Version=1.7.3.0, Culture=neutral, processorArchitecture=MSIL">
+      <HintPath>..\packages\Glimpse.Ado.1.7.3\lib\net45\Glimpse.Ado.dll</HintPath>
+    </Reference>
+    <Reference Include="Glimpse.AspNet, Version=1.9.2.0, Culture=neutral, processorArchitecture=MSIL">
+      <HintPath>..\packages\Glimpse.AspNet.1.9.2\lib\net45\Glimpse.AspNet.dll</HintPath>
+    </Reference>
+    <Reference Include="Glimpse.Core, Version=1.8.6.0, Culture=neutral, processorArchitecture=MSIL">
+      <HintPath>..\packages\Glimpse.1.8.6\lib\net45\Glimpse.Core.dll</HintPath>
+    </Reference>
+    <Reference Include="Glimpse.EF6, Version=1.6.5.0, Culture=neutral, processorArchitecture=MSIL">
+      <HintPath>..\packages\Glimpse.EF6.1.6.5\lib\net45\Glimpse.EF6.dll</HintPath>
+    </Reference>
+    <Reference Include="Glimpse.Mvc5, Version=1.5.3.0, Culture=neutral, processorArchitecture=MSIL">
+      <HintPath>..\packages\Glimpse.Mvc5.1.5.3\lib\net45\Glimpse.Mvc5.dll</HintPath>
+    </Reference>
+    <Reference Include="Hangfire.Core, Version=1.6.17.0, Culture=neutral, processorArchitecture=MSIL">
+      <HintPath>..\packages\Hangfire.Core.1.6.17\lib\net45\Hangfire.Core.dll</HintPath>
+    </Reference>
+    <Reference Include="Hangfire.Ninject, Version=1.2.0.0, Culture=neutral, processorArchitecture=MSIL">
+      <HintPath>..\packages\Hangfire.Ninject.1.2.0\lib\net45\Hangfire.Ninject.dll</HintPath>
+    </Reference>
+    <Reference Include="Hangfire.SqlServer, Version=1.6.17.0, Culture=neutral, processorArchitecture=MSIL">
+      <HintPath>..\packages\Hangfire.SqlServer.1.6.17\lib\net45\Hangfire.SqlServer.dll</HintPath>
+    </Reference>
+    <Reference Include="Markdown, Version=2.0.0.0, Culture=neutral, PublicKeyToken=1b320cc08ad5aa89, processorArchitecture=MSIL">
+      <HintPath>..\packages\Markdown.2.2.1\lib\net451\Markdown.dll</HintPath>
+    </Reference>
+    <Reference Include="Microsoft.AI.Agent.Intercept, Version=2.0.6.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
+      <HintPath>..\packages\Microsoft.ApplicationInsights.Agent.Intercept.2.0.6\lib\net45\Microsoft.AI.Agent.Intercept.dll</HintPath>
+    </Reference>
+    <Reference Include="Microsoft.AI.DependencyCollector, Version=2.2.0.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
+      <HintPath>..\packages\Microsoft.ApplicationInsights.DependencyCollector.2.2.0\lib\net45\Microsoft.AI.DependencyCollector.dll</HintPath>
+    </Reference>
+    <Reference Include="Microsoft.AI.PerfCounterCollector, Version=2.2.0.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
+      <HintPath>..\packages\Microsoft.ApplicationInsights.PerfCounterCollector.2.2.0\lib\net45\Microsoft.AI.PerfCounterCollector.dll</HintPath>
+    </Reference>
+    <Reference Include="Microsoft.AI.ServerTelemetryChannel, Version=2.2.0.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
+      <HintPath>..\packages\Microsoft.ApplicationInsights.WindowsServer.TelemetryChannel.2.2.0\lib\net45\Microsoft.AI.ServerTelemetryChannel.dll</HintPath>
+    </Reference>
+    <Reference Include="Microsoft.AI.Web, Version=2.2.0.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
+      <HintPath>..\packages\Microsoft.ApplicationInsights.Web.2.2.0\lib\net45\Microsoft.AI.Web.dll</HintPath>
+    </Reference>
+    <Reference Include="Microsoft.AI.WindowsServer, Version=2.2.0.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
+      <HintPath>..\packages\Microsoft.ApplicationInsights.WindowsServer.2.2.0\lib\net45\Microsoft.AI.WindowsServer.dll</HintPath>
+    </Reference>
+    <Reference Include="Microsoft.ApplicationInsights, Version=2.2.0.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
+      <HintPath>..\packages\Microsoft.ApplicationInsights.2.2.0\lib\net45\Microsoft.ApplicationInsights.dll</HintPath>
+    </Reference>
+    <Reference Include="Microsoft.AspNet.Http.Abstractions, Version=1.0.0.0, Culture=neutral, PublicKeyToken=adb9793829ddae60, processorArchitecture=MSIL">
+      <HintPath>..\packages\Microsoft.AspNet.Http.Abstractions.1.0.0-rc1-final\lib\net451\Microsoft.AspNet.Http.Abstractions.dll</HintPath>
+    </Reference>
+    <Reference Include="Microsoft.AspNet.Http.Features, Version=1.0.0.0, Culture=neutral, PublicKeyToken=adb9793829ddae60, processorArchitecture=MSIL">
+      <HintPath>..\packages\Microsoft.AspNet.Http.Features.1.0.0-rc1-final\lib\net451\Microsoft.AspNet.Http.Features.dll</HintPath>
+    </Reference>
+    <Reference Include="Microsoft.AspNet.Identity.Core, Version=2.0.0.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
+      <HintPath>..\packages\Microsoft.AspNet.Identity.Core.2.2.1\lib\net45\Microsoft.AspNet.Identity.Core.dll</HintPath>
+    </Reference>
+    <Reference Include="Microsoft.AspNet.Identity.Owin, Version=2.0.0.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
+      <HintPath>..\packages\Microsoft.AspNet.Identity.Owin.2.2.1\lib\net45\Microsoft.AspNet.Identity.Owin.dll</HintPath>
+    </Reference>
+    <Reference Include="Microsoft.AspNet.Session, Version=1.0.0.0, Culture=neutral, PublicKeyToken=adb9793829ddae60, processorArchitecture=MSIL">
+      <HintPath>..\packages\Microsoft.AspNet.Session.1.0.0-rc1-final\lib\net451\Microsoft.AspNet.Session.dll</HintPath>
+    </Reference>
+    <Reference Include="Microsoft.AspNet.SignalR.Core, Version=2.2.0.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
+      <HintPath>..\packages\Microsoft.AspNet.SignalR.Core.2.2.0\lib\net45\Microsoft.AspNet.SignalR.Core.dll</HintPath>
+    </Reference>
+    <Reference Include="Microsoft.AspNet.SignalR.SystemWeb, Version=2.2.0.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
+      <HintPath>..\packages\Microsoft.AspNet.SignalR.SystemWeb.2.2.0\lib\net45\Microsoft.AspNet.SignalR.SystemWeb.dll</HintPath>
+    </Reference>
+    <Reference Include="Microsoft.CSharp" />
+    <Reference Include="Microsoft.Diagnostics.Runtime, Version=0.8.31.1, Culture=neutral, processorArchitecture=MSIL">
+      <HintPath>..\packages\Microsoft.Diagnostics.Runtime.0.9.170809.03\lib\net40\Microsoft.Diagnostics.Runtime.dll</HintPath>
+    </Reference>
+    <Reference Include="Microsoft.Extensions.Caching.Abstractions, Version=1.0.0.0, Culture=neutral, PublicKeyToken=adb9793829ddae60, processorArchitecture=MSIL">
+      <HintPath>..\packages\Microsoft.Extensions.Caching.Abstractions.1.0.0-rc1-final\lib\net451\Microsoft.Extensions.Caching.Abstractions.dll</HintPath>
+    </Reference>
+    <Reference Include="Microsoft.Extensions.Configuration, Version=1.0.0.0, Culture=neutral, PublicKeyToken=adb9793829ddae60, processorArchitecture=MSIL">
+      <HintPath>..\packages\Microsoft.Extensions.Configuration.1.0.0-rc1-final\lib\net451\Microsoft.Extensions.Configuration.dll</HintPath>
+    </Reference>
+    <Reference Include="Microsoft.Extensions.Configuration.Abstractions, Version=1.0.0.0, Culture=neutral, PublicKeyToken=adb9793829ddae60, processorArchitecture=MSIL">
+      <HintPath>..\packages\Microsoft.Extensions.Configuration.Abstractions.1.0.0-rc1-final\lib\net451\Microsoft.Extensions.Configuration.Abstractions.dll</HintPath>
+    </Reference>
+    <Reference Include="Microsoft.Extensions.Configuration.Binder, Version=1.0.0.0, Culture=neutral, PublicKeyToken=adb9793829ddae60, processorArchitecture=MSIL">
+      <HintPath>..\packages\Microsoft.Extensions.Configuration.Binder.1.0.0-rc1-final\lib\net451\Microsoft.Extensions.Configuration.Binder.dll</HintPath>
+    </Reference>
+    <Reference Include="Microsoft.Extensions.DependencyInjection.Abstractions, Version=1.0.0.0, Culture=neutral, PublicKeyToken=adb9793829ddae60, processorArchitecture=MSIL">
+      <HintPath>..\packages\Microsoft.Extensions.DependencyInjection.Abstractions.1.0.0-rc1-final\lib\net451\Microsoft.Extensions.DependencyInjection.Abstractions.dll</HintPath>
+    </Reference>
+    <Reference Include="Microsoft.Extensions.Logging.Abstractions, Version=1.0.0.0, Culture=neutral, PublicKeyToken=adb9793829ddae60, processorArchitecture=MSIL">
+      <HintPath>..\packages\Microsoft.Extensions.Logging.Abstractions.1.0.0-rc1-final\lib\net451\Microsoft.Extensions.Logging.Abstractions.dll</HintPath>
+    </Reference>
+    <Reference Include="Microsoft.Extensions.OptionsModel, Version=1.0.0.0, Culture=neutral, PublicKeyToken=adb9793829ddae60, processorArchitecture=MSIL">
+      <HintPath>..\packages\Microsoft.Extensions.OptionsModel.1.0.0-rc1-final\lib\net451\Microsoft.Extensions.OptionsModel.dll</HintPath>
+    </Reference>
+    <Reference Include="Microsoft.Extensions.Primitives, Version=1.0.0.0, Culture=neutral, PublicKeyToken=adb9793829ddae60, processorArchitecture=MSIL">
+      <HintPath>..\packages\Microsoft.Extensions.Primitives.1.0.0-rc1-final\lib\net451\Microsoft.Extensions.Primitives.dll</HintPath>
+    </Reference>
+    <Reference Include="Microsoft.Extensions.WebEncoders.Core, Version=1.0.0.0, Culture=neutral, PublicKeyToken=adb9793829ddae60, processorArchitecture=MSIL">
+      <HintPath>..\packages\Microsoft.Extensions.WebEncoders.Core.1.0.0-rc1-final\lib\net451\Microsoft.Extensions.WebEncoders.Core.dll</HintPath>
+    </Reference>
+    <Reference Include="Microsoft.Owin, Version=3.0.1.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
+      <HintPath>..\packages\Microsoft.Owin.3.0.1\lib\net45\Microsoft.Owin.dll</HintPath>
+    </Reference>
+    <Reference Include="Microsoft.Owin.Host.SystemWeb, Version=3.0.1.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
+      <HintPath>..\packages\Microsoft.Owin.Host.SystemWeb.3.0.1\lib\net45\Microsoft.Owin.Host.SystemWeb.dll</HintPath>
+    </Reference>
+    <Reference Include="Microsoft.Owin.Security, Version=3.0.1.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
+      <HintPath>..\packages\Microsoft.Owin.Security.3.0.1\lib\net45\Microsoft.Owin.Security.dll</HintPath>
+    </Reference>
+    <Reference Include="Microsoft.Owin.Security.Cookies, Version=3.0.1.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
+      <HintPath>..\packages\Microsoft.Owin.Security.Cookies.3.0.1\lib\net45\Microsoft.Owin.Security.Cookies.dll</HintPath>
+    </Reference>
+    <Reference Include="Microsoft.Owin.Security.Facebook, Version=3.0.1.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
+      <HintPath>..\packages\Microsoft.Owin.Security.Facebook.3.0.1\lib\net45\Microsoft.Owin.Security.Facebook.dll</HintPath>
+    </Reference>
+    <Reference Include="Microsoft.Owin.Security.Google, Version=3.0.1.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
+      <HintPath>..\packages\Microsoft.Owin.Security.Google.3.0.1\lib\net45\Microsoft.Owin.Security.Google.dll</HintPath>
+    </Reference>
+    <Reference Include="Microsoft.Owin.Security.MicrosoftAccount, Version=3.0.1.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
+      <HintPath>..\packages\Microsoft.Owin.Security.MicrosoftAccount.3.0.1\lib\net45\Microsoft.Owin.Security.MicrosoftAccount.dll</HintPath>
+    </Reference>
+    <Reference Include="Microsoft.Owin.Security.OAuth, Version=3.0.1.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
+      <HintPath>..\packages\Microsoft.Owin.Security.OAuth.3.0.1\lib\net45\Microsoft.Owin.Security.OAuth.dll</HintPath>
+    </Reference>
+    <Reference Include="Microsoft.Owin.Security.Twitter, Version=3.0.1.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
+      <HintPath>..\packages\Microsoft.Owin.Security.Twitter.3.0.1\lib\net45\Microsoft.Owin.Security.Twitter.dll</HintPath>
+    </Reference>
+    <Reference Include="Microsoft.Web.Infrastructure, Version=1.0.0.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
+      <HintPath>..\packages\Microsoft.Web.Infrastructure.1.0.0.0\lib\net40\Microsoft.Web.Infrastructure.dll</HintPath>
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="MoreLinq, Version=2.10.21623.0, Culture=neutral, PublicKeyToken=384d532d7e88985d, processorArchitecture=MSIL">
+      <HintPath>..\packages\morelinq.2.10.0\lib\net40\MoreLinq.dll</HintPath>
+    </Reference>
+    <Reference Include="Newtonsoft.Json, Version=9.0.0.0, Culture=neutral, PublicKeyToken=30ad4fe6b2a6aeed, processorArchitecture=MSIL">
+      <HintPath>..\packages\Newtonsoft.Json.9.0.1\lib\net45\Newtonsoft.Json.dll</HintPath>
+    </Reference>
+    <Reference Include="Ninject, Version=3.2.0.0, Culture=neutral, PublicKeyToken=c7192dc5380945e7, processorArchitecture=MSIL">
+      <HintPath>..\packages\Ninject.3.2.2.0\lib\net45-full\Ninject.dll</HintPath>
+    </Reference>
+    <Reference Include="Ninject.Web.Common, Version=3.2.0.0, Culture=neutral, PublicKeyToken=c7192dc5380945e7, processorArchitecture=MSIL">
+      <HintPath>..\packages\Ninject.Web.Common.3.2.3.0\lib\net45-full\Ninject.Web.Common.dll</HintPath>
+    </Reference>
+    <Reference Include="Ninject.Web.Mvc, Version=3.2.0.0, Culture=neutral, PublicKeyToken=c7192dc5380945e7, processorArchitecture=MSIL">
+      <HintPath>..\packages\Ninject.MVC3.3.2.1.0\lib\net45-full\Ninject.Web.Mvc.dll</HintPath>
+    </Reference>
+    <Reference Include="ObjectDumper, Version=1.0.0.12, Culture=neutral, PublicKeyToken=9e2fabf3af85dba9, processorArchitecture=MSIL">
+      <HintPath>..\packages\ObjectDumper.1.0.0.12\lib\net35-Client\ObjectDumper.dll</HintPath>
+    </Reference>
+    <Reference Include="Owin, Version=1.0.0.0, Culture=neutral, PublicKeyToken=f0ebd12fd5e55cc5, processorArchitecture=MSIL">
+      <HintPath>..\packages\Owin.1.0\lib\net40\Owin.dll</HintPath>
+    </Reference>
+    <Reference Include="PresentationCore" />
+    <Reference Include="SlowCheetah.Tasks, Version=1.0.10727.0, Culture=neutral, processorArchitecture=MSIL">
+      <HintPath>..\packages\SlowCheetah.Tasks.Unofficial.1.0.0\lib\SlowCheetah.Tasks.dll</HintPath>
+    </Reference>
+    <Reference Include="System" />
+    <Reference Include="System.Data" />
+    <Reference Include="System.Drawing" />
+    <Reference Include="System.Net.Http" />
+    <Reference Include="System.Net.Http.Formatting, Version=5.2.7.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
+      <HintPath>..\packages\Microsoft.AspNet.WebApi.Client.5.2.7\lib\net45\System.Net.Http.Formatting.dll</HintPath>
+    </Reference>
+    <Reference Include="System.Transactions" />
+    <Reference Include="System.ValueTuple, Version=4.0.2.0, Culture=neutral, PublicKeyToken=cc7b13ffcd2ddd51, processorArchitecture=MSIL">
+      <HintPath>..\packages\System.ValueTuple.4.4.0\lib\netstandard1.0\System.ValueTuple.dll</HintPath>
+    </Reference>
+    <Reference Include="System.Web.DynamicData" />
+    <Reference Include="System.Web.Entity" />
+    <Reference Include="System.Web.ApplicationServices" />
+    <Reference Include="System.ComponentModel.DataAnnotations" />
+    <Reference Include="System.Core" />
+    <Reference Include="System.Data.DataSetExtensions" />
+    <Reference Include="System.Web.Helpers, Version=3.0.0.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
+      <HintPath>..\packages\Microsoft.AspNet.WebPages.3.2.7\lib\net45\System.Web.Helpers.dll</HintPath>
+    </Reference>
+    <Reference Include="System.Web.Http, Version=5.2.7.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
+      <HintPath>..\packages\Microsoft.AspNet.WebApi.Core.5.2.7\lib\net45\System.Web.Http.dll</HintPath>
+    </Reference>
+    <Reference Include="System.Web.Mvc, Version=5.2.7.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
+      <HintPath>..\packages\Microsoft.AspNet.Mvc.5.2.7\lib\net45\System.Web.Mvc.dll</HintPath>
+    </Reference>
+    <Reference Include="System.Web.Optimization, Version=1.1.0.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
+      <HintPath>..\packages\Microsoft.AspNet.Web.Optimization.1.1.3\lib\net40\System.Web.Optimization.dll</HintPath>
+    </Reference>
+    <Reference Include="System.Web.Razor, Version=3.0.0.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
+      <HintPath>..\packages\Microsoft.AspNet.Razor.3.2.7\lib\net45\System.Web.Razor.dll</HintPath>
+    </Reference>
+    <Reference Include="System.Web.WebPages, Version=3.0.0.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
+      <HintPath>..\packages\Microsoft.AspNet.WebPages.3.2.7\lib\net45\System.Web.WebPages.dll</HintPath>
+    </Reference>
+    <Reference Include="System.Web.WebPages.Deployment, Version=3.0.0.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
+      <HintPath>..\packages\Microsoft.AspNet.WebPages.3.2.7\lib\net45\System.Web.WebPages.Deployment.dll</HintPath>
+    </Reference>
+    <Reference Include="System.Web.WebPages.Razor, Version=3.0.0.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
+      <HintPath>..\packages\Microsoft.AspNet.WebPages.3.2.7\lib\net45\System.Web.WebPages.Razor.dll</HintPath>
+    </Reference>
+    <Reference Include="System.Xml.Linq" />
+    <Reference Include="System.Web" />
+    <Reference Include="System.Web.Extensions" />
+    <Reference Include="System.Web.Abstractions" />
+    <Reference Include="System.Web.Routing" />
+    <Reference Include="System.Xml" />
+    <Reference Include="System.Configuration" />
+    <Reference Include="System.Web.Services" />
+    <Reference Include="System.EnterpriseServices" />
+    <Reference Include="System.Net.Http.WebRequest">
+    </Reference>
+    <Reference Include="WebActivatorEx, Version=2.0.0.0, Culture=neutral, PublicKeyToken=7b26dc2a43f6a0d4, processorArchitecture=MSIL">
+      <HintPath>..\packages\WebActivatorEx.2.2.0\lib\net40\WebActivatorEx.dll</HintPath>
+    </Reference>
+    <Reference Include="WebGrease, Version=1.6.5135.21930, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
+      <HintPath>..\packages\WebGrease.1.6.0\lib\WebGrease.dll</HintPath>
+    </Reference>
+  </ItemGroup>
+  <ItemGroup>
+    <Compile Include="ActionFilters\EntityAuthorizeAttribute.cs" />
+    <Compile Include="ActionFilters\SociatisAuthorize.cs" />
+    <Compile Include="App_Start\BundleConfig.cs" />
+    <Compile Include="App_Start\FilterConfig.cs" />
+    <Compile Include="App_Start\NinjectHangFire.cs" />
+    <Compile Include="App_Start\NinjectWebCommon.cs" />
+    <Compile Include="App_Start\RouteConfig.cs" />
+    <Compile Include="App_Start\Starter.cs" />
+    <Compile Include="Code\Attributes\DayChangeRedirect.cs" />
+    <Compile Include="Code\AuthorizationFilter.cs" />
+    <Compile Include="Code\Colors.cs" />
+    <Compile Include="Code\Config.cs" />
+    <Compile Include="Code\Constraints\ResourceTypeEnumConstraint.cs" />
+    <Compile Include="Code\Filters\DayChangeAuthorize.cs" />
+    <Compile Include="Code\Filters\IsCitizenAttribute.cs" />
+    <Compile Include="Code\Filters\IsOrganisationAttribute.cs" />
+    <Compile Include="Code\HangFireManager.cs" />
+    <Compile Include="Code\Json\Battle\JsonFightModel.cs" />
+    <Compile Include="Code\Json\JsonDataModel.cs" />
+    <Compile Include="Code\Json\JsonDebugErrorModel.cs" />
+    <Compile Include="Code\Json\JsonErrorModel.cs" />
+    <Compile Include="Code\Json\JsonModelBase.cs" />
+    <Compile Include="Code\Json\JsonPartialModel.cs" />
+    <Compile Include="Code\Json\JsonRedirectModel.cs" />
+    <Compile Include="Code\Json\JsonStatusEnum.cs" />
+    <Compile Include="Code\Json\JsonSuccessModel.cs" />
+    <Compile Include="Code\Json\JsonTravelSummary.cs" />
+    <Compile Include="Code\Json\JsonWarningModel.cs" />
+    <Compile Include="Code\Json\MarketOffer\JsonCalculateTotalModel.cs" />
+    <Compile Include="Code\Json\Shoutbox\ShoutboxRequestJson.cs" />
+    <Compile Include="Code\Json\Shoutbox\ShoutboxResponseModel.cs" />
+    <Compile Include="Code\Providers\EmailServiceProvider.cs" />
+    <Compile Include="Code\SelectLists.cs" />
+    <Compile Include="Controllers\AccountController.cs" />
+    <Compile Include="Controllers\AdminController.cs" />
+    <Compile Include="Controllers\ApiController.cs" />
+    <Compile Include="Controllers\AvatarController.cs" />
+    <Compile Include="Controllers\BattleController.cs" />
+    <Compile Include="Controllers\BestController.cs" />
+    <Compile Include="Controllers\BugController.cs" />
+    <Compile Include="Controllers\BusinessController.cs" />
+    <Compile Include="Controllers\CalculatorController.cs" />
+    <Compile Include="Controllers\CitizenController.cs" />
+    <Compile Include="Controllers\CompanyController.cs" />
+    <Compile Include="Controllers\CompanyFinanceController.cs" />
+    <Compile Include="Controllers\CongressController.cs" />
+    <Compile Include="Controllers\ConstructionController.cs" />
+    <Compile Include="Controllers\ContractController.cs" />
+    <Compile Include="Controllers\ControllerBase.cs" />
+    <Compile Include="Controllers\CountryController.cs" />
+    <Compile Include="Controllers\DebugController.cs" />
+    <Compile Include="Controllers\DevIssueController.cs" />
+    <Compile Include="Controllers\EmbargoController.cs" />
+    <Compile Include="Controllers\EntityController.cs" />
+    <Compile Include="Controllers\EquipmentController.cs" />
+    <Compile Include="Controllers\FriendController.cs" />
+    <Compile Include="Controllers\GameController.cs" />
+    <Compile Include="Controllers\GiftController.cs" />
+    <Compile Include="Controllers\HomeController.cs" />
+    <Compile Include="Controllers\HospitalController.cs" />
+    <Compile Include="Controllers\HotelController.cs" />
+    <Compile Include="Controllers\HouseController.cs" />
+    <Compile Include="Controllers\JobOfferController.cs" />
+    <Compile Include="Controllers\MapController.cs" />
+    <Compile Include="Controllers\MarketOfferController.cs" />
+    <Compile Include="Controllers\MessageController.cs" />
+    <Compile Include="Controllers\MonetaryMarketController.cs" />
+    <Compile Include="Controllers\NavigationController.cs" />
+    <Compile Include="Controllers\NewspaperController.cs" />
+    <Compile Include="Controllers\OrganisationController.cs" />
+    <Compile Include="Controllers\PartyController.cs" />
+    <Compile Include="Controllers\PresidentController.cs" />
+    <Compile Include="Controllers\RegionController.cs" />
+    <Compile Include="Controllers\SearchController.cs" />
+    <Compile Include="Controllers\ShoutboxController.cs" />
+    <Compile Include="Controllers\TestController.cs" />
+    <Compile Include="Controllers\TradeController.cs" />
+    <Compile Include="Controllers\TrainingController.cs" />
+    <Compile Include="Controllers\WalletController.cs" />
+    <Compile Include="Controllers\WarController.cs" />
+    <Compile Include="Controllers\WarningController.cs" />
+    <Compile Include="enums\ProductTypeEnumUtils.cs" />
+    <Compile Include="Extensions\DropdownListExtensions.cs" />
+    <Compile Include="GlimpseSecurityPolicy.cs" />
+    <Compile Include="Global.asax.cs">
+      <DependentUpon>Global.asax</DependentUpon>
+    </Compile>
+    <Compile Include="Helpers\Image.cs" />
+    <Compile Include="Helpers\Images.cs" />
+    <Compile Include="Helpers\NavigationHelper.cs" />
+    <Compile Include="Helpers\PagingParamHtmlHelper.cs" />
+    <Compile Include="Helpers\SuffixHelper.cs" />
+    <Compile Include="Helpers\TempDataHelper.cs" />
+    <Compile Include="Models\Account\ChangePasswordViewModel.cs" />
+    <Compile Include="Models\Account\LoginRegisterViewModel.cs" />
+    <Compile Include="Models\Admin\CountryColorViewModel.cs" />
+    <Compile Include="Models\Admin\CountryPolicyViewModel.cs" />
+    <Compile Include="Models\Avatar\AvatarChangeViewModel.cs" />
+    <Compile Include="Models\BaseEntityInfoViewModel.cs" />
+    <Compile Include="Models\Battle\BattleStartInformationViewModel.cs" />
+    <Compile Include="Models\Battle\SummaryBattleViewModel.cs" />
+    <Compile Include="Models\Battle\BattleViewModel.cs" />
+    <Compile Include="Models\Battle\ShortBattleParticipantViewModel.cs" />
+    <Compile Include="Models\Battle\ShortEmptyBattleParticipantViewModel.cs" />
+    <Compile Include="Models\Best\BestCitizensViewModel.cs" />
+    <Compile Include="Models\Bugs\BugReportViewModel.cs" />
+    <Compile Include="Models\Businesses\BusinessIndexViewModel.cs" />
+    <Compile Include="Models\Calculator\CalculateFuelCostViewModel.cs" />
+    <Compile Include="Models\Calculator\CalculateProductionPointsViewModel.cs" />
+    <Compile Include="Models\Citizens\CitizenDropdownViewModel.cs" />
+    <Compile Include="Models\Citizens\CitizenInfoViewModel.cs" />
+    <Compile Include="Models\Citizens\CitizenJobShortViewModel.cs" />
+    <Compile Include="Models\Citizens\CitizenSummaryViewModel.cs" />
+    <Compile Include="Models\Citizens\CitizenTravelViewModel.cs" />
+    <Compile Include="Models\Citizens\CitizenWalletViewModel.cs" />
+    <Compile Include="Models\Citizens\MedalViewModel.cs" />
+    <Compile Include="Models\Citizens\TravelSummaryViewModel.cs" />
+    <Compile Include="Models\Companies\CompanyAddMarketOfferViewModel.cs" />
+    <Compile Include="Models\Companies\CompanyAddSpecificMarketOfferViewModel.cs" />
+    <Compile Include="Models\Companies\CompanyEquipmentViewModel.cs" />
+    <Compile Include="Models\Companies\CompanyManagementViewModel.cs" />
+    <Compile Include="Models\Companies\CompanyMarketOfferListViewModel.cs" />
+    <Compile Include="Models\Companies\CompanyStatisticsViewModel.cs" />
+    <Compile Include="Models\Companies\CompanySummaryViewModel.cs" />
+    <Compile Include="Models\Companies\CompanyViewModelChooser.cs" />
+    <Compile Include="Models\Companies\CompanyWalletViewModel.cs" />
+    <Compile Include="Models\Companies\CreateCompanyAsOrganisationViewModel.cs" />
+    <Compile Include="Models\Companies\ManageContractEmployeeViewModel.cs" />
+    <Compile Include="Models\Companies\ManageEmployeeViewModel.cs" />
+    <Compile Include="Models\Companies\Managers\CompanyManagersViewModel.cs" />
+    <Compile Include="Models\Companies\Managers\ManagerViewModel.cs" />
+    <Compile Include="Models\Companies\ProductCostViewModel.cs" />
+    <Compile Include="Models\Companies\ViewCompanyEmployeesViewModel.cs" />
+    <Compile Include="Models\Companies\ViewConstructionCompanyViewModel.cs" />
+    <Compile Include="Models\Companies\ViewHospitalCompanyViewModel.cs" />
+    <Compile Include="Models\Companies\ViewInfrastructureCompanyViewModel.cs" />
+    <Compile Include="Models\CompanyFinances\DaySummaryViewModel.cs" />
+    <Compile Include="Models\CompanyFinances\FinanceOverviewViewModel.cs" />
+    <Compile Include="Models\Congress\ActualLawViewModel.cs" />
+    <Compile Include="Models\Congress\AssignManagerToCompanyViewModel.cs" />
+    <Compile Include="Models\Congress\BuildDefenseSystemViewModel.cs" />
+    <Compile Include="Models\Congress\CandidateViewModel.cs" />
+    <Compile Include="Models\Congress\ChangeArticleTaxViewModel.cs" />
+    <Compile Include="Models\Congress\ChangeCitizenCompanyCostViewModel.cs" />
+    <Compile Include="Models\Congress\ChangeCitizenStartingMoneyViewModel.cs" />
+    <Compile Include="Models\Congress\ChangeCongressCadenceLengthViewModel.cs" />
+    <Compile Include="Models\Congress\ChangeCongressVotingLengthViewModel.cs" />
+    <Compile Include="Models\Congress\ChangeContractJobMarketFeeViewModel.cs" />
+    <Compile Include="Models\Congress\ChangeGreetingMessageViewModel.cs" />
+    <Compile Include="Models\Congress\ChangeHouseTaxViewModel.cs" />
+    <Compile Include="Models\Congress\ChangeMarketOfferCostViewModel.cs" />
+    <Compile Include="Models\Congress\ChangeMinimalWageViewModel.cs" />
+    <Compile Include="Models\Congress\ChangeMinimumMonetaryTaxRateViewModel.cs" />
+    <Compile Include="Models\Congress\ChangeMinimumMonetaryTaxValueViewModel.cs" />
+    <Compile Include="Models\Congress\ChangeNewspaperCreateCostViewModel.cs" />
+    <Compile Include="Models\Congress\ChangeNormalCongressVotingWinPercentageViewModel.cs" />
+    <Compile Include="Models\Congress\ChangeNormalJobMarketFeeViewModel.cs" />
+    <Compile Include="Models\Congress\ChangeOrganisationCompanyCostViewModel.cs" />
+    <Compile Include="Models\Congress\ChangeOrganisationCreateCostViewModel.cs" />
+    <Compile Include="Models\Congress\ChangePartyCreateFeeViewModel.cs" />
+    <Compile Include="Models\Congress\ChangePartyPresidentCadenceLengthViewModel.cs" />
+    <Compile Include="Models\Congress\ChangeProductExportTaxViewModel.cs" />
+    <Compile Include="Models\Congress\ChangeProductImportTaxViewModel.cs" />
+    <Compile Include="Models\Congress\ChangeProductVATViewModel.cs" />
+    <Compile Include="Models\Congress\ChangeTreasureLawHolderViewModel.cs" />
+    <Compile Include="Models\Congress\CongressBase.cs" />
+    <Compile Include="Models\Congress\CongressCandidateVotingShortViewModel.cs" />
+    <Compile Include="Models\Congress\CongressInfoViewModel.cs" />
+    <Compile Include="Models\Congress\CongressMemberSectionViewModel.cs" />
+    <Compile Include="Models\Congress\CongressMembersListViewModel.cs" />
+    <Compile Include="Models\Congress\CongressMemberViewModel.cs" />
+    <Compile Include="Models\Congress\CongressVotingCommentListViewModel.cs" />
+    <Compile Include="Models\Congress\CongressVotingCommentViewModel.cs" />
+    <Compile Include="Models\Congress\CongressVotingsItemViewModel.cs" />
+    <Compile Include="Models\Congress\CongressVotingsPartialViewModel.cs" />
+    <Compile Include="Models\Congress\CongressVotingsViewModel.cs" />
+    <Compile Include="Models\Congress\CreateNationalCompanyViewModel.cs" />
+    <Compile Include="Models\Congress\PrintMoneyViewModel.cs" />
+    <Compile Include="Models\Congress\RemoveNationalCompanyViewModel.cs" />
+    <Compile Include="Models\Congress\TransferCashToCompanyViewModel.cs" />
+    <Compile Include="Models\Congress\ViewCongressViewModel.cs" />
+    <Compile Include="Models\Congress\ChangePresidentCadenceLengthViewModel.cs" />
+    <Compile Include="Models\Congress\Votings\CommentViewModel.cs" />
+    <Compile Include="Models\Congress\Votings\CongressViewVotingViewModelChooser.cs" />
+    <Compile Include="Models\Congress\Votings\CongressVotingVoterViewModel.cs" />
+    <Compile Include="Models\Congress\Votings\ViewAssignManagerToCompanyViewModel.cs" />
+    <Compile Include="Models\Congress\Votings\ViewBuildDefenseSystemViewModel.cs" />
+    <Compile Include="Models\Congress\Votings\ViewChangeArticleTaxViewModel.cs" />
+    <Compile Include="Models\Congress\Votings\ViewChangeCitizenCompanyCostViewModel.cs" />
+    <Compile Include="Models\Congress\Votings\ViewChangeCitizenStartingMoneyViewModel.cs" />
+    <Compile Include="Models\Congress\Votings\ViewChangeCompanyCreationLawHolderViewModel.cs" />
+    <Compile Include="Models\Congress\Votings\ViewChangeCongressCadenceLengthViewModel.cs" />
+    <Compile Include="Models\Congress\Votings\ViewChangeCongressVotingLengthViewModel.cs" />
+    <Compile Include="Models\Congress\Votings\ViewChangeContractJobMarketFeeViewModel.cs" />
+    <Compile Include="Models\Congress\Votings\ViewChangeGreetingMessageViewModel.cs" />
+    <Compile Include="Models\Congress\Votings\ViewChangeHotelTaxViewModel.cs" />
+    <Compile Include="Models\Congress\Votings\ViewChangeHouseTaxViewModel.cs" />
+    <Compile Include="Models\Congress\Votings\ViewChangeMarketOfferCostViewModel.cs" />
+    <Compile Include="Models\Congress\Votings\ViewChangeMaximumContractLength.cs" />
+    <Compile Include="Models\Congress\Votings\ViewChangeMinimalWageViewModel.cs" />
+    <Compile Include="Models\Congress\Votings\ViewChangeMinimumContractLength.cs" />
+    <Compile Include="Models\Congress\Votings\ViewChangeMinimumMonetaryTaxRateViewModel.cs" />
+    <Compile Include="Models\Congress\Votings\ViewChangeMinimumMonetaryTaxValueViewModel.cs" />
+    <Compile Include="Models\Congress\Votings\ViewChangeNewspaperCreateCostViewModel.cs" />
+    <Compile Include="Models\Congress\Votings\ViewChangeNormalCongressVotingWinPercentageViewModel.cs" />
+    <Compile Include="Models\Congress\Votings\ViewChangeNormalJobMarketFeeViewModel.cs" />
+    <Compile Include="Models\Congress\Votings\ViewChangeOrganisationCompanyCostViewModel.cs" />
+    <Compile Include="Models\Congress\Votings\ViewChangeOrganisationCreateCostViewModel.cs" />
+    <Compile Include="Models\Congress\Votings\ViewChangePartyCreateFeeViewModel.cs" />
+    <Compile Include="Models\Congress\Votings\ViewChangePartyPresidentCadenceLengthViewModel.cs" />
+    <Compile Include="Models\Congress\Votings\ViewChangePresidentCadenceLengthViewModel.cs" />
+    <Compile Include="Models\Congress\Votings\ViewChangeProductExportTaxViewModel.cs" />
+    <Compile Include="Models\Congress\Votings\ViewChangeProductImportTaxViewModel.cs" />
+    <Compile Include="Models\Congress\Votings\ViewChangeProductVATViewModel.cs" />
+    <Compile Include="Models\Congress\Votings\ViewChangeTreasureLawHolderViewModel.cs" />
+    <Compile Include="Models\Congress\Votings\ViewChangeVatViewModel.cs" />
+    <Compile Include="Models\Congress\Votings\ViewCreateNationalCompanyViewModel.cs" />
+    <Compile Include="Models\Congress\Votings\ViewPrintMoneyViewModel.cs" />
+    <Compile Include="Models\Congress\Votings\ViewRemoveNationalCompanyViewModel.cs" />
+    <Compile Include="Models\Congress\Votings\ViewTransferCashToCompanyViewModel.cs" />
+    <Compile Include="Models\Congress\Votings\ViewVotingBaseViewModel.cs" />
+    <Compile Include="Models\Constructions\NationalConstructionItemViewModel.cs" />
+    <Compile Include="Models\Constructions\NationalConstructionsViewModel.cs" />
+    <Compile Include="Models\Country\ConstructCompanyViewModel.cs" />
+    <Compile Include="Models\Country\CountryCompanyOnViewViewModel.cs" />
+    <Compile Include="Models\Country\CountryInfoViewModel.cs" />
+    <Compile Include="Models\Country\CountryMPPListViewModel.cs" />
+    <Compile Include="Models\Country\CountryRegionConnectionInfo.cs" />
+    <Compile Include="Models\Country\CountryRegionHospitalInformation.cs" />
+    <Compile Include="Models\Country\CountryRegionsListViewModel.cs" />
+    <Compile Include="Models\Country\CountryRegionViewModel.cs" />
+    <Compile Include="Models\Country\CountrySummaryViewModel.cs" />
+    <Compile Include="Models\Country\CountryTreasureViewModel.cs" />
+    <Compile Include="Models\Country\CountryWalletViewModel.cs" />
+    <Compile Include="Models\Country\CountryWarsViewModel.cs" />
+    <Compile Include="Models\Country\DeclareEmbargoViewModel.cs" />
+    <Compile Include="Models\Country\DeclareWarInformationsViewModel.cs" />
+    <Compile Include="Models\Country\DeclareWarViewModel.cs" />
+    <Compile Include="Models\Country\EmbargoCostViewModel.cs" />
+    <Compile Include="Models\Country\EmbargoesPageViewModel.cs" />
+    <Compile Include="Models\Country\EmbargoViewModel.cs" />
+    <Compile Include="Models\Country\IndexCountryViewModel.cs" />
+    <Compile Include="Models\Country\MPPViewModel.cs" />
+    <Compile Include="Models\Country\PresidentCandidatesListViewModel.cs" />
+    <Compile Include="Models\Country\PresidentCandidateViewModel.cs" />
+    <Compile Include="Models\Country\PresidentViewModel.cs" />
+    <Compile Include="Models\Country\ShortCountryInfoViewModel.cs" />
+    <Compile Include="Models\Country\ShortWarCountryInfoViewModel.cs" />
+    <Compile Include="Models\Country\ShortWarInfoViewModel.cs" />
+    <Compile Include="Models\Country\WarDeclarationViewModel.cs" />
+    <Compile Include="Models\Debug\DebugAssignAsCongressman.cs" />
+    <Compile Include="Models\Debug\DebugFinishCongressVotingViewModel.cs" />
+    <Compile Include="Models\DevIssues\CreateIssueViewModel.cs" />
+    <Compile Include="Models\DevIssues\DevIssueCommentViewModel.cs" />
+    <Compile Include="Models\DevIssues\DevIssueLabelViewModel.cs" />
+    <Compile Include="Models\DevIssues\DevIssueUploadedFileViewModel.cs" />
+    <Compile Include="Models\DevIssues\DevIssueViewModel.cs" />
+    <Compile Include="Models\Entit\SmallEntityAvatarViewModel.cs" />
+    <Compile Include="Models\Events\CountryEventViewModel.cs" />
+    <Compile Include="Models\Events\CountryVotingEventViewModel.cs" />
+    <Compile Include="Models\Events\EventViewModel.cs" />
+    <Compile Include="Models\Friends\FriendsViewModel.cs" />
+    <Compile Include="Models\Friends\ViewCitizenFriendModel.cs" />
+    <Compile Include="Models\Game\EntityViewModel.cs" />
+    <Compile Include="Models\Gifts\GiftViewModel.cs" />
+    <Compile Include="Models\Gifts\MoneyGiftViewModel.cs" />
+    <Compile Include="Models\Gifts\ProductGiftViewModel.cs" />
+    <Compile Include="Models\Home\HomeActiveBattleViewModel.cs" />
+    <Compile Include="Models\Home\HomeArticleSpotlightViewModel.cs" />
+    <Compile Include="Models\Home\HomeIndexViewModel.cs" />
+    <Compile Include="Models\Hospitals\HospitalHealViewModel.cs" />
+    <Compile Include="Models\Hospitals\ManageHospitalViewModel.cs" />
+    <Compile Include="Models\Hospitals\UpdateHospitalNationalityPriceViewModel.cs" />
+    <Compile Include="Models\Hospitals\UpdateHospitalViewModel.cs" />
+    <Compile Include="Models\Hotels\HotelCreateRoomViewModel.cs" />
+    <Compile Include="Models\Hotels\HotelEquipmentViewModel.cs" />
+    <Compile Include="Models\Hotels\HotelIndexViewModel.cs" />
+    <Compile Include="Models\Hotels\HotelInfoViewModel.cs" />
+    <Compile Include="Models\Hotels\HotelMakeDeliveryViewModel.cs" />
+    <Compile Include="Models\Hotels\HotelManagersViewModel.cs" />
+    <Compile Include="Models\Hotels\HotelPricesViewModel.cs" />
+    <Compile Include="Models\Hotels\HotelRoomMainViewModel.cs" />
+    <Compile Include="Models\Hotels\HotelRoomsViewModel.cs" />
+    <Compile Include="Models\Hotels\HotelSummaryViewModel.cs" />
+    <Compile Include="Models\Hotels\HotelUpdateRightsViewModel.cs" />
+    <Compile Include="Models\Hotels\HotelViewModel.cs" />
+    <Compile Include="Models\Hotels\HotelWalletViewModel.cs" />
+    <Compile Include="Models\Houses\HouseBaseFurnitureViewModel.cs" />
+    <Compile Include="Models\Houses\HouseBedFurnitureViewModel.cs" />
+    <Compile Include="Models\Houses\HouseBuyCMViewModel.cs" />
+    <Compile Include="Models\Houses\HouseChestFurnitureViewModel.cs" />
+    <Compile Include="Models\Houses\HouseChestViewModel.cs" />
+    <Compile Include="Models\Houses\HouseCreateFurnitureViewModel.cs" />
+    <Compile Include="Models\Houses\HouseFurnitureListViewModel.cs" />
+    <Compile Include="Models\Houses\HouseFurnitureViewModelFactory.cs" />
+    <Compile Include="Models\Houses\HouseIndexViewModel.cs" />
+    <Compile Include="Models\Houses\HouseInfoViewModel.cs" />
+    <Compile Include="Models\Houses\HouseSellViewModel.cs" />
+    <Compile Include="Models\Houses\HouseViewModel.cs" />
+    <Compile Include="Models\Infos\InfoActionViewModel.cs" />
+    <Compile Include="Models\Infos\InfoCustomActionViewModel.cs" />
+    <Compile Include="Models\Infos\InfoDisabledActionViewModel.cs" />
+    <Compile Include="Models\Infos\InfoExpandableActionViewModel.cs" />
+    <Compile Include="Models\Infos\InfoItemViewModel.cs" />
+    <Compile Include="Models\Infos\InfoExpandableViewModel.cs" />
+    <Compile Include="Models\Infos\InfoMenuViewModel.cs" />
+    <Compile Include="Models\JobOffers\JobMarketBestViewModel.cs" />
+    <Compile Include="Models\JobOffers\JobMarketOfferListViewModel.cs" />
+    <Compile Include="Models\JobOffers\JobMarketOfferViewModel.cs" />
+    <Compile Include="Models\JobOffers\JobMarketViewModel.cs" />
+    <Compile Include="Models\Map\Geo\GeoDevelopementMapItem.cs" />
+    <Compile Include="Models\Map\Geo\GeoMapItem.cs" />
+    <Compile Include="Models\Map\Geo\GeoMapViewModel.cs" />
+    <Compile Include="Models\Map\Geo\GeoPoliticalMapItem.cs" />
+    <Compile Include="Models\Map\Geo\GeoResourceMapItem.cs" />
+    <Compile Include="Models\Map\MapDatabasePolygonViewModel.cs" />
+    <Compile Include="Models\Map\MapEditViewModel.cs" />
+    <Compile Include="Models\Map\MapInfrastructureViewModel.cs" />
+    <Compile Include="Models\Map\MapNormalViewModel.cs" />
+    <Compile Include="Models\Map\MapPointViewModel.cs" />
+    <Compile Include="Models\Map\MapPolygonViewModel.cs" />
+    <Compile Include="Models\Map\MapRegionViewModel.cs" />
+    <Compile Include="Models\Map\MapResourceViewModel.cs" />
+    <Compile Include="Models\Map\MapViewModel.cs" />
+    <Compile Include="Models\Map\RegionMapSummaryViewModel.cs" />
+    <Compile Include="Models\Map\RegionNeigbourMapSummaryViewModel.cs" />
+    <Compile Include="Models\Map\RegionResourceMapSummaryViewModel.cs" />
+    <Compile Include="Models\Market\CountryMarketOffersListViewModel.cs" />
+    <Compile Include="Models\Market\MarketOfferViewModel.cs" />
+    <Compile Include="Models\MonetaryMarket\AddMonetaryOfferViewModel.cs" />
+    <Compile Include="Models\MonetaryMarket\MonetaryInfoViewModel.cs" />
+    <Compile Include="Models\MonetaryMarket\MonetaryTransactionsViewModel.cs" />
+    <Compile Include="Models\MonetaryMarket\MyOffersViewModel.cs" />
+    <Compile Include="Models\MonetaryMarket\MyOfferViewModel.cs" />
+    <Compile Include="Models\MonetaryMarket\ReservedMoneyViewModel.cs" />
+    <Compile Include="Models\MonetaryMarket\ViewReservedViewModel.cs" />
+    <Compile Include="Models\MonetaryMarket\ViewMonetaryMarketViewModel.cs" />
+    <Compile Include="Models\Newspapers\AddJournalistViewModel.cs" />
+    <Compile Include="Models\Newspapers\ArticleCommentViewModel.cs" />
+    <Compile Include="Models\Newspapers\ArticleForManagementViewModel.cs" />
+    <Compile Include="Models\Newspapers\ArticleShortViewModel.cs" />
+    <Compile Include="Models\Newspapers\ArticleViewModel.cs" />
+    <Compile Include="Models\Newspapers\ChangeNewspaperOwnerViewModel.cs" />
+    <Compile Include="Models\Newspapers\CreateNewspaperViewModel.cs" />
+    <Compile Include="Models\Newspapers\JournalistForManageViewModel.cs" />
+    <Compile Include="Models\Newspapers\ManageArticlesViewModel.cs" />
+    <Compile Include="Models\Newspapers\ManageJournalistsViewModel.cs" />
+    <Compile Include="Models\Newspapers\NewspaperIndexViewModel.cs" />
+    <Compile Include="Models\Newspapers\NewspaperInfoViewModel.cs" />
+    <Compile Include="Models\Newspapers\NewspaperSummaryViewModel.cs" />
+    <Compile Include="Models\Newspapers\RemoveJournalistViewModel.cs" />
+    <Compile Include="Models\Newspapers\ViewNewspaperViewModel.cs" />
+    <Compile Include="Models\Newspapers\WriteArticleViewModel.cs" />
+    <Compile Include="Models\Organisation\OrganisationEquipmentViewModel.cs" />
+    <Compile Include="Models\Organisation\OrganisationInfoViewModel.cs" />
+    <Compile Include="Models\Organisation\OrganisationListItemViewModel.cs" />
+    <Compile Include="Models\Organisation\OrganisationListViewModel.cs" />
+    <Compile Include="Models\Organisation\OrganisationSummaryViewModel.cs" />
+    <Compile Include="Models\Organisation\OrganisationViewModel.cs" />
+    <Compile Include="Models\Organisation\OrganisationWalletViewModel.cs" />
+    <Compile Include="Models\Party\PartiesListViewModel.cs" />
+    <Compile Include="Models\Party\PartyCandidateListViewModel.cs" />
+    <Compile Include="Models\Party\PartyCandidateViewModel.cs" />
+    <Compile Include="Models\Congress\CongressCandidateSectionViewModel.cs" />
+    <Compile Include="Models\Congress\CongressCandidatesListViewModel.cs" />
+    <Compile Include="Models\Congress\CongressCandidateViewModel.cs" />
+    <Compile Include="Models\Party\PartyCongressCandidateSectionViewModel.cs" />
+    <Compile Include="Models\Party\PartyCongressCandidatesListViewModel.cs" />
+    <Compile Include="Models\Party\PartyInviteListItemViewModel.cs" />
+    <Compile Include="Models\Party\PartyInviteListViewModel.cs" />
+    <Compile Include="Models\Party\PartyJoinRequestsListItemViewModel.cs" />
+    <Compile Include="Models\Party\PartyJoinRequestsListViewModel.cs" />
+    <Compile Include="Models\Party\PartyMemberListViewModel.cs" />
+    <Compile Include="Models\Party\PartyPendingInviteListViewModel.cs" />
+    <Compile Include="Models\Party\PartyVotingViewModel.cs" />
+    <Compile Include="Models\President\ManageSpawnViewModel.cs" />
+    <Compile Include="Models\President\OfferMPPViewModel.cs" />
+    <Compile Include="Models\Regions\RegionInfoViewModel.cs" />
+    <Compile Include="Models\Regions\RegionResourceViewModel.cs" />
+    <Compile Include="Models\Regions\RegionViewModel.cs" />
+    <Compile Include="Models\Searchs\SearchItemViewModel.cs" />
+    <Compile Include="Models\Searchs\SearchListViewModel.cs" />
+    <Compile Include="Models\ShortEntityInfoViewModel.cs" />
+    <Compile Include="Models\Citizens\TopBarViewModel.cs" />
+    <Compile Include="Models\Citizens\ViewCitizenViewModel.cs" />
+    <Compile Include="Models\Companies\CompanyEmployeeViewModel.cs" />
+    <Compile Include="Models\Companies\CompanyInfoViewModel.cs" />
+    <Compile Include="Models\Companies\CompanyJobOffersView.cs" />
+    <Compile Include="Models\Companies\CompanyTobBarViewModel.cs" />
+    <Compile Include="Models\Companies\ContractDetailsViewModel.cs" />
+    <Compile Include="Models\Companies\CreateContractJobOfferViewModel.cs" />
+    <Compile Include="Models\Companies\CreateJobOfferViewModel.cs" />
+    <Compile Include="Models\Companies\CreateNormalJobOfferViewModel.cs" />
+    <Compile Include="Models\Companies\NoAccessRightsViewModel.cs" />
+    <Compile Include="Models\Companies\ShortContractJobOfferViewModel.cs" />
+    <Compile Include="Models\Companies\ShortJobOfferViewModel.cs" />
+    <Compile Include="Models\Companies\ShortNormalJobOfferViewModel.cs" />
+    <Compile Include="Models\Companies\ViewCompanyViewModel.cs" />
+    <Compile Include="Models\Congress\ChangeMaximumContractLengthViewModel.cs" />
+    <Compile Include="Models\Congress\ChangeMinimumContractLengthViewModel.cs" />
+    <Compile Include="Models\Congress\CongressVotingViewModelChooser.cs" />
+    <Compile Include="Models\Congress\CongressVotingViewModel.cs" />
+    <Compile Include="Models\Congress\CongressStartVotingViewModel.cs" />
+    <Compile Include="Models\Contracts\IndexContractViewModel.cs" />
+    <Compile Include="Models\Equipment\EquipmentItemViewModel.cs" />
+    <Compile Include="Models\Equipment\EquipmentViewModel.cs" />
+    <Compile Include="Models\Equipment\InventoryViewModel.cs" />
+    <Compile Include="Models\ImageViewModel.cs" />
+    <Compile Include="Helpers\SessionHelper.cs" />
+    <Compile Include="Models\Account\LoginViewModel.cs" />
+    <Compile Include="Models\Account\RegisterViewModel.cs" />
+    <Compile Include="Models\Base\ViewModelBase.cs" />
+    <Compile Include="Models\Companies\CompanyListViewModel.cs" />
+    <Compile Include="Models\Companies\CreateCompanyViewModel.cs" />
+    <Compile Include="Models\ManageViewModels.cs" />
+    <Compile Include="Models\Messages\MessageIndexItemViewModel.cs" />
+    <Compile Include="Models\Messages\MessageIndexViewModel.cs" />
+    <Compile Include="Models\Messages\MessageRecipientViewModel.cs" />
+    <Compile Include="Models\Messages\SendMessageViewModel.cs" />
+    <Compile Include="Models\Messages\ViewMessageViewModel.cs" />
+    <Compile Include="Models\Messages\ViewThreadViewModel.cs" />
+    <Compile Include="Models\MoneyViewModel.cs" />
+    <Compile Include="Models\Navigation\CitizenSectionViewModel.cs" />
+    <Compile Include="Models\Navigation\CompanyBusinessViewModel.cs" />
+    <Compile Include="Models\Navigation\NavigationSectionViewModel.cs" />
+    <Compile Include="Models\Navigation\NavigationViewModel.cs" />
+    <Compile Include="Models\Organisation\CreateOrganisationViewModel.cs" />
+    <Compile Include="Models\Party\CreatePartyViewModel.cs" />
+    <Compile Include="Models\Party\ManagePartyMemberViewModel.cs" />
+    <Compile Include="Models\Party\ManagePartyViewModel.cs" />
+    <Compile Include="Models\Party\PartyInfoViewModel.cs" />
+    <Compile Include="Models\Party\PartySummaryViewModel.cs" />
+    <Compile Include="Models\Party\ViewPartyViewModel.cs" />
+    <Compile Include="Models\Products\ProductRequirementViewModel.cs" />
+    <Compile Include="Models\Products\ProductStockViewModel.cs" />
+    <Compile Include="Models\Products\ProductViewModel.cs" />
+    <Compile Include="Models\Shoutbox\ShoutboxMessageViewModel.cs" />
+    <Compile Include="Models\Trades\ItemForTradeViewModel.cs" />
+    <Compile Include="Models\Trades\ProductForTradeViewModel.cs" />
+    <Compile Include="Models\Trades\MoneyForTradeViewModel.cs" />
+    <Compile Include="Models\Trades\MoneyTradeViewModel.cs" />
+    <Compile Include="Models\Trades\ProductTradeViewModel.cs" />
+    <Compile Include="Models\Trades\StartTradeViewModel.cs" />
+    <Compile Include="Models\Trades\TradeViewModel.cs" />
+    <Compile Include="Models\Training\TrainingDoneViewModel.cs" />
+    <Compile Include="Models\Training\TrainingIndexViewModel.cs" />
+    <Compile Include="Models\Wallet\WalletMoneyViewModel.cs" />
+    <Compile Include="Models\Wallet\WalletViewModel.cs" />
+    <Compile Include="Models\Warnings\IndexWarningViewModel.cs" />
+    <Compile Include="Models\Warnings\WarningDeleteViewModel.cs" />
+    <Compile Include="Models\Warnings\WarningViewModel.cs" />
+    <Compile Include="Models\War\ShortBattleInfoViewModel.cs" />
+    <Compile Include="Models\War\StartBattlePriceViewModel.cs" />
+    <Compile Include="Models\War\StartBattleViewModel.cs" />
+    <Compile Include="Models\War\WarInfoViewModel.cs" />
+    <Compile Include="Models\War\WarsViewModel.cs" />
+    <Compile Include="Models\War\WarViewModel.cs" />
+    <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="Startup.cs" />
+    <Compile Include="Code\Enumator.cs" />
+    <Compile Include="Validators\AccountValidator.cs" />
+    <Compile Include="Validators\base\IValidator.cs" />
+    <Compile Include="Validators\base\ValidationError.cs" />
+    <Compile Include="Validators\base\Validator.cs" />
+    <Compile Include="Validators\base\ValidatorAction.cs" />
+    <Compile Include="Validators\CompanyValidator.cs" />
+    <Compile Include="Validators\Company\CompanyAddMarketOfferValidator.cs" />
+    <Compile Include="Validators\Company\ManageEmployeeViewModelValidator.cs" />
+    <Compile Include="Validators\Messages\SendMessageValidator.cs" />
+    <Compile Include="Validators\Newspapers\NewspaperCreateValidator.cs" />
+    <Compile Include="Validators\Organisations\OrganisationCreationValidator.cs" />
+    <Compile Include="Validators\Parties\PartyCreateValidator.cs" />
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="App_Readme\Elmah.txt" />
+    <Content Include="Content\bootstrap-theme.css" />
+    <Content Include="Content\bootstrap-theme.min.css" />
+    <Content Include="Content\bootstrap.css" />
+    <Content Include="Content\bootstrap.min.css" />
+    <Content Include="Content\colorpicker.css" />
+    <Content Include="Content\cropper.css" />
+    <Content Include="Content\customFonts.css" />
+    <Content Include="Content\customStyles.css" />
+    <Content Include="Content\datatables.css" />
+    <Content Include="Content\datatables.min.css" />
+    <Content Include="Content\Emails\lostPassword.html" />
+    <Content Include="Content\Emails\template.html" />
+    <Content Include="Content\fileuploader.css" />
+    <Content Include="Content\font-awesome.css" />
+    <Content Include="Content\font-awesome.min.css" />
+    <Content Include="Content\fonts\fontawesome-webfont.svg" />
+    <Content Include="Content\fonts\govicons-webfont.svg" />
+    <Content Include="Content\fonts\military-rank-icons.svg" />
+    <Content Include="Content\foundation-select.css" />
+    <Content Include="Content\foundation.css" />
+    <Content Include="Content\foundation.min.css" />
+    <Content Include="Content\govicons.min.css" />
+    <Content Include="Content\images\background.jpg" />
+    <Content Include="Content\images\Currency\albania.png" />
+    <Content Include="Content\images\Currency\croatia.png" />
+    <Content Include="Content\images\Currency\france.png" />
+    <Content Include="Content\images\Currency\Germany.png" />
+    <Content Include="Content\images\Currency\Poland.png" />
+    <Content Include="Content\images\Currency\Gold.png">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
+    <Content Include="Content\images\Currency\serbia.png" />
+    <Content Include="Content\images\Currency\spain.png" />
+    <Content Include="Content\images\Currency\united kingdom.png" />
+    <Content Include="Content\images\Currency\usa.png" />
+    <Content Include="Content\images\DayChange.gif" />
+    <Content Include="Content\images\EmptyBar.png" />
+    <Content Include="Content\images\Flags\albania.png" />
+    <Content Include="Content\images\Flags\Benelux.png" />
+    <Content Include="Content\images\Flags\croatia.png" />
+    <Content Include="Content\images\Flags\france.png" />
+    <Content Include="Content\images\Flags\Germany.png" />
+    <Content Include="Content\images\Flags\Poland.png" />
+    <Content Include="Content\images\Flags\serbia.png" />
+    <Content Include="Content\images\Flags\spain.png" />
+    <Content Include="Content\images\Flags\united kingdom.png" />
+    <Content Include="Content\images\Flags\usa.png" />
+    <Content Include="Content\images\HousePlaceholder.png" />
+    <Content Include="Content\images\HPCross.png" />
+    <Content Include="Content\images\icons\cancel.png" />
+    <Content Include="Content\images\icons\eating.png" />
+    <Content Include="Content\images\icons\favicon.ico" />
+    <Content Include="Content\images\icons\PM.png" />
+    <Content Include="Content\images\icons\training.png" />
+    <Content Include="Content\images\icons\work.png" />
+    <Content Include="Content\images\Other\MonetaryMarket.png" />
+    <Content Include="Content\images\placeholder.png" />
+    <Content Include="Content\images\Product\Bread.png" />
+    <Content Include="Content\images\Product\ConstructionMaterials.png" />
+    <Content Include="Content\images\Product\DefenseSystem.png" />
+    <Content Include="Content\images\Product\highres-DefenseSystem.png" />
+    <Content Include="Content\images\Product\highres-hospital.png" />
+    <Content Include="Content\images\Product\highres-hotel.png" />
+    <Content Include="Content\images\Product\highres-house.png" />
+    <Content Include="Content\images\Product\hospital.png" />
+    <Content Include="Content\images\Product\hotel.png" />
+    <Content Include="Content\images\Product\house.png" />
+    <Content Include="Content\images\Product\UpgradePoints.png" />
+    <Content Include="Content\images\Product\Fuel.png" />
+    <Content Include="Content\images\Product\Grain.png" />
+    <Content Include="Content\images\Product\highres-ConstructionMaterials.png" />
+    <Content Include="Content\images\Product\Highres-Weapon.png" />
+    <Content Include="Content\images\Product\HousingGoods.png" />
+    <Content Include="Content\images\Product\Iron.png" />
+    <Content Include="Content\images\Product\MedicalSupplies.png" />
+    <Content Include="Content\images\Product\MovingTicket.png" />
+    <Content Include="Content\images\Product\Oil.png" />
+    <Content Include="Content\images\Product\paper.png" />
+    <Content Include="Content\images\Product\SellingPower.png" />
+    <Content Include="Content\images\Product\Tea.png" />
+    <Content Include="Content\images\Product\TeaLeaf.png" />
+    <Content Include="Content\images\Product\Weapon.png" />
+    <Content Include="Content\images\Product\Wood.png" />
+    <Content Include="Content\images\Resources\Iron.png" />
+    <Content Include="Content\images\Resources\Oil.png" />
+    <Content Include="Content\images\UnderConstruction.png" />
+    <Content Include="Content\jquery-ui.css" />
+    <Content Include="Content\jquery-ui.min.css" />
+    <Content Include="Content\leaflet.css" />
+    <Content Include="Content\Map\0\0\0.png" />
+    <Content Include="Content\Map\1\0\0.png" />
+    <Content Include="Content\Map\1\0\1.png" />
+    <Content Include="Content\Map\1\1\0.png" />
+    <Content Include="Content\Map\1\1\1.png" />
+    <Content Include="Content\Map\2\0\0.png" />
+    <Content Include="Content\Map\2\0\1.png" />
+    <Content Include="Content\Map\2\0\2.png" />
+    <Content Include="Content\Map\2\0\3.png" />
+    <Content Include="Content\Map\2\1\0.png" />
+    <Content Include="Content\Map\2\1\1.png" />
+    <Content Include="Content\Map\2\1\2.png" />
+    <Content Include="Content\Map\2\1\3.png" />
+    <Content Include="Content\Map\2\2\0.png" />
+    <Content Include="Content\Map\2\2\1.png" />
+    <Content Include="Content\Map\2\2\2.png" />
+    <Content Include="Content\Map\2\2\3.png" />
+    <Content Include="Content\Map\2\3\0.png" />
+    <Content Include="Content\Map\2\3\1.png" />
+    <Content Include="Content\Map\2\3\2.png" />
+    <Content Include="Content\Map\2\3\3.png" />
+    <Content Include="Content\Map\3\0\0.png" />
+    <Content Include="Content\Map\3\0\1.png" />
+    <Content Include="Content\Map\3\0\2.png" />
+    <Content Include="Content\Map\3\0\3.png" />
+    <Content Include="Content\Map\3\0\4.png" />
+    <Content Include="Content\Map\3\0\5.png" />
+    <Content Include="Content\Map\3\0\6.png" />
+    <Content Include="Content\Map\3\0\7.png" />
+    <Content Include="Content\Map\3\1\0.png" />
+    <Content Include="Content\Map\3\1\1.png" />
+    <Content Include="Content\Map\3\1\2.png" />
+    <Content Include="Content\Map\3\1\3.png" />
+    <Content Include="Content\Map\3\1\4.png" />
+    <Content Include="Content\Map\3\1\5.png" />
+    <Content Include="Content\Map\3\1\6.png" />
+    <Content Include="Content\Map\3\1\7.png" />
+    <Content Include="Content\Map\3\2\0.png" />
+    <Content Include="Content\Map\3\2\1.png" />
+    <Content Include="Content\Map\3\2\2.png" />
+    <Content Include="Content\Map\3\2\3.png" />
+    <Content Include="Content\Map\3\2\4.png" />
+    <Content Include="Content\Map\3\2\5.png" />
+    <Content Include="Content\Map\3\2\6.png" />
+    <Content Include="Content\Map\3\2\7.png" />
+    <Content Include="Content\Map\3\3\0.png" />
+    <Content Include="Content\Map\3\3\1.png" />
+    <Content Include="Content\Map\3\3\2.png" />
+    <Content Include="Content\Map\3\3\3.png" />
+    <Content Include="Content\Map\3\3\4.png" />
+    <Content Include="Content\Map\3\3\5.png" />
+    <Content Include="Content\Map\3\3\6.png" />
+    <Content Include="Content\Map\3\3\7.png" />
+    <Content Include="Content\Map\3\4\0.png" />
+    <Content Include="Content\Map\3\4\1.png" />
+    <Content Include="Content\Map\3\4\2.png" />
+    <Content Include="Content\Map\3\4\3.png" />
+    <Content Include="Content\Map\3\4\4.png" />
+    <Content Include="Content\Map\3\4\5.png" />
+    <Content Include="Content\Map\3\4\6.png" />
+    <Content Include="Content\Map\3\4\7.png" />
+    <Content Include="Content\Map\3\5\0.png" />
+    <Content Include="Content\Map\3\5\1.png" />
+    <Content Include="Content\Map\3\5\2.png" />
+    <Content Include="Content\Map\3\5\3.png" />
+    <Content Include="Content\Map\3\5\4.png" />
+    <Content Include="Content\Map\3\5\5.png" />
+    <Content Include="Content\Map\3\5\6.png" />
+    <Content Include="Content\Map\3\5\7.png" />
+    <Content Include="Content\Map\3\6\0.png" />
+    <Content Include="Content\Map\3\6\1.png" />
+    <Content Include="Content\Map\3\6\2.png" />
+    <Content Include="Content\Map\3\6\3.png" />
+    <Content Include="Content\Map\3\6\4.png" />
+    <Content Include="Content\Map\3\6\5.png" />
+    <Content Include="Content\Map\3\6\6.png" />
+    <Content Include="Content\Map\3\6\7.png" />
+    <Content Include="Content\Map\3\7\0.png" />
+    <Content Include="Content\Map\3\7\1.png" />
+    <Content Include="Content\Map\3\7\2.png" />
+    <Content Include="Content\Map\3\7\3.png" />
+    <Content Include="Content\Map\3\7\4.png" />
+    <Content Include="Content\Map\3\7\5.png" />
+    <Content Include="Content\Map\3\7\6.png" />
+    <Content Include="Content\Map\3\7\7.png" />
+    <Content Include="Content\Map\googlemaps.html" />
+    <Content Include="Content\Map\index.html" />
+    <Content Include="Content\Map\leaflet.html" />
+    <Content Include="Content\Map\openlayers.html" />
+    <Content Include="Content\markdown_wyswig.css" />
+    <Content Include="Content\militaryRankStyles.css" />
+    <Content Include="Content\Select2.css" />
+    <Content Include="Content\simplebar.css" />
+    <Content Include="Content\Styles\definitions.css">
+      <DependentUpon>definitions.scss</DependentUpon>
+    </Content>
+    <Content Include="Content\Styles\definitions.min.css">
+      <DependentUpon>definitions.css</DependentUpon>
+    </Content>
+    <Content Include="Content\Styles\gifts.css">
+      <DependentUpon>gifts.scss</DependentUpon>
+    </Content>
+    <Content Include="Content\Styles\gifts.min.css">
+      <DependentUpon>gifts.css</DependentUpon>
+    </Content>
+    <Content Include="Content\Styles\input.css">
+      <DependentUpon>input.scss</DependentUpon>
+    </Content>
+    <Content Include="Content\Styles\input.min.css">
+      <DependentUpon>input.css</DependentUpon>
+    </Content>
+    <Content Include="Content\Styles\main.css">
+      <DependentUpon>main.scss</DependentUpon>
+    </Content>
+    <Content Include="Content\Styles\main.min.css">
+      <DependentUpon>main.css</DependentUpon>
+    </Content>
+    <Content Include="Content\Styles\partyInvites.css">
+      <DependentUpon>partyInvites.scss</DependentUpon>
+    </Content>
+    <Content Include="Content\Styles\partyInvites.min.css">
+      <DependentUpon>partyInvites.css</DependentUpon>
+    </Content>
+    <Content Include="Content\Styles\partyRequests.css">
+      <DependentUpon>partyRequests.scss</DependentUpon>
+    </Content>
+    <Content Include="Content\Styles\partyRequests.min.css">
+      <DependentUpon>partyRequests.css</DependentUpon>
+    </Content>
+    <Content Include="Content\Styles\trade.css">
+      <DependentUpon>trade.scss</DependentUpon>
+    </Content>
+    <Content Include="Content\Styles\trade.min.css">
+      <DependentUpon>trade.css</DependentUpon>
+    </Content>
+    <Content Include="Content\svg\fist.svg" />
+    <Content Include="Content\themes\base\accordion.css" />
+    <Content Include="Content\themes\base\all.css" />
+    <Content Include="Content\themes\base\autocomplete.css" />
+    <Content Include="Content\themes\base\base.css" />
+    <Content Include="Content\themes\base\button.css" />
+    <Content Include="Content\themes\base\core.css" />
+    <Content Include="Content\themes\base\datepicker.css" />
+    <Content Include="Content\themes\base\dialog.css" />
+    <Content Include="Content\themes\base\draggable.css" />
+    <Content Include="Content\themes\base\images\ui-bg_flat_0_aaaaaa_40x100.png" />
+    <Content Include="Content\themes\base\images\ui-bg_flat_75_ffffff_40x100.png" />
+    <Content Include="Content\themes\base\images\ui-bg_glass_55_fbf9ee_1x400.png" />
+    <Content Include="Content\themes\base\images\ui-bg_glass_65_ffffff_1x400.png" />
+    <Content Include="Content\themes\base\images\ui-bg_glass_75_dadada_1x400.png" />
+    <Content Include="Content\themes\base\images\ui-bg_glass_75_e6e6e6_1x400.png" />
+    <Content Include="Content\themes\base\images\ui-bg_glass_95_fef1ec_1x400.png" />
+    <Content Include="Content\themes\base\images\ui-bg_highlight-soft_75_cccccc_1x100.png" />
+    <Content Include="Content\themes\base\images\ui-icons_222222_256x240.png" />
+    <Content Include="Content\themes\base\images\ui-icons_2e83ff_256x240.png" />
+    <Content Include="Content\themes\base\images\ui-icons_454545_256x240.png" />
+    <Content Include="Content\themes\base\images\ui-icons_888888_256x240.png" />
+    <Content Include="Content\themes\base\images\ui-icons_cd0a0a_256x240.png" />
+    <Content Include="Content\themes\base\menu.css" />
+    <Content Include="Content\themes\base\progressbar.css" />
+    <Content Include="Content\themes\base\resizable.css" />
+    <Content Include="Content\themes\base\selectable.css" />
+    <Content Include="Content\themes\base\selectmenu.css" />
+    <Content Include="Content\themes\base\slider.css" />
+    <Content Include="Content\themes\base\sortable.css" />
+    <Content Include="Content\themes\base\spinner.css" />
+    <Content Include="Content\themes\base\tabs.css" />
+    <Content Include="Content\themes\base\theme.css" />
+    <Content Include="Content\themes\base\tooltip.css" />
+    <Content Include="Dokumentacja\Creating Congress Voting.html" />
+    <Content Include="Dokumentacja\Testerzy.html">
+      <DependentUpon>Testerzy.md</DependentUpon>
+    </Content>
+    <Content Include="Externals\front-end.txt" />
+    <Content Include="favicon.ico" />
+    <Content Include="fonts\fontawesome-webfont.svg" />
+    <Content Include="fonts\glyphicons-halflings-regular.svg" />
+    <Content Include="Global.asax" />
+    <Content Include="Content\Site.css" />
+    <Content Include="Misc\Errors.txt" />
+    <Compile Include="Models\Congress\ChangeCompanyCreationLawHolderViewModel.cs" />
+    <Content Include="Scripts\ace.js" />
+    <Content Include="ApplicationInsights.config">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Content>
+    <Content Include="Scripts\ai.0.15.0-build58334.js" />
+    <Content Include="Scripts\ai.0.15.0-build58334.min.js" />
+    <Content Include="Scripts\avatars\sociatis.avatar.js" />
+    <Content Include="Scripts\battle\sociatis.battle.start_battle.js" />
+    <Content Include="Scripts\battle\sociatis.battle.statistics.js" />
+    <Content Include="Scripts\bootstrap-markdown-editor.js" />
+    <Content Include="Scripts\bootstrap.js" />
+    <Content Include="Scripts\bootstrap.min.js" />
+    <Content Include="Scripts\calculators\sociatis.production_points.calc.js" />
+    <Content Include="Scripts\citizen\sociatis.citizen.travel.js" />
+    <Content Include="Scripts\citizen\sociatis.citizeninfo.js" />
+    <Content Include="Scripts\colorpicker.js" />
+    <Content Include="Scripts\companyFinances\sociatis.company.finances.overview.js" />
+    <Content Include="Scripts\company\sociatis.company.create_job_offer.js" />
+    <Content Include="Scripts\company\sociatis.company.create_market_offer.js" />
+    <Content Include="Scripts\company\sociatis.company.info.js" />
+    <Content Include="Scripts\company\sociatis.company.managers.js" />
+    <Content Include="Scripts\company\sociatis.company.market_offer.js" />
+    <Content Include="Scripts\company\sociatis.job_offers.js" />
+    <Content Include="Scripts\congress\sociatis.congress.candidates.js" />
+    <Content Include="Scripts\congress\sociatis.congress.view_voting.js" />
+    <Content Include="Scripts\congress\votings\sociatis.congress.votings.build_defense_system.js" />
+    <Content Include="Scripts\congress\votings\sociatis.congress.votings.create_company.js" />
+    <Content Include="Scripts\Construction\sociatis.construction.create_delivery.js" />
+    <Content Include="Scripts\country\sociatis.country.create_company.js" />
+    <Content Include="Scripts\country\sociatis.country.declare_war.js" />
+    <Content Include="Scripts\country\sociatis.country.geography.js" />
+    <Content Include="Scripts\country\sociatis.country.supply_levels.js" />
+    <Content Include="Scripts\devIssues\sociatis.issues.index.js" />
+    <Content Include="Scripts\embargo\sociatis.embargo.declare.js" />
+    <Content Include="Scripts\enums\sociatis.enums.json_status.js" />
+    <Content Include="Scripts\equipment\sociatis.equipment.inventory.js" />
+    <Content Include="Scripts\flot\excanvas.js" />
+    <Content Include="Scripts\flot\excanvas.min.js" />
+    <Content Include="Scripts\flot\jquery.colorhelpers.js" />
+    <Content Include="Scripts\flot\jquery.colorhelpers.min.js" />
+    <Content Include="Scripts\flot\jquery.flot.canvas.js" />
+    <Content Include="Scripts\flot\jquery.flot.canvas.min.js" />
+    <Content Include="Scripts\flot\jquery.flot.categories.js" />
+    <Content Include="Scripts\flot\jquery.flot.categories.min.js" />
+    <Content Include="Scripts\flot\jquery.flot.crosshair.js" />
+    <Content Include="Scripts\flot\jquery.flot.crosshair.min.js" />
+    <Content Include="Scripts\flot\jquery.flot.errorbars.js" />
+    <Content Include="Scripts\flot\jquery.flot.errorbars.min.js" />
+    <Content Include="Scripts\flot\jquery.flot.fillbetween.js" />
+    <Content Include="Scripts\flot\jquery.flot.fillbetween.min.js" />
+    <Content Include="Scripts\flot\jquery.flot.image.js" />
+    <Content Include="Scripts\flot\jquery.flot.image.min.js" />
+    <Content Include="Scripts\flot\jquery.flot.js" />
+    <Content Include="Scripts\flot\jquery.flot.min.js" />
+    <Content Include="Scripts\flot\jquery.flot.navigate.js" />
+    <Content Include="Scripts\flot\jquery.flot.navigate.min.js" />
+    <Content Include="Scripts\flot\jquery.flot.pie.js" />
+    <Content Include="Scripts\flot\jquery.flot.pie.min.js" />
+    <Content Include="Scripts\flot\jquery.flot.resize.js" />
+    <Content Include="Scripts\flot\jquery.flot.resize.min.js" />
+    <Content Include="Scripts\flot\jquery.flot.selection.js" />
+    <Content Include="Scripts\flot\jquery.flot.selection.min.js" />
+    <Content Include="Scripts\flot\jquery.flot.stack.js" />
+    <Content Include="Scripts\flot\jquery.flot.stack.min.js" />
+    <Content Include="Scripts\flot\jquery.flot.symbol.js" />
+    <Content Include="Scripts\flot\jquery.flot.symbol.min.js" />
+    <Content Include="Scripts\flot\jquery.flot.threshold.js" />
+    <Content Include="Scripts\flot\jquery.flot.threshold.min.js" />
+    <Content Include="Scripts\flot\jquery.flot.time.js" />
+    <Content Include="Scripts\flot\jquery.flot.time.min.js" />
+    <Content Include="Scripts\foundation-select.js" />
+    <Content Include="Scripts\foundation.js" />
+    <Content Include="Scripts\foundation.min.js" />
+    <Content Include="Content\fonts\fontawesome-webfont.eot" />
+    <Content Include="Content\fonts\fontawesome-webfont.ttf" />
+    <Content Include="Content\fonts\fontawesome-webfont.woff" />
+    <Content Include="Content\fonts\fontawesome-webfont.woff2" />
+    <Content Include="Content\fonts\FontAwesome.otf" />
+    <Content Include="Content\fonts\SCRIPALT.ttf" />
+    <Content Include="Content\fonts\SCRIPTIN.ttf" />
+    <Content Include="Dokumentacja\Creating Congress Voting.md" />
+    <Content Include="fonts\fontawesome-webfont.eot" />
+    <Content Include="fonts\fontawesome-webfont.ttf" />
+    <Content Include="fonts\fontawesome-webfont.woff" />
+    <Content Include="fonts\fontawesome-webfont.woff2" />
+    <Content Include="fonts\FontAwesome.otf" />
+    <Content Include="fonts\SCRIPALT.ttf" />
+    <Content Include="fonts\SCRIPTIN.ttf" />
+    <Content Include="Dokumentacja\Testerzy.md" />
+    <Content Include="Content\fonts\govicons-webfont.eot" />
+    <Content Include="Content\fonts\govicons-webfont.ttf" />
+    <Content Include="Content\fonts\govicons-webfont.woff" />
+    <Content Include="Content\fonts\govicons-webfont.woff2" />
+    <Content Include="Content\fonts\Govicons.otf" />
+    <Content Include="Content\fonts\military-rank-icons.eot" />
+    <Content Include="Content\fonts\military-rank-icons.ttf" />
+    <Content Include="Content\fonts\military-rank-icons.woff" />
+    <Content Include="Content\Map\metadata.json" />
+    <Content Include="packages.config" />
+    <Content Include="fonts\glyphicons-halflings-regular.woff" />
+    <Content Include="fonts\glyphicons-halflings-regular.ttf" />
+    <Content Include="fonts\glyphicons-halflings-regular.eot" />
+    <Content Include="Content\Styles\main.scss" />
+    <None Include="compilerconfig.json" />
+    <None Include="compilerconfig.json.defaults">
+      <DependentUpon>compilerconfig.json</DependentUpon>
+    </None>
+    <Content Include="Content\Styles\partyInvites.scss" />
+    <Content Include="Content\Styles\definitions.scss" />
+    <Content Include="Content\Styles\partyRequests.scss" />
+    <Content Include="Content\Styles\country.scss" />
+    <Content Include="Content\Styles\input.scss" />
+    <Content Include="Content\Styles\company.scss" />
+    <Content Include="Content\Styles\shoutbox.scss" />
+    <Content Include="Content\Styles\simplebar.scss" />
+    <Content Include="Content\Styles\gifts.scss" />
+    <Content Include="Content\Styles\trade.scss" />
+    <Content Include="Content\Styles\actionbar.scss" />
+    <Content Include="Content\Styles\region.scss" />
+    <Content Include="Content\Styles\hospital.scss" />
+    <Content Include="Content\Styles\embargo.scss" />
+    <Content Include="Content\Styles\issues.scss" />
+    <Content Include="Content\Styles\labels.scss" />
+    <Content Include="Content\Styles\uploader.scss" />
+    <Content Include="Content\Styles\upload.scss" />
+    <Content Include="Content\Styles\dialog.scss" />
+    <Content Include="Content\Styles\navigation.scss" />
+    <Content Include="Content\Styles\guest.scss" />
+    <Content Include="Content\images\Currency\france.pdn" />
+    <Content Include="Content\Styles\mapedit.scss" />
+    <Content Include="Content\Styles\ContentBoxNew.scss" />
+    <Content Include="Content\Styles\Country\geography.scss" />
+    <Content Include="Content\Styles\utils\paddle.scss" />
+    <Content Include="Content\Styles\Citizen\view.scss" />
+    <Content Include="Content\Styles\Best\bestCitizens.scss" />
+    <Content Include="Content\Styles\Company\createCompany.scss" />
+    <Content Include="Content\Styles\Battle\main.scss" />
+    <Content Include="Content\Styles\utils\eveInfo.scss" />
+    <Content Include="Content\Styles\Company\view.scss" />
+    <Content Include="Content\Styles\utils\centering.scss" />
+    <Content Include="Content\Styles\utils\faButton.scss" />
+    <Content Include="Content\Styles\Country\national_constructions.scss" />
+    <Content Include="Content\Styles\Construction\info.scss" />
+    <Content Include="Content\Styles\Construction\construction.scss" />
+    <Content Include="Content\Styles\Construction\constructionView.scss" />
+    <Content Include="Content\Styles\Construction\CreateDelivery.scss" />
+    <Compile Include="Models\Congress\ChangeHotelTaxViewModel.cs" />
+    <Content Include="Content\Styles\Hotel\HotelMain.scss" />
+    <Content Include="Content\Styles\Hotel\HotelRooms.scss" />
+    <Content Include="Content\Styles\Hotel\HotelPrices.scss" />
+    <Content Include="Content\Styles\Hotel\HotelCreateRoom.scss" />
+    <Content Include="Content\Styles\Hotel\hotelManagers.scss" />
+    <Content Include="Content\Styles\House\housemain.scss" />
+    <Content Include="Content\Styles\House\furniture.scss" />
+    <Content Include="Content\Styles\House\sellhouse.scss" />
+    <Content Include="Content\Styles\Events\main.scss" />
+    <None Include="Properties\PublishProfiles\game.sociatis.net - Web Deploy.pubxml" />
+    <None Include="Properties\PublishProfiles\SmarterAspNet.pubxml" />
+    <Content Include="Scripts\gifts\sociatis.gift.js" />
+    <Content Include="Scripts\home\sociatis.index.js" />
+    <Content Include="Scripts\hospital\sociatis.hospital.js" />
+    <Content Include="Scripts\hospital\sociatis.hospital.nationalityOptions.js" />
+    <Content Include="Scripts\hotel\sociatis.hotel.create_room.js" />
+    <Content Include="Scripts\hotel\sociatis.hotel.index.js" />
+    <Content Include="Scripts\hotel\sociatis.hotel.make_delivery.js" />
+    <Content Include="Scripts\hotel\sociatis.hotel.managers.js" />
+    <Content Include="Scripts\hotel\sociatis.hotel.pricing.js" />
+    <Content Include="Scripts\House\sociatis.house.chest.js" />
+    <Content Include="Scripts\joboffer\sociatis.job_offer.main.js" />
+    <None Include="Properties\PublishProfiles\soctest.sociatis.net - Web Deploy.pubxml" />
+    <None Include="Scripts\jquery-2.2.3.intellisense.js" />
+    <Content Include="Scripts\jquery-2.2.3.js" />
+    <Content Include="Scripts\jquery-2.2.3.min.js" />
+    <Content Include="Scripts\jquery-ui-1.11.4.js" />
+    <Content Include="Scripts\jquery-ui-1.11.4.min.js" />
+    <Content Include="Scripts\jquery.blockUI.js" />
+    <Content Include="Scripts\jquery.dialogOptions.js" />
+    <Content Include="Scripts\jquery.disabled.js" />
+    <Content Include="Scripts\jquery.postJson.js" />
+    <None Include="Scripts\jquery.validate-vsdoc.js" />
+    <Content Include="Scripts\jquery.signalR-2.2.0.js" />
+    <Content Include="Scripts\jquery.signalR-2.2.0.min.js" />
+    <Content Include="Scripts\jquery.unobtrusive-ajax.js" />
+    <Content Include="Scripts\jquery.unobtrusive-ajax.min.js" />
+    <Content Include="Scripts\jquery.validate.js" />
+    <Content Include="Scripts\jquery.validate.min.js" />
+    <Content Include="Scripts\jquery.validate.unobtrusive.js" />
+    <Content Include="Scripts\jquery.validate.unobtrusive.min.js" />
+    <Content Include="Scripts\jsrender.js" />
+    <Content Include="Scripts\jsrender.min.js" />
+    <Content Include="Scripts\Map\Bing.js" />
+    <Content Include="Scripts\Map\leaflet.js" />
+    <Content Include="Scripts\Map\sociatis.map.edit.js" />
+    <Content Include="Scripts\Map\sociatis.map.js" />
+    <Content Include="Scripts\marked.js" />
+    <Content Include="Scripts\market\sociatis.market.js" />
+    <Content Include="Scripts\Messages\sociatis.messages.js" />
+    <Content Include="Scripts\modernizr-2.6.2.js" />
+    <Content Include="Scripts\MonetaryMarket\sociatis.monetary_market.my_offers.js" />
+    <Content Include="Scripts\newspapers\sociatis.newspaper.write.js" />
+    <Content Include="Scripts\party\sociatis.party.info.js" />
+    <Content Include="Scripts\party\sociatis.party.invites.js" />
+    <Content Include="Scripts\party\sociatis.party.requests.js" />
+    <Content Include="Scripts\party\sociatis.party.view.js" />
+    <Content Include="Scripts\president\sociatis.president.mpp.js" />
+    <Content Include="Scripts\respond.js" />
+    <Content Include="Scripts\respond.min.js" />
+    <Content Include="Scripts\select2.js" />
+    <Content Include="Scripts\Shared\sociatis.walletChooser.js" />
+    <Content Include="Scripts\Shared\dynamicTooltip.js" />
+    <Content Include="Scripts\simplebar.js" />
+    <Content Include="Scripts\Sociatis.account.register.js" />
+    <Content Include="Scripts\Sociatis.global.js" />
+    <Content Include="Scripts\party\Sociatis.party.congress_candidates.js" />
+    <Content Include="Scripts\MonetaryMarket\sociatis.monetary_market.main.js" />
+    <Content Include="Scripts\Sociatis.utils.js" />
+    <Content Include="Scripts\battle\sociatis.battle.js" />
+    <Content Include="Scripts\store.everything.js" />
+    <Content Include="Scripts\store.everything.min.js" />
+    <Content Include="Scripts\trade\sociatis.trade.js" />
+    <Content Include="Scripts\utils\cropper.js" />
+    <Content Include="Scripts\utils\fileuploader.js" />
+    <Content Include="Scripts\utils\notify.js" />
+    <Content Include="Scripts\utils\notify.min.js" />
+    <Content Include="Scripts\utils\shoter.paddle.js" />
+    <Content Include="Scripts\utils\sociatis.blockUI.js" />
+    <Content Include="Scripts\utils\sociatis.debug.js" />
+    <Content Include="Scripts\utils\sociatis.select2.js" />
+    <Content Include="Scripts\warnings\sociatis.warnigs.index.js" />
+    <Content Include="Scripts\what-input.min.js" />
+    <Content Include="Scripts\_references.js" />
+    <Content Include="Views\Shoutbox\ShoutboxChannel.cshtml" />
+    <Content Include="Web.config" />
+    <Content Include="Web.Debug.config">
+      <DependentUpon>Web.config</DependentUpon>
+    </Content>
+    <Content Include="Web.Release.config">
+      <DependentUpon>Web.config</DependentUpon>
+    </Content>
+    <Content Include="Views\Web.config" />
+    <Content Include="Views\_ViewStart.cshtml" />
+    <Content Include="Views\Shared\Error.cshtml" />
+    <Content Include="Views\Shared\_Layout.cshtml" />
+    <Content Include="Views\Home\Index.cshtml" />
+    <Content Include="Views\Shared\Lockout.cshtml" />
+    <Content Include="Views\Account\Login.cshtml" />
+    <Content Include="Views\Account\Register.cshtml" />
+    <Content Include="Views\Shared\_DropDownListItems.cshtml" />
+    <Content Include="Views\Account\test.cshtml" />
+    <Content Include="Views\Account\LoggedCitizen.cshtml" />
+    <Content Include="Views\Entity\CitizenSummary.cshtml" />
+    <Content Include="Views\Entity\EntitySummary.cshtml" />
+    <Content Include="Views\Company\Create.cshtml" />
+    <Content Include="Views\Organisation\Create.cshtml" />
+    <Content Include="Views\Wallet\MoneyPrintout.cshtml" />
+    <Content Include="Views\Company\Index.cshtml" />
+    <Content Include="Views\Shared\DisplayTemplates\ImageViewModel.cshtml" />
+    <Content Include="Views\Shared\DisplayTemplates\MoneyViewModel.cshtml" />
+    <Content Include="Views\Admin\TransactionLogs.cshtml" />
+    <Content Include="Views\Entity\CompanySummary.cshtml" />
+    <Content Include="Views\Navigation\RenderNavigation.cshtml" />
+    <Content Include="Views\Navigation\CitizenBusiness.cshtml" />
+    <Content Include="Views\Navigation\CompanyBusiness.cshtml" />
+    <Content Include="Views\Company\View.cshtml" />
+    <Content Include="Views\Citizen\View.cshtml" />
+    <Content Include="Views\Company\JobOffers.cshtml" />
+    <Content Include="Views\Company\TopBar.cshtml" />
+    <Content Include="Views\Company\DisplayTemplates\ShortJobOfferViewModel.cshtml" />
+    <Content Include="Views\Company\DisplayTemplates\ShortNormalJobOfferViewModel.cshtml" />
+    <Content Include="Views\Company\NoAccessRights.cshtml" />
+    <Content Include="Views\Company\CreateJobOffer.cshtml" />
+    <Content Include="Views\Company\CreateNormalJobOffer.cshtml" />
+    <Content Include="Scripts\utils\sociatis.utils.message.js" />
+    <Content Include="Views\Equipment\DisplayEquipment.cshtml" />
+    <Content Include="Views\Equipment\DisplayTemplates\EquipmentItemViewModel.cshtml" />
+    <Content Include="Views\Citizen\Inventory.cshtml" />
+    <Content Include="Views\Navigation\CitizenDropdown.cshtml" />
+    <Content Include="Views\Navigation\EntityDropdown.cshtml" />
+    <Content Include="Views\Shared\_LayoutGuest.cshtml" />
+    <Content Include="Views\Company\DisplayTemplates\ProductRequirementViewModel.cshtml" />
+    <Content Include="Views\Company\DisplayTemplates\ProductStockViewModel.cshtml" />
+    <Content Include="Views\Company\CreateContractJobOffer.cshtml" />
+    <Content Include="Views\Company\DisplayTemplates\ShortContractJobOfferViewModel.cshtml" />
+    <Content Include="Views\Company\ContractDetails.cshtml" />
+    <Content Include="Views\Test\ListMyJob.cshtml" />
+    <Content Include="Views\Contract\Index.cshtml" />
+    <Content Include="Views\Message\Index.cshtml" />
+    <Content Include="Views\Message\Send.cshtml" />
+    <Content Include="Views\Message\DisplayTemplates\MessageIndexItemViewModel.cshtml" />
+    <Content Include="Views\Message\DisplayTemplates\ViewMessageViewModel.cshtml" />
+    <Content Include="Views\Message\Message.cshtml" />
+    <Content Include="Views\Congress\DisplayTemplates\ChangeVatViewModel.cshtml" />
+    <Content Include="Views\Congress\StartVoting.cshtml" />
+    <Content Include="Views\Congress\DisplayVotingInfo.cshtml" />
+    <Content Include="Views\Congress\EditOptionForm.cshtml" />
+    <Content Include="Views\Congress\EditorTemplates\ChangeVatViewModel.cshtml" />
+    <Content Include="Views\Congress\DisplayTemplates\ChangeMinimumContractLengthViewModel.cshtml" />
+    <Content Include="Views\Congress\DisplayTemplates\ChangeMaximumContractLengthViewModel.cshtml" />
+    <Content Include="Views\Congress\EditorTemplates\ChangeMinimumContractLengthViewModel.cshtml" />
+    <Content Include="Views\Congress\EditorTemplates\ChangeMaximumContractLengthViewModel.cshtml" />
+    <Content Include="Views\Party\Create.cshtml" />
+    <Content Include="Views\Party\View.cshtml" />
+    <Content Include="Views\Shared\DisplayTemplates\ShortEntityInfoViewModel.cshtml" />
+    <Content Include="Views\Party\Manage.cshtml" />
+    <Content Include="Views\Party\DisplayTemplates\PartyInfoViewModel.cshtml" />
+    <Content Include="Views\Navigation\DisplayTemplates\NavigationSectionViewModel.cshtml" />
+    <Content Include="Views\Entity\PartySummary.cshtml" />
+    <Content Include="Views\Party\Candidates.cshtml" />
+    <Content Include="Views\Congress\DisplayTemplates\CongressInfoViewModel.cshtml" />
+    <Content Include="Views\Congress\View.cshtml" />
+    <Content Include="Views\Party\CongressCandidatesForRegion.cshtml" />
+    <Content Include="Views\Party\DisplayTemplates\PartyCongressCandidatesListViewModel.cshtml" />
+    <Content Include="Views\Party\CongressCandidates.cshtml" />
+    <Content Include="Views\Party\CongressCandidatesForAllRegions.cshtml" />
+    <Content Include="Views\Congress\CongressCandidates.cshtml" />
+    <Content Include="Views\Congress\DisplayTemplates\CongressCandidatesListViewModel.cshtml" />
+    <Content Include="Views\Congress\CongressCandidatesForAllRegions.cshtml" />
+    <Content Include="Views\Congress\CongressCandidatesForRegion.cshtml" />
+    <Content Include="Views\Congress\Members.cshtml" />
+    <Content Include="Views\Congress\Votings.cshtml" />
+    <Content Include="Views\Congress\DisplayTemplates\CongressVotingsItemViewModel.cshtml" />
+    <Content Include="Views\Congress\_CongressVotingBase.cshtml" />
+    <Content Include="Views\Congress\ViewVoting.cshtml" />
+    <Content Include="Views\Congress\DisplayTemplates\CongressVotingVoterViewModel.cshtml" />
+    <Content Include="Views\Congress\DisplayTemplates\ViewChangeVatViewModel.cshtml" />
+    <Content Include="Views\Congress\DisplayTemplates\CommentViewModel.cshtml" />
+    <Content Include="Views\Congress\CongressVotingComments.cshtml" />
+    <Content Include="Views\Admin\CountryPolciies.cshtml" />
+    <Content Include="Views\Congress\DisplayTemplates\ViewChangeCongressVotingLengthViewModel.cshtml" />
+    <Content Include="Views\Congress\EditorTemplates\ChangeCongressVotingLengthViewModel.cshtml" />
+    <Content Include="Views\Congress\VotingsPartial.cshtml" />
+    <Content Include="Views\Congress\EditorTemplates\ChangePartyPresidentCadenceLengthViewModel.cshtml" />
+    <Content Include="Views\Congress\DisplayTemplates\ViewChangePartyPresidentCadenceLengthViewModel.cshtml" />
+    <Content Include="Views\Congress\EditorTemplates\ChangeCongressCadenceLengthViewModel.cshtml" />
+    <Content Include="Views\Congress\EditorTemplates\ChangeContractJobMarketFeeViewModel.cshtml" />
+    <Content Include="Views\Congress\EditorTemplates\ChangeNormalJobMarketFeeViewModel.cshtml" />
+    <Content Include="Views\Congress\DisplayTemplates\ViewChangeCongressCadenceLengthViewModel.cshtml" />
+    <Content Include="Views\Congress\DisplayTemplates\ViewChangeContractJobMarketFeeViewModel.cshtml" />
+    <Content Include="Views\Congress\DisplayTemplates\ViewChangeNormalJobMarketFeeViewModel.cshtml" />
+    <Content Include="Views\Country\DisplayTemplates\CountryInfoViewModel.cshtml" />
+    <Content Include="Views\Country\President.cshtml" />
+    <Content Include="Views\Country\PresidentCandidates.cshtml" />
+    <Content Include="Views\Country\Geography.cshtml" />
+    <Content Include="Views\Citizen\Travel.cshtml" />
+    <Content Include="Views\Citizen\DisplayTemplates\CitizenInfoViewModel.cshtml" />
+    <Content Include="Views\Citizen\TravelSummary.cshtml" />
+    <Content Include="Views\Region\View.cshtml" />
+    <Content Include="Views\Region\DisplayTemplates\RegionInfoViewModel.cshtml" />
+    <Content Include="Views\Company\DisplayTemplates\CompanyInfoViewModel.cshtml" />
+    <Content Include="Views\Company\MarketOffers.cshtml" />
+    <Content Include="Views\Company\CreateMarketOffer.cshtml" />
+    <Content Include="Views\Company\MarketOfferPrice.cshtml" />
+    <Content Include="Views\Shared\DisplayTemplates\EquipmentViewModel.cshtml" />
+    <Content Include="Views\Company\Inventory.cshtml" />
+    <Content Include="Views\Congress\EditorTemplates\ChangeProductVATViewModel.cshtml" />
+    <Content Include="Views\Congress\EditorTemplates\ChangeProductExportTaxViewModel.cshtml" />
+    <Content Include="Views\Congress\EditorTemplates\ChangeProductImportTaxViewModel.cshtml" />
+    <Content Include="Views\Congress\DisplayTemplates\ViewChangeProductExportTaxViewModel.cshtml" />
+    <Content Include="Views\Congress\DisplayTemplates\ViewChangeProductImportTaxViewModel.cshtml" />
+    <Content Include="Views\Congress\DisplayTemplates\ViewChangeProductVATViewModel.cshtml" />
+    <Content Include="Views\MarketOffer\MarketOffers.cshtml" />
+    <Content Include="Views\Organisation\DisplayTemplates\OrganisationInfoViewModel.cshtml" />
+    <Content Include="Views\Organisation\List.cshtml" />
+    <Content Include="Views\Organisation\View.cshtml" />
+    <Content Include="Views\Entity\OrganisationSummary.cshtml" />
+    <Content Include="Views\Company\CreateAsOrganisation.cshtml" />
+    <Content Include="Views\Warning\Index.cshtml" />
+    <Content Include="Views\Company\ManageEmployee.cshtml" />
+    <Content Include="Views\Company\DisplayTemplates\ManageEmployeeViewModel.cshtml" />
+    <Content Include="Views\Company\DisplayTemplates\ManageContractEmployeeViewModel.cshtml" />
+    <Content Include="Views\Training\Index.cshtml" />
+    <Content Include="Views\Training\DisplayTemplates\TrainingIndexViewModel.cshtml" />
+    <Content Include="Views\Training\DisplayTemplates\TrainingDoneViewModel.cshtml" />
+    <Content Include="Views\Training\Train.cshtml" />
+    <Content Include="Views\Country\DeclareWar.cshtml" />
+    <Content Include="Views\Country\Wars.cshtml" />
+    <Content Include="Views\War\View.cshtml" />
+    <Content Include="Views\War\DisplayTemplates\WarInfoViewModel.cshtml" />
+    <Content Include="Views\War\StartBattle.cshtml" />
+    <Content Include="Views\Battle\View.cshtml" />
+    <Content Include="Views\Battle\DisplayTemplates\ShortBattleParticipantViewModel.cshtml" />
+    <Content Include="Views\Battle\DisplayTemplates\ShortEmptyBattleParticipantViewModel.cshtml" />
+    <Content Include="Views\Home\DisplayTemplates\HomeActiveBattleViewModel.cshtml" />
+    <Content Include="Views\War\DisplayTemplates\SummaryBattleViewModel.cshtml" />
+    <Content Include="Views\Game\DayChange.cshtml" />
+    <Content Include="Views\Entity\CountrySummary.cshtml" />
+    <Content Include="Views\Country\SetSupplyLevels.cshtml" />
+    <Content Include="Views\Game\Info.cshtml" />
+    <Content Include="Views\Game\DisplayTemplates\EntityViewModel.cshtml" />
+    <Content Include="Views\JobOffer\JobMarket.cshtml" />
+    <Content Include="Views\JobOffer\Offers.cshtml" />
+    <Content Include="Views\Newspaper\Create.cshtml" />
+    <Content Include="Views\Newspaper\View.cshtml" />
+    <Content Include="Views\Newspaper\DisplayTemplates\NewspaperInfoViewModel.cshtml" />
+    <Content Include="Views\Newspaper\WriteArticle.cshtml" />
+    <Content Include="Views\Newspaper\ReadArticle.cshtml" />
+    <Content Include="Views\Home\DisplayTemplates\HomeArticleSpotlightViewModel.cshtml" />
+    <Content Include="Views\Game\SwitchStack.cshtml" />
+    <Content Include="Views\Newspaper\Index.cshtml" />
+    <Content Include="Views\Newspaper\ManageJournalists.cshtml" />
+    <Content Include="Views\Newspaper\ManageArticles.cshtml" />
+    <Content Include="Views\Entity\NewspaperSummary.cshtml" />
+    <Content Include="Views\Newspaper\EditArticle.cshtml" />
+    <Content Include="Views\Newspaper\EditorTemplates\WriteArticleViewModel.cshtml" />
+    <Content Include="Views\Newspaper\Inventory.cshtml" />
+    <Content Include="Views\Congress\EditorTemplates\ChangeArticleTaxViewModel.cshtml" />
+    <Content Include="Views\Congress\DisplayTemplates\ViewChangeArticleTaxViewModel.cshtml" />
+    <Content Include="Views\Congress\EditorTemplates\ChangeNewspaperCreateCostViewModel.cshtml" />
+    <Content Include="Views\Congress\DisplayTemplates\ViewChangeNewspaperCreateCostViewModel.cshtml" />
+    <Content Include="Views\Congress\DisplayTemplates\ViewChangeMarketOfferCostViewModel.cshtml" />
+    <Content Include="Views\Congress\EditorTemplates\ChangeMarketOfferCostViewModel.cshtml" />
+    <Content Include="Views\Congress\DisplayTemplates\ViewChangeOrganisationCreateCostViewModel.cshtml" />
+    <Content Include="Views\Congress\EditorTemplates\ChangeOrganisationCreateCostViewModel.cshtml" />
+    <Content Include="Views\Congress\EditorTemplates\ChangePresidentCadenceLengthViewModel.cshtml" />
+    <Content Include="Views\Congress\DisplayTemplates\ViewChangePresidentCadenceLengthViewModel.cshtml" />
+    <Content Include="Views\Congress\DisplayTemplates\ViewChangePartyCreateFeeViewModel.cshtml" />
+    <Content Include="Views\Congress\EditorTemplates\ChangePartyCreateFeeViewModel.cshtml" />
+    <Content Include="Views\Congress\DisplayTemplates\ViewChangeNormalCongressVotingWinPercentageViewModel.cshtml" />
+    <Content Include="Views\Congress\EditorTemplates\ChangeNormalCongressVotingWinPercentageViewModel.cshtml" />
+    <Content Include="Views\Congress\EditorTemplates\ChangeOrganisationCompanyCostViewModel.cshtml" />
+    <Content Include="Views\Congress\EditorTemplates\ChangeCitizenCompanyCostViewModel.cshtml" />
+    <Content Include="Views\Congress\DisplayTemplates\ViewChangeOrganisationCompanyCostViewModel.cshtml" />
+    <Content Include="Views\Congress\DisplayTemplates\ViewChangeCitizenCompanyCostViewModel.cshtml" />
+    <Content Include="Views\Home\DrodzyTesterzy.cshtml" />
+    <Content Include="Views\Bug\ReportBug.cshtml" />
+    <Content Include="Views\Country\View.cshtml" />
+    <Content Include="Views\Country\Embargoes.cshtml" />
+    <Content Include="Views\Country\DeclareEmbargo.cshtml" />
+    <Content Include="Views\Country\GetEmbargoCost.cshtml" />
+    <Content Include="Views\Company\DisplayTemplates\CompanyAddMarketOfferViewModel.cshtml" />
+    <Content Include="Views\Company\DisplayTemplates\CompanyAddSpecificMarketOfferViewModel.cshtml" />
+    <Content Include="Views\Party\Parties.cshtml" />
+    <Content Include="Views\Test\Popup.cshtml" />
+    <Content Include="Views\Company\GetProductCost.cshtml" />
+    <Content Include="Views\Citizen\Wallet.cshtml" />
+    <Content Include="Views\Wallet\DisplayTemplates\WalletViewModel.cshtml" />
+    <Content Include="Views\Company\Wallet.cshtml" />
+    <Content Include="Views\Country\Wallet.cshtml" />
+    <Content Include="Views\Country\GetWarDeclareInformation.cshtml" />
+    <Content Include="Views\War\GetBattleStartInformation.cshtml" />
+    <Content Include="Views\MonetaryMarket\Create.cshtml" />
+    <Content Include="Views\MonetaryMarket\Index.cshtml" />
+    <Content Include="Views\MonetaryMarket\DisplayTemplates\MonetaryInfoViewModel.cshtml" />
+    <Content Include="Views\MonetaryMarket\Reserved.cshtml" />
+    <Content Include="Views\MonetaryMarket\Transactions.cshtml" />
+    <Content Include="Views\MonetaryMarket\MyOffers.cshtml" />
+    <Content Include="Views\Congress\EditorTemplates\ChangeMinimumMonetaryTaxValueViewModel.cshtml" />
+    <Content Include="Views\Congress\EditorTemplates\ChangeMinimumMonetaryTaxRateViewModel.cshtml" />
+    <Content Include="Views\Congress\DisplayTemplates\ViewChangeMinimumMonetaryTaxRateViewModel.cshtml" />
+    <Content Include="Views\Congress\DisplayTemplates\ViewChangeMinimumMonetaryTaxValueViewModel.cshtml" />
+    <Content Include="Views\War\DisplayTemplates\ShortBattleParticipantViewModel.cshtml" />
+    <Content Include="Views\Shared\DisplayTemplates\SmallEntityAvatarViewModel.cshtml" />
+    <Content Include="Views\Friend\Friends.cshtml" />
+    <Content Include="Views\Map\Test.cshtml" />
+    <Content Include="Views\Map\Edit.cshtml" />
+    <Content Include="Views\Admin\EditCountryColors.cshtml" />
+    <Content Include="Views\Admin\DisplayTemplates\CountryColorViewModel.cshtml" />
+    <Content Include="Views\Map\NormalMode.cshtml" />
+    <Content Include="Views\Map\ResourceMode.cshtml" />
+    <Content Include="Views\Map\DevelopementMode.cshtml" />
+    <Content Include="Scripts\jquery-2.2.3.min.map" />
+    <Content Include="Views\Test\TestMarket.cshtml" />
+    <Content Include="Views\Shared\DisplayTemplates\MarketOfferViewModel.cshtml" />
+    <Content Include="Views\Party\Invites.cshtml" />
+    <Content Include="Views\Party\Members.cshtml" />
+    <Content Include="Views\Party\PartyInvites.cshtml" />
+    <Content Include="Views\Party\JoinRequests.cshtml" />
+    <Content Include="Views\Country\Treasury.cshtml" />
+    <Content Include="Views\Congress\EditorTemplates\ChangeTreasureLawHolderViewModel.cshtml" />
+    <Content Include="Views\Congress\DisplayTemplates\ViewChangeTreasureLawHolderViewModel.cshtml" />
+    <Content Include="Views\Congress\EditorTemplates\ChangeCompanyCreationLawHolderViewModel.cshtml" />
+    <Content Include="Views\Congress\DisplayTemplates\ViewChangeCompanyCreationLawHolderViewModel.cshtml" />
+    <Content Include="Views\Congress\DisplayTemplates\ViewCreateNationalCompanyViewModel.cshtml" />
+    <Content Include="Views\Congress\EditorTemplates\CreateNationalCompanyViewModel.cshtml" />
+    <Content Include="Views\Country\DisplayTemplates\CountryCompanyOnViewViewModel.cshtml" />
+    <Content Include="Views\Country\ConstructCompany.cshtml" />
+    <Content Include="Views\Congress\EditorTemplates\RemoveNationalCompanyViewModel.cshtml" />
+    <Content Include="Views\Congress\DisplayTemplates\ViewRemoveNationalCompanyViewModel.cshtml" />
+    <Content Include="Views\Congress\DisplayTemplates\ViewAssignManagerToCompanyViewModel.cshtml" />
+    <Content Include="Views\Congress\EditorTemplates\AssignManagerToCompanyViewModel.cshtml" />
+    <Content Include="Views\Congress\EditorTemplates\TransferCashToCompanyViewModel.cshtml" />
+    <Content Include="Views\Congress\DisplayTemplates\ViewChangeGreetingMessageViewModel.cshtml" />
+    <Content Include="Views\Congress\DisplayTemplates\ViewChangeCitizenStartingMoneyViewModel.cshtml" />
+    <Content Include="Views\Congress\DisplayTemplates\ViewChangeMinimumContractLength.cshtml" />
+    <Content Include="Views\Congress\DisplayTemplates\ViewChangeMaximumContractLength.cshtml" />
+    <Content Include="Views\Company\Managers.cshtml" />
+    <Content Include="Views\Company\EditorTemplates\ManagerViewModel.cshtml" />
+    <Content Include="Views\Company\DisplayTemplates\ViewCompanyViewModel.cshtml" />
+    <Content Include="Views\Company\DisplayTemplates\ViewInfrastructureCompanyViewModel.cshtml" />
+    <Content Include="Views\Company\DisplayTemplates\ViewHospitalCompanyViewModel.cshtml" />
+    <Content Include="Views\Company\DisplayTemplates\ViewCompanyEmployeesViewModel.cshtml" />
+    <Content Include="Views\Account\ChangePassword.cshtml" />
+    <Content Include="transformWebConfig.proj" />
+    <Content Include="Views\Best\BestCitizens.cshtml" />
+    <Content Include="Views\Company\DisplayTemplates\CompanyStatisticsViewModel.cshtml" />
+    <Content Include="Views\Calculator\CalculateFuelCost.cshtml" />
+    <Content Include="Views\Calculator\CalculateProductionPoints.cshtml" />
+    <Content Include="Views\Company\Management.cshtml" />
+    <Content Include="Views\Company\Partials\CompanyEmployees.cshtml" />
+    <Content Include="Views\Congress\DisplayTemplates\ViewPrintMoneyViewModel.cshtml" />
+    <Content Include="Views\Congress\DisplayTemplates\ViewChangeMinimalWageViewModel.cshtml" />
+    <Content Include="Views\Congress\DisplayTemplates\ViewBuildDefenseSystemViewModel.cshtml" />
+    <Content Include="Views\Congress\DisplayTemplates\ViewTransferCashToCompanyViewModel.cshtml" />
+    <Content Include="Views\Congress\EditorTemplates\ChangeGreetingMessageViewModel.cshtml" />
+    <Content Include="Views\Congress\EditorTemplates\ChangeCitizenStartingMoneyViewModel.cshtml" />
+    <Content Include="Views\Newspaper\ChangeOwnership.cshtml" />
+    <Content Include="Views\Shoutbox\ShoutboxSubscribe.cshtml" />
+    <Content Include="Views\Shoutbox\ShoutboxMessage.cshtml" />
+    <Content Include="Views\Gift\Gift.cshtml" />
+    <Content Include="Views\Organisation\Inventory.cshtml" />
+    <Content Include="Views\Organisation\Wallet.cshtml" />
+    <Content Include="Views\Trade\StartTrade.cshtml" />
+    <Content Include="Views\Trade\View.cshtml" />
+    <Content Include="Views\Trade\DisplayTemplates\MoneyForTradeViewModel.cshtml" />
+    <Content Include="Views\Trade\DisplayTemplates\ProductForTradeViewModel.cshtml" />
+    <Content Include="Views\Shared\DisplayTemplates\InfoActionViewModel.cshtml" />
+    <Content Include="Views\Shared\DisplayTemplates\InfoExpandableViewModel.cshtml" />
+    <Content Include="Views\Shared\DisplayTemplates\InfoMenuViewModel.cshtml" />
+    <Content Include="Views\Shared\DisplayTemplates\InfoCustomActionViewModel.cshtml" />
+    <Content Include="Views\Shared\DisplayTemplates\InfoDisabledActionViewModel.cshtml" />
+    <Content Include="Views\Shared\DisplayTemplates\HospitalHealViewModel.cshtml" />
+    <Content Include="Views\Hospital\Manage.cshtml" />
+    <Content Include="Views\Country\SendMPPOffer.cshtml" />
+    <Content Include="Views\Country\MPPs.cshtml" />
+    <Content Include="Views\DevIssue\CreateIssue.cshtml" />
+    <Content Include="Views\DevIssue\ViewIssue.cshtml" />
+    <Content Include="Views\DevIssue\Index.cshtml" />
+    <Content Include="Views\Shared\EditorTemplates\AvatarChangeViewModel.cshtml" />
+    <Content Include="Views\Congress\EditorTemplates\PrintMoneyViewModel.cshtml" />
+    <Content Include="Views\Search\Search.cshtml" />
+    <Content Include="Views\Shared\_LayoutMap.cshtml" />
+    <Content Include="Views\Congress\EditorTemplates\ChangeMinimalWageViewModel.cshtml" />
+    <Content Include="Views\Congress\EditorTemplates\BuildDefenseSystemViewModel.cshtml" />
+    <Content Include="Views\Special\DayChange.cshtml" />
+    <Content Include="Views\Country\NationalConstructions.cshtml" />
+    <Content Include="Views\Home\DayChange.cshtml" />
+    <Content Include="Views\Construction\View.cshtml" />
+    <Content Include="Views\Construction\DisplayTemplates\ConstructionInfoViewModel.cshtml" />
+    <Content Include="Views\Construction\Deliveries.cshtml" />
+    <Content Include="Views\Construction\Managers.cshtml" />
+    <Content Include="Views\Construction\CreateDelivery.cshtml" />
+    <Content Include="Views\Construction\DisplayTemplates\MarketOfferViewModel.cshtml" />
+    <Content Include="Views\Company\DisplayTemplates\ViewConstructionCompanyViewModel.cshtml" />
+    <Content Include="Views\Congress\EditorTemplates\ChangeHouseTaxViewModel.cshtml" />
+    <Content Include="Views\Congress\EditorTemplates\ChangeHotelTaxViewModel.cshtml" />
+    <Content Include="Views\Congress\DisplayTemplates\ViewChangeHotelTaxViewModel.cshtml" />
+    <Content Include="Views\Congress\DisplayTemplates\ViewChangeHouseTaxViewModel.cshtml" />
+    <Content Include="Views\Hotel\DisplayTemplates\HotelInfoViewModel.cshtml" />
+    <Content Include="Views\Hotel\View.cshtml" />
+    <Content Include="Views\Hotel\Rooms.cshtml" />
+    <Content Include="Views\Hotel\SetPrices.cshtml" />
+    <Content Include="Views\Hotel\CreateRoom.cshtml" />
+    <Content Include="Views\Hotel\Wallet.cshtml" />
+    <Content Include="Views\Hotel\MakeDelivery.cshtml" />
+    <Content Include="Views\Hotel\DisplayTemplates\MarketOfferViewModel.cshtml" />
+    <Content Include="Views\Company\DisplayTemplates\ViewCompanyBase.cshtml" />
+    <Content Include="Views\Hotel\Inventory.cshtml" />
+    <Content Include="Views\Hotel\Managers.cshtml" />
+    <Content Include="Views\Hotel\EditorTemplates\HotelManagerViewModel.cshtml" />
+    <Content Include="Views\Business\Index.cshtml" />
+    <Content Include="Views\Hotel\Index.cshtml" />
+    <Content Include="Views\House\View.cshtml" />
+    <Content Include="Views\House\DisplayTemplates\HouseInfoViewModel.cshtml" />
+    <Content Include="Views\House\Chest.cshtml" />
+    <Content Include="Views\House\DisplayTemplates\EquipmentItemViewModel.cshtml" />
+    <Content Include="Views\House\BuyCM.cshtml" />
+    <Content Include="Views\Entity\HotelSummary.cshtml" />
+    <Content Include="Views\House\DisplayTemplates\MarketOfferViewModel.cshtml" />
+    <Content Include="Views\House\DisplayTemplates\HouseBaseFurnitureViewModel.cshtml" />
+    <Content Include="Views\House\DisplayTemplates\HouseBedFurnitureViewModel.cshtml" />
+    <Content Include="Views\House\DisplayTemplates\HouseChestFurnitureViewModel.cshtml" />
+    <Content Include="Views\House\Furniture.cshtml" />
+    <Content Include="Views\House\CreateFurniture.cshtml" />
+    <Content Include="Views\House\SellHouse.cshtml" />
+    <Content Include="Views\House\Index.cshtml" />
+    <Content Include="Views\CompanyFinance\DaySummary.cshtml" />
+    <Content Include="Views\CompanyFinance\Overview.cshtml" />
+    <Content Include="Views\Shared\DisplayTemplates\InfoExpandableActionViewModel.cshtml" />
+    <Content Include="Views\Home\DisplayTemplates\CountryVotingEventViewModel.cshtml" />
+    <Content Include="Views\Debug\GiveMeCongressman.cshtml" />
+    <Content Include="Views\Debug\GrantMePresident.cshtml" />
+    <Content Include="Views\Debug\EndBattle.cshtml" />
+    <Content Include="Views\Debug\FinishCongressVoting.cshtml" />
+    <Content Include="Views\Debug\HotelDC.cshtml" />
+    <None Include="web.base.config">
+      <DependentUpon>Web.config</DependentUpon>
+    </None>
+    <None Include="Web.SocTest.config">
+      <DependentUpon>Web.config</DependentUpon>
+    </None>
+    <None Include="Web.Test.config">
+      <DependentUpon>Web.config</DependentUpon>
+    </None>
+  </ItemGroup>
+  <ItemGroup>
+    <Folder Include="App_Code\" />
+    <Folder Include="App_Data\" />
+    <Folder Include="Code\Html\" />
+    <Folder Include="Code\Modules\" />
+    <Folder Include="Code\NewFolder1\" />
+    <Folder Include="Content\Styles\Shared\" />
+    <Folder Include="img\" />
+    <Folder Include="Models\Utils\" />
+    <Folder Include="Scripts\sociatis\" />
+    <Folder Include="Service\" />
+    <Folder Include="Validators\Congress\" />
+    <Folder Include="Views\Country\EditorTemplates\" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Project_Readme.html" />
+  </ItemGroup>
+  <ItemGroup>
+    <ProjectReference Include="..\C-Common\Common\Common.csproj">
+      <Project>{7833DE49-4309-4C54-BD72-EA7B9F99F71F}</Project>
+      <Name>Common</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\EntityFramework\Entities.csproj">
+      <Project>{380a6f11-2271-4223-9c25-ce187bd3cc08}</Project>
+      <Name>Entities</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\SociatisCommon\SociatisCommon.csproj">
+      <Project>{14589FEE-DD34-4264-965C-8EDBA22ABFE1}</Project>
+      <Name>SociatisCommon</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\WebServices\Weber.csproj">
+      <Project>{7A3B9C1B-4609-4225-A2C7-8B0C4FF0BBFA}</Project>
+      <Name>Weber</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\WebUtils\WebUtils.csproj">
+      <Project>{3737CAE9-1E9F-4687-B53D-D1A7D43DE19C}</Project>
+      <Name>WebUtils</Name>
+    </ProjectReference>
+  </ItemGroup>
+  <ItemGroup>
+    <WCFMetadata Include="Service References\" />
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="Scripts\congress\sociatis.congress.start_voting.js" />
+  </ItemGroup>
+  <ItemGroup>
+    <Service Include="{4A0DDDB5-7A95-4FBF-97CC-616D07737A77}" />
+  </ItemGroup>
+  <ItemGroup>
+    <TypeScriptCompile Include="Scripts\globals.d.ts" />
+  </ItemGroup>
+  <PropertyGroup>
+    <VisualStudioVersion Condition="'$(VisualStudioVersion)' == ''">10.0</VisualStudioVersion>
+    <VSToolsPath Condition="'$(VSToolsPath)' == ''">$(MSBuildExtensionsPath32)\Microsoft\VisualStudio\v$(VisualStudioVersion)</VSToolsPath>
+  </PropertyGroup>
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)' == 'Test|AnyCPU'">
+    <DebugSymbols>true</DebugSymbols>
+    <OutputPath>bin\</OutputPath>
+    <DefineConstants>DEBUG;TRACE</DefineConstants>
+    <DebugType>full</DebugType>
+    <PlatformTarget>AnyCPU</PlatformTarget>
+    <ErrorReport>prompt</ErrorReport>
+    <CodeAnalysisRuleSet>MinimumRecommendedRules.ruleset</CodeAnalysisRuleSet>
+  </PropertyGroup>
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)' == 'SocTest|AnyCPU'">
+    <OutputPath>bin\</OutputPath>
+    <DefineConstants>TRACE</DefineConstants>
+    <Optimize>true</Optimize>
+    <DebugType>pdbonly</DebugType>
+    <PlatformTarget>AnyCPU</PlatformTarget>
+    <ErrorReport>prompt</ErrorReport>
+    <CodeAnalysisRuleSet>MinimumRecommendedRules.ruleset</CodeAnalysisRuleSet>
+  </PropertyGroup>
+  <Import Project="$(MSBuildBinPath)\Microsoft.CSharp.targets" />
+  <Import Project="$(MSBuildExtensionsPath32)\Microsoft\VisualStudio\v$(VisualStudioVersion)\TypeScript\Microsoft.TypeScript.targets" Condition="Exists('$(MSBuildExtensionsPath32)\Microsoft\VisualStudio\v$(VisualStudioVersion)\TypeScript\Microsoft.TypeScript.targets')" />
+  <Import Project="$(MSBuildExtensionsPath32)\Microsoft\VisualStudio\v10.0\WebApplications\Microsoft.WebApplication.targets" Condition="false" />
+  <Target Name="MvcBuildViews" AfterTargets="AfterBuild" Condition="'$(MvcBuildViews)'=='true'">
+    <AspNetCompiler VirtualPath="temp" PhysicalPath="$(WebProjectOutputDir)" />
+  </Target>
+  <ProjectExtensions>
+    <VisualStudio>
+      <FlavorProperties GUID="{349c5851-65df-11da-9384-00065b846f21}">
+        <WebProjectProperties>
+          <UseIIS>True</UseIIS>
+          <AutoAssignPort>True</AutoAssignPort>
+          <DevelopmentServerPort>38120</DevelopmentServerPort>
+          <DevelopmentServerVPath>/</DevelopmentServerVPath>
+          <IISUrl>http://localhost:38120/</IISUrl>
+          <NTLMAuthentication>False</NTLMAuthentication>
+          <UseCustomServer>False</UseCustomServer>
+          <CustomServerUrl>
+          </CustomServerUrl>
+          <SaveServerSettingsInUserFile>False</SaveServerSettingsInUserFile>
+        </WebProjectProperties>
+      </FlavorProperties>
+    </VisualStudio>
+  </ProjectExtensions>
+  <Target Name="BuildOnlySettings">
+    <TransformXml Source="Web.Base.config" Transform="Web.$(Configuration).config" Destination="Web.config" />
+  </Target>
+  <Target Name="EnsureNuGetPackageBuildImports" BeforeTargets="PrepareForBuild">
+    <PropertyGroup>
+      <ErrorText>This project references NuGet package(s) that are missing on this computer. Use NuGet Package Restore to download them.  For more information, see http://go.microsoft.com/fwlink/?LinkID=322105. The missing file is {0}.</ErrorText>
+    </PropertyGroup>
+    <Error Condition="!Exists('..\packages\Microsoft.Net.Compilers.1.0.0\build\Microsoft.Net.Compilers.props')" Text="$([System.String]::Format('$(ErrorText)', '..\packages\Microsoft.Net.Compilers.1.0.0\build\Microsoft.Net.Compilers.props'))" />
+    <Error Condition="!Exists('..\packages\BuildWebCompiler.1.11.326\build\BuildWebCompiler.targets')" Text="$([System.String]::Format('$(ErrorText)', '..\packages\BuildWebCompiler.1.11.326\build\BuildWebCompiler.targets'))" />
+    <Error Condition="!Exists('..\packages\Microsoft.VisualStudio.SlowCheetah.3.0.61\build\Microsoft.VisualStudio.SlowCheetah.targets')" Text="$([System.String]::Format('$(ErrorText)', '..\packages\Microsoft.VisualStudio.SlowCheetah.3.0.61\build\Microsoft.VisualStudio.SlowCheetah.targets'))" />
+    <Error Condition="!Exists('..\packages\SlowCheetah.2.5.48\build\SlowCheetah.targets')" Text="$([System.String]::Format('$(ErrorText)', '..\packages\SlowCheetah.2.5.48\build\SlowCheetah.targets'))" />
+  </Target>
+  <Import Project="..\packages\BuildWebCompiler.1.11.326\build\BuildWebCompiler.targets" Condition="Exists('..\packages\BuildWebCompiler.1.11.326\build\BuildWebCompiler.targets')" />
+  <Import Project="..\packages\Microsoft.VisualStudio.SlowCheetah.3.0.61\build\Microsoft.VisualStudio.SlowCheetah.targets" Condition="Exists('..\packages\Microsoft.VisualStudio.SlowCheetah.3.0.61\build\Microsoft.VisualStudio.SlowCheetah.targets')" />
+  <Import Project="..\packages\SlowCheetah.2.5.48\build\SlowCheetah.targets" Condition="Exists('..\packages\SlowCheetah.2.5.48\build\SlowCheetah.targets')" />
+  <PropertyGroup>
+    <PostBuildEvent>
+    </PostBuildEvent>
+  </PropertyGroup>
+  <!--
+  <Target Name="AfterBuild">
+  </Target> -->
+</Project>

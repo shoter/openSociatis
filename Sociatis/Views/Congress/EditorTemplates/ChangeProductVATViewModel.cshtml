@@ -1,0 +1,12 @@
+﻿@model Sociatis.Models.Congress.ChangeProductVATViewModel
+
+@{
+    ViewData.TemplateInfo.HtmlFieldPrefix = "";
+}
+
+@Html.LabelFor(m => m.NewVat)
+@Html.TextBoxFor(m => m.NewVat)
+<br />
+
+@Html.LabelFor(m => m.ProductType)
+@Html.DropDownListFor(m => m.ProductType, Model.Products)

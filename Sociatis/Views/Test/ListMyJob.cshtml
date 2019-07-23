@@ -1,0 +1,33 @@
+﻿@model Entities.Citizen
+
+@{ 
+    var job = Model.CompanyEmployees.FirstOrDefault();
+    Entities.JobContract contract = null;
+    if (job != null && job.JobContract != null)
+    {
+        contract = job.JobContract;
+    }
+}
+
+@if (job != null)
+{
+    foreach (var prop in job.GetType().GetProperties()) {
+    @prop.Name @: : @prop.GetValue(job) <br/>
+    }
+} else
+{
+    @:No job<br/>
+}
+
+
+@if (contract != null)
+{
+    foreach (var prop in contract.GetType().GetProperties())
+    {
+    @prop.Name @: : @prop.GetValue(contract) <br />
+    }
+}
+else
+{
+    @:No contract<br/>
+}

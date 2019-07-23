@@ -1,0 +1,12 @@
+﻿@model List<Entities.structs.EntityDom>
+    
+
+@foreach(var dom in Model)
+{
+    <div>
+        <div>@dom.ID</div>
+        <div>@dom.Name</div>
+        <div>@dom.EntityType</div>
+    </div>
+    <hr/>
+}

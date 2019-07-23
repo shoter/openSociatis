@@ -1,0 +1,35 @@
+﻿@model Sociatis.Models.Companies.ShortNormalJobOfferViewModel
+
+<tr>
+    <td>
+        @Model.Amount
+    </td>
+    <td>
+        @Model.Skill
+    </td>
+    <td>
+        @Model.Salary
+    </td>
+    <td class="minSize">
+        @if (Model.CanWork)
+        {
+            <a class="green button" href="@Url.Action("AcceptJobOffer", "Company", new { jobOfferID = Model.JobID })" >Accept</a>
+        }
+        else
+        {
+            <span class="has-tip" role="tooltip" data-tooltip aria-haspopup="true" title="@Model.CannotWorkReason">
+                <a class="disabled button green" href="#"  >Accept</a>
+            </span>
+        }
+    </td>
+    @if (Model.CompanyRights.CanPostJobOffers)
+    {
+        <td>
+            @using (Html.BeginForm("DeleteJobOffer", RouteDataHelper.ControllerName, FormMethod.Post))
+            {
+                <input type="hidden" name="jobOfferID" value="@Model.JobID" />
+                <button name="jobOfferDelete" class="button red">Delete offer</button>
+            }
+        </td>
+    }
+</tr>

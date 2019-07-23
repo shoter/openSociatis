@@ -1,0 +1,46 @@
+﻿@model Sociatis.Models.Businesses.BusinessIndexViewModel
+
+@{
+    ViewBag.Title = "Businesses";
+}
+
+<div class="contentBox">
+    <h4>Create business</h4>
+    <div class="row small-up-2 medium-up-3 large-up-4">
+        <div class="column column-block">
+            <a href="@Url.Action("Create", "Company")" class="button blue">Create company</a>
+        </div>
+    </div>
+</div>
+
+<div class="contentBox">
+    <h4>Businesses</h4>
+    <table>
+        <thead>
+            <tr>
+                <th></th>
+                <th>Name</th>
+                <th>Messages</th>
+                <th>Warnings</th>
+                <th>Switch into</th>
+            </tr>
+        </thead>
+        <tbody>
+            @foreach (var b in Model.Businesses)
+            {
+                <tr>
+                    <td>@Html.DisplayFor(m => b.Avatar)</td>
+                    <td data-tooltip class="no-tip" title="@b.Name">@Html.ActionLink(b.ShortName, "View", "Entity", new { entityID = b.ID }, null)</td>
+                    <td>@b.Messages</td>
+                    <td>@b.Warnings</td>
+                    <td>
+                        @if (b.CanSwitch)
+                        {
+                            <a href="@Url.Action("Switch", "Entity", new { ID = b.ID })" class="button green">Switch into</a>
+                        }
+                    </td>
+                </tr>
+            }
+        </tbody>
+    </table>
+</div>

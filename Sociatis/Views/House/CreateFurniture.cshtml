@@ -1,0 +1,49 @@
+﻿@model Sociatis.Models.Houses.HouseCreateFurnitureViewModel
+
+@{
+    ViewBag.Title = "Create furniture";
+}
+
+@Html.DisplayFor(m => m.Info)
+@using (Html.BeginForm(RouteDataHelper.ActionName, RouteDataHelper.ControllerName, new { houseID = Model.Info.HouseID }, FormMethod.Post, new { }))
+{
+    <div id="createFurniture" class="contentBox">
+        <h3>Create furniture</h3>
+        <div class="row">
+            <div class="large-6 column">
+                <label>Furniture:</label>
+                <select id="furnitureType" name="furnitureTypeID">
+                    @foreach (var f in Model.FurnitureForCreate)
+                    {
+                        <option value="@f.FurnitureTypeID" data-cost="@f.Price">@f.Name</option>
+                    }
+                </select>
+            </div>
+            <div class="large-6 column">
+                <div class="upgradeCost">Construction materials cost: <span id="upgradeCost"> - </span></div>
+                <br/>
+                <button class="pull-right button green">Create</button>
+
+            </div>
+        </div>
+    </div>
+}
+
+<script>
+    $(function () {
+        function updateUpgradeCost(cost) {
+            $("#upgradeCost").text(cost);
+        }
+
+        function getUpgradeCost() {
+            return $("#furnitureType").find(":selected")
+                .data("cost");
+        }
+
+        $("#furnitureType").change(function () {
+            updateUpgradeCost(getUpgradeCost());
+        });
+
+        updateUpgradeCost(getUpgradeCost());
+    });
+</script>

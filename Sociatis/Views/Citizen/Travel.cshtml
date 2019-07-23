@@ -1,0 +1,36 @@
+﻿@model Sociatis.Models.Citizens.CitizenTravelViewModel
+
+
+
+@Html.DisplayFor(m => m.Info)
+
+<div class="ContentBox">
+    <h3>Travel</h3>
+    @using (Html.BeginForm("Travel", RouteDataHelper.ControllerName, FormMethod.Post))
+    {
+        <div>
+            Country : @Html.DropDownList("countryID", Model.Countries)
+        </div>
+        <div>
+            Region : <select id="regionID" name="regionID"></select>
+        </div>
+        <div>
+            Moving Ticket quality : @Html.DropDownList("ticketQuality", Model.AvailableMovingTicketQualities)
+        </div>
+        <div class="pull-right">
+            <button id="travelButton" class="button blue" disabled>Travel</button>
+        </div>
+    }
+
+
+
+    <div id="TravelSummary" class="travelSummary">
+
+    </div>
+
+</div>
+
+@section scripts
+{
+    @Scripts.Render("~/Scripts/citizen/sociatis.citizen.travel.js")
+}

@@ -1,0 +1,57 @@
+﻿@model Sociatis.Models.Warnings.IndexWarningViewModel
+
+@{
+    ViewBag.Title = "Warnings";
+    var i = 0;
+}
+
+
+<div class="ContentBox">
+    <h3>Warnings</h3>
+@using (Html.BeginForm("DeleteWarnings", RouteDataHelper.ControllerName, FormMethod.Post))
+{
+    <table>
+        <thead>
+            <tr>     
+                <th class="text-center" colspan="2">Message</th>
+                <th class="text-center">Date</th>
+            </tr>
+        </thead>
+        <tbody id="warningsTBody">
+            
+                @foreach (var warning in Model.Warnings)
+                {
+                    <tr class="sociatisWarning @(warning.Unread ? "unread" : "")">
+                        <td>
+                            <input name="@string.Format("warnings[{0}].WarningID", i++)" value="@warning.WarningID" type="checkbox" />
+                        </td>
+                        <td>@Html.Raw(warning.Message) @(warning.Unread ? " (new)" : "")</td>
+                        <td class="text-center">Day @warning.Day - @warning.Time</td>
+                    </tr>
+                }
+                
+        </tbody>
+        <tfoot>
+            <tr >
+                <td colspan="2">
+                    <input id="selectAll" type="checkbox" />
+                    Select all
+                </td>
+                <td>&nbsp;</td>
+            </tr>
+        </tfoot>
+    </table>
+
+        <button class="button red pull-right">Delete warnings</button>
+    }
+
+    @using (Html.BeginForm(RouteDataHelper.ActionName + "Post", RouteDataHelper.ControllerName, FormMethod.Post))
+    {
+        @PagingParamHtmlHelper.Render(Model.PagingParam)
+    }
+</div>
+
+@section scripts
+{
+    @Scripts.Render("~/Scripts/warnings/sociatis.warnigs.index.js")
+}

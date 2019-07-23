@@ -1,0 +1,7 @@
+﻿@model Sociatis.Models.Congress.Votings.ViewBuildDefenseSystemViewModel
+
+<h4>Proposition #@Model.VotingID : Start construction of Q@(Model.Quality) defense system in @Html.ActionLink(Model.RegionName, "View", "Region", new { RegionID = Model.RegionID }, null).
+
+</h4>
+by @Html.ActionLink(Model.CreatorName, "View", "Citizen", new { citizenID = Model.CreatorID }, null) <br/>
+cost : @Model.GoldCost gold.

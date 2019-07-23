@@ -1,0 +1,65 @@
+﻿@model Sociatis.Models.Companies.CompanyListViewModel
+@{
+    ViewBag.Title =   "Companies";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+<div class="ContentBox">
+    <div class="row">
+        <div class="small-5 medium-4 large-3 columns">
+            <a href="@Url.Action("Create","Company")">
+                <div class="success button">
+                    Create company
+                </div>
+            </a>
+        </div>
+        <div class="small-7 medium-8 large-9 columns">&nbsp;</div>
+    </div>
+    <table class="fullWidth">
+        <thead>
+            <tr>
+                <th class="text-center">Image</th>
+                <th class="text-center">Name</th>
+                <th class="text-center">Product</th>
+                <th class="text-center">Messages</th>
+                <th class="text-center">Events</th>
+                <th>&nbsp;</th>
+            </tr>
+        </thead>
+        <tbody>
+
+            @for (int i = 0; i < Model.Companies.Count; ++i)
+            {
+                <tr>
+                    <td class="TableMiniature centerHorizontalFlex">
+                        @Html.DisplayFor(m => m.Companies[i].Avatar)
+                    </td>
+                    <td class="text-center">
+                        @Html.ActionLink(Model.Companies[i].Name, "View", "Company", new { companyID = Model.Companies[i].ID }, null)
+                    </td>
+                    <td class="TableMiniature centerHorizontalFlex">
+                        @Html.DisplayFor(m => m.Companies[i].Product)
+                    </td>
+                    <td class="text-center">
+                        @Model.Companies[i].UnreadMessages
+                    </td>
+                    <td>
+                       @Model.Companies[i].UnreadWarnings
+                    </td>
+                    <td class="minSize text-center">
+                        <a class="small button" href="@Url.Action("Switch", "Entity", new { ID = Model.Companies[i].ID })">Switch</a>
+                    </td>
+                </tr>
+            }
+            @if (Model.Companies.Count == 0)
+            {
+                <tr>
+                    <td colspan="6">
+                        No companies
+                    </td>
+                </tr>
+            }
+
+        </tbody>
+
+    </table>
+</div>

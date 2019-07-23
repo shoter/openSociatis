@@ -1,0 +1,36 @@
+﻿@model Sociatis.Models.Country.DeclareEmbargoViewModel
+
+@{ 
+    ViewBag.Title = string.Format("{0} - Declare embargo", Model.Info.CountryName);
+}
+
+@Html.DisplayFor(m => m.Info)
+
+<div class="row ContentBox">
+    <h3>Declare embargo</h3>
+
+    <div class="createEmbargo">
+        @using (Ajax.BeginForm("GetEmbargoCost", new { declareCountryID = Model.Info.CountryID }, new AjaxOptions()
+        {
+            HttpMethod = "POST",
+            OnBegin = "Sociatis.AjaxBegin()",
+            OnComplete = "Sociatis.AjaxEnd()",
+            OnFailure = "Sociatis.AjaxError(xhr.responseText)",
+            InsertionMode = InsertionMode.Replace,
+            UpdateTargetId = "embargoInfo"
+        }))
+        {
+            @Html.DropDownListFor(m => m.CountryEmbargoID, Model.PossiblEmbargoes)
+        }
+        <div class="embargoInfo" id="embargoInfo">
+            Please select country to begin.
+        </div>
+    </div>
+
+</div>
+
+
+@section scripts
+{
+    @Scripts.Render("~/Scripts/embargo/sociatis.embargo.declare.js")
+}

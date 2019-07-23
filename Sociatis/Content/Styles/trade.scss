@@ -1,0 +1,213 @@
+﻿@import "definitions.scss";
+
+#tradeView
+{
+    .tradeStatus
+    {
+        text-align: center;
+        padding: 0.5rem;
+    }
+
+    .tradeStatus.tradeAborted
+    {
+        color: white;
+        background-color: rgba($hintColor, 0.81);
+        border: 1px solid rgba(darken($hintColor, 20%), 0.7);
+    }
+
+    .tradeStatus.tradeActive
+    {
+        color: white;
+        background-color: rgba($infoColor, 0.81);
+        border: 1px solid rgba(darken($infoColor, 20%), 0.7);
+    }
+
+    .tradeStatus.tradeSuccess
+    {
+        color: white;
+        background-color: rgba($successColor, 0.81);
+        border: 1px solid rgba(darken($successColor, 20%), 0.7);
+    }
+
+    .tradeStatus.tradeCancelled
+    {
+        color: white;
+        background-color: rgba($hintColor, 0.81);
+        border: 1px solid rgba(darken($hintColor, 20%), 0.7);
+    }
+
+    .tradeOffer
+    {
+        @include respond-to-only(mobile)
+        {
+            display: block;
+        }
+
+        $gapWidth: 5rem;
+        display: flex;
+        min-height: 10vh;
+        border: 1px solid rgba(gray, 0.2);
+
+        .tradeColumn
+        {
+            width: calc(50% - #{$gapWidth/2});
+
+            @include respond-to-only(mobile)
+            {
+                width: 100%;
+                min-height: 25vh;
+            }
+
+            .tradeWho
+            {
+                margin-left: 25%;
+                margin-right: 25%;
+                text-align: center;
+                border: 1px solid rgba($rowBorder, 0.2);
+                background-color: rgba($rowBackground, 0.41);
+                padding: 0.5rem 0.2rem;
+                border-top: none;
+            }
+
+            .tradeAccepted
+            {
+                margin-left: 25%;
+                margin-right: 25%;
+                text-align: center;
+                color: white;
+                background-color: darken($successColor,2%);
+                border: 1px solid darken($successColor, 20%);
+            }
+
+            .tradeItems
+            {
+                margin: 1rem;
+
+                .tradeItem
+                {
+                    display: flex;
+                    justify-content: center;
+                    flex-direction: column;
+                    text-align: center;
+                    background-color: rgba($rowBackground, 0.41);
+                    border: 1px solid rgba($rowBorder, 0.2);
+
+                    $qualityHeight: 1.1rem;
+                    $qualityMargin: 0.4rem;
+
+                    .tradeProductImage
+                    {
+
+                        @include productImageStyle;
+                        padding-top: 0.5rem;
+                        padding-bottom: 0.3rem;
+
+                        img
+                        {
+                            height: 4vh;
+                        }
+
+                        .quality
+                        {
+                            @include productQuality;
+                            font-size: x-small;
+                            max-height: #{$qualityHeight - $qualityMargin};
+                            min-height: #{$qualityHeight - $qualityMargin};
+                            margin-top: $qualityMargin;
+                        }
+                    }
+
+                    .tradeCurrencyImage
+                    {
+
+                        @include productImageStyle;
+                        padding-top: 0.5rem;
+                        padding-bottom: #{0.3rem + $qualityHeight};
+
+                        img
+                        {
+                            height: 4vh;
+                            border: 1px solid rgba($rowBorder, 0.5);
+                        }
+                    }
+
+                    .deleteRow
+                    {
+                        position: relative;
+                    }
+                }
+            }
+
+            .fuelCost
+            {
+                text-align: center;
+                padding-top: 0.2rem;
+            }
+        }
+
+        .tradeGap
+        {
+            @include respond-to-only(mobile)
+            {
+                width: 100%;
+                border-top: 1px dashed rgba(gray, 0.35);
+                border-bottom: 1px dashed rgba(gray, 0.35);
+                border-left: none;
+                border-right: none;
+                display: flex;
+                flex-direction: row;
+                justify-content: center;
+                padding-top: 1rem;
+                padding-bottom: 1rem;
+            }
+
+            padding-top: calc(1rem + 25%);
+            padding-bottom: calc(1rem + 25%);
+            width: $gapWidth;
+            border: 1px dashed rgba(gray, 0.35);
+            border-top: none;
+            border-bottom: none;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+
+            form
+            {
+                display: block;
+                margin-bottom: 1rem;
+
+                @include respond-to-only(mobile)
+                {
+                    margin-bottom: 0;
+                    margin-left: 1rem;
+                }
+
+                button
+                {
+                    margin-bottom: 0;
+                }
+            }
+
+            form:last-child
+            {
+                margin-bottom: 0;
+            }
+        }
+    }
+}
+
+
+#startTrade
+{
+    .whoToStartTradeWith
+    {
+        margin-right: 1rem;
+    }
+
+    .startTradeButtons
+    {
+        float: right;
+        display: flex;
+        margin-right: 1rem;
+    }
+}

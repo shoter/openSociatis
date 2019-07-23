@@ -1,0 +1,16 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<Project ToolsVersion="4.0" DefaultTargets="TransformWebConfig" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+
+  <UsingTask TaskName="TransformXml" AssemblyFile="$(MSBuildExtensionsPath)\Microsoft\VisualStudio\v14.0\Web\Microsoft.Web.Publishing.Tasks.dll" />
+  <Target Name="TransformWebConfig">
+    <TransformXml Source="Web.base.config" Transform="Web.$(CurrentConfig).config" Destination="Web.config" />
+  </Target>
+</Project>
+
+<!--
+What do you need to install to handle this file:
+-MSBuild 14.0 (Microsoft build tools)
+-SlowCheetah with NuGet package
+-Beware. If there is no (example) C:\Program Files (x86)\MSBuild\Microsoft\VisualStudio\v14.0\Web\Microsoft.Web.Publishing.Tasks.Dll
+Then maybe there is some other version that 14.0 that have folder Web. Copy that folder and for other's sake do not change the number in this file.
+-->

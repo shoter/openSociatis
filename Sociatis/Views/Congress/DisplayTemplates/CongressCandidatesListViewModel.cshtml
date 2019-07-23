@@ -1,0 +1,54 @@
+﻿@model Sociatis.Models.Congress.CongressCandidatesListViewModel
+@using Entities.enums;
+
+@{
+    ViewData.TemplateInfo.HtmlFieldPrefix = "";
+}
+
+@foreach (var candidate in Model)
+{
+    <tr>
+        <td class="miniAvatars">
+            <a href="@Url.Action("View", "Citizen", new { citizenID = candidate.CandidateID })">
+                @Html.DisplayFor(m => candidate.Avatar)
+            </a>
+        </td>
+        <td>
+            @Html.ActionLink(candidate.Name, "View", "Citizen", new { ID = candidate.CandidateID }, null)
+            @if (candidate.IsActualCitizen)
+            {
+                <br/>
+                <text>
+                    @Html.Raw(candidate.IsAccepted ? "Approved" : "<b>Not</b> approved") for the congress.
+                </text>
+            }
+        </td>
+        <td>
+            @candidate.RegionName
+        </td>
+        @if(Model.CanVote)
+        {
+            <td>
+                @if (candidate.SameRegion)
+                {
+                    using (Html.BeginForm("VoteCongressCandidate", RouteDataHelper.ControllerName, FormMethod.Post))
+                    {
+                        @Html.Hidden("CandidateID", candidate.CandidateID)
+                        <button class="button green" >Vote</button>
+                    }
+                }
+            </td>
+        } 
+        <td>
+            @if (candidate.CanResign)
+            {
+                using (Html.BeginForm("ResignAsCandidate", RouteDataHelper.ControllerName, FormMethod.Post))
+                {
+                    @Html.Hidden("CandidateID", candidate.CandidateID)
+                    <button class="button red">Resign</button>
+                }
+            }
+
+        </td>
+    </tr>
+}

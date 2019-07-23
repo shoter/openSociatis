@@ -1,0 +1,118 @@
+﻿@model Sociatis.Models.Market.MarketOfferViewModel
+@{
+    @*Some browser preserve values in input fields. For those browser it is the best to recalculate this*@
+    ScriptInjector.AddJavascript(string.Format("recalculateTotal({0})", Model.OfferID));
+
+}
+
+<div class="row collapse markteOfferRow" data-equalizer data-equalize-on="medium">
+    <div class="small-12 medium-2 large-3 columns" data-equalizer-watch>
+        <div class="marketOfferFirstColumn">
+            <div class="marketOfferHeader">
+                @Model.ProductName
+            </div>
+            <div class="marketOfferOfferer">
+                @Html.DisplayFor(m => m.ProductAvatar)
+            </div>
+            <div class="marketOfferFooter">
+                <div class="marketOfferCompanyName">
+                    @if (Model.Deleteable)
+                    {
+                        <i data-id="@Model.OfferID"
+                           data-tooltip data-position="right" data-alignment="center" aria-haspopup="true" title="Remove offer"
+                           data-removeOffer class="fa fa-trash fa-2x dangerousAction has-tip"></i>
+                    }
+                    else
+                    {
+                        @Html.ActionLink(Model.CompanyName, "View", "Entity", new { entityID = Model.CompanyID }, new { title = Model.CompanyName })
+                    }
+                </div>
+                <div class="marketOfferStars equipmentQuality">
+                    @for (int q = 0; q < Model.Quality; ++q)
+                    {
+                        <i class="fa fa-star"></i>
+
+                    }
+                </div>
+            </div>
+        </div>
+
+    </div>
+    @using (Html.BeginForm("BuyOffer", "MarketOffer", FormMethod.Post))
+    {
+        <div class="small-12 medium-10 large-9 columns centerVerticalFlex marketOfferSecondColumn" data-equalizer-watch>
+            @*<div style="padding-top:2rem" class="hide-for-small-only">&nbsp;</div>*@
+
+            <div class="marketOfferInfo">
+                <div class="row collapse" style="padding-right:0">
+                    <div class="small-12 medium-7 columns">
+                        <div class="inlineBlock">
+                            <div class="marketOfferCostInfo">Cost for 1 unit: </div>
+                            <div class="marketOfferCost">@Model.Price @Model.PriceSymbol</div>
+                            @if (Model.FuelPricePer.HasValue && Model.CanBuy)
+                            {
+                                <div class="marketOfferCost">@Model.FuelPricePer Fuel</div>
+                            }
+                        </div>
+                        @if (Model.CanBuy)
+                        {
+                            <div class="inlineBlock" style="margin-left:1rem">
+                                <div class="flex asRow asNowrap asBaseline">
+                                    <input 
+                                           type="@(Model.ShowQuantity?"number":"hidden")"
+                                           data-offerid="@Model.OfferID" name="amount" onchange="calculateTotal(this.value, @Model.OfferID)" min="0" max="@Model.Amount" value="1" class="marketOfferInput"  />
+
+                                    <span class="inlineBlock marketAfterOffer" style="margin-left:1rem">
+                                        from @Model.Amount units
+                                    </span>
+                                </div>
+                            </div>
+                        }
+                        else
+                        {
+                            <div class="inlineBlock" style="margin-left:1rem">
+                                <div class="marketOfferCostInfo">
+                                    Amount:
+                                </div>
+                                <div class="marketOfferCost">@Model.Amount unit@(PluralHelper.S(Model.Amount))</div>
+                            </div>
+                        }
+                    </div>
+
+                    <div data-totalCostID="@Model.OfferID" class="small-12 medium-5 columns">
+                        @if (Model.CanBuy)
+                        {
+                            <div class="inlineBlock" style="padding:1rem 2rem; padding-left:0; padding-top:0; font-family: Arial,Helvetica Neue,Helvetica,sans-serif;">
+                                <div class="marketOfferCostInfo">total: </div>
+                                <div data-pricecostofferid="@Model.OfferID" class="marketOfferCost">@Model.Price @Model.PriceSymbol</div>
+                                @if (Model.FuelPrice.HasValue)
+                                {
+                                    <div data-fuelcostofferid="@Model.OfferID" class="marketOfferCost">@Model.FuelPrice Fuel</div>
+                                }
+                            </div>
+                            <div class="inlineBlock">
+
+                                <input data-offerTotalFuel name="offerID" type="hidden" value="@Model.OfferID" />
+
+                                <button class="button blue">Buy</button>
+
+                            </div>
+                        }
+                        else if (Model.ShowDetails)
+                        {
+                            <div class="inlineBlock">
+                                <div class="marketOfferCostInfo">Country: @(Model.MarketCountryName ?? "None")</div>
+                                <div class="marketOfferCostInfo">@Model.Tax% Tax</div>
+                            </div>
+                        }
+
+                    </div>
+
+
+                </div>
+            </div>
+        </div>
+    }
+</div>
+<div style="height:2rem;">&nbsp;</div>
+

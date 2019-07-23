@@ -1,0 +1,22 @@
+﻿@model Sociatis.Models.Infos.InfoActionViewModel
+
+
+@if (Model.FormMethod == FormMethod.Post)
+{
+
+    using (Html.BeginForm(Model.ActionName, Model.ControllerName, Model.RouteValues, Model.FormMethod))
+    {
+        <a @Model.ClassField.ToHtml() onclick="Sociatis.SubmitByLink(this)">
+            <i class="fa @Model.Icon"></i>
+            @Model.Name
+        </a>
+    }
+
+}
+else
+{
+    <a @Model.ClassField.ToHtml() href="@Url.Action(Model.ActionName, Model.ControllerName, Model.RouteValues)">
+        <i class="fa @Model.Icon"></i>
+        @Model.Name
+        </a>
+}

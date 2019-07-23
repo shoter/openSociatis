@@ -1,0 +1,21 @@
+﻿@model Sociatis.Models.DevIssues.CreateIssueViewModel
+@{
+    ViewBag.Title = "Create new Issue";
+}
+
+<div id="createIssue" class="ContentBox">
+    <h4>Create new issue</h4>
+    @using (Html.BeginForm(RouteDataHelper.ActionName, RouteDataHelper.ControllerName, FormMethod.Post, new { enctype = "multipart/form-data" }))
+    {
+        @Html.LabelFor(m => m.Name)
+        @Html.TextBoxFor(m => m.Name)
+
+        @Html.LabelFor(m => m.Content)
+        @Html.TextAreaFor(m => m.Content)
+
+        <label>Attachements: </label>
+        <input type="file" name="files" multiple />
+
+        <button class="button green pull-right">Send</button>
+    }
+</div>

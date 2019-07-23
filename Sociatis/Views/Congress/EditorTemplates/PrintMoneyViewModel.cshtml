@@ -1,0 +1,13 @@
+﻿@model Sociatis.Models.Congress.PrintMoneyViewModel
+
+@{
+    ViewData.TemplateInfo.HtmlFieldPrefix = "";
+}
+
+@Html.LabelFor(m => m.MoneyAmount)
+@Html.TextBoxFor(m => m.MoneyAmount)
+@Html.ValidationMessageFor(m => m.MoneyAmount)
+
+<div class="hint">
+    1000 @Model.CurrencySymbol costs @Model.CostOfThousand gold
+</div>

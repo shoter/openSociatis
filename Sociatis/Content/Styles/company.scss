@@ -1,0 +1,108 @@
+﻿@import "definitions.scss";
+
+
+
+#companyManagers
+{
+    .addManager
+    {
+        margin-top: 0.5rem;
+
+        span.managerNew
+        {
+            margin-right: 1rem;
+        }
+
+        button
+        {
+            margin-top: 0.5rem;
+        }
+    }
+
+    .manager
+    {
+        background-color: rgba($rowBackground, 0.31);
+        border: 1px solid rgba($rowBorder, 0.11);
+        margin-top: 1rem;
+        overflow: hidden;
+
+        .avatar
+        {
+            display: flex;
+            float: left;
+            padding: 1rem;
+            margin-left: 0.5rem;
+
+            .priority
+            {
+                margin-left: 1rem;
+                align-self: flex-end;
+                padding-bottom: 1rem;
+
+                input
+                {
+                    width: 3rem;
+                }
+            }
+        }
+
+
+
+        .title
+        {
+            float: right;
+            padding: 1rem;
+            color: $hintColor;
+        }
+
+        .rights
+        {
+            .right
+            {
+                input
+                {
+                    margin-left: 1rem;
+                    margin-right: 0.5rem;
+                }
+            }
+        }
+
+        .buttons
+        {
+            form
+            {
+                display: inline-block;
+            }
+
+            float: right;
+            margin-right: 1rem;
+        }
+    }
+}
+
+#viewCompany
+{
+    .companyEmployees
+    {
+        overflow-x: scroll;
+    }
+
+    .button.work
+    {
+        font-size: xx-large;
+        padding: 0.5em 1em;
+    }
+
+    .healing
+    {
+        text-align: center;
+        margin-top: 0.5rem;
+        margin-bottom: 1rem;
+
+        button
+        {
+            font-size: xx-large;
+            padding: 0.5em 1em;
+        }
+    }
+}

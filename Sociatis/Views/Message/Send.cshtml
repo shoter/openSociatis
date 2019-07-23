@@ -1,0 +1,54 @@
+﻿@model Sociatis.Models.Messages.SendMessageViewModel
+@{
+
+    ViewBag.Title = "Send message";
+}
+<div class="row ContentBox">
+    <h3>Create message</h3>
+    @using (Html.BeginForm())
+    {
+        <div class="row">
+            <div class="small-12 medium-4 large-2 columns">
+                @Html.DisplayNameFor(m => m.Title) :
+            </div>
+            <div class="small-12 medium-8 large-10 columns">
+                @Html.TextBoxFor(m => m.Title, new { @class = "fullWidth" })
+            </div>
+        </div>
+
+        <div class="row">
+            <div class="small-12 medium-4 large-2 columns">
+                @Html.DisplayNameFor(m => m.RecipientID)
+            </div>
+            <div class="small-12 medium-8 large-10 columns">
+                @Html.Render(Model.RecipientSelector)
+            </div>
+        </div>
+
+        <div class="row">
+            <div class="small-12 columns">
+                @Html.DisplayNameFor(m => m.Content) :
+            </div>
+            <div class="small-12 columns">
+                @Html.TextAreaFor(m => m.Content, new { @class = "fullWidth" })
+            </div>
+        </div>
+
+        <div class="row">
+            <div class="small-4 columns">
+                <a href="@Url.Action("Index")" class="button secondary">Back</a>
+            </div>
+            <div class="small-4 columns">
+                &nbsp;
+            </div>
+            <div class="small-4 columns">
+                <button class="button pull-right">Send</button>
+            </div>
+        </div>
+    }
+</div>
+
+@section scripts
+{
+    <script src="~/Scripts/Messages/sociatis.messages.js"></script>
+}

@@ -1,0 +1,21 @@
+﻿@model Sociatis.Models.Trades.StartTradeViewModel
+
+@{
+    ViewBag.Title = "Start trade";
+}
+
+
+<div id="startTrade" class="ContentBox">
+    @using (Html.BeginForm(RouteDataHelper.ActionName, RouteDataHelper.ControllerName, FormMethod.Post))
+    {
+        <h5>Start trade</h5>
+        <div class="entitySelector centerHorizontalFlex">
+            <span class="whoToStartTradeWith">Who you want to trade with:</span>
+            @Html.Render(Model.EntitySelector)
+        </div>
+        <div class="startTradeButtons">
+            <button class="button blue">Cancel</button>
+            <button class="button green">Start trade</button>
+        </div>
+    }
+</div>

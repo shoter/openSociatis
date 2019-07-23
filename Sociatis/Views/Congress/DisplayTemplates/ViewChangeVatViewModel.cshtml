@@ -1,0 +1,4 @@
+﻿@model Sociatis.Models.Congress.Votings.ViewChangeVatViewModel
+
+<h4>Proposition #@Model.VotingID : Change vat to <b>@Model.NewVat</b>%</h4>
+by @Html.ActionLink(Model.CreatorName, "View", "Citizen", new { citizenID = Model.CreatorID }, null)

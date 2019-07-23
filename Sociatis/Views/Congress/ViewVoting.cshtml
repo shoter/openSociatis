@@ -1,0 +1,183 @@
+﻿@model Sociatis.Models.Congress.Votings.ViewVotingBaseViewModel
+@using Entities.enums
+@{
+    ViewBag.Title = "Voting #" + Model.VotingID;
+}
+
+@Html.DisplayFor(m => m.Info)
+
+<div class="ContentBox">
+    <div>
+        @Html.DisplayFor(m => m)
+        <hr />
+        <h5>Creator message :</h5>
+        @Model.CreatorMessage
+    </div>
+
+    <hr />
+    <div class="row">
+        @if (Model.VotingStatus == VotingStatusEnum.Ongoing)
+        {
+            if (Model.WaitingForResolve)
+            {
+                <div class="small-12 text-center votingResult columns">
+                    Waiting for day change.
+                </div>
+            }
+            else
+            {
+                <div class="small-12 text-center timeLeft columns">
+                    @Model.TimeLeft
+                </div>
+            }
+            }
+        else
+        {
+        <div class="small-12 votingResult text-center">
+            @if(Model.VotingStatus == VotingStatusEnum.Accepted)
+            {
+                @:<text class="votingResult green">
+                    @:Accepted
+                @:</text>
+            } else if(Model.VotingStatus == VotingStatusEnum.Rejected)
+            {
+                @:<text class="votingResult red">
+                    @:Rejected
+                @:</text>
+            }
+        </div>
+        }
+    </div>
+
+    <div class="row">
+        <div class="medium-6 small-12 columns">
+            <h4>Supporters 
+            @if (Model.CanVote)
+            {
+                using (Html.BeginForm("VoteFor", RouteDataHelper.ControllerName, new { congressVotingID = Model.VotingID }, FormMethod.Post))
+                {
+                    <button class="button green congressVoteButton">Vote for</button>
+                }
+            }
+            </h4>
+            <div class="yesVoters">
+                @for (int i = 0; i < Model.YesVoters.Count && i < 5; ++i)
+                {
+                    var voter = Model.YesVoters[i];
+                    @Html.DisplayFor(m => voter)
+                    if (i != (Model.YesVoters.Count - 1) && i != 4)
+                    {
+                        <hr />
+                        }
+                    }
+                @if (Model.MoreYesVotersCount > 0)
+                {
+                    <ul class="vertical menu" data-accordion-menu>
+                        <li>
+                            <a href="#">More voters (@Model.MoreYesVotersCount)</a>
+                            <ul class="menu vertical nested voterUl">
+                                <li>
+                                    @for (int i = 5; i < Model.YesVoters.Count; ++i)
+                                    {
+                                        var voter = Model.YesVoters[i];
+                                        @Html.DisplayFor(m => voter)
+
+                                        if (i != (Model.YesVoters.Count - 1))
+                                        {
+                                            <hr />
+                                        }
+                                    }
+                                </li>
+                            </ul>
+                        </li>
+                    </ul>
+                }
+            </div>
+            &nbsp;
+        </div>
+        <div class="medium-6 small-12 columns">
+            <h4>Against 
+            @if (Model.CanVote)
+            {
+                using (Html.BeginForm("VoteAgainst", RouteDataHelper.ControllerName, new { congressVotingID = Model.VotingID }, FormMethod.Post))
+                {
+                    <button class="button red congressVoteButton">Vote against</button>
+                }
+            }
+            </h4>
+            <div class="noVoters">
+                @for (int i = 0; i < Model.NoVoters.Count && i < 5; ++i)
+                {
+                    var voter = Model.NoVoters[i];
+                    @Html.DisplayFor(m => voter)
+                    if (i != (Model.NoVoters.Count - 1) && i != 4)
+                    {
+                        <hr />
+                    }
+                }
+                @if (Model.MoreNoVotersCount > 0)
+                {
+                    <ul class="vertical menu" data-accordion-menu>
+                        <li>
+                            <a href="#">More voters (@Model.MoreNoVotersCount)</a>
+                            <ul class="menu vertical nested voterUl">
+                                <li>
+                                    @for (int i = 5; i < Model.NoVoters.Count; ++i)
+                                    {
+                                        var voter = Model.NoVoters[i];
+                                        @Html.DisplayFor(m => voter)
+
+                                        if (i != (Model.NoVoters.Count - 1))
+                                        {
+                                            <hr />
+                                        }
+                                    }
+                                </li>
+                            </ul>
+                        </li>
+                    </ul>
+                }
+            </div>
+            &nbsp;
+        </div>
+    </div>
+
+</div>
+
+@if (Model.CanSeeComments)
+{
+<div class="ContentBox">
+    <h4>Comments</h4>
+    <div id="comments">
+        @Html.Action("CongressVotingComments", new { congressVotingID = Model.VotingID })
+    </div>
+
+    @Model.CommentRestriction
+
+    @if (Model.CanComment)
+    {
+        <div>
+            @using (Ajax.BeginForm("AddCongressVotingComment"
+                , new AjaxOptions()
+                {
+                    OnBegin = "Sociatis.AjaxBegin()",
+                    OnComplete = "Sociatis.AjaxEnd(); reloadComments();",
+                    OnFailure = "Sociatis.AjaxError(xhr.responseText)"
+                }))
+            { 
+                <div class="small-12 columns">
+                    <textarea class="form" name="Message"></textarea>
+                </div>
+                <input type="hidden" name="congressVotingID" value="@Model.VotingID"/> 
+                <button class="button blue pull-right">Send</button>
+            }
+        </div>
+    }
+</div>
+}
+
+@section scripts
+{
+    <script src="~/Scripts/congress/sociatis.congress.view_voting.js"></script>
+}
+

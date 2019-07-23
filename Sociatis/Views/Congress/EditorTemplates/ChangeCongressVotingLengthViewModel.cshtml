@@ -1,0 +1,9 @@
+﻿@model Sociatis.Models.Congress.ChangeCongressVotingLengthViewModel
+
+@{
+    ViewData.TemplateInfo.HtmlFieldPrefix = "";
+}
+
+@Html.LabelFor(m => m.NewCongressVotingLength)
+@Html.TextBoxFor(m => m.NewCongressVotingLength)
+@Html.ValidationMessageFor(m => m.NewCongressVotingLength)

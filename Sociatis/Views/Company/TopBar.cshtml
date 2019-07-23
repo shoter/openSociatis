@@ -1,0 +1,25 @@
+﻿@model Sociatis.Models.Companies.CompanyTobBarViewModel
+
+
+<div class="row">
+    <div class="small-4 columns">
+        @Html.DisplayFor(m => m.Avatar)
+    </div>
+    <div class="small-8 columns">
+        <p>
+            @Html.ActionLink(Model.Name, "View", new { ID = Model.CompanyID }, null)
+        </p>
+        <p>
+            @Model.RegionName , @Model.CountryName
+        </p>
+        <p>
+            @Html.ActionLink("Create Job Offer", "CreateJobOffer", new { ID = Model.CompanyID }, null)
+        </p>
+        @if (Model.IsWorkingHere)
+        {
+        <p>
+            @Html.ActionLink("Leave Job", "LeaveJob", new { ID = Model.CompanyID }, null)
+        </p>
+        }
+    </div>
+</div>

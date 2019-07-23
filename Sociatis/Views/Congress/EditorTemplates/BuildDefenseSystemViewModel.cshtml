@@ -1,0 +1,27 @@
+﻿@model Sociatis.Models.Congress.BuildDefenseSystemViewModel
+
+@{
+    ViewData.TemplateInfo.HtmlFieldPrefix = "";
+}
+
+<div class="row">
+    <div class="small-12 medium-6 columns">
+        @Html.LabelFor(m => m.RegionID)
+        @Html.DropDownListFor(m => m.RegionID, Model.RegionSelect)
+        @Html.ValidationMessageFor(m => m.RegionID)
+    </div>
+
+    <div class="small-12 medium-6 columns">
+        @Html.LabelFor(m => m.Quality)
+        @Html.DropDownListFor(m => m.Quality, Model.QualitySelect)
+        @Html.ValidationMessageFor(m => m.Quality)
+    </div>
+</div>
+<p>
+    Total gold cost: <span id="goldCostForDS"></span>
+</p>
+<script>
+    Sociatis.Global.DSGoldCost = @Model.GoldCost.ToJavascriptArray();
+    Sociatis.Global.DSCPCost = @Model.CPCost.ToJavascriptArray();
+</script>
+<script src="~/Scripts/congress/votings/sociatis.congress.votings.build_defense_system.js"></script>

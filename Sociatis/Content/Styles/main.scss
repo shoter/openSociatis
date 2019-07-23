@@ -1,0 +1,226 @@
+﻿@import "company.scss";
+@import 'partyInvites.scss';
+@import 'partyRequests.scss';
+@import 'country.scss';
+@import 'input.scss';
+@import "shoutbox.scss";
+@import "simplebar.scss";
+@import "gifts.scss";
+@import "trade.scss";
+@import "actionbar.scss";
+@import "region.scss";
+@import "hospital.scss";
+@import "embargo.scss";
+@import "issues.scss";
+@import "labels.scss";
+@import "uploader.scss";
+@import "upload.scss";
+@import "dialog.scss";
+@import "navigation.scss";
+@import "guest.scss";
+@import "mapedit.scss";
+@import "ContentBoxNew.scss";
+@import "Country/geography.scss";
+@import "utils/paddle.scss";
+@import "Citizen/view.scss";
+@import "Best/bestCitizens.scss";
+@import "Company/createCompany.scss";
+@import "Battle/main.scss";
+@import "Company/view.scss";
+@import "utils/eveInfo.scss";
+@import "utils/centering.scss";
+@import "utils/faButton.scss";
+@import "Country/national_constructions.scss";
+@import "Construction/construction.scss";
+@import "Hotel/HotelMain.scss";
+@import "House/housemain.scss";
+@import "Events/main.scss";
+
+.body-content
+{
+    padding-left: 15px;
+    padding-right: 15px;
+    max-width: 64rem;
+    margin-left: auto;
+    margin-right: auto;
+    margin-bottom: 5rem;
+
+    @include respond-to-only(mobile)
+    {
+        padding: 0;
+        margin: 0;
+        margin-bottom: 5rem;
+    }
+
+    @include respond-to(pc)
+    {
+        .body-content
+        {
+            max-width: 80rem;
+        }
+    }
+}
+
+.ContentBox
+{
+    @include respond-to-only(mobile)
+    {
+        margin: 0;
+    }
+}
+
+
+
+.fullWidth
+{
+    width: 100%;
+}
+
+.centerVerticalFlex
+{
+    display: flex;
+    align-items: center;
+}
+
+.centerHorizontalFlex
+{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+
+
+.halfWidth
+{
+    width: 50%;
+}
+
+.flex
+{
+    display: flex;
+}
+
+.asNowrap
+{
+    @extend .flex;
+    flex-wrap: nowrap
+}
+
+.asRow
+{
+    @extend .flex;
+    flex-direction: row
+}
+
+.asBaseline
+{
+    @extend .flex;
+    align-items: baseline;
+}
+
+.noWrap
+{
+    white-space: nowrap;
+}
+
+.noMobilePadding
+{
+    @include respond-to-only(mobile)
+    {
+        padding: 0 !important;
+    }
+}
+
+.noTabletPadding
+{
+    @include respond-to-only(tablet)
+    {
+        padding: 0 !important;
+    }
+}
+
+footer#footer
+{
+    overflow: hidden;
+
+    @include respond-to-only(pc)
+    {
+        position: fixed;
+        left: 0;
+        right: 0;
+        bottom: 0;
+    }
+
+    background-color: white;
+    border-top: 1px solid rgba(gray, 0.4);
+
+    .issues
+    {
+        float: left;
+    }
+
+    .copyrights
+    {
+        float: right;
+    }
+}
+
+.smallEntityAvatar
+{
+    display: flex;
+    justify-content: center;
+
+    img
+    {
+        width: 4rem;
+        height: 4rem;
+        border: 1px solid gray;
+    }
+}
+
+img.smallEntityAvatar
+{
+    width: 4em;
+    height: 4em;
+    border: 1px solid gray;
+}
+
+
+.milRank
+{
+    $color: rgba(black, 0.9);
+    font-size: 2.7rem;
+    color: rgb(74, 163, 65);
+    text-shadow: -1px 0 $color, 0 1px $color, 1px 0 $color, 0 -1px $color;
+    margin-right: 1rem;
+}
+
+.qualityStars
+{
+    @include productQuality();
+}
+
+.has-tip.no-tip
+{
+    border:none; 
+    position:relative;
+}
+
+.overflowTable
+{
+    overflow-x: auto;
+}
+
+.text
+{
+    .red
+    {
+        color: darkred;
+    }
+
+    .green
+    {
+        color: darkgreen;
+    }
+}

@@ -1,0 +1,38 @@
+﻿@model Sociatis.Models.Party.PartyJoinRequestsListViewModel
+
+@{
+    ViewBag.Title = "Join Requests";
+
+}
+
+@Html.DisplayFor(m => m.Info)
+
+<div class="ContentBox">
+    <h4>@ViewBag.Title</h4>
+    
+    @foreach (var request in Model.Requests)
+    {
+    <div class="partyRequest" data-requestid="@request.ID">
+        <div class="partyRequestAvatar">
+            <div>
+                @Html.DisplayFor(m => request.Avatar)
+                <div class="text-center">
+                    Day @request.RequestDay @request.RequestTime.ToShortTimeString()
+                </div>
+                <div class="flex">
+                    <button onclick="acceptJoinRequest(@request.ID)" style="width:50%" class="button green noMargin inlineDisplay">Accept</button>
+                    <button onclick="declineJoinRequest(@request.ID)" style="width:50%" class="button red noMargin inlineDisplay">Decline</button>
+                </div>
+            </div>
+        </div>
+        <div class="centerVerticalFlex partyRequestMessage">@Html.Raw(request.Message)</div>
+        
+    </div>
+    }
+
+</div>
+
+@section scripts {
+    <script src="~/Scripts/party/sociatis.party.requests.js"></script>
+    
+}

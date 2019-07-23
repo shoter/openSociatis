@@ -1,0 +1,17 @@
+﻿@model Sociatis.Models.ImageViewModel
+@{
+    var imgClass = Model.ImgClass;
+    if (ViewData["class"] != null)
+    {
+        imgClass += " " + ViewData["class"] as string;
+    }
+}
+
+@if(Model.Exists)
+{
+    <img class="@imgClass" src="@Model.Url" />
+}
+else
+{
+    <img class="@imgClass" src="~/Content/images/placeholder.png" />
+}

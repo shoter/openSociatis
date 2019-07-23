@@ -1,0 +1,68 @@
+﻿@model Sociatis.Models.Party.PartyCongressCandidateSectionViewModel
+@using Entities.enums;
+
+@Html.DisplayFor(m => m.Info)
+
+<div class="ContentBox">
+    <h4>Congress Candidates</h4>
+    <div class="row">
+        @Html.HiddenFor(m => m.PartyID)
+        <div class="small-12 columns">
+            @Html.DropDownList("CountryRegion", Model.CountryRegions)
+        </div>
+    </div>
+
+    <table>
+        <thead>
+            <tr>
+                <th STYLE="width:5rem" class="miniAvatars"></th>
+                <th>Name</th>
+                <th>Region Name</th>
+                @if(Model.CanAcceptCandidates)
+                {
+                    <th style="width:30px">Accept Candidate</th>
+                }
+                <th></th>
+            </tr>
+        </thead>
+        <tbody id="CandidatesTable">
+            <tr>
+                <td colspan="3">Select region to show party members candidates for desired region</td>
+            </tr>
+        </tbody>
+    </table>
+
+    @if(Model.CanCandidate)
+    {
+        <hr />
+        <div class="important">
+            You can candidate in <b>@Model.CandidateRegionName</b>.
+            <br/> <br/>
+            @using (Html.BeginForm("CandidateToCongress", RouteDataHelper.ControllerName, FormMethod.Post))
+            {
+            <button class="button green">Candidate</button>
+            }
+        </div>
+    }
+
+    @if(Model.VotingStatus == VotingStatusEnum.NotStarted)
+    {
+        <hr/>
+        <div>
+            Voting will be held at @Model.VotingDay@SuffixHelper.OrdinalNumber(Model.VotingDay) day. 
+            <br/>
+            @Model.DaysLeft @PluralHelper.Days(Model.DaysLeft) left
+        </div>
+    } else if(Model.VotingStatus == VotingStatusEnum.Ongoing)
+    {
+        <hr/>
+        <div>
+            Voting is in progress.
+        </div>
+    }
+</div>
+
+@section scripts
+{
+    @Scripts.Render("~/Scripts/Party/Sociatis.party.congress_candidates.js")
+}

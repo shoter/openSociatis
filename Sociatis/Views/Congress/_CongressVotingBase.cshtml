@@ -1,0 +1,45 @@
+﻿@model Sociatis.Models.Congress.Votings.ViewVotingBaseViewModel
+
+
+@Html.DisplayFor(m => m.Info)
+
+<div class="ContentBox">
+    <div class="row">
+        <div class="medium-3 small-4 columns">
+            <div class="yesVoters">
+                <h4>Supporters</h4>
+                @foreach(var voter in Model.YesVoters)
+                {
+                    <div>
+                        <span class="miniAvatars">
+                            @Html.DisplayFor(m => voter.Avatar)
+                        </span>
+                        <span>
+                            @voter.Name
+                        </span>
+                    </div>
+                }
+            </div>
+        </div>
+        <div class="medium-6 small-4 columns">
+            @Html.DisplayFor(m => m)
+        </div>
+        <div class="medium-3 small-4 columns">
+            <div class="noVoters">
+                <h4>Against</h4>
+                @foreach (var voter in Model.NoVoters)
+                {
+                    <div>
+                        <span class="miniAvatars">
+                            @Html.DisplayFor(m => voter.Avatar)
+                        </span>
+                        <span>
+                            @voter.Name
+                        </span>
+                    </div>
+                }
+            </div>
+        </div>
+    </div>
+
+</div>

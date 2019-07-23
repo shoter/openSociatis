@@ -1,0 +1,2 @@
+https://datatables.net/plug-ins/sorting/natural
+http://getcontenttools.com/

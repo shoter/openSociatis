@@ -1,0 +1,115 @@
+﻿@model Sociatis.Models.Citizens.ViewCitizenViewModel
+@{
+    ViewBag.Title = "View citizen";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+@Html.DisplayFor(m => m.Info)
+
+
+<div id="citizenView" class="row">
+    <div class="small-12 medium-5 large-4 columns">
+        <div class="ContentBox">
+            <h4 class="text-center">Statistics</h4>
+            <p class="text-center">
+                <div class="container-bar-full-big">
+                    <div id="citizenHPBar" class="hp-bar-big text-center" style="width : @Model.HitPoints%;">                      
+                    </div>
+                    <span class="BlendMix">
+                        @Model.HitPoints% HP
+                    </span>
+                </div>
+            </p>
+
+            <p class="text-center">
+                <div class="container-bar-full-big">
+                    <div id="citizenHPBar" class="exp-bar-big" style="width : @Model.ExperienceProgress%;">
+                    </div>
+                    <span class="BlendMix">
+                        @Model.Experience/@Model.NextLevelExperience Exp
+                    </span>
+                </div>
+            </p>
+
+
+            <div class="row">
+
+                <div class="small-12 columns">
+                    <div class="soc-flex-columns">
+                        <div class="text-center milRank">
+                            <i class="rank @Model.MilitaryRankIconCss"></i>
+
+                        </div>
+
+                        <div class="container-bar-full-big">
+                            <div id="citizenHPBar" class="military-bar-big" style="width : @Model.NextMilitaryRankProgress%;">
+                            </div>
+                            <span class="BlendMix">
+                                @Model.MilitaryRank/@Model.NextMilitaryRank MR
+                            </span>
+                        </div>
+                    </div>
+                </div>
+
+            </div><br />
+
+            <div class="row" data-equalizer>
+                <div class="large-3 medium-3 small-4 columns" data-equalizer-watch>
+                    <img src="~/Content/svg/fist.svg" />
+                </div>
+                <div class="large-9 medium-9 small-8 columns bold centerVerticalFlex" data-equalizer-watch>
+                    @Model.Strength Strength
+                </div>
+
+            </div>
+
+        </div>
+    </div>
+    <div class="small-12 medium-7 large-8 columns">
+        <div class="ContentBox">
+            <h4>Work statistics</h4>
+            <p>Manufacturing : @Model.Manufacturing.ToString("0.00")</p>
+            <p>Raw : @Model.Raw.ToString("0.00")</p>
+            <p>Construction : @Model.Construction.ToString("0.00")</p>
+            <p>Selling : @Model.Selling.ToString("0.00")</p>
+        </div>
+        <div id="citizenFriends" class="ContentBox">
+            <h4 class="text-center"><a href="@Url.Action("Friends", "Friend", new { citizenID = Model.Info.CitizenID })"><i class="fa fa-users" aria-hidden="true"></i> Friends</a></h4>
+            <h6 class="hint text-center">@Model.FriendCount Friend@(PluralHelper.S(Model.FriendCount))</h6>
+            <div id="friendsDisplayer" class="flexDisplayer @((Model.FriendCount == 1) ? "OneElement" : "")">
+            @foreach(var friend in Model.Friends)
+            {
+                     @Html.DisplayFor(m => friend)
+                }
+            </div>
+        </div>
+        <div class="ContentBox">
+            <h4 class="text-center">Medals</h4>
+            <div class="flex" style="justify-content:space-between">
+                @for (int i = 0; i < 7; ++i)
+                {
+                    <div>
+                        <img src="http://efdreams.com/data_images/dreams/medal/medal-09.jpg" width="80" height="80" />
+                    </div>
+                }
+
+
+            </div>
+
+            <p>Temporary medal list:</p>
+
+            <ul>
+                <li>Hard Worker medals - @Model.Medals.HardWorkerCount</li>
+                <li>Super Journalist medals - @Model.Medals.SuperJournalistCount</li>
+                <li>Congress medals - @Model.Medals.CongressCount</li>
+                <li>President medals - @Model.Medals.PresidentCount</li>
+                <li>Super Soldier medals - @Model.Medals.SuperSoldierCount</li>
+                <li>Battle Hero medals - @Model.Medals.BattleHeroCount</li>
+                <li>War Hero medals - @Model.Medals.WarHeroCount</li>
+                <li>Ressistance Hero medals - @Model.Medals.RessistanceHeroCount</li>
+            </ul>
+        </div>
+    </div>
+    
+</div>
+

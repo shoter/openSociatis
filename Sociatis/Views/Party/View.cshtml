@@ -1,0 +1,118 @@
+﻿@model Sociatis.Models.Party.ViewPartyViewModel
+@using Entities.enums;
+@{
+    ViewBag.Title = Model.OverallInfo.PartyName;
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+@Html.DisplayFor(m => m.OverallInfo)
+
+<div class="row">
+    <div class="small-12 medium-4 large-3 columns">
+        @if (Model.PartyRole != PartyRoleEnum.NotAMember && Model.JoinMethod == JoinMethodEnum.Invite)
+        {
+            <div class="ContentBox">
+                @using (Html.BeginForm("Invite", "Party", new { partyID = Model.PartyID }, FormMethod.Post))
+                {
+                    <h5> Invite </h5>
+                    @Html.Render(Model.InviteSelector)
+                    <hr />
+                    <text>
+                        Pending @Html.ActionLink(Model.PendingInvites + " invite" + PluralHelper.S(Model.PendingInvites), "PartyInvites", "Party", new { partyID = Model.PartyID }, null)
+                    </text>
+                }
+            </div>
+        }
+        <div class="ContentBox miniAvatars" id="partyMembers">
+            <h5>Members</h5>
+
+            @if (Model.President != null)
+            {
+                @:<h6>President</h6>
+                @Html.DisplayFor(m => m.President)
+                <hr />
+            }
+
+            @if (Model.Managers.Count > 0)
+            {
+                @:<h6>Managers</h6>
+                @Html.DisplayFor(m => m.Managers)
+                <hr />
+            }
+            @if (Model.Members.Count > 0)
+            {
+                @:<h6>Normal Members</h6>
+                @Html.DisplayFor(m => m.Members)
+                <hr />
+            }
+            @if (Model.OtherMemberCount > 0)
+            {
+                @:Click @Html.ActionLink("here", "Members", "Party", new { partyID = Model.PartyID }, null) to see @Model.OtherMemberCount other members.
+            }
+            else
+            {
+                @:This party has no other members.
+            }
+        </div>
+    </div>
+    @if (Model.PartyRole != PartyRoleEnum.NotAMember)
+    {
+        <div class="small-12 medium-8 large-9 columns">
+            <div class="ContentBox">
+                <h5>Party president voting</h5>
+
+
+                @if (Model.VotingStatus == VotingStatusEnum.NotStarted)
+                {
+                    <p>
+                        Party President voting will be held at @Model.VotingDay@SuffixHelper.OrdinalNumber(Model.VotingDay) day. <br />
+                        @Model.DaysLeft days left. <br />
+                    </p>
+                    if (Model.CanCandidate)
+                    {
+                        using (Html.BeginForm("Candidate", "Party", FormMethod.Post))
+                        {
+                            @Html.HiddenFor(m => m.PartyID)
+                            <button class="button green">Candidate</button>
+                        }
+                    }
+                    else if (Model.IsCandidate)
+                    {
+                        <p>
+                            You are actual candidate for upcoming party president voting.
+                        </p>
+                    }
+
+                    <p>
+                        Click @Html.ActionLink("Here", "Candidates", new { partyID = Model.PartyID }) to see the candidates.
+                    </p>
+                }
+                else
+                {
+                    <p>
+                        Voting is being held today.
+                    </p>
+                    <p>
+                        @if (Model.Voted == false)
+                        {
+                            @Html.ActionLink("Vote!", "Candidates", new { partyID = Model.PartyID }, new { @class = "button" })
+                        }
+                        else
+                        {
+                            @:You already voted. <br />
+                            @:Click @Html.ActionLink("Here", "Candidates", new { partyID = Model.PartyID }) to see the candidates.
+                    }
+                    </p>
+                }
+            </div>
+        </div>
+    }
+</div>
+
+@section scripts
+{
+    @Scripts.Render("~/bundles/select2")
+    @Styles.Render("~/Content/select2")
+
+    <script src="~/Scripts/party/sociatis.party.view.js"></script>
+}

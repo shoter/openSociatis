@@ -1,0 +1,16 @@
+﻿@model Sociatis.Models.Congress.Votings.ViewRemoveNationalCompanyViewModel
+
+<h4>
+    Proposition #@Model.VotingID : Remove company <b>
+        @if (Model.Exists)
+        {
+            @Html.ActionLink(Model.CompanyName, "View", "Company", new { companyID = Model.CompanyID }, null)
+        }
+        else
+        {
+            @Model.CompanyName
+        }
+
+    </b>
+</h4>
+by @Html.ActionLink(Model.CreatorName, "View", "Citizen", new { citizenID = Model.CreatorID }, null)

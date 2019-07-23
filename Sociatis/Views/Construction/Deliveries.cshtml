@@ -1,0 +1,77 @@
+﻿@model Sociatis.Models.Constructions.ConstructionDeliveriesViewModel
+
+@Html.DisplayFor(m => m.Info)
+
+<div class="contentBox">
+    <h4>Deliveries</h4>
+
+    <table id="constructionDeliveriesTable">
+    </table>
+</div>
+
+<script>
+    $(function () {
+        var $table = $("#constructionDeliveriesTable");
+        var dt = $table.dataTable({
+            serverSide: true,
+            ajax: {
+                url: "/Construction/DeliveriesAjax",
+                type: "POST",
+                data: function (data) {
+                    data.constructionID = @Model.Info.ConstructionID;
+                }
+            },
+            order: [[0, "desc"]],
+            columnDefs:
+            [{
+                render: function (data, type, row) {
+                    return "Day " + data + " " + row.time
+                },
+                targets: 0
+            },{
+                render: function (data, type, row) {
+                    return "<a href='/entity/" + data + "'>" + row.orderedName + "</a>";
+                },
+                targets: 3
+            }],
+            columns: [
+                {
+                    name: 'day',
+                    data: "day",
+                    title: "Date",
+                    sortable: true,
+                    searchable: false
+                },
+                {
+                    name: 'amount',
+                    data: "amount",
+                    title: "Amount",
+                    sortable: false,
+                    searchable: false
+                },
+                {
+                    name: 'cost',
+                    data: "cost",
+                    title: "Overall price",
+                    sortable: false,
+                    searchable: false
+                },
+                {
+                    name: 'orderedID',
+                    data: "orderedID",
+                    title: "Ordered By",
+                    sortable: false,
+                    searchable: false
+                },
+                {
+                    name: 'productName',
+                    data: "productName",
+                    title: "Product",
+                    sortable: false,
+                    searchable: false
+                },
+                ]
+        });
+
+    });
+</script>

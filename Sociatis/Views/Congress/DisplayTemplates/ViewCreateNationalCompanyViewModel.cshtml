@@ -1,0 +1,7 @@
+﻿@model Sociatis.Models.Congress.Votings.ViewCreateNationalCompanyViewModel
+
+<h4>Proposition #@Model.VotingID : 
+    Create new company named @Model.CompanyName in @Model.RegionName.
+    @Model.ShopDomain </h4>
+
+by @Html.ActionLink(Model.CreatorName, "View", "Citizen", new { citizenID = Model.CreatorID }, null)

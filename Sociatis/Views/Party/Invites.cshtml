@@ -1,0 +1,40 @@
+﻿@model Sociatis.Models.Party.PartyInviteListViewModel
+@{
+    ViewBag.Title = "Invites";
+}
+<div class="ContentBox">
+    <h3>Party invites</h3>
+
+    @Html.ActionLink("Create party", "Create", "Party", new { @class = "button blue" })
+
+    @foreach (var invite in Model.Invites)
+    {
+        <div class="partyInvite">
+            <div class="row" data-equalizer>
+                <div class="small-11 columns centerVerticalFlex" data-equalizer-watch>
+                    @Html.DisplayFor(m => invite.PartyAvatar)
+                    @Html.ActionLink(invite.PartyName, "View", "Party", new { partyID = invite.PartyID }, null)
+                </div>
+                <div class="small-1 columns noselect" data-equalizer-watch>
+                    <span style="margin-right:1rem">
+                        <a data-inviteid="@invite.InviteID" onclick="acceptInvite(this)">
+                            <i class="fa fa-check green"></i>
+                        </a>
+                    </span>
+                    <span style="margin-right:1rem">
+                        <a data-inviteid="@invite.InviteID" onclick="declineInvite(this)">
+                            <i class="fa fa-times red"></i>
+                        </a>
+                    </span>
+                </div>
+            </div>
+            
+        </div>
+    }
+
+</div>
+
+@section scripts
+{
+    <script src="~/Scripts/party/sociatis.party.invites.js"></script>
+}

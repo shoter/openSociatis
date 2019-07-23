@@ -1,0 +1,211 @@
+﻿$rowBackground: #f5f4f0;
+$rowBorder: rgb(82, 65, 26);
+$itemBackground: rgba(128, 128, 128, 0.11);
+$mediumScreen: 40em;
+$largeScreen: 64em;
+$hintColor: gray;
+
+
+
+$borderDecalColor: rgba($rowBorder, 0.4);
+$backgroundDecalColor: rgba($rowBackground , 0.41);
+
+$successColor: #20a320;
+$successBackground: rgba($successColor, .1);
+$successBorder: rgba(darken($successColor, 10%), 0.4);
+
+$infoColor: rgb(0, 116, 194);
+$infoBackground: rgba($infoColor, .1);
+$infoBorder: rgba(darken($infoColor, 10%), 0.4);
+
+$dangerColor: red;
+$dangerBackground: rgba($dangerColor, .1);
+$dangerBorder : rgba(darken($dangerColor, 10%), 0.4);
+
+@mixin respond-to-only($media)
+{
+    @if $media == mobile
+    {
+        @media only screen and (max-width: $mediumScreen)
+        {
+            @content;
+        }
+    }
+    @else if $media == tablet
+    {
+        @media only screen and (min-width: $mediumScreen) and (max-width: $largeScreen - 1)
+        {
+            @content;
+        }
+    }
+    @else if $media == pc
+    {
+        @media only screen and (min-width: $largeScreen)
+        {
+            @content;
+        }
+    }
+}
+
+@mixin respond-to($media)
+{
+    @if $media == mobile
+    {
+        @media only screen and (max-width: $mediumScreen)
+        {
+            @content;
+        }
+    }
+    @else if $media == tablet
+    {
+        @media only screen and (min-width: $mediumScreen)
+        {
+            @content;
+        }
+    }
+    @else if $media == pc
+    {
+        @media only screen and (min-width: $largeScreen)
+        {
+            @content;
+        }
+    }
+}
+
+@mixin box-shadow($shadow...)
+{
+    -webkit-box-shadow: $shadow;
+    -moz-box-shadow: $shadow;
+    box-shadow: $shadow;
+}
+
+@mixin transform($transforms)
+{
+    -moz-transform: $transforms;
+    -o-transform: $transforms;
+    -ms-transform: $transforms;
+    -webkit-transform: $transforms;
+    transform: $transforms;
+}
+
+@mixin transition($transition...)
+{
+    -moz-transition: $transition;
+    -o-transition: $transition;
+    -webkit-transition: $transition;
+    transition: $transition;
+}
+
+@mixin centerVerticalFlex
+{
+    display: flex;
+    align-items: center;
+}
+
+@mixin centerHorizontalFlex
+{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+@mixin no-select
+{
+    -webkit-touch-callout: none;
+    -webkit-user-select: none;
+    -khtml-user-select: none;
+    -moz-user-select: none;
+    -ms-user-select: none;
+    user-select: none;
+}
+
+@mixin box-sizing($sizing)
+{
+    -webkit-box-sizing: $sizing;
+    -moz-box-sizing: $sizing;
+    box-sizing: $sizing;
+}
+
+@mixin column-count($count)
+{
+    -webkit-column-count: $count;
+    -moz-column-count: $count;
+    column-count: $count;
+}
+
+@mixin column-width($width)
+{
+    -webkit-column-width: $width;
+    -moz-column-width: $width;
+    column-width: $width;
+}
+
+@mixin column-gap($gap)
+{
+    -webkit-column-width: $gap;
+    -moz-column-width: $gap;
+    column-width: $gap;
+}
+
+@mixin column-rule($rule)
+{
+    -webkit-column-rule: $rule;
+    -moz-column-rule: $rule;
+    column-rule: $rule;
+}
+
+@mixin productImageStyle
+{
+    background-color: $itemBackground;
+    border: 1px solid rgba($rowBorder, 0.21);
+    border-radius: 3px;
+}
+
+@mixin productQuality
+{
+    
+    text-align: center;
+    color: yellow;
+    text-shadow: -1px 0 black, 0 1px black, 1px 0 black, 0 -1px black;
+}
+
+
+
+@mixin placeholder
+{
+    ::-webkit-input-placeholder
+    {
+        @content
+    }
+
+    :-moz-placeholder
+    {
+        @content
+    }
+
+    ::-moz-placeholder
+    {
+        @content
+    }
+
+    :-ms-input-placeholder
+    {
+        @content
+    }
+}
+
+@mixin border-radius-all($topleft, $topright, $bottomright, $bottomleft)
+{
+    border-top-left-radius: $topleft;
+    border-top-right-radius: $topright;
+    border-bottom-right-radius: $bottomright;
+    border-bottom-left-radius: $bottomleft;
+    -webkit-border-top-left-radius: $topleft;
+    -webkit-border-top-right-radius: $topright;
+    -webkit-border-bottom-right-radius: $bottomright;
+    -webkit-border-bottom-left-radius: $bottomleft;
+    -moz-border-radius-topleft: $topleft;
+    -moz-border-radius-topright: $topright;
+    -moz-border-radius-bottomright: $bottomright;
+    -moz-border-radius-bottomleft: $bottomleft;
+}

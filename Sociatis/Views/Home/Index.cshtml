@@ -1,0 +1,194 @@
+﻿@model Sociatis.Models.Home.HomeIndexViewModel
+
+@{
+    ViewBag.Title = "Home Page";
+}
+
+<div class="row">
+        <div class="small-12 large-8 columns">
+            <div>
+                @if(Model.IsCongressVotingDay)
+                {
+                    <div class="ContentBox">
+                        <h4>Congress voting</h4>
+                        <p>Today is a congress voting</p>
+                        @if(Model.CanVote)
+                        {
+                            <a href="@Url.Action("CongressCandidates", "Congress", new { countryID = Model.CountryID })" class="button blue">Vote!</a>
+                        }
+                        else
+                        {
+                            <a href="@Url.Action("CongressCandidates", "Congress", new { countryID = Model.CountryID })" class="button blue">See candidates</a>
+                        }
+                    </div>
+                }
+                @if (Model.IsPartyPresidentElectionDay)
+                {
+                    <div class="ContentBox">
+                        <h4>Party president voting</h4>
+                        <p>Today is a party president voting</p>
+                        @if (Model.CanVoteInPartyPresidentElections)
+                        {
+                            <a href="@Url.Action("Candidates", "Party", new { partyID = Model.CitizenPartyID })" class="button blue">Vote!</a>
+                        }
+                        else
+                        {
+                            <a href="@Url.Action("Candidates", "Party", new { partyID = Model.CitizenPartyID })" class="button blue">See candidates</a>
+                        }
+                    </div>
+                }
+                @if (Model.IsPresidentElectionDay)
+                {
+                    <div class="ContentBox">
+                        <h4>President voting</h4>
+                        <p>Today is a president voting</p>
+                        @if (Model.CanVoteInPresidentElections)
+                        {
+                            <a href="@Url.Action("PresidentCandidates", "Country", new { countryID = Model.CountryID })" class="button vote">Vote!</a>
+                        }
+                        else
+                        {
+                            <a href="@Url.Action("PresidentCandidates", "Country", new {countryID = Model.CountryID})" class="button vote">See candidates</a>
+                        }
+                    </div>
+                }
+                @if (Model.DisplayDebug)
+                {
+                <div class="ContentBox">
+                    <a id="IWantTrainAgain" href="@Url.Action("IWantTrainAgain", "Game")" class="button blue">I want train</a>
+                    <a id="IWantWorkAgain" href="@Url.Action("IWantWorkAgain", "Game")" class="button blue">I want work</a>
+                    <br/>
+                    <a id="GiveMeMoney" href="@Url.Action("GiveMeMoney", "Game")" class="button blue">100kk gold pls</a>
+                    <a id="GiveMeHealth" href="@Url.Action("GiveMeHealth", "Game")" class="button blue">Mummy I am hurt.</a>
+                    <br/>
+                    <a href="@Url.Action("Info", "Game")" class="button blue">My info</a>
+                    @using (Html.BeginForm("GiveProduct", "Game"))
+                    {
+                        <select name="productTypeID">
+                            @foreach (var product in Model.Products)
+                            {
+                                <option value="@product.Value">@product.Text</option>
+                            }
+                        </select>
+
+                        <select name="quality">
+                            @for (int i = 1; i <= 5; ++i)
+                            {
+                                <option value="@i">@i</option>
+                            }
+                        </select>
+
+                        <input type="number" name="amount" />
+                        <button class="button blue">Give me</button>
+                    }
+                    <hr/>
+                    Give money
+                    @using (Html.BeginForm("AddMeMoneySuka", "Game"))
+                    {
+                        <select name="moneySukaID">
+                            @foreach (var currency in Model.Currencies)
+                            {
+                                <option data-sukamoney value="@currency.Value">@currency.Text</option>
+                            }
+                            
+                        </select>
+                        <input name="amount" type="number" placeholder="How much money do you want?" /><br/>
+                        <button class="button green">Give me money</button>
+                    }
+
+                    <hr/>
+                    @using (Html.BeginForm("GiveMeVoting", "Game"))
+                    {
+                        <button class="button green">Give me voting powaaah</button>
+                    }
+                    <hr/>
+                    Debug : @Model.LastDayChange
+                </div>
+                }
+            </div>
+
+            @if (Model.Events.Count > 0)
+            {
+                <div class="ContentBox">
+                    <h3>Country events</h3>
+
+                    @foreach (var e in Model.Events)
+                    {
+                        <div class="gameEvent">
+                            @Html.DisplayFor(m => e)
+                            <div class="clearfix"></div>
+                        </div>
+                    }
+                </div>
+            }
+            @if (Model.ActiveBattles.Count > 0)
+            {
+            <div class="ContentBox">
+                <div class="ContentBox">
+                    <h3>Active battles</h3>
+
+                    @Html.DisplayFor(m => m.ActiveBattles)
+                </div>
+            </div>
+                }
+
+
+            <div class="ContentBox">
+                <h3>Articles</h3>
+                <ul class="tabs" data-tabs id="articles-tabs">
+                    <li class="tabs-title is-active"><a href="#articles-admin" aria-selected="true">Admin</a></li>
+                    <li class="tabs-title"><a href="#articles-popular">Popular</a></li>
+                    <li class="tabs-title"><a href="#articles-newest">Newest</a></li>
+                </ul>
+
+                <div class="tabs-content" data-tabs-content="articles-tabs">
+                    <div class="tabs-panel is-active" id="articles-admin">
+                        @Html.DisplayFor(m => m.AdminArticles)
+
+                    </div>
+                    <div class="tabs-panel" id="articles-popular">
+                        @Html.DisplayFor(m => m.PopularArticles)
+                    </div>
+                    <div class="tabs-panel" id="articles-newest">
+                        @Html.DisplayFor(m => m.NewArticles)
+                    </div>
+                </div>
+
+            </div>
+        </div>
+    <div class="small-12 large-4 columns shoutboxColumn">
+        <div id="shoutbox" class="ContentBox">
+            <h4>Shoutbox</h4>
+            <div id="shoutbox" class="shoutbox">
+                <div  id="shoutboxChannels" class="shoutboxChannels simplebar-horizontal-only">
+                    <div id="shoutboxChannelList" onclick="Sociatis.Shoutbox.OpenChannels()" id="shoutboxJoinChannel" class="shoutboxChannel" style="padding:0.5rem">
+                        <div  class="shoutboxChannelName centerVerticalFlex text-center">
+                            <i class="fa fa-bars" aria-hidden="true"></i>
+                        </div>
+                    </div>
+                </div>
+                <div id="shoutboxNewMessage" class="shoutboxNewMessage hide" >
+                    <textarea id="shoutboxNewMessageText" placeholder="After typing message click enter to send"></textarea>
+                </div>
+                <div  id="shoutboxContent" class="shoutboxContent">
+
+                </div>
+            </div>
+        </div>
+    </div>
+        
+</div>
+
+
+@section scripts
+{
+    @Html.Partial("~/Views/Shoutbox/ShoutboxMessage.cshtml")
+    @Html.Partial("~/Views/Shoutbox/ShoutboxChannel.cshtml")
+    @Html.Partial("~/Views/Shoutbox/ShoutboxSubscribe.cshtml")
+    <script src="~/Scripts/home/sociatis.index.js"></script>
+
+    @Styles.Render("~/Content/scrolling")
+    @Scripts.Render("~/scripts/scrolling")
+
+}
+

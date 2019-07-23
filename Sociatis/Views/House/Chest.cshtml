@@ -1,0 +1,48 @@
+﻿@model Sociatis.Models.Houses.HouseChestViewModel
+@using Sociatis.Models.Equipment
+@{
+    ViewBag.Title = Model.Info.OwnerName + "'s house chest";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+@Html.DisplayFor(m => m.Info)
+
+<div class="row ContentBox inventory">
+
+    <h1>@Model.Info.OwnerName's inventory (@Model.CitizenEquipment.ItemCount/@Model.CitizenEquipment.ItemCapacity)</h1>
+
+    <hr />
+
+    <div class="equipment">
+
+        <div class="row small-up-2 medium-up-3 large-up-4 equipmentRow">
+            @foreach (var item in Model.CitizenEquipment.Items)
+            {
+                <div class="column column-block">
+                    @Html.DisplayFor(m => item, new { isChest = false, houseID = Model.Info.HouseID })
+                </div>
+            }
+        </div>
+    </div>
+</div>
+
+<div id="houseChest" class="row ContentBox chest">
+    <h1>@ViewBag.Title (@Model.ChestEquipment.ItemCount/@Model.ChestEquipment.ItemCapacity)</h1>
+
+    <div class="equipment">
+
+        <div class="row small-up-2 medium-up-3 large-up-4 equipmentRow">
+            @foreach (var item in Model.ChestEquipment.Items)
+            {
+                <div class="column column-block">
+                    @Html.DisplayFor(m => item, new { isChest = true, houseID = Model.Info.HouseID })
+                </div>
+            }
+        </div>
+    </div>
+</div>
+
+@section scripts
+{
+    <script src="~/Scripts/House/sociatis.house.chest.js"></script>
+}

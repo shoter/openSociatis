@@ -1,0 +1,9 @@
+﻿@model Sociatis.Models.Congress.ChangeCongressCadenceLengthViewModel
+
+@{
+    ViewData.TemplateInfo.HtmlFieldPrefix = "";
+}
+
+@Html.LabelFor(m => m.NewCadenceLength)
+@Html.TextBoxFor(m => m.NewCadenceLength)
+@Html.ValidationMessageFor(m => m.NewCadenceLength)

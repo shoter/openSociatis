@@ -1,0 +1,60 @@
+﻿@model Sociatis.Models.CompanyFinances.DaySummaryViewModel
+
+@{
+    ViewBag.Title = Model.Info.CompanyName + "'s finances";
+
+    
+}
+
+@Html.Partial("~/Views/Company/DisplayTemplates/CompanyInfoViewModel.cshtml", Model.Info)
+
+<div class="contentBox">
+    <h4>Day @Model.Day finance summary</h4>
+    @if (Model.CurrencySummaries.Count() > 0)
+    {
+    <div class="overflowTable">
+        <table>
+            <thead>
+                <tr>
+                    <th>
+                        Currency
+                    </th>
+                    <th>Sell Revenue</th>
+                    <th>Salaries</th>
+                    <th>Gift balance</th>
+                    <th>Trade balance</th>
+                    <th>Import taxes</th>
+                    <th>Export taxes</th>
+                    <th>Job offer costs</th>
+                    <th>Market offer costs</th>
+                    <th>Total</th>
+                </tr>
+            </thead>
+            <tbody>
+                @foreach (var item in Model.CurrencySummaries)
+                {
+                    var f = item.Finance;
+                    <tr>
+                        <td>@item.CurrencySymbol</td>
+                        <td class="@(f.SellRevenue > 0 ? "text green" : "")">@f.SellRevenue</td>
+                        <td class="@(f.SalaryCost > 0 ? "text red" : "")">@f.SalaryCost</td>
+                        <td class="@(f.GiftBalance != 0 ? "text " + Model.getColor(f.GiftBalance) : "")">@f.GiftBalance</td>
+                        <td class="@(f.TradeBalance != 0 ? "text " + Model.getColor(f.TradeBalance) : "")">@f.TradeBalance</td>
+                        <td class="@(f.ImportTax > 0 ? "text red" : "")">@f.ImportTax</td>
+                        <td class="@(f.ExportTax > 0 ? "text red" : "")">@f.ExportTax</td>
+                        <td class="@(f.JobOfferCost > 0 ? "text red" : "")">@f.JobOfferCost</td>
+                        <td class="@(f.MarketOfferCost > 0 ? "text red" : "")">@f.MarketOfferCost</td>
+                        <td class="@(f.Total != 0 ? "text " + Model.getColor(f.Total) : "")">@f.Total</td>
+                    </tr>
+                }
+            </tbody>
+        </table>
+
+    </div>
+    }
+    else
+    {
+        <h2>No cash flow was registered this day</h2>
+    }
+
+</div>

@@ -1,0 +1,36 @@
+﻿@model Sociatis.Models.Country.CountryCompanyOnViewViewModel
+@using Sociatis.Models.Entit
+
+<div class="column column-block">
+    <div class="countryCompanyOnView">
+        <div class="row collapse">
+            <div class="small-12 medium-3 large-4 columns">
+                @Html.Partial("~/Views/Shared/DisplayTemplates/SmallEntityAvatarViewModel.cshtml", Model)
+            </div>
+            <div class="small-12 medium-9 large-8 columns">
+                <div class="companyInformations">
+                    <div>
+                        @if (Model.WorkersCount > 0)
+                        {
+                            <text>
+                                Company is hiring @Model.WorkersCount worker@(PluralHelper.S(Model.WorkersCount)).
+                            </text>
+                        }
+                        else
+                        {
+                            <text>
+                                Company is not hiring anyone.
+                            </text>
+                        }
+                    </div>
+                    <div>
+                        @Html.Raw(Model.ShortDescription)
+                    </div>
+                    <div>
+                        Constructed at day <span class="creationDay">@Model.ConstructionDay</span>.
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>

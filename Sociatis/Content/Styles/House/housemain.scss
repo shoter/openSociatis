@@ -1,0 +1,37 @@
+﻿@import "furniture.scss";
+@import "sellhouse.scss";
+
+#houseIndex
+{
+    .house
+    {
+        margin-bottom: 1rem;
+        border: 1px solid rgba(128, 128, 128, 0.32);
+        border-radius: 0.5em 0.5em;
+        @include box-shadow(2px 2px 2px 1px rgba(194,194,194,0.3));
+        padding: 0.5rem 1rem;
+
+        .houseCol
+        {
+            @include respond-to-only(pc)
+            {
+                margin-top: 1rem;
+            }
+
+            @include respond-to-only(tablet)
+            {
+                margin-top: 0.5rem;
+            }
+        }
+
+        .isInside
+        {
+            display:inline-block;
+            border-radius: 2px;
+            border: darken(green, 5%) 1px solid;
+            background-color: lighten(green, 65%);
+            color: darken(green, 25%);
+            padding: 0.2rem 0.4rem;
+        }
+    }
+}

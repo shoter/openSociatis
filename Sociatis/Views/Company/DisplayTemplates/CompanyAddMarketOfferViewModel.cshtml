@@ -1,0 +1,46 @@
+﻿@model Sociatis.Models.Companies.CompanyAddMarketOfferViewModel
+
+
+@using (Html.BeginForm(RouteDataHelper.ActionName, RouteDataHelper.ControllerName, FormMethod.Post))
+{
+    <div class="ContentBox">
+        <h3>Create market offer</h3>
+
+        <input type="hidden" id="companyID" name="companyID" value="@Model.Info.CompanyID" />
+        @Html.ValidationSummary()
+        <div class="addMarketOffer">
+            @Html.DropDownListFor(m => m.ProductID, Model.Products)
+            <select id="Quality" name="Quality"></select>
+            @Html.TextBoxFor(m => m.Amount, new { placeholder = "Amount" })
+            @Html.TextBoxFor(m => m.Price, new { placeholder = "Price" })
+        </div>
+
+        <div id="CalculateCost">
+
+        </div>
+
+        <h4>Public market</h4>
+        @Html.DropDownListFor(m => m.CountryID, Model.Countries)
+
+        <div id="MarketFee">
+            Free
+        </div>
+
+        <div id="freeHint">
+            Without market offer your offer will not be visible across a country. Your buyer will need to go to your company offer page to see it. <br /> <br />
+            Additionaly you are running a shop and your offer will be available to sell only in the region where your shop is located.
+        </div>
+
+        <text class="hint">
+            This window will be moved into popup ... later.
+        </text>
+
+        <button class="button green pull-right">Create</button>
+
+    </div>
+}
+
+<script type="text/javascript">
+    ProductQualityList = @Html.Raw(Json.Encode ( Model.ProductQualities ));
+    CompanyID = @Model.Info.CompanyID;
+</script>

@@ -1,0 +1,49 @@
+﻿@model Sociatis.Models.Companies.Managers.ManagerViewModel
+@using Entities.enums;
+<div class="manager">
+    <div class="avatar">
+        @Html.DisplayFor(m => m.Avatar)
+        @if (Model.Rights.Priority != int.MaxValue)
+            {
+            <div class="priority">
+                @if (Model.ReadOnly)
+                {
+                    <span class="has-tip" data-tooltip title="Managers with higher priority can manage managers with lower priority if they have manage managers rights.">Priority: @Model.Rights.Priority</span>
+                }
+                else
+                {
+                    <span class="has-tip" data-tooltip title="Managers with higher priority can manage managers with lower priority if they have manage managers rights.">
+                        Priority
+                    </span>
+                        <br />
+                        <input data-managerid="@Model.ManagerID" data-priority value="@Model.Rights.Priority" />
+                }
+            </div>
+        }
+    </div>
+
+    <div class="title">
+        @Model.Title
+    </div>
+
+    <div class="row small-up-1 medium-up-2 rights">
+        @foreach (var right in Enum.GetValues(typeof(CompanyRightsEnum)).Cast<CompanyRightsEnum>())
+        {
+            <div class="column column-block right">
+                <input data-managerid="@Model.ManagerID" data-rights value="@((int)right)" @(Model.ReadOnly ? "disabled" : "") type="checkbox" @(Model.Rights[right] ? "checked" : "") /> @right.ToHumanReadable()
+            </div>
+        }
+    </div>
+
+    <div class="buttons">
+        @if (Model.ReadOnly == false)
+        {
+            using (Html.BeginForm("RemoveManager", "Company", new { managerID = Model.ManagerID }))
+            {
+                <button class="button red">Remove manager</button>
+            }
+            <button disabled class="button green disabled" data-managerid="@Model.ManagerID" onclick="Sociatis.Company.ChangeManager(@Model.ManagerID)">Save changes</button>
+        }
+    </div>
+
+</div>

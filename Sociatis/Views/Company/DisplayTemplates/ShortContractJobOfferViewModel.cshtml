@@ -1,0 +1,41 @@
+﻿@model Sociatis.Models.Companies.ShortContractJobOfferViewModel
+
+<tr>
+    <td>
+        @Model.Amount
+    </td>
+    <td>
+        @Model.Skill
+    </td>
+    <td>
+        @Model.MinSalary
+    </td>
+    <td class="minSize">
+        @Ajax.ActionLink("Show details", "", "", new AjaxOptions()
+   {
+       HttpMethod = "Get",
+       Url = Url.Action("ContractDetails", new { contractID = Model.JobID }),
+       OnBegin = "$.blockUI();",
+       OnComplete = "$.unblockUI();",
+       OnSuccess = "showContract();",
+       InsertionMode = InsertionMode.Replace,
+       UpdateTargetId = "contractDialog",
+       
+
+   }, new { href = "#!", @class = "button blue"}
+
+
+
+       )
+    </td>
+    @if (Model.CompanyRights.CanPostJobOffers)
+    {
+    <td>
+        @using (Html.BeginForm("DeleteJobOffer", RouteDataHelper.ControllerName, FormMethod.Post))
+        {
+            <input type="hidden" name="jobOfferID" value="@Model.JobID" />
+            <button name="jobOfferDelete" class="button red">Delete offer</button>
+        }
+    </td>
+    }
+</tr>

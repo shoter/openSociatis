@@ -1,0 +1,24 @@
+﻿@model Sociatis.Models.Organisation.OrganisationInfoViewModel
+
+@{
+    ViewData.TemplateInfo.HtmlFieldPrefix = "";
+}
+
+<div id="overallInfo" class="row ContentBox">
+    <div class="row">
+        <div class="small-3 medium-4 columns">
+            <div class="infoAvatar">
+                @Html.DisplayFor(m => m.Avatar)
+            </div>
+        </div>
+        <div class="small-9 medium-8 columns">
+            <h5>@Html.ActionLink(Model.OrganisationName, "View", RouteDataHelper.ControllerName, new { organisationID = Model.OrganisationID }, null)</h5>
+            <h5>
+                @Html.ActionLink(Model.CountryName, "View", "Country", new { countryID = Model.CountryID }, null)
+            </h5>
+            <h5>Owner : @Model.OwnerName</h5>
+        </div>
+    </div>
+    @Html.DisplayFor(m => m.Menu)
+
+</div>

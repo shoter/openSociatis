@@ -1,0 +1,79 @@
+﻿@using WebServices.Models
+@using WebServices.enums
+
+@{
+    var messages = TempData["Messages"];
+    List<PopupMessageViewModel> messageList = null;
+    if (messages != null)
+    {
+        messageList = messages as List<PopupMessageViewModel>;
+    }
+    else
+    {
+        messageList = new List<PopupMessageViewModel>();
+    }
+}
+
+<!DOCTYPE html>
+<html>
+<head>
+    <link rel="shortcut icon" href="~/Content/images/icons/favicon.ico" type="image/x-icon">
+    <link rel="icon" href="~/Content/images/icons/favicon.ico" type="image/x-icon">
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>@ViewBag.Title</title>
+    @Styles.Render("~/Content/css")
+    @RenderSection("css", required: false)
+    @Scripts.Render("~/bundles/modernizr")
+
+    @Scripts.Render("~/bundles/jquery")
+    @Scripts.Render("~/bundles/foundation")
+    @Scripts.Render("~/scripts/global")
+    <script type="text/javascript">
+        $(document).ready(function () {
+            $(document).foundation();
+        });
+    </script>
+    @RenderSection("scripts", required: false)
+
+</head>
+<body id="guest">
+
+    <div class="row">
+        <div class="small-12 columns noHorizontalPadding" id="popupMessageList">
+            @foreach (var message in messageList)
+            {
+                <div class="popupMessage @message.MessageType.GetMessageClass()">
+                    <div class="close"><i class="fa fa-close"></i></div>
+                    <div class="message">
+                        @Html.Raw(message.Content)
+                    </div>
+                </div>
+            }
+        </div>
+    </div>
+
+    <div class="container body-content">
+
+        @RenderBody()
+
+        <div style="clear:both"></div>
+    </div>
+
+    <footer id="footer">
+        <div class="issues">
+            <a href="@Url.Action("ReportBug", "Bug")" class="">
+                Report bug
+            </a>
+        </div>
+        <div class="copyrights"> &copy; @DateTime.Now.Year - Sociatis. All rights reserved.</div>
+
+    </footer>
+
+
+
+    @Scripts.Render("~/Scripts/utils/sociatis.utils.message.js")
+
+</body>
+
+</html>

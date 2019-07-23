@@ -1,0 +1,4 @@
+﻿@model Sociatis.Models.Congress.Votings.ViewChangeContractJobMarketFeeViewModel
+
+<h4>Proposition #@Model.VotingID : Change contract job fee to <b>@Model.NewJobFee</b> @Model.CurrencySymbol</h4>
+by @Html.ActionLink(Model.CreatorName, "View", "Citizen", new { citizenID = Model.CreatorID }, null)

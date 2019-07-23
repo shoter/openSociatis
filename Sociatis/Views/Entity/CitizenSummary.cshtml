@@ -1,0 +1,137 @@
+﻿
+@model Sociatis.Models.Citizens.CitizenSummaryViewModel
+@using Sociatis.Helpers
+@using Weber.Helpers
+<div class="summaryAvatar">
+    @Html.DisplayFor(m => m.Avatar)
+</div>
+<div class="text-center">
+    @Html.ActionLink(Model.Name, "View", "Citizen", new { CitizenID = Model.CitizenID }, null)
+</div>
+<div class="summaryIcons">
+    <a class="relative" href="@Url.Action("Index", "Message")">
+        <i class="fa fa-envelope-o @(Model.UnreadMessages > 0?"red":"")" aria-hidden="true"></i>
+        @if (Model.UnreadMessages > 0)
+        {
+            <span class="text red">@Model.UnreadMessages</span>
+        }
+    </a>
+    <a href="@Url.Action("Index", "Warning")">
+        <i class="fa fa-exclamation-circle @(Model.UnreadWarnings > 0?"red":"")" aria-hidden="true"></i>
+        @if (Model.UnreadWarnings > 0)
+        {
+            <span class="text red">@Model.UnreadWarnings</span>
+        }
+    </a>
+</div>
+
+<hr />
+<div class="infoIcons">
+    <div class="infoIcon" @(Model.EatingSafety ? "" : Html.Raw("data-toggle=tooltip title='You are hungry!'").ToString())>
+        @if (!Model.EatingSafety)
+        {
+            <a href="@(Url.Action("MarketOffers", "MarketOffer", new { productID = (int)Entities.enums.ProductTypeEnum.Bread, countryID = Model.CountryID, Quality = 0 }))" )>
+                @Html.DisplayFor(m => Images.Eating.VM)
+            </a>
+            <i class="fa fa-times eating notDone"></i>
+        }
+        else
+        {
+            @Html.DisplayFor(m => Images.Eating.VM)
+            <i class="fa fa-check eating done"></i>
+        }
+    </div>
+    @if (Model.JobID.HasValue)
+    {
+        <div class="infoIcon">
+            <a id="gotoWorkButton" href="@Url.Action("View", "Company", new { companyID = Model.JobID })">
+                @Html.DisplayFor(m => Images.Work.VM)
+            </a>
+            @if (!Model.CanWork)
+            {
+                <i class="fa fa-check training done"></i>
+
+            }
+            else
+            {
+                <i class="fa fa-times training notDone"></i>
+            }
+        </div>
+    }
+    <div class="infoIcon">
+        <a href="@Url.Action("Index", "Training")">
+            @Html.DisplayFor(m => Images.Training.VM)
+        </a>
+        @if (Model.Trained)
+        {
+            <i class="fa fa-check training done"></i>
+
+        }
+        else
+        {
+            <i class="fa fa-times training notDone"></i>
+        }
+    </div>
+</div>
+
+<hr />
+
+<div class="container-bar-big">
+    <div id="citizenHPBar" class="hp-bar-big" style="width : @Model.HitPoints%;">
+    </div>
+    <span class="BlendMix" id="citizenHPText">
+        @Model.HitPoints% HP
+    </span>
+
+</div>
+@if (Model.CanHeal)
+{
+    <div class="sumaryHealingButton">
+        @using (Html.BeginForm("Heal", "Hospital", new { hospitalID = Model.HospitalID }, FormMethod.Post, new { }))
+        {
+            <button id="hospitalHealSummary" class="button green">
+                Heal <br />
+                @if (Model.FreeHealing)
+                {
+                    @:FREE
+                }
+                else
+                {
+                    @Model.HealCost @Model.HealCurrency
+                }
+            </button>
+        }
+    </div>
+}
+else
+{
+    <br />
+}
+
+<div class="container-bar-big">
+    <div class="exp-bar-big" style="width : @Model.ExperienceProgress%;">
+    </div>
+    <span class="BlendMix">
+        @Model.Experience/@Model.NextExperienceLevel EXP
+    </span>
+</div> <br />
+
+<div class="container-bar-big">
+    <div class="military-bar-big" style="width : @Model.NextMilitaryRankProgress%;">
+    </div>
+    <span data-tooltip data-position="right" data-alignment="center" class="BlendMix has-tip" aria-haspopup="true" title="Military rank progress">
+        @Model.MilitaryRank/@Model.NextMilitaryRank
+    </span>
+</div>
+<hr />
+<div class="centerHorizontalFlex">
+    @Html.DisplayFor(m => m.AdminMoney)
+</div>
+
+<div class="centerHorizontalFlex">
+    @Html.DisplayFor(m => m.CountryMoney)
+</div>
+
+@Html.RenderCurrentTime()
+
+@Scripts.Render("~/scripts/citizen/sociatis.citizeninfo.js")

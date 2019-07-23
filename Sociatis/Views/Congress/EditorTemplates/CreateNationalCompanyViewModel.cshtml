@@ -1,0 +1,35 @@
+﻿@model Sociatis.Models.Congress.CreateNationalCompanyViewModel
+    @{
+    ViewData.TemplateInfo.HtmlFieldPrefix = "";
+}
+
+<div class="row">
+    <div class="small-12 large-4 columns">
+        @Html.LabelFor(m => m.CompanyName)
+        @Html.TextBoxFor(m => m.CompanyName)
+        @Html.ValidationMessageFor(m => m.CompanyName)
+    </div>
+    <div class="small-12 large-4 columns">
+        @Html.LabelFor(m => m.RegionID)
+        @Html.DropDownListFor(m => m.RegionID, Model.Regions)
+        @Html.ValidationMessageFor(m => m.RegionID)
+    </div>
+    <div class="small-12 large-4 columns end">
+        @Html.LabelFor(m => m.ProductID)
+        @Html.DropDownListFor(m => m.ProductID, Model.Functions)
+        @Html.ValidationMessageFor(m => m.ProductID)
+    </div>
+</div>
+<div>
+    Needed gold: <br/>
+    @Html.DisplayFor(m => m.GoldNeeded) <br/>
+    @if (Model.CanSeeTreasury)
+    {
+        <text>
+            In treasury: <br/>
+            @Html.DisplayFor(m => m.CountryGold)
+        </text>
+    }
+</div>
+
+<script src="~/Scripts/congress/votings/sociatis.congress.votings.create_company.js"></script>

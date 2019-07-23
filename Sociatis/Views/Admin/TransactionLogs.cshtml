@@ -1,0 +1,52 @@
+﻿@model List<Entities.TransactionLog>
+@using Entities.Extensions
+@using Entities.enums
+
+<table>
+    <thead>
+        <tr>
+            <th>Date</th>
+            <th>Currency</th>
+            <th>Amount</th>
+            <th>Source</th>
+            <th>Destination</th>
+            <th>TransactionType</th>
+            <th>arg1</th>
+            <th>arg2</th>
+        </tr>
+    </thead>
+    <tbody>
+        @foreach(var item in Model)
+        {
+            <tr>
+                <td>
+                    @item.Date.ToString()
+                </td>
+                <td>
+                    @(item.Currency.Symbol)
+                </td>
+                <td>
+                    @(item.Amount.ToString())
+                </td>
+                <td>
+                    @(item.Source.Name)
+                </td>
+                <td>
+                    @if (item.Destination != null)
+                    {
+                    @(item.Destination.Name)
+                    }
+                </td>
+                <td>
+                    @(((TransactionTypeEnum)item.TransactionTypeID).ToString())
+                </td>
+                <td>
+                    @item.arg1
+                </td>
+                <td>
+                    @item.arg2
+                </td>
+            </tr>
+        }
+    </tbody>
+</table>

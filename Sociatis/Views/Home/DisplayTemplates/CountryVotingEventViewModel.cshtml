@@ -1,0 +1,10 @@
+﻿@model Sociatis.Models.Events.CountryVotingEventViewModel
+
+@Html.ActionLink(Model.CountryName, "View", "Country", new {countryID = Model.CountryID}, null): Congress @Html.ActionLink("Voting #" + Model.VotingID, "ViewVoting", "Congress", new { votingID = Model.VotingID }, null) @Model.Message.
+
+<div class="clearfix"></div>
+
+<div class="time">
+    Day @Model.Day @Model.Time.ToShortTimeString()
+</div>
+

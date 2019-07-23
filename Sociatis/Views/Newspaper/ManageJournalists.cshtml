@@ -1,0 +1,84 @@
+﻿@model Sociatis.Models.Newspapers.ManageJournalistsViewModel
+
+@Html.DisplayFor(m => m.Info)
+
+<div class="row ContentBox">
+    <h3>Manage journalists</h3>
+
+    <div>
+        <h4>Add journalist</h4>
+@using (Html.BeginForm("AddJournalist", RouteDataHelper.ControllerName, FormMethod.Post))
+{
+    @Html.Hidden("NewspaperID", Model.Info.EntityID)
+    <div class="centerVerticalFlex default eliminateFoundationMargin">
+        <label>
+            Citizen name
+        </label>
+         @Html.Render(Model.CitizenSelector)
+        <button class="button green">Add journalist</button>
+    </div>
+}
+        <br/>
+    </div>
+@using (Html.BeginForm(RouteDataHelper.ActionName, RouteDataHelper.ControllerName, new { newspaperID = Model.Info.EntityID }, FormMethod.Post))
+{
+    <table>
+        <thead>
+            <tr>
+                <th class="text-center">Name</th>
+                <th class="text-center">Writing articles</th>
+                <th class="text-center">Managing articles</th>
+                <th class="text-center">Managing journalists</th>
+                <th>&nbsp;</th>
+            </tr>
+        </thead>
+        <tbody>
+            
+            @for (int i = 0; i < Model.Journalists.Count; ++i)
+            {
+                var beg = string.Format("Journalists[{0}].", i);
+                <tr>
+                    @Html.HiddenFor(m => Model.Journalists[i].CitizenID)
+                    <td>@Html.ActionLink(Model.Journalists[i].Name, "View", "Citizen", new { ID = Model.Journalists[i].CitizenID })</td>
+                    <td>
+                        <div class="switch centerHorizontalFlex">
+
+                            <input class="switch-input" id="@(beg + "CanWriteArticles")" type="checkbox" name="@(beg + "CanWriteArticles")" value="true" @(Model.Journalists[i].CanWriteArticles?"checked":"")>
+                            <label class="switch-paddle" for="@(beg + "CanWriteArticles")">
+                            </label>
+                        </div>  
+                    </td>
+                    <td>
+                        <div class="switch centerHorizontalFlex">
+
+                            <input class="switch-input" id="@(beg + "CanManageArticles")" type="checkbox" name="@(beg + "CanManageArticles")" value="true" @(Model.Journalists[i].CanManageArticles?"checked":"")>
+                            <label class="switch-paddle" for="@(beg + "CanManageArticles")">
+                            </label>
+                        </div>
+                    </td>
+                    <td>
+                        <div class="switch centerHorizontalFlex ">
+
+                            <input class="switch-input" id="@(beg + "CanManageJournalists")" type="checkbox" name="@(beg + "CanManageJournalists")" value="true" @(Model.Journalists[i].CanManageJournalists?"checked":"")>
+                            <label class="switch-paddle" for="@(beg + "CanManageJournalists")">
+                            </label>
+                        </div>
+                    </td>
+                    <td class="eliminateFoundationMargin centerHorizontalFlex">
+                        <a href="@Url.Action("RemoveJournalist", RouteDataHelper.ControllerName, new { journalistID = Model.Journalists[i].CitizenID, newspaperID = Model.Info.EntityID })" class="button red">Remove journalist</a>
+                    </td>
+                </tr>
+
+            }
+            
+        </tbody>
+    </table>
+    <button class="pull-right button green">Save</button>
+}
+</div>
+
+@section scripts
+{
+    @Scripts.Render("~/bundles/select2")
+    @Styles.Render("~/Content/select2")
+}

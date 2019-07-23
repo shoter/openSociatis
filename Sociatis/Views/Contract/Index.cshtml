@@ -1,0 +1,55 @@
+﻿@model Sociatis.Models.Contracts.IndexContractViewModel
+
+@Html.Partial("~/Views/Company/DisplayTemplates/CompanyInfoViewModel.cshtml", Model.Info)
+
+
+<div class="contract">
+    <p class="text-center"><h2>Contract</h2></p>
+    <p>
+        Company @Model.CompanyName located in @Model.CountryName, @Model.RegionName
+        employed @Model.EmployeeName at day @Model.StartDay to work on the following conditions :
+    </p>
+
+    <p>
+        <ul>
+            <li>
+                Minimum salary : <b>@Model.MinimalSalary @Model.SalarySymbol</b>
+
+            </li>
+            <li>
+                Minimum health to work : <b>@Model.MinimumHP%</b>
+            </li>
+        </ul>
+        If the worker will leave one day of his work then the employer is authorized to dismiss him. 
+    </p> 
+    <br/><br/>
+
+    <p>
+        As an employer i guarantee that following conditions will be satisfied every day during this contract : <br />
+        <ul>
+            <li>Company will have enough money to pay salary everyday</li>
+            <li>Company will have enough material to produce goods</li>
+        </ul>
+        If one of the above is not met, then worker have an ability to leave company at any moment. In any other circumstances worker cannot leave the company.
+    </p>
+
+    <p>
+        Contract will end at day <b>@Model.EndDay</b>
+    </p>
+
+    <p>
+        On behalf of the company <br />
+        <text class="handWritten">
+            @Model.SigneeName<br />
+            Day @Model.StartDay
+        </text>
+    </p>
+
+    <p class="pull-right">
+        Employee signature <br />
+        <text class="handWritten">
+            @Model.EmployeeName <br />
+            Day @Model.StartDay
+        </text>
+    </p>
+</div>

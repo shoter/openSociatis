@@ -1,0 +1,39 @@
+﻿@model Sociatis.Models.Congress.CongressInfoViewModel
+
+
+@{
+    ViewData.TemplateInfo.HtmlFieldPrefix = "";
+}
+
+<div id="overallInfo" class="row ContentBox">
+    <div class="row">
+        <div class="small-3 medium-4 large-3 columns">
+            @Html.DisplayFor(m => m.CongressImageViewModel)
+        </div>
+        <div class="small-9 medium-8 large-9 columns">
+            <h5>@Html.ActionLink("Congress", "View", new { countryID = Model.CountryID })</h5>
+            <h6>Location : @Html.ActionLink(Model.CountryName, "View", "Country", new { countryID = Model.CountryID }, null) </h6>
+            <h6>Members : @Model.MemberCount</h6>
+            <h6>Cadence left : @Model.CadencyDaysLeft @PluralHelper.Days(@Model.CadencyDaysLeft)</h6>
+        </div>
+    </div>
+    <div class="row">
+        <div class="small-12 columns">
+            <div id="actionBar">
+                <a href="@Url.Action("Votings", "Congress", new { countryID = Model.CountryID })" class="action">
+                    <i class="fa fa-ellipsis-h" aria-hidden="true"></i>
+                    Votings
+                </a>
+                <a href="@Url.Action("Members", "Congress", new { countryID = Model.CountryID })" class="action">
+                    <i class="fa fa-users" aria-hidden="true"></i>
+                    Members
+                </a>
+                <a href="@Url.Action("CongressCandidates", "Congress", new { countryID = Model.CountryID })" class="action">
+                    <i class="fa fa-users" aria-hidden="true"></i>
+                    Congress candidates
+                </a>
+            </div>
+        </div>
+    </div>
+
+</div>

@@ -1,0 +1,16 @@
+﻿
+.evenInfo
+{
+    display: flex;
+    justify-content: center;
+
+    .left
+    {
+        text-align:right;
+    }
+
+    .right
+    {
+        text-align:left;
+    }
+}

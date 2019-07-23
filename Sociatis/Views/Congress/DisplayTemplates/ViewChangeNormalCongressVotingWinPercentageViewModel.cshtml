@@ -1,0 +1,4 @@
+﻿@model Sociatis.Models.Congress.Votings.ViewChangeNormalCongressVotingWinPercentageViewModel
+
+<h4>Proposition #@Model.VotingID : Change normal congress voting win percentage to <b>@Model.WinPercentage</b>%</h4>
+by @Html.ActionLink(Model.CreatorName, "View", "Citizen", new { citizenID = Model.CreatorID }, null)

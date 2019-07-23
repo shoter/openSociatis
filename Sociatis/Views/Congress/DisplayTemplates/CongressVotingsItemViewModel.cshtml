@@ -1,0 +1,8 @@
+﻿@model Sociatis.Models.Congress.CongressVotingsItemViewModel
+
+<tr>
+    <td>@Html.ActionLink(Model.ProposalName, "ViewVoting", new { votingID = Model.ID })</td>
+    <td>by @Html.ActionLink(Model.CreatorName, "View", "Entity", new { entityID = Model.CreatorID }, null)</td>
+    <td>@Model.Ago</td>
+    <td>@Model.StatusHumanReadable</td>
+</tr>

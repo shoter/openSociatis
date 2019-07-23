@@ -1,0 +1,41 @@
+﻿@model Sociatis.Models.Battle.SummaryBattleViewModel
+
+<div class="row">
+    <hr />
+    <div class="small-6 medium-4 columns miniFlags">
+        <div class="centerHorizontalFlex">
+            @Html.DisplayFor(m => m.AttackerImage)
+        </div>
+        <div class="text-center">
+            @Model.AttackerName
+        </div>
+    </div>
+
+    <div class="hide-for-small-only medium-4 columns">
+        <div class="text-center">
+            @Model.RegionName <br />
+            @Model.WallHealth
+        </div>
+        <div class="centerHorizontalFlex">
+            <a href="#" class="button red">Fight!</a>
+        </div>
+    </div>
+
+    <div class="small-6 medium-4 columns miniFlags">
+        <div class="centerHorizontalFlex">
+            @Html.DisplayFor(m => m.DefenderImage)
+        </div>
+        <div class="text-center">
+            @Model.DefenderName
+        </div>
+    </div>
+    <div class="hide-for-medium ">
+        <div class="text-center">
+            @Model.RegionName
+        </div>
+        <div class="text-center">
+            <a href="#" class="button red">Fight!</a>
+        </div>
+
+    </div>
+</div>

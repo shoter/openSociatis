@@ -1,0 +1,11 @@
+﻿@import "definitions.scss";
+
+#manageHospital
+{
+    @include transition(height 2.0s ease-in-out);
+
+    .buttons
+    {
+        float: right;
+    }
+}

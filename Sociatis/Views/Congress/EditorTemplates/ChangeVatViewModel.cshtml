@@ -1,0 +1,9 @@
+﻿@model Sociatis.Models.Congress.ChangeVatViewModel
+
+@{
+    ViewData.TemplateInfo.HtmlFieldPrefix = "";
+}
+
+@Html.LabelFor(m => m.NewVat)
+@Html.TextBoxFor(m => m.NewVat)
+@Html.ValidationMessageFor(m => m.NewVat)

@@ -1,0 +1,78 @@
+﻿@model Sociatis.Models.Companies.CompanyJobOffersView
+@using Sociatis.Models.Companies
+@{
+    ViewBag.Title = "Companies";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+@Html.DisplayFor(m => m.Info)
+    
+<div class="row ContentBox">
+    @if (Model.Info.CompanyRights.CanPostJobOffers)
+    {
+    <a class="blue button" href="@Url.Action("CreateJobOffer", "Company", new { companyID = Model.CompanyID })">
+        Create job offer
+    </a>
+    }
+
+    <h3>Contract job offers</h3>
+
+    <table id="contractJobOffersTable">
+        <thead>
+            <tr>
+                <th>Amount</th>
+                <th>Skill</th>
+                <th>Salary</th>
+                <th>See details</th>
+                @if(Model.Info.CompanyRights.CanPostJobOffers)
+                {
+                    <th></th>
+                }
+            </tr>
+        </thead>
+        <tbody>
+            @foreach (var offer in Model.JobOffers.Where(jo => jo is ShortContractJobOfferViewModel))
+            {
+                @Html.DisplayFor(m => offer)
+            }
+        </tbody>
+
+    </table>
+
+    <h3>Normal job offers</h3>
+
+    <table id="normalJobOffersTable">
+        <thead>
+            <tr>
+                <th>Amount</th>
+                <th>Skill</th>
+                <th>Salary</th>
+                <th>Work</th>
+                @if (Model.Info.CompanyRights.CanPostJobOffers)
+                {
+                    <th></th>
+                }
+            </tr>
+        </thead>
+        <tbody>
+        @foreach (var offer in Model.JobOffers.Where(jo => jo is ShortNormalJobOfferViewModel))
+        {
+            @Html.DisplayFor(m => offer)
+        }
+        </tbody>
+
+    </table>
+
+
+</div>
+
+<div id="contractDialog" style="display:none">
+
+
+</div>
+
+
+@section scripts
+{
+    @Scripts.Render("~/Scripts/Company/sociatis.job_offers.js")
+}

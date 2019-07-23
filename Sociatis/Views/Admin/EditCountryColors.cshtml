@@ -1,0 +1,30 @@
+﻿@model List<Sociatis.Models.Admin.CountryColorViewModel>
+
+@using (Html.BeginForm(RouteDataHelper.ActionName, RouteDataHelper.ControllerName, FormMethod.Post))
+{
+<div id="colorForm" class="ContentBox">
+    <div class="align-right">
+        <button class="button green">Save</button>
+    </div>
+    @Html.DisplayFor(m => m)
+</div>
+}
+
+<script src="~/Scripts/colorpicker.js"></script>
+
+<script>
+    $(() => {
+        $('[data-color]').ColorPicker({
+            onSubmit: function (hsb, hex, rgb, el) {
+                $(el).val("#"+hex);
+                $(el).ColorPickerHide();
+            },
+            onBeforeShow: function () {
+                $(this).ColorPickerSetColor(this.value);
+            }
+        })
+            .bind('keyup', function () {
+                $(this).ColorPickerSetColor(this.value);
+            });
+    });
+</script>

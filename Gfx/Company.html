@@ -1,0 +1,835 @@
+<html style="" class=" js flexbox flexboxlegacy canvas canvastext webgl no-touch geolocation postmessage no-websqldatabase indexeddb hashchange history draganddrop websockets rgba hsla multiplebgs backgroundsize borderimage borderradius boxshadow textshadow opacity cssanimations csscolumns cssgradients no-cssreflections csstransforms csstransforms3d csstransitions fontface generatedcontent video audio localstorage sessionstorage webworkers applicationcache svg inlinesvg smil svgclippaths whatinput-types-initial whatinput-types-mouse whatinput-types-keyboard" data-whatinput="keyboard" data-whatintent="mouse"><head>
+<meta http-equiv="content-type" content="text/html; charset=UTF-8">
+    <link rel="shortcut icon" href="http://localhost:38120/Content/images/icons/favicon.ico" type="image/x-icon">
+    <link rel="icon" href="http://localhost:38120/Content/images/icons/favicon.ico" type="image/x-icon">
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Company</title>
+    <link href="Company_files/foundation.css" rel="stylesheet">
+<link href="Company_files/foundation-select.css" rel="stylesheet">
+<link href="Company_files/accordion.css" rel="stylesheet">
+<link href="Company_files/all.css" rel="stylesheet">
+<link href="Company_files/autocomplete.css" rel="stylesheet">
+<link href="Company_files/base.css" rel="stylesheet">
+<link href="Company_files/button.css" rel="stylesheet">
+<link href="Company_files/core.css" rel="stylesheet">
+<link href="Company_files/datepicker.css" rel="stylesheet">
+<link href="Company_files/dialog.css" rel="stylesheet">
+<link href="Company_files/draggable.css" rel="stylesheet">
+<link href="Company_files/menu.css" rel="stylesheet">
+<link href="Company_files/progressbar.css" rel="stylesheet">
+<link href="Company_files/resizable.css" rel="stylesheet">
+<link href="Company_files/selectable.css" rel="stylesheet">
+<link href="Company_files/selectmenu.css" rel="stylesheet">
+<link href="Company_files/slider.css" rel="stylesheet">
+<link href="Company_files/sortable.css" rel="stylesheet">
+<link href="Company_files/spinner.css" rel="stylesheet">
+<link href="Company_files/tabs.css" rel="stylesheet">
+<link href="Company_files/theme.css" rel="stylesheet">
+<link href="Company_files/tooltip.css" rel="stylesheet">
+<link href="Company_files/site.css" rel="stylesheet">
+<link href="Company_files/customFonts.css" rel="stylesheet">
+<link href="Company_files/customStyles.css" rel="stylesheet">
+<link href="Company_files/main.css" rel="stylesheet">
+<link href="Company_files/font-awesome.css" rel="stylesheet">
+<link href="Company_files/govicons.css" rel="stylesheet">
+<link href="Company_files/militaryRankStyles.css" rel="stylesheet">
+<link href="Company_files/colorpicker.css" rel="stylesheet">
+<link href="Company_files/leaflet.css" rel="stylesheet">
+
+    
+    <script src="Company_files/modernizr-2.js"></script>
+
+
+    <script src="Company_files/jquery-2.js"></script>
+<script src="Company_files/jquery-ui-1.js"></script>
+<script src="Company_files/jquery_007.js"></script>
+<script src="Company_files/jquery_003.js"></script>
+<script src="Company_files/shoter.js"></script>
+<script src="Company_files/jquery_002.js"></script>
+<script src="Company_files/jquery.js"></script>
+
+    <script src="Company_files/jquery_006.js"></script>
+<script src="Company_files/jquery_004.js"></script>
+<script src="Company_files/jquery_005.js"></script>
+
+    <script src="Company_files/foundation.js"></script>
+<script src="Company_files/foundation-select.js"></script>
+<script src="Company_files/what-input.js"></script>
+
+
+    <link rel="stylesheet" type="text/css" href="Company_files/datatables.css">
+
+    <script type="text/javascript" src="Company_files/datatables.js"></script>
+    <script type="text/javascript" src="Company_files/natural.js"></script>
+
+    <script type="text/javascript">
+        
+
+        window.Sociatis = window.Sociatis || {};
+        Sociatis.Global = Sociatis.Global || {};
+
+        Sociatis.Global.MapUrl = "http://localhost:38120/Content/map/{z}/{x}/{y}.png";
+    </script>
+
+<style type="text/css" id="notify-bootstrap">.notifyjs-bootstrap-base {
+	font-weight: bold;
+	padding: 8px 15px 8px 14px;
+	text-shadow: 0 1px 0 rgba(255, 255, 255, 0.5);
+	background-color: #fcf8e3;
+	border: 1px solid #fbeed5;
+	-webkit-border-radius: 4px;
+	-moz-border-radius: 4px;
+	border-radius: 4px;
+	white-space: nowrap;
+	padding-left: 25px;
+	background-repeat: no-repeat;
+	background-position: 3px 7px;
+}
+.notifyjs-bootstrap-error {
+	color: #B94A48;
+	background-color: #F2DEDE;
+	border-color: #EED3D7;
+	background-image: url(data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAABQAAAAUCAYAAACNiR0NAAAAGXRFWHRTb2Z0d2FyZQBBZG9iZSBJbWFnZVJlYWR5ccllPAAAAtRJREFUeNqkVc1u00AQHq+dOD+0poIQfkIjalW0SEGqRMuRnHos3DjwAH0ArlyQeANOOSMeAA5VjyBxKBQhgSpVUKKQNGloFdw4cWw2jtfMOna6JOUArDTazXi/b3dm55socPqQhFka++aHBsI8GsopRJERNFlY88FCEk9Yiwf8RhgRyaHFQpPHCDmZG5oX2ui2yilkcTT1AcDsbYC1NMAyOi7zTX2Agx7A9luAl88BauiiQ/cJaZQfIpAlngDcvZZMrl8vFPK5+XktrWlx3/ehZ5r9+t6e+WVnp1pxnNIjgBe4/6dAysQc8dsmHwPcW9C0h3fW1hans1ltwJhy0GxK7XZbUlMp5Ww2eyan6+ft/f2FAqXGK4CvQk5HueFz7D6GOZtIrK+srupdx1GRBBqNBtzc2AiMr7nPplRdKhb1q6q6zjFhrklEFOUutoQ50xcX86ZlqaZpQrfbBdu2R6/G19zX6XSgh6RX5ubyHCM8nqSID6ICrGiZjGYYxojEsiw4PDwMSL5VKsC8Yf4VRYFzMzMaxwjlJSlCyAQ9l0CW44PBADzXhe7xMdi9HtTrdYjFYkDQL0cn4Xdq2/EAE+InCnvADTf2eah4Sx9vExQjkqXT6aAERICMewd/UAp/IeYANM2joxt+q5VI+ieq2i0Wg3l6DNzHwTERPgo1ko7XBXj3vdlsT2F+UuhIhYkp7u7CarkcrFOCtR3H5JiwbAIeImjT/YQKKBtGjRFCU5IUgFRe7fF4cCNVIPMYo3VKqxwjyNAXNepuopyqnld602qVsfRpEkkz+GFL1wPj6ySXBpJtWVa5xlhpcyhBNwpZHmtX8AGgfIExo0ZpzkWVTBGiXCSEaHh62/PoR0p/vHaczxXGnj4bSo+G78lELU80h1uogBwWLf5YlsPmgDEd4M236xjm+8nm4IuE/9u+/PH2JXZfbwz4zw1WbO+SQPpXfwG/BBgAhCNZiSb/pOQAAAAASUVORK5CYII=);
+}
+.notifyjs-bootstrap-success {
+	color: #468847;
+	background-color: #DFF0D8;
+	border-color: #D6E9C6;
+	background-image: url(data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAABQAAAAUCAYAAACNiR0NAAAAGXRFWHRTb2Z0d2FyZQBBZG9iZSBJbWFnZVJlYWR5ccllPAAAAutJREFUeNq0lctPE0Ecx38zu/RFS1EryqtgJFA08YCiMZIAQQ4eRG8eDGdPJiYeTIwHTfwPiAcvXIwXLwoXPaDxkWgQ6islKlJLSQWLUraPLTv7Gme32zoF9KSTfLO7v53vZ3d/M7/fIth+IO6INt2jjoA7bjHCJoAlzCRw59YwHYjBnfMPqAKWQYKjGkfCJqAF0xwZjipQtA3MxeSG87VhOOYegVrUCy7UZM9S6TLIdAamySTclZdYhFhRHloGYg7mgZv1Zzztvgud7V1tbQ2twYA34LJmF4p5dXF1KTufnE+SxeJtuCZNsLDCQU0+RyKTF27Unw101l8e6hns3u0PBalORVVVkcaEKBJDgV3+cGM4tKKmI+ohlIGnygKX00rSBfszz/n2uXv81wd6+rt1orsZCHRdr1Imk2F2Kob3hutSxW8thsd8AXNaln9D7CTfA6O+0UgkMuwVvEFFUbbAcrkcTA8+AtOk8E6KiQiDmMFSDqZItAzEVQviRkdDdaFgPp8HSZKAEAL5Qh7Sq2lIJBJwv2scUqkUnKoZgNhcDKhKg5aH+1IkcouCAdFGAQsuWZYhOjwFHQ96oagWgRoUov1T9kRBEODAwxM2QtEUl+Wp+Ln9VRo6BcMw4ErHRYjH4/B26AlQoQQTRdHWwcd9AH57+UAXddvDD37DmrBBV34WfqiXPl61g+vr6xA9zsGeM9gOdsNXkgpEtTwVvwOklXLKm6+/p5ezwk4B+j6droBs2CsGa/gNs6RIxazl4Tc25mpTgw/apPR1LYlNRFAzgsOxkyXYLIM1V8NMwyAkJSctD1eGVKiq5wWjSPdjmeTkiKvVW4f2YPHWl3GAVq6ymcyCTgovM3FzyRiDe2TaKcEKsLpJvNHjZgPNqEtyi6mZIm4SRFyLMUsONSSdkPeFtY1n0mczoY3BHTLhwPRy9/lzcziCw9ACI+yql0VLzcGAZbYSM5CCSZg1/9oc/nn7+i8N9p/8An4JMADxhH+xHfuiKwAAAABJRU5ErkJggg==);
+}
+.notifyjs-bootstrap-info {
+	color: #3A87AD;
+	background-color: #D9EDF7;
+	border-color: #BCE8F1;
+	background-image: url(data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAABQAAAAUCAYAAACNiR0NAAAABmJLR0QA/wD/AP+gvaeTAAAACXBIWXMAAAsTAAALEwEAmpwYAAAAB3RJTUUH3QYFAhkSsdes/QAAA8dJREFUOMvVlGtMW2UYx//POaWHXg6lLaW0ypAtw1UCgbniNOLcVOLmAjHZolOYlxmTGXVZdAnRfXQm+7SoU4mXaOaiZsEpC9FkiQs6Z6bdCnNYruM6KNBw6YWewzl9z+sHImEWv+vz7XmT95f/+3/+7wP814v+efDOV3/SoX3lHAA+6ODeUFfMfjOWMADgdk+eEKz0pF7aQdMAcOKLLjrcVMVX3xdWN29/GhYP7SvnP0cWfS8caSkfHZsPE9Fgnt02JNutQ0QYHB2dDz9/pKX8QjjuO9xUxd/66HdxTeCHZ3rojQObGQBcuNjfplkD3b19Y/6MrimSaKgSMmpGU5WevmE/swa6Oy73tQHA0Rdr2Mmv/6A1n9w9suQ7097Z9lM4FlTgTDrzZTu4StXVfpiI48rVcUDM5cmEksrFnHxfpTtU/3BFQzCQF/2bYVoNbH7zmItbSoMj40JSzmMyX5qDvriA7QdrIIpA+3cdsMpu0nXI8cV0MtKXCPZev+gCEM1S2NHPvWfP/hL+7FSr3+0p5RBEyhEN5JCKYr8XnASMT0xBNyzQGQeI8fjsGD39RMPk7se2bd5ZtTyoFYXftF6y37gx7NeUtJJOTFlAHDZLDuILU3j3+H5oOrD3yWbIztugaAzgnBKJuBLpGfQrS8wO4FZgV+c1IxaLgWVU0tMLEETCos4xMzEIv9cJXQcyagIwigDGwJgOAtHAwAhisQUjy0ORGERiELgG4iakkzo4MYAxcM5hAMi1WWG1yYCJIcMUaBkVRLdGeSU2995TLWzcUAzONJ7J6FBVBYIggMzmFbvdBV44Corg8vjhzC+EJEl8U1kJtgYrhCzgc/vvTwXKSib1paRFVRVORDAJAsw5FuTaJEhWM2SHB3mOAlhkNxwuLzeJsGwqWzf5TFNdKgtY5qHp6ZFf67Y/sAVadCaVY5YACDDb3Oi4NIjLnWMw2QthCBIsVhsUTU9tvXsjeq9+X1d75/KEs4LNOfcdf/+HthMnvwxOD0wmHaXr7ZItn2wuH2SnBzbZAbPJwpPx+VQuzcm7dgRCB57a1uBzUDRL4bfnI0RE0eaXd9W89mpjqHZnUI5Hh2l2dkZZUhOqpi2qSmpOmZ64Tuu9qlz/SEXo6MEHa3wOip46F1n7633eekV8ds8Wxjn37Wl63VVa+ej5oeEZ/82ZBETJjpJ1Rbij2D3Z/1trXUvLsblCK0XfOx0SX2kMsn9dX+d+7Kf6h8o4AIykuffjT8L20LU+w4AZd5VvEPY+XpWqLV327HR7DzXuDnD8r+ovkBehJ8i+y8YAAAAASUVORK5CYII=);
+}
+.notifyjs-bootstrap-warn {
+	color: #C09853;
+	background-color: #FCF8E3;
+	border-color: #FBEED5;
+	background-image: url(data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAABQAAAAUCAMAAAC6V+0/AAABJlBMVEXr6eb/2oD/wi7/xjr/0mP/ykf/tQD/vBj/3o7/uQ//vyL/twebhgD/4pzX1K3z8e349vK6tHCilCWbiQymn0jGworr6dXQza3HxcKkn1vWvV/5uRfk4dXZ1bD18+/52YebiAmyr5S9mhCzrWq5t6ufjRH54aLs0oS+qD751XqPhAybhwXsujG3sm+Zk0PTwG6Shg+PhhObhwOPgQL4zV2nlyrf27uLfgCPhRHu7OmLgAafkyiWkD3l49ibiAfTs0C+lgCniwD4sgDJxqOilzDWowWFfAH08uebig6qpFHBvH/aw26FfQTQzsvy8OyEfz20r3jAvaKbhgG9q0nc2LbZxXanoUu/u5WSggCtp1anpJKdmFz/zlX/1nGJiYmuq5Dx7+sAAADoPUZSAAAAAXRSTlMAQObYZgAAAAFiS0dEAIgFHUgAAAAJcEhZcwAACxMAAAsTAQCanBgAAAAHdElNRQfdBgUBGhh4aah5AAAAlklEQVQY02NgoBIIE8EUcwn1FkIXM1Tj5dDUQhPU502Mi7XXQxGz5uVIjGOJUUUW81HnYEyMi2HVcUOICQZzMMYmxrEyMylJwgUt5BljWRLjmJm4pI1hYp5SQLGYxDgmLnZOVxuooClIDKgXKMbN5ggV1ACLJcaBxNgcoiGCBiZwdWxOETBDrTyEFey0jYJ4eHjMGWgEAIpRFRCUt08qAAAAAElFTkSuQmCC);
+}
+</style><meta class="foundation-mq"><style type="text/css" id="core-notify">.notifyjs-corner {
+	position: fixed;
+	margin: 5px;
+	z-index: 1050;
+}
+
+.notifyjs-corner .notifyjs-wrapper,
+.notifyjs-corner .notifyjs-container {
+	position: relative;
+	display: block;
+	height: inherit;
+	width: inherit;
+	margin: 3px;
+}
+
+.notifyjs-wrapper {
+	z-index: 1;
+	position: absolute;
+	display: inline-block;
+	height: 0;
+	width: 0;
+}
+
+.notifyjs-container {
+	display: none;
+	z-index: 1;
+	position: absolute;
+}
+
+.notifyjs-hidable {
+	cursor: pointer;
+}
+
+[data-notify-text],[data-notify-html] {
+	position: relative;
+}
+
+.notifyjs-arrow {
+	position: absolute;
+	z-index: 2;
+	width: 0;
+	height: 0;
+}</style></head>
+<body>
+
+<div class="title-bar" style="display:none" data-responsive-toggle="responsive-menu" data-hide-for="medium">
+    <button class="menu-icon" type="button" data-toggle="responsive-menu" _vimium-has-onclick-listener=""></button>
+    <div class="title-bar-title">Menu</div>
+</div>
+
+<div class="top-bar" id="responsive-menu">
+    <div class="top-bar-left">
+        <ul class="dropdown vertical medium-horizontal menu" data-close-on-click-inside="false" data-dropdown-menu="9zms6m-dropdown-menu" role="menubar">
+            <li class="menu-text" role="menuitem"><a href="http://localhost:38120/">Sociatis</a> </li>
+
+                <li class="border" role="menuitem">
+
+                </li>
+                <li data-is-click="false" class="has-submenu is-dropdown-submenu-parent opens-right" role="menuitem" aria-haspopup="true" aria-label="Citizen">
+                    <a href="#">Citizen</a>
+                    <ul class="menu vertical submenu is-dropdown-submenu first-sub" style="" data-submenu="" role="menu">
+                        <li role="menuitem" class="is-submenu-item is-dropdown-submenu-item">
+    <a href="http://localhost:38120/Citizen/103">
+        Profile
+    </a>
+</li>
+<li role="menuitem" class="is-submenu-item is-dropdown-submenu-item">
+    <a href="http://localhost:38120/Message">
+        Messages
+    </a>
+</li>
+<li role="menuitem" class="is-submenu-item is-dropdown-submenu-item">
+    <a href="http://localhost:38120/Citizen/103/Inventory">
+        Inventory
+    </a>
+</li>
+<li role="menuitem" class="is-submenu-item is-dropdown-submenu-item">
+    <a href="http://localhost:38120/Training">
+        Training
+    </a>
+</li>
+<li role="menuitem" class="is-submenu-item is-dropdown-submenu-item">
+    <a href="http://localhost:38120/Citizen/Travel">
+        Travel
+    </a>
+</li>
+<li role="menuitem" class="is-submenu-item is-dropdown-submenu-item">
+    <a href="http://localhost:38120/Company/351">
+        Job
+    </a>
+</li>
+<li role="menuitem" class="is-submenu-item is-dropdown-submenu-item">
+    <a href="http://localhost:38120/Party/440">
+        Party
+    </a>
+</li>
+<li role="menuitem" class="is-submenu-item is-dropdown-submenu-item">
+    <a href="http://localhost:38120/Citizen/Wallet">
+        Wallet
+    </a>
+</li>
+
+                    </ul>
+                </li>
+                <li class="border" role="menuitem">
+
+                </li>
+                <li data-is-click="false" class="has-submenu is-dropdown-submenu-parent opens-right" role="menuitem" aria-haspopup="true" aria-label="Business">
+                    <a href="#">Business</a>
+                    <ul class="menu vertical submenu is-dropdown-submenu first-sub" style="" data-submenu="" role="menu">
+                        <li role="menuitem" class="is-submenu-item is-dropdown-submenu-item">
+    <a href="http://localhost:38120/Company">
+        Companies
+    </a>
+</li>
+<li role="menuitem" class="is-submenu-item is-dropdown-submenu-item">
+    <a href="http://localhost:38120/Newspaper">
+        Newspapers
+    </a>
+</li>
+<li role="menuitem" class="is-submenu-item is-dropdown-submenu-item">
+    <a href="http://localhost:38120/Monetary-Market">
+        Monetary Market
+    </a>
+</li>
+
+                    </ul>
+                </li>
+                <li class="border" role="menuitem">
+
+                </li>
+                <li data-is-click="false" class="has-submenu is-dropdown-submenu-parent opens-right" role="menuitem" aria-haspopup="true" aria-label="Market">
+                    <a href="#">Market</a>
+                    <ul class="menu vertical submenu is-dropdown-submenu first-sub" style="" data-submenu="" role="menu">
+                        <li role="menuitem" class="is-submenu-item is-dropdown-submenu-item">
+    <a href="http://localhost:38120/Country/10/MarketOffers/0/0">
+        Products
+    </a>
+</li>
+<li role="menuitem" class="is-submenu-item is-dropdown-submenu-item">
+    <a href="http://localhost:38120/Country/10/ResourceOffers/0/0">
+        Resources
+    </a>
+</li>
+<li role="menuitem" class="is-submenu-item is-dropdown-submenu-item">
+    <a href="http://localhost:38120/JobOffer/JobMarket">
+        Jobs
+    </a>
+</li>
+
+                    </ul>
+                </li>
+                <li class="border" role="menuitem">
+
+                </li>
+                <li data-is-click="false" class="has-submenu is-dropdown-submenu-parent opens-right" role="menuitem" aria-haspopup="true" aria-label="Poland">
+                    <a href="#">Poland</a>
+                    <ul class="menu vertical submenu is-dropdown-submenu first-sub" style="" data-submenu="" role="menu">
+                        <li role="menuitem" class="is-submenu-item is-dropdown-submenu-item">
+    <a href="http://localhost:38120/Country/10">
+        Information
+    </a>
+</li>
+<li role="menuitem" class="is-submenu-item is-dropdown-submenu-item">
+    <a href="http://localhost:38120/Country/10/Geography">
+        Geography
+    </a>
+</li>
+<li role="menuitem" class="is-submenu-item is-dropdown-submenu-item">
+    <a href="http://localhost:38120/Country/10/President">
+        President
+    </a>
+</li>
+<li role="menuitem" class="is-submenu-item is-dropdown-submenu-item">
+    <a href="http://localhost:38120/Country/10/Congress">
+        Congress
+    </a>
+</li>
+
+                    </ul>
+                </li>
+                <li class="border" role="menuitem">
+
+                </li>
+                <li data-is-click="false" class="has-submenu is-dropdown-submenu-parent opens-right" role="menuitem" aria-haspopup="true" aria-label="Admin">
+                    <a href="#">Admin</a>
+                    <ul class="menu vertical submenu is-dropdown-submenu first-sub" style="" data-submenu="" role="menu">
+                        <li role="menuitem" class="is-submenu-item is-dropdown-submenu-item">
+    <a href="http://localhost:38120/Map/Edit">
+        Edit map
+    </a>
+</li>
+<li role="menuitem" class="is-submenu-item is-dropdown-submenu-item">
+    <a href="http://localhost:38120/Admin/EditCountryColors">
+        Edit country colors
+    </a>
+</li>
+        <li data-is-click="false" class="has-submenu horizontal is-dropdown-submenu-parent is-submenu-item is-dropdown-submenu-item opens-right" role="menuitem" aria-haspopup="true" aria-label="Debug">
+            <a href="#">Debug</a>
+            <ul class="menu vertical submenu is-dropdown-submenu" data-submenu="" role="menu">
+<li role="menuitem" class="is-submenu-item is-dropdown-submenu-item">
+    <a href="http://localhost:38120/Debug/GiveMeCongressman">
+        Assign as Congressman
+    </a>
+</li>
+<li role="menuitem" class="is-submenu-item is-dropdown-submenu-item">
+    <a href="http://localhost:38120/Debug/GrantMePresident">
+        Assign as President
+    </a>
+</li>
+<li role="menuitem" class="is-submenu-item is-dropdown-submenu-item">
+    <a href="http://localhost:38120/Debug/FinishCongressVoting">
+        End congress voting
+    </a>
+</li>
+            </ul>
+        </li>
+
+                    </ul>
+                </li>
+                <li class="border" role="menuitem">
+
+                </li>
+                <li data-is-click="false" class="has-submenu is-dropdown-submenu-parent opens-right" role="menuitem" aria-haspopup="true" aria-label="Map">
+                    <a href="#">Map</a>
+                    <ul class="menu vertical submenu is-dropdown-submenu first-sub" style="" data-submenu="" role="menu">
+                        <li role="menuitem" class="is-submenu-item is-dropdown-submenu-item">
+    <a href="http://localhost:38120/Map/Political">
+        Political
+    </a>
+</li>
+<li role="menuitem" class="is-submenu-item is-dropdown-submenu-item">
+    <a href="http://localhost:38120/Map/Infrastructure">
+        Developement
+    </a>
+</li>
+        <li data-is-click="false" class="has-submenu horizontal is-dropdown-submenu-parent is-submenu-item is-dropdown-submenu-item opens-right" role="menuitem" aria-haspopup="true" aria-label="Resources">
+            <a href="#">Resources</a>
+            <ul class="menu vertical submenu is-dropdown-submenu" data-submenu="" role="menu">
+<li role="menuitem" class="is-submenu-item is-dropdown-submenu-item">
+    <a href="http://localhost:38120/Map/Grain">
+        Grain
+    </a>
+</li>
+<li role="menuitem" class="is-submenu-item is-dropdown-submenu-item">
+    <a href="http://localhost:38120/Map/IronOre">
+        Iron ore
+    </a>
+</li>
+<li role="menuitem" class="is-submenu-item is-dropdown-submenu-item">
+    <a href="http://localhost:38120/Map/Oil">
+        Oil
+    </a>
+</li>
+<li role="menuitem" class="is-submenu-item is-dropdown-submenu-item">
+    <a href="http://localhost:38120/Map/TeaLeaf">
+        Tea leaf
+    </a>
+</li>
+<li role="menuitem" class="is-submenu-item is-dropdown-submenu-item">
+    <a href="http://localhost:38120/Map/Wood">
+        Wood
+    </a>
+</li>
+            </ul>
+        </li>
+
+                    </ul>
+                </li>
+                <li class="border" role="menuitem">
+
+                </li>
+                <li data-is-click="false" class="has-submenu is-dropdown-submenu-parent opens-right" role="menuitem" aria-haspopup="true" aria-label="Other">
+                    <a href="#">Other</a>
+                    <ul class="menu vertical submenu is-dropdown-submenu first-sub" style="" data-submenu="" role="menu">
+                        <li role="menuitem" class="is-submenu-item is-dropdown-submenu-item">
+    <a href="http://localhost:38120/DevIssue">
+        Dev issues
+    </a>
+</li>
+<li role="menuitem" class="is-submenu-item is-dropdown-submenu-item">
+    <a href="http://localhost:38120/Account/ChangePassword">
+        Change password
+    </a>
+</li>
+        <li data-is-click="false" class="has-submenu horizontal is-dropdown-submenu-parent is-submenu-item is-dropdown-submenu-item opens-right" role="menuitem" aria-haspopup="true" aria-label="Calculators">
+            <a href="#">Calculators</a>
+            <ul class="menu vertical submenu is-dropdown-submenu" data-submenu="" role="menu">
+<li role="menuitem" class="is-submenu-item is-dropdown-submenu-item">
+    <a href="http://localhost:38120/Calculator/CalculateFuelCost">
+        Fuel cost calculator
+    </a>
+</li>
+<li role="menuitem" class="is-submenu-item is-dropdown-submenu-item">
+    <a href="http://localhost:38120/Calculator/CalculateProductionPoints">
+        Production points calculator
+    </a>
+</li>
+            </ul>
+        </li>
+<li role="menuitem" class="is-submenu-item is-dropdown-submenu-item">
+    <a href="http://localhost:38120/Account/Logout">
+        Logout
+    </a>
+</li>
+
+                    </ul>
+                </li>
+                <li class="border" role="menuitem">
+
+                </li>
+                <li data-is-click="false" class="has-submenu is-dropdown-submenu-parent opens-right" role="menuitem" aria-haspopup="true" aria-label="Rankings">
+                    <a href="#">Rankings</a>
+                    <ul class="menu vertical submenu is-dropdown-submenu first-sub" style="" data-submenu="" role="menu">
+                        <li role="menuitem" class="is-submenu-item is-dropdown-submenu-item">
+    <a href="http://localhost:38120/Best/Citizens">
+        Best citizens
+    </a>
+</li>
+
+                    </ul>
+                </li>
+
+        </ul>
+    </div>
+
+    <div class="top-bar stacked-for-small">
+
+        <div class="searchBox">
+<form action="/Search/PostSearch" method="post">                <input placeholder="Search" name="query">
+                <i class="fa fa-search"></i>
+</form>        </div><br>
+        <div class="show-for-small-only">
+            <br>
+            <div class="currentTime">Day 120 8:07 AM</div>
+        </div>
+
+    </div>
+</div>
+
+
+
+
+
+
+    <div class="container body-content">
+        <div class="hide-for-small-only medium-12 large-2 columns">
+            <div class="ContentBox entitySummary">
+
+
+<div class="summaryAvatar">
+    
+
+    <img class="" src="Company_files/placeholder.png">
+
+</div>
+<div class="text-center">
+    <a href="http://localhost:38120/Citizen/103">Sharx</a>
+</div>
+<div class="summaryIcons">
+    <a class="relative" href="http://localhost:38120/Message">
+        <i class="fa fa-envelope-o " aria-hidden="true"></i>
+    </a>
+    <a href="http://localhost:38120/Warning">
+        <i class="fa fa-exclamation-circle red" aria-hidden="true"></i>
+            <span class="text red">3</span>
+    </a>
+</div>
+
+<hr>
+<div class="infoIcons">
+    <div class="infoIcon" data-toggle="tooltip" title="'You" are="" hungry!&#39;="">
+            <a href="http://localhost:38120/Country/10/MarketOffers/1/0" )="">
+                
+
+    <img class="" src="Company_files/eating.png">
+
+            </a>
+            <i class="fa fa-times eating notDone"></i>
+    </div>
+        <div class="infoIcon">
+            <a id="gotoWorkButton" href="http://localhost:38120/Company/351">
+                
+
+    <img class="" src="Company_files/Work.png">
+
+            </a>
+                <i class="fa fa-times training notDone"></i>
+        </div>
+    <div class="infoIcon">
+        <a href="http://localhost:38120/Training">
+            
+
+    <img class="" src="Company_files/training.png">
+
+        </a>
+            <i class="fa fa-times training notDone"></i>
+    </div>
+</div>
+
+<hr>
+
+<div class="container-bar-big">
+    <div id="citizenHPBar" class="hp-bar-big" style="width : 10%;">
+    </div>
+    <span class="BlendMix" id="citizenHPText">
+        10% HP
+    </span>
+
+</div>
+    <div class="sumaryHealingButton">
+<form action="/Hospital/Heal?hospitalID=318" method="post">            <button id="hospitalHealSummary" class="button green">
+                Heal <br>
+                    FREE
+            </button>
+</form>    </div>
+
+<div class="container-bar-big">
+    <div class="exp-bar-big" style="width : 53%;">
+    </div>
+    <span class="BlendMix">
+        25/47 EXP
+    </span>
+</div> <br>
+
+<div class="container-bar-big">
+    <div class="military-bar-big" style="width : 60%;">
+    </div>
+    <span data-tooltip="o04sq2-tooltip" data-position="right" data-alignment="center" class="BlendMix has-tip" aria-haspopup="true" title="" aria-describedby="qo9yez-tooltip" data-yeti-box="qo9yez-tooltip" data-toggle="qo9yez-tooltip" data-resize="qo9yez-tooltip">
+        6K/9.9K
+    </span>
+</div>
+<hr>
+<div class="centerHorizontalFlex">
+    <div class="money">
+    13.00
+    
+
+    <img class="" src="Company_files/Gold.png">
+
+</div>
+</div>
+
+<div class="centerHorizontalFlex">
+    <div class="money">
+    0.00
+    
+
+    <img class="" src="Company_files/Poland.png">
+
+</div>
+</div>
+
+<div class="currentTime">Day 120 8:07 AM</div>
+
+<script src="Company_files/sociatis.js"></script>
+
+
+            </div>
+        </div>
+        <div class="small-12 medium-12 large-10 columns gameBody  noTabletPadding noMobilePadding">
+            <div class="row collapse">
+                <div class="small-12 columns noHorizontalPadding" id="popupMessageList">
+
+                    <script id="popupMessageTemplate" type="text/x-jsrender" data-jsv-tmpl="jsvTmpl">
+                        <div class="popupMessage {{:messageClass}}">
+                            <div class="close"><i class="fa fa-close"></i></div>
+                            <div class="message">
+                                {{:message}}
+                            </div>
+                        </div>
+                    </script>
+                </div>
+                <div class="small-12 columns">
+                    
+
+
+
+
+<div id="overallInfo" class="row ContentBox">
+    <div class="row">
+        <div class="small-3 medium-4 columns">
+            <div class="infoAvatar relative">
+                
+
+    <img class="" src="Company_files/placeholder.png">
+
+            </div>
+        </div>
+        <div class="small-9 medium-8 columns">
+            <h5><a href="http://localhost:38120/Company/446">test construction</a></h5>
+            <h5>
+                <a href="http://localhost:38120/Region/46">Mazovia</a>
+                , <a href="http://localhost:38120/Country/10">Poland</a>
+            </h5>
+        </div>
+    </div>
+        <div class="row">
+        <div class="small-12 columns">
+            <div id="actionBar">
+                <div class="dropdown-z-fix float-right">
+    <ul class="dropdown menu" data-dropdown-menu="1yrlow-dropdown-menu" data-close-on-click-inside="false" role="menubar">
+        <li role="menuitem" class="is-dropdown-submenu-parent opens-right" aria-haspopup="true" aria-label="Market">
+            <a class="action"><i class="fa fa-shopping-cart" aria-hidden="true"></i>Market</a>
+            <ul class="menu vertical submenu is-dropdown-submenu first-sub" data-submenu="" role="menu">
+                    <li role="menuitem" class="is-submenu-item is-dropdown-submenu-item">
+                        
+    <a class="" href="http://localhost:38120/Company/446/JobOffers">
+        <i class="fa fa-file-o"></i>
+        Job Offers
+        </a>
+
+                    </li>
+                    <li role="menuitem" class="is-submenu-item is-dropdown-submenu-item">
+                        
+    <a class="" href="http://localhost:38120/Company/446/MarketOffers">
+        <i class="fa fa-usd"></i>
+        Market Offers
+        </a>
+
+                    </li>
+            </ul>
+        </li>
+    </ul>
+</div><div class="dropdown-z-fix float-right">
+    <ul class="dropdown menu" data-dropdown-menu="aondrh-dropdown-menu" data-close-on-click-inside="false" role="menubar">
+        <li role="menuitem" class="is-dropdown-submenu-parent opens-right" aria-haspopup="true" aria-label="Exchange">
+            <a class="action"><i class="fa fa-dollar" aria-hidden="true"></i>Exchange</a>
+            <ul class="menu vertical submenu is-dropdown-submenu first-sub" data-submenu="" role="menu">
+                    <li role="menuitem" class="is-submenu-item is-dropdown-submenu-item">
+                        
+    <a class="" href="http://localhost:38120/Gift/446">
+        <i class="fa fa-gift"></i>
+        Gift
+        </a>
+
+                    </li>
+                    <li role="menuitem" class="is-submenu-item is-dropdown-submenu-item">
+                        
+<form action="/Trade/StartTrade?entityID=446" method="post">        <a class="" onclick="Sociatis.SubmitByLink(this)">
+            <i class="fa fa-dollar"></i>
+            Start Trade
+        </a>
+</form>
+                    </li>
+            </ul>
+        </li>
+    </ul>
+</div><div class="dropdown-z-fix float-right">
+    <ul class="dropdown menu" data-dropdown-menu="iwlqoi-dropdown-menu" data-close-on-click-inside="false" role="menubar">
+        <li role="menuitem" class="is-dropdown-submenu-parent opens-right" aria-haspopup="true" aria-label="Info">
+            <a class="action"><i class="fa fa-info" aria-hidden="true"></i>Info</a>
+            <ul class="menu vertical submenu is-dropdown-submenu first-sub" data-submenu="" role="menu">
+                    <li role="menuitem" class="is-submenu-item is-dropdown-submenu-item">
+                        
+    <a class="" href="http://localhost:38120/Company/446/Management">
+        <i class="fa fa-users"></i>
+        Company management
+        </a>
+
+                    </li>
+            </ul>
+        </li>
+    </ul>
+</div>
+            </div>
+        </div>
+    </div>
+
+</div>
+
+
+<div id="viewCompany" class="ContentBox">
+
+
+
+
+
+<div class="row">
+
+        <div class="medium-6 columns">
+
+            <h4>Required raws</h4>
+            <div class="row small-up-1 medium-up-2">
+                    <div class="column column-block">
+                        <div class="productRequirement">
+    <div class="productRequirementImage">
+        <span class="productRequirementCurrentAmount text-center">
+            0
+        </span>
+        <div class="centerHorizontalFlex productRequirementImageCenter">
+            
+
+    <img class="" src="Company_files/ConstructionMaterials.png">
+
+        </div>
+        <div style="visibility:hidden" class="equipmentQuality">
+            <i class="fa fa-star"></i>
+        </div>
+
+        
+    </div>
+</div>
+                    </div>
+            </div>
+        </div>
+                <div class="medium-2 columns">
+                    &nbsp;
+                </div>
+        <div class="medium-4 columns">
+        <h4 class="text-center">Construction</h4>
+        <div class="row">
+            <div class="hide-for-small-only medium-1 large-2 columns">
+                &nbsp;
+            </div>
+            <div class="small-12 medium-10 large-8 columns">
+                <div class="productRequirement">
+    <div class="productRequirementImage">
+        <div class="productRequirementImageCenter centerHorizontalFlex">
+            
+
+    <img class="" src="Company_files/DefenseSystem.png">
+
+        </div>
+            <div class="equipmentQuality">
+                    <i class="fa fa-star"></i>
+            </div>
+    </div>
+</div>
+            </div>
+            <div class="hide-for-small-only medium-1 large-2 columns">
+                &nbsp;
+            </div>
+        </div>
+    </div>
+</div>
+
+
+
+
+    <div class="centerHorizontalFlex">
+    <div data-tooltip="tcmkwb-tooltip" title="" class="container-bar productionQueue has-tip" aria-describedby="niz7n9-tooltip" data-yeti-box="niz7n9-tooltip" data-toggle="niz7n9-tooltip" data-resize="niz7n9-tooltip">
+        <div class="queue-bar" style="width : 24.6%;">
+        </div>
+
+    </div>
+</div>
+   
+
+    <hr>
+
+    
+<h4> Employees </h4>
+<table class="companyEmployees">
+    <thead>
+        <tr>
+            <th></th>
+            <th>Name</th>
+            <th>Job contract</th>
+                <th>Today production</th>
+                <th>Salary</th>
+                    <th>Minimum HP</th>
+                        <th>Skill</th>
+                    </tr>
+    </thead>
+    <tbody>
+    </tbody>
+</table>
+
+</div>
+
+
+
+                </div>
+            </div>
+         </div>
+            
+
+
+
+
+        </div>
+
+    <footer id="footer">
+        <div class="issues">
+            <a href="http://localhost:38120/Bug/ReportBug" class="">
+                Report bug
+            </a>
+        </div>
+        <div class="copyrights"> © 2018 - Sociatis. All rights reserved.
+            Active players: 2.
+        </div>
+       
+    </footer>
+
+    
+    
+    <script src="Company_files/sociatis_007.js"></script>
+<script src="Company_files/sociatis_006.js"></script>
+<script src="Company_files/sociatis_002.js"></script>
+<script src="Company_files/sociatis_008.js"></script>
+<script src="Company_files/jsrender.js"></script>
+<script src="Company_files/sociatis_005.js"></script>
+<script src="Company_files/store.js"></script>
+
+    <script src="Company_files/sociatis_003.js"></script>
+
+    
+    <script src="Company_files/sociatis_004.js"></script>
+
+    <script>
+        $(() => {});
+        $(document).ready(function () {
+
+            $(document).foundation();
+            $("div.top-bar>div.top-bar-left>ul>li.has-submenu>ul").css("display", "");
+        });
+    </script>
+    <script src="Company_files/notify.js"></script>
+
+
+
+<div class="tooltip" role="tooltip" aria-hidden="true" data-is-active="false" data-is-focus="false" id="qo9yez-tooltip" style="display: none;">Military rank progress</div><div class="tooltip" role="tooltip" aria-hidden="true" data-is-active="false" data-is-focus="false" id="niz7n9-tooltip" style="display: none;">Progress: 123/500</div></body></html>

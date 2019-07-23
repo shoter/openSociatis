@@ -1,0 +1,27 @@
+﻿@model Sociatis.Models.Newspapers.NewspaperSummaryViewModel
+@using Weber.Helpers
+
+<p>
+    @Html.ActionLink("Switch back into " + Model.SwitchBackEntityName, "SwitchBack", "Entity")
+</p>
+<div class="summaryAvatar">
+    @Html.DisplayFor(m => m.Avatar)
+</div>
+<div class="text-center">
+    @Html.ActionLink(Model.Name, "View", "Newspaper", new { NewspaperID = Model.ID }, null)
+</div>
+<div class="summaryIcons">
+    <a href="@Url.Action("Index", "Message")">
+        <i class="fa fa-envelope-o" aria-hidden="true"></i>
+    </a>
+    <a href="@Url.Action("Index", "Warning")">
+        <i class="fa fa-exclamation-circle" aria-hidden="true"></i>
+    </a>
+</div>
+
+<hr />
+<p class="text-center">
+    @Html.DisplayFor(m => m.CountryMoney)
+</p>
+
+@Html.RenderCurrentTime()

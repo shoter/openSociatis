@@ -1,0 +1,54 @@
+﻿@model Sociatis.Models.Market.CountryMarketOffersListViewModel
+@{
+    ViewBag.Title = Model.Info.CountryName + " - market offers";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+    ScriptInjector.AddScript("~/Scripts/market/sociatis.market.js");
+}
+
+@Html.Partial("~/Views/Country/DisplayTemplates/CountryInfoViewModel.cshtml", Model.Info)
+
+<div class="ContentBox">
+    <h3>Filters</h3>
+    @using (Html.BeginForm(RouteDataHelper.ActionName + "Post", RouteDataHelper.ControllerName, FormMethod.Post))
+    {
+        <div class="row">
+            <div class="medium-3 small-6 columns">
+                @Html.DropDownList("countryID", Model.CountryList, new { })
+            </div>
+            @if (Model.ProductList.Count > 2)
+            {
+                <div class="medium-3 small-6 columns">
+                    @Html.DropDownList("productID", Model.ProductList)
+                </div>
+            }
+            @if(Model.QualityList.Count > 0)
+            {
+            <div class="medium-3 small-6 columns">
+                @Html.DropDownList("quality", Model.QualityList)
+            </div>
+            }
+            <div class="medium-3 small-6 columns">
+                <button class="button blue">Search</button>
+            </div>
+        </div>
+    }
+</div>
+
+<div class="ContentBox">
+    <h3>@Model.Info.CountryName Market offers</h3>
+    <div class="marketOffersList">
+        @for (int i = 0; i < Model.Offers.Count; ++i)
+        {
+            var offer = Model.Offers[i];
+            @Html.DisplayFor(m => offer)
+        }
+    </div>
+
+    <hr />
+
+    @using (Html.BeginForm(RouteDataHelper.ActionName + "Post", RouteDataHelper.ControllerName, new { countryID = Model.Info.CountryID, quality = Model.Quality, productID = Model.ProductID }, FormMethod.Post, null))
+    {
+        @PagingParamHtmlHelper.Render(Model.PagingParam)
+    }
+
+</div>

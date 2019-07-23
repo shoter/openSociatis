@@ -1,0 +1,60 @@
+﻿@model Sociatis.Models.Party.PartyCongressCandidatesListViewModel
+@using Entities.enums;
+
+@{
+    ViewData.TemplateInfo.HtmlFieldPrefix = "";
+}
+
+@foreach (var candidate in Model)
+{
+    if (candidate.IsAccepted || Model.PartyRole != PartyRoleEnum.NotAMember)
+    {
+        <tr>
+            <td class="miniAvatars">
+                @Html.DisplayFor(m => candidate.Avatar)
+            </td>
+            <td>
+                @Html.ActionLink(candidate.Name, "View", "Citizen", new { ID = candidate.CandidateID }, null)
+                @if (Model.PartyRole != PartyRoleEnum.NotAMember)
+                {
+                    <br />
+                    <text>
+                        @Html.Raw(candidate.IsAccepted ? "Approved" : "<b>Not</b> approved") for the congress.
+                    </text>
+                }
+
+            </td>
+            <td>
+                @candidate.RegionName
+            </td>
+            @if (Model.CanAcceptCandidates)
+            {
+                <td>
+                    @if (candidate.CandidateStatus == CongressCandidateStatusEnum.WaitingForApproval)
+                    {
+                        using (Html.BeginForm("AcceptCongressCandidate", RouteDataHelper.ControllerName, FormMethod.Post))
+                        {
+                            @Html.Hidden("CandidateID", candidate.CandidateID)
+                            <button class="button green">Accept</button>
+                        }
+                    }
+                    else
+                    {
+                        @:Accepted
+                }
+                </td>
+            }
+            <td>
+                @if (candidate.CanResign)
+                {
+                    using (Html.BeginForm("ResignAsCandidate", "Party", FormMethod.Post))
+                    {
+                        @Html.Hidden("CandidateID", candidate.CandidateID)
+                        <button class="button red">Resign</button>
+                    }
+                }
+
+            </td>
+        </tr>
+    }
+}

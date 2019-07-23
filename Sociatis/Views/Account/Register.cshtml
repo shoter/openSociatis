@@ -1,0 +1,73 @@
+﻿@model Sociatis.Models.Account.RegisterViewModel
+@{
+    ViewBag.Title = "Register";
+    Layout = "~/Views/Shared/_LayoutGuest.cshtml";
+}
+@using (Html.BeginForm())
+{
+    @Html.ValidationSummary()
+    <div class="row">
+        <div class="large-3 medium-2 hide-for-small-only columns">&nbsp;</div>
+        <div class="large-6 medium-8 small-12 columns">
+            <div class="row">
+                <div class="small-4 columns">
+                    @Html.DisplayNameFor(m => m.Email)
+                </div>
+                <div class="small-8 columns">
+                    @Html.TextBoxFor(m => m.Email)
+                    @Html.ValidationMessageFor(m => m.Email)
+                </div>
+                <div class="small-4 columns">
+                    @Html.DisplayNameFor(m => m.Name)
+                </div>
+                <div class="small-8 columns">
+                    @Html.TextBoxFor(m => m.Name)
+                    @Html.ValidationMessageFor(m => m.Name)
+                </div>
+
+                <div class="small-4 columns">
+                    @Html.DisplayNameFor(m => m.Password)
+                </div>
+                <div class="small-8 columns">
+                    @Html.PasswordFor(m => m.Password)
+                    @Html.ValidationMessageFor(m => m.Password)
+                </div>
+
+                <div class="small-4 columns">
+                    @Html.DisplayNameFor(m => m.CountryID)
+                </div>
+                <div class="small-8 columns">
+                    @Html.DropDownListFor(m => m.CountryID, Model.CountryList)
+                    @Html.ValidationMessageFor(m => m.CountryID)
+                </div>
+
+                <div class="small-4 columns">
+                    @Html.DisplayNameFor(m => m.RegionID)   
+                </div>
+                <div class="small-8 columns">
+                    @Html.DropDownListFor(m => m.RegionID, Model.RegionsList)
+                    @Html.ValidationMessageFor(m => m.RegionID)
+                </div>
+
+
+                <div class="small-7 columns">&nbsp;</div>
+                <div class="small-5 columns">
+                    <div class="expanded button-group">
+                        <a href="#" onclick="$(this).closest('form').submit()" class="button">Register</a>
+                        <a href="@Url.Action("Index", "Home")" class="secondary button">Go back</a>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+
+        <div class="large-3 medium-2 hide-for-small-only columns">&nbsp;</div>
+
+    </div>
+
+}
+
+@section scripts{
+    <script type="text/javascript" src="~/Scripts/Sociatis.account.register.js"></script>
+
+}

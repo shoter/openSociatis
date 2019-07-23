@@ -1,0 +1,82 @@
+﻿@model Sociatis.Models.Country.CountryMPPListViewModel
+
+@{
+    ViewBag.Title = "MPPs";
+}
+
+@Html.DisplayFor(m => m.Info)
+
+<div class="ContentBox">
+     @if (Model.CanCreateMPPOffers)
+     { 
+         <a href="@Url.Action("SendMPPOffer", "Country", new { countryID = Model.Info.CountryID })" class="button blue">Create MPP Proposition</a>
+    }
+    <h5>Military Protection Pacts</h5>
+    <div class="table">
+        <table>
+            <thead>
+                <tr>
+                    <th>First Country</th>
+                    <th>Second Country</th>
+                    <th>Status</th>
+                </tr>
+            </thead>
+            <tbody>
+                @foreach (var mpp in Model.MPPs)
+                {
+                    if (Model.Info.IsPresident == false
+                    && (mpp.IsProposal || mpp.IsProposed))
+                    {
+                        continue;
+                    }
+                    <tr>
+                        <td>@Html.EntityView(mpp.FirstCountryName, mpp.FirstCountryID)</td>
+                        <td>@Html.EntityView(mpp.SecondCountryName, mpp.SecondCountryID)</td>
+                        @if (mpp.IsProposal == false && mpp.IsProposed == false)
+                        {
+                            <td>@mpp.StatusTxt</td>
+                        }
+                        @if (mpp.IsProposed)
+                        {
+                            <td>
+                                @if (Model.RuledCountries.Contains(mpp.FirstCountryID))
+                                {
+                                    <text>
+                                        Offered at day @mpp.StartDay by @mpp.FirstCountryName
+                                    </text>
+                                    using (Html.BeginForm("CancelProposal", "Country", new { offerID = mpp.ID }, FormMethod.Post))
+                                    {
+                                        <button class="button red">Cancel MPP offer</button>
+                                    }
+                                }
+                            </td>
+                        }
+                        @if (mpp.IsProposal)
+                        {
+                            <td>
+                                @if (Model.RuledCountries.Contains(mpp.SecondCountryID))
+                                {
+                                    <text>
+                                        Offered at day @mpp.StartDay by @mpp.FirstCountryName
+                                    </text>
+                                    using (Html.BeginForm("AcceptProposal", "Country", new { offerID = mpp.ID }, FormMethod.Post))
+                                    {
+                                        <button class="button green">Accept MPP offer</button>
+                                    }
+                                    using (Html.BeginForm("RefuseProposal", "Country", new { offerID = mpp.ID }, FormMethod.Post))
+                                    {
+                                        <button class="button red">Cancel MPP offer</button>
+                                    }
+                                }
+                            </td>
+                        }
+                    </tr>
+                }
+            </tbody>
+        </table>
+    </div>
+    <div class="hint">
+        Military Protection Pact is used when someone will start war against your country. When country is attacked then everyone that you have formed MPP with will join war as your ally.
+        <br/>You are not able to attack your allies whom you have MPP with.
+    </div>
+</div>

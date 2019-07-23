@@ -1,0 +1,14 @@
+﻿@model Sociatis.Models.Infos.InfoDisabledActionViewModel
+
+<a @Model.ClassField.ToHtml()
+   @if (Model.Tooltip != null)
+   {
+       <text>
+   data-tooltip
+    aria-haspopup="true"  title="@Model.Tooltip"
+   </text>
+   }
+   >
+    <i class="fa @Model.Icon "></i>
+    @Model.Name
+</a>

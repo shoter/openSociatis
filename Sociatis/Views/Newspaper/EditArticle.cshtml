@@ -1,0 +1,36 @@
+﻿@model Sociatis.Models.Newspapers.WriteArticleViewModel
+
+
+@{
+    ViewBag.Title = "Write article - " + Model.Info.Name;
+}
+
+@Html.DisplayFor(m => m.Info)
+@using (Html.BeginForm(RouteDataHelper.ActionName, RouteDataHelper.ControllerName, new { articleID = Model.ID }, FormMethod.Post, new { enctype = "multipart/form-data" }))
+{
+    <div class="row ContentBox">
+
+        @if (ViewData.ModelState.IsValid == false)
+        {
+            @Html.ValidationSummary();
+            <hr />
+        }
+
+        @Html.EditorFor(m => m)
+
+        <div class="small-12 columns">
+            <button class="button blue">Edit article</button>
+        </div>
+    </div>
+
+}
+
+@Scripts.Render("https://cdn.jsdelivr.net/ace/1.2.6/min/ace.js")
+@Scripts.Render("~/bundles/markdown")
+@Styles.Render("~/Content/markdown")
+
+@section scripts
+{
+
+    @Scripts.Render("~/Scripts/newspapers/sociatis.newspaper.write.js")
+}

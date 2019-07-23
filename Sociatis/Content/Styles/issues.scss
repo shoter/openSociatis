@@ -1,0 +1,118 @@
+﻿@import "definitions.css";
+
+$alreadyVotedColor: black;
+$notVotedColor: gray;
+
+#devIssueView
+{
+
+
+    .top
+    {
+        margin: 1rem 0.5rem;
+        display: flex;
+
+        .votings
+        {
+            margin-right: 1rem;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+            padding-bottom:1.5rem;
+
+            .fa
+            {
+                cursor: pointer;
+
+                &:hover
+                {
+                    color: #3f5e71
+                }
+
+                &:active
+                {
+                    color: lightskyblue;
+                }
+            }
+
+            .fa
+            {
+                color: $alreadyVotedColor;
+
+                &:hover
+                {
+                    color: lighten($alreadyVotedColor, 20%);
+                }
+
+                &:active
+                {
+                    color: lighten($alreadyVotedColor, 40%);
+                }
+            }
+        }
+
+
+        .header
+        {
+            display: inline-block;
+            vertical-align: top;
+            margin-left: 2rem;
+        }
+    }
+
+    .content
+    {
+        white-space: pre-line;
+    }
+
+    .uploadedFilesLabel
+    {
+        margin-top: 1rem;
+    }
+}
+
+#createIssue
+{
+    textarea#content
+    {
+        max-width: none;
+        resize: vertical;
+    }
+}
+
+.issueComment
+{
+    .top
+    {
+        margin: 1rem 0.5rem;
+        display: flex;
+
+        .header
+        {
+            display: inline-block;
+            vertical-align: top;
+            margin-left: 2rem;
+        }
+    }
+}
+
+.issueComment:nth-child(2n+1)
+{
+    .top
+    {
+        // flex-direction: row-reverse;
+        .header
+        {
+            // margin-right: 2rem;
+        }
+    }
+}
+
+#issueWriteComment.writeComment
+{
+    textarea
+    {
+        //max-width: none;
+    }
+}

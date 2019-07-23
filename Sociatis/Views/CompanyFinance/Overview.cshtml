@@ -1,0 +1,22 @@
+﻿@model Sociatis.Models.CompanyFinances.FinanceOverviewViewModel
+
+@{
+    ViewBag.Title = Model.Info.CompanyName + "'s finance overview";
+}
+
+@Html.Partial("~/Views/Company/DisplayTemplates/CompanyInfoViewModel.cshtml", Model.Info)
+
+<div class="contentBox">
+    <h3>@ViewBag.Title</h3>
+
+    <div>
+        <label>Currencies:</label>
+        @Html.DropDownList("currencyID", Model.Currencies)
+    </div>
+
+    <table id="overviewTable"></table>
+</div>
+
+<input type="hidden" id="companyID" value="@Model.Info.CompanyID" />
+
+<script src="~/Scripts/companyFinances/sociatis.company.finances.overview.js"></script>

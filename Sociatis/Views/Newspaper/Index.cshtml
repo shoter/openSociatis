@@ -1,0 +1,57 @@
+﻿@model Sociatis.Models.Newspapers.NewspaperIndexViewModel
+
+<div class="ContentBox row">
+
+    <div class="createNewspaper">
+        <a href="@Url.Action("Create","Newspaper")">
+            <div class="success button">
+                Create newsaper
+            </div>
+        </a>
+    </div>
+
+    <table class="fullWidth">
+        <thead>
+            <tr>
+                <th>Image</th>
+                <th>Name</th>
+                <th>Messages</th>
+                <th>Events</th>
+                <th>&nbsp;</th>
+            </tr>
+        </thead>
+        <tbody>
+
+            @for (int i = 0; i < Model.Newspapers.Count; ++i)
+            {
+                <tr>
+                    <td class="TableMiniature">
+                        @Html.DisplayFor(m => m.Newspapers[i].Avatar)
+                    </td>
+                    <td>
+                        @Html.ActionLink(Model.Newspapers[i].Name, "View", "Newspaper", new { newspaperID = Model.Newspapers[i].EntityID }, null)
+                    </td>
+                    <td>
+                        0
+                    </td>
+                    <td>
+                        1
+                    </td>
+                    <td class="minSize">
+                        <a class="small button" href="@Url.Action("Switch", "Entity", new { ID = Model.Newspapers[i].EntityID })">Switch</a>
+                    </td>
+                </tr>
+            }
+            @if (Model.Newspapers.Count == 0)
+            {
+                <tr>
+                    <td colspan="6">
+                        No newspapers
+                    </td>
+                </tr>
+            }
+
+        </tbody>
+
+    </table>
+</div>

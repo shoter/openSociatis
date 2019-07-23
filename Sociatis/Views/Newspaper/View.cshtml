@@ -1,0 +1,37 @@
+﻿@model Sociatis.Models.Newspapers.ViewNewspaperViewModel
+
+@{ 
+    ViewBag.Title = Model.Info.Name;
+    int i = 0;
+}
+
+
+@Html.DisplayFor(m => m.Info)
+
+<div class="row ContentBox">
+    <h3>Last articles</h3>
+        @foreach (var article in Model.LastArticles)
+        {
+            if(i % 2 == 0)
+            {
+                @:<div class="row articleRow">
+            }
+                <article class="shortArticle large-6 small-12 columns">
+                    <div class="articleDate">
+                        @article.Date
+                    </div>
+                    <h4>@article.Title</h4>
+                    <a href="@Url.Action("ReadArticle", new { articleID = article.ID })"  class="articleImage">
+                        @Html.DisplayFor(m => article.Image)
+                    </a>
+                    <div class="articleInfo">
+                        <p>@article.ShortContent <a href="@Url.Action("ReadArticle", new { articleID = article.ID })" >read more</a></p>
+                    </div>
+                </article>
+            if(i % 2 == 1 || (i + 1) == Model.LastArticles.Count)
+                        {
+                @:</div>
+            }
+            ++i;
+        }
+</div>

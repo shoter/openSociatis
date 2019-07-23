@@ -1,0 +1,27 @@
+﻿@{
+    ViewBag.Title = "Dev Issues";
+}
+
+<div id="issuesIndex" class="contentBox">
+    @Html.ActionLink("Create issue", "CreateIssue", null, new { @class = "button green" })
+    <div>
+        <input type="checkbox" id="unresolvedCheckbox" value="kek"/>
+        <label>Show only unresolved</label>
+    </div>
+    <table id="isueesTable">
+        @*<thead>
+            <tr>
+                <td>Creator</td>
+                <td>Name</td>
+                <td>Votes</td>
+            </tr>
+        </thead>*@
+        <tbody>
+
+        </tbody>
+    </table>
+</div>
+@section scripts
+{
+        <script src="~/Scripts/devIssues/sociatis.issues.index.js"></script>
+}

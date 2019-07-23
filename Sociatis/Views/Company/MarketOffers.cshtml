@@ -1,0 +1,35 @@
+﻿@model Sociatis.Models.Companies.CompanyMarketOfferListViewModel
+@{
+    ViewBag.Title = Model.Info.CompanyName + " - market offers";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+@Html.DisplayFor(m => m.Info)
+
+<div class="ContentBox">
+    <h3>@Model.Info.CompanyName Market offers</h3>
+    @if (Model.CompanyRights.CanPostMarketOffers)
+    {
+        <a href="@Url.Action("CreateMarketOffer", RouteDataHelper.ControllerName, new { companyID = Model.Info.CompanyID})" class="button blue">Create market offer</a> <br/>
+    }
+    <div class="marketOffersList">
+        @for (int i = 0; i < Model.Offers.Count; ++i)
+        {
+            @Html.DisplayFor(m => Model.Offers[i])
+        }
+    </div>
+
+    <hr/>
+
+    @using (Html.BeginForm(RouteDataHelper.ActionName + "POST", RouteDataHelper.ControllerName, new { companyID = Model.Info.CompanyID }, FormMethod.Post,  null))
+    {
+        @PagingParamHtmlHelper.Render(Model.PagingParam)
+    }
+
+</div>
+
+@section scripts
+{
+    <script type="text/javascript" src="~/Scripts/company/sociatis.company.market_offer.js"></script>
+    <script type="text/javascript" src="~/Scripts/market/sociatis.market.js"></script>
+}

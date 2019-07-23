@@ -1,0 +1,108 @@
+﻿@model Sociatis.Models.Map.MapEditViewModel
+@using Entities.enums
+@{
+    Layout = "~/Views/Shared/_LayoutMap.cshtml";
+}
+<button class="button" type="button" onclick="saveMap()">Save me kurwa</button>
+
+<div class="row">
+    <div class="small-6 columns">
+        <div class="ContentBox forMap">
+            <div id="map">
+
+            </div>
+
+        </div>
+    </div>
+    <div class="small-6 columns">
+
+        <div class="ContentBox">
+            <div class="row">
+                <div class="small-6 columns">
+                    Click to create polygon
+                    <input id="createPolygon" type="checkbox" /> <br />
+
+                    <h3>Region data</h3>
+
+                    Region name @Html.DropDownList("RegionID", Model.SelectListRegions, new { id = "RegionID" })
+                    <br />
+
+                    Edit <input id="Editable" type="checkbox" /> <br />
+
+                    Color <input id="Color" type="color" /> <br />
+
+                    Opacity <input id="Opacity" type="number" min="0" max="1" step="0.05" /><br />
+
+                    FillColor <input id="FillColor" type="color" /> <br />
+
+                    FillOpacity <input id="FillOpacity" type="number" min="0" max="1" step="0.05" /> <br />
+
+                    Weight <input id="Weight" /> <br /> <br />
+                </div>
+                <div class="small-6 columns">
+
+                    @foreach (var res in Enum.GetValues(typeof(ResourceTypeEnum)).Cast<ResourceTypeEnum>())
+            {
+                        <text>
+                            @res.ToHumanReadable() <input id="resource_@((int)res)" /> <br /> <br />
+                        </text>
+                    }
+
+
+                    <button class="button" id="setRegion" type="button" onclick="setRegion(this)">Set!</button>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+@section scripts
+{
+
+    @Scripts.Render("~/Scripts/Map/sociatis.map.edit.js")
+    @Scripts.Render("https://www.webglearth.com/v2/api.js")
+
+    <script>
+    $(() => {
+        var polygon;
+        var info;
+        var region;
+        @foreach (var region in Model.Regions) {
+            <text>
+            polygon = WE.polygon(
+            @region.Points.ToJavascriptArray(p => p.Latitude, p => p.Longitude),
+            {
+                color: @region.Color.ToJavascriptString(),
+                opacity: @region.Opacity,
+                fillColor: @region.FillColor.ToJavascriptString(),
+                fillOpacity: @region.FillOpacity,
+                editable: @region.Editable.ToJavascript(),
+                weight: @region.Weight,
+            });
+
+            info = {
+                regionID: @region.RegionID,
+                polygonID: @region.PolygonID,
+                color: @region.Color.ToJavascriptString(),
+                opacity: @region.Opacity,
+                fillColor: @region.FillColor.ToJavascriptString(),
+                fillOpacity: @region.FillOpacity,
+                editable: @region.Editable.ToJavascript(),
+                weight: @region.Weight,
+                fertility: @region.Fertility.ToJavascriptArray(x => x),
+            };
+
+            region = { Polygon: polygon, Info: info };
+
+            addWERegion(
+                createWERegion(region)
+            );
+
+
+            </text>
+            }
+
+        });
+    </script>
+
+
+}

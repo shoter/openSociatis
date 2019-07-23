@@ -1,0 +1,30 @@
+﻿@model Sociatis.Models.Newspapers.NewspaperInfoViewModel
+@using NRights = Entities.enums.NewspaperRightsEnum
+@{
+    ViewData.TemplateInfo.HtmlFieldPrefix = "";
+}
+
+<div id="overallInfo" class="row ContentBox">
+    <div class="row">
+        <div class="small-3 medium-4 columns">
+            <div class="infoAvatar relative">
+                @Html.DisplayFor(m => m.Avatar)
+                @if (Model.CanSwitch)
+                {
+                    @Html.EditorFor(m => m.AvatarChange)
+                }
+            </div>
+        </div>
+        <div class="small-9 medium-8 columns">
+            <h5>@Html.ActionLink(Model.Name, "View", new { newspaperID = Model.EntityID }, null)</h5>
+            <h6>@Html.ActionLink(Model.CountryName, "View", "Country", new { countryID = Model.CountryID }, null)</h6>
+            @if(Model.NewspaperRights != 0)
+            {
+                <h6>Paper amount: @Model.PaperCount / @Model.InventoryCapacity</h6>
+            }
+            <h6>Owner: @Html.ActionLink(Model.OwnerName, "View", "Entity", new { entityID = Model.OwnerID }, null)</h6>
+        </div>
+    </div>
+    @Html.DisplayFor(m => m.Menu)
+
+</div>

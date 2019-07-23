@@ -1,0 +1,21 @@
+﻿@import "../definitions.css";
+
+#createCompany
+{
+    .createButtons
+    {
+        display: flex;
+
+        a, button
+        {
+            max-width: 45%;
+        }
+
+        .expanded
+        {
+            display: flex;
+            width: 100%;
+            justify-content: space-between;
+        }
+    }
+}

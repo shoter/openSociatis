@@ -1,0 +1,17 @@
+﻿@model Sociatis.Models.Infos.InfoExpandableViewModel
+
+<div class="dropdown-z-fix float-right">
+    <ul class="dropdown menu" data-dropdown-menu data-close-on-click-inside="false">
+        <li>
+            <a class="action"><i class="fa @Model.Icon" aria-hidden="true"></i>@Model.Name</a>
+            <ul class="menu vertical">
+                @foreach (var child in Model.Children)
+                {
+                    <li>
+                        @Html.DisplayFor(m => child)
+                    </li>
+                }
+            </ul>
+        </li>
+    </ul>
+</div>

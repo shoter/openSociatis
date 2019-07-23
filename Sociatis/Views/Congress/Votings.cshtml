@@ -1,0 +1,29 @@
+﻿@model Sociatis.Models.Congress.CongressVotingsViewModel
+
+@{
+    ViewBag.Title = string.Format("{0}'s congress votings", Model.CountryName);
+}
+
+@Html.DisplayFor(m => m.Info)
+
+<div class="ContentBox">
+    <h4>Congress Votings</h4>
+
+    @if (Model.IsCongressman )
+    {
+        <p>
+            @if (Model.CanStartNewVoting)
+            {
+            <a href="@Url.Action("StartVoting")" class="button blue">Create voting</a>
+            }
+            else
+            {
+                <a data-tooltip title="You already voted today!" class="button blue disabled"  >Create voting</a>
+            }
+        </p>
+    }
+
+    <div id="votings">
+        @Html.Action("VotingsPartial", new { countryID = Model.CountryID })
+    </div>
+</div>

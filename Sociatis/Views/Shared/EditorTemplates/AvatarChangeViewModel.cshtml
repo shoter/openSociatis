@@ -1,0 +1,27 @@
+﻿@model Sociatis.Models.Avatar.AvatarChangeViewModel
+@{
+    var buttonID = Model.EntityID + "button";
+    var croppieID = Model.EntityID + "croppie";
+    ScriptInjector.AddScript("~/bundles/uploader");
+    ScriptInjector.AddScript("~/bundles/cropper");
+    ScriptInjector.AddScript("~/Scripts/avatars/sociatis.avatar.js");
+    StyleInjector.AddStyle("~/Content/fileuploader");
+    StyleInjector.AddStyle("~/Content/cropper");
+    ScriptInjector.AddJavascript("Sociatis.Avatar.Init('#" + buttonID + "','#" + croppieID + "'," + Model.EntityID + ")");
+}
+
+<div id="@buttonID" class="hoverOnUploader fileinput-button">
+    <div class="positioner">
+        <i class="fa fa-upload"></i>
+    </div>
+    <input type="file" name="file" data-url="/Avatar/UploadPicture/" multiple>
+</div>
+
+<div id="@croppieID" class="croppie" style="display:none">
+    <div>
+        <div style="width: 60vw; height: 80vh;">
+            <img />
+        </div>
+        <button class="button green fullWidthDialog" , type="button">Crop and save</button>
+    </div>
+</div>

@@ -1,0 +1,12 @@
+﻿@model Sociatis.Models.Battle.ShortBattleParticipantViewModel
+
+<div class="row battleParticipant centerVerticalFlex">
+    <div class="small-5 columns miniAvatars" title="@Model.CitizenName">
+        <a href="@Url.Action("View", "Citizen", new { citizenID = Model.CitizenID })">
+            @Html.DisplayFor(m => m.Avatar)
+        </a>
+    </div>
+    <div class="small-7 columns">
+        @Model.Damage damage
+    </div>
+</div>

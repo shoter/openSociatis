@@ -1,0 +1,42 @@
+﻿@model Sociatis.Models.War.WarViewModel
+
+@Html.DisplayFor(m => m.Info)
+
+<div class="ContentBox">
+    <h3>Battles</h3>
+    <table>
+        <thead>
+            <tr>
+                <th>#</th>
+                <th>Status</th>
+                <th>Region</th>
+                <th>Time left</th>
+                <th>Wall health</th>
+                <th></th>
+            </tr>
+        </thead>
+        <tbody>
+            @foreach(var battle in Model.ActiveBattles)
+            {
+                <tr>
+                    <td>@battle.BattleID</td>
+                    <td>@battle.BattleStatusText</td>
+                    <td>@battle.RegionName</td>
+                    <td>@battle.TimeLeft</td>
+                    <td>@battle.WallHealth</td>
+                    <td><a href="@Url.Action("View", "Battle", new { battleID = battle.BattleID })" class="button
+                           @(battle.CanFight ? "red" : "blue")
+                           ">
+                        @if(battle.CanFight)
+                        {
+                            @: Fight!
+                        } else
+                        {
+                            @: View
+                        }
+                        </a></td>
+                </tr>
+            }
+        </tbody>
+    </table>
+</div>

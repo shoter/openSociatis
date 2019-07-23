@@ -1,0 +1,4 @@
+﻿@model Sociatis.Models.Congress.Votings.ViewChangeCompanyCreationLawHolderViewModel
+
+<h4>Proposition #@Model.VotingID : From now on new national companies may be created only by <b>@Model.LawHolder</b></h4>
+by @Html.ActionLink(Model.CreatorName, "View", "Citizen", new { citizenID = Model.CreatorID }, null)

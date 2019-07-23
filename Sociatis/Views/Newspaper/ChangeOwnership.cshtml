@@ -1,0 +1,31 @@
+﻿@model Sociatis.Models.Newspapers.ChangeNewspaperOwnerViewModel
+
+@{
+    ViewBag.Title = "Change ownership for " + Model.Info.Name;
+}
+
+@Html.DisplayFor(m => m.Info)
+
+<div class="ContentBox">
+    @using (Html.BeginForm(RouteDataHelper.ActionName, RouteDataHelper.ControllerName, FormMethod.Post))
+    {
+        <div class="centerHorizontalFlex">
+            @Html.Hidden("NewspaperID", Model.Info.EntityID)
+            @Html.LabelFor(m => m.NewOwnerID)
+        </div>
+            <div class="centerHorizontalFlex">
+                @Html.Render(Model.OwnerSelect)
+            </div>
+            <div class="centerHorizontalFlex">
+                <button class="button green">Change owner</button>
+            </div>
+
+    }
+</div>
+
+
+@section scripts
+{
+    @Scripts.Render("~/bundles/select2")
+    @Styles.Render("~/Content/select2")
+}

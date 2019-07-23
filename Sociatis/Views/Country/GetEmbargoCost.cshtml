@@ -1,0 +1,17 @@
+﻿@model Sociatis.Models.Country.EmbargoCostViewModel
+
+<div>
+    Embargo cost (now + per day): @Html.DisplayFor(m => m.Cost)
+</div>
+<div>
+    @if (Model.HaveMoney)
+    {
+        using (Html.BeginForm("DeclareEmbargo", "Country", new { countryID = Model.IssueCountryID, CountryEmbargoID = Model.EmbargoedCountryID }, FormMethod.Post))
+        {
+                <button class="button green">Declare<text class="hide-for-small-only"> embargo</text></button>
+        }
+    } else
+    {
+        <div class="red">Your country does not have enough money to issue this embargo.</div>
+    }
+</div>

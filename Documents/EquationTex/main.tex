@@ -1,0 +1,10 @@
+\fbox{
+ \addtolength{\linewidth}{-2\fboxsep}%
+ \addtolength{\linewidth}{-2\fboxrule}%
+ \begin{minipage}{\linewidth}
+  \begin{align} \label{eq:winCorr}
+   r(x) &= (1 - x^3) * corr \\ 
+   \textnormal{Nowa siła} &= \frac{2.33x + r(x)}{2.33 + r(x)} \label{eq:winStr}
+  \end{align}
+ \end{minipage}
+}

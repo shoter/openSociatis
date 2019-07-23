@@ -1,0 +1,16 @@
+﻿@model Sociatis.Models.Messages.ViewMessageViewModel
+
+<div class="row message flex">
+    <div class="small-5 medium-3 large-2 columns">
+        @Html.DisplayFor(m => m.AuthorAvatar)
+    </div>
+    <div class="small-7 medium-9 large-10 columns flex stretch">
+        <article class="messageContent stretch">
+           @Html.Raw(Model.Content)
+        </article>
+    </div>
+</div>
+<p class="pull-right has-tip" data-tooltip aria-haspopup="true" title="@Model.DateTooltip">
+    @Model.Date
+</p>
+<hr />

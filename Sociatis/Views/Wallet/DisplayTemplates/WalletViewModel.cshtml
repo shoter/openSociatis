@@ -1,0 +1,30 @@
+﻿@model Sociatis.Models.Wallet.WalletViewModel
+
+@{
+    ViewBag.WalletHeader = ViewBag.WalletHeader ?? "Wallet";
+}
+
+<div class="ContentBox row">
+    <h3>@ViewBag.WalletHeader</h3>
+    <div class="row">
+        @foreach(var money in Model.Money)
+        {
+            <div class="large-3 medium-4 small-6 columns">
+                <div class="walletMoney centerVerticalFlex">
+                    <div>
+                        @Html.DisplayFor(m => money.Image)
+                        @money.Symbol
+                        <text class="float-right">@money.Quantity</text>
+                    </div>
+                </div>
+            </div>
+
+            
+        }
+
+        <div class="columns">
+            &nbsp;
+        </div>
+    </div>
+
+</div>

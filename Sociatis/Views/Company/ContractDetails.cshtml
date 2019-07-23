@@ -1,0 +1,50 @@
+﻿@model Sociatis.Models.Companies.ContractDetailsViewModel
+<div class="row">
+    <div class="medium-4 columns">
+        @Html.DisplayNameFor(m => m.MinSalary)
+    </div>
+    <div class="medium-7 medium-offset-1 columns">
+        @Model.MinSalary
+    </div>
+</div>
+
+<div class="row">
+    <div class="medium-4 columns">
+        @Html.DisplayNameFor(m => m.MinHP)
+    </div>
+    <div class="medium-7 medium-offset-1 columns">
+        @Model.MinHP
+    </div>
+</div>
+
+<div class="row">
+    <div class="medium-4 columns">
+        @Html.DisplayNameFor(m => m.Skill)
+    </div>
+    <div class="medium-7 medium-offset-1 columns">
+        @Model.Skill
+    </div>
+</div>
+
+<div class="row">
+    <div class="medium-4 columns">
+        @Html.DisplayNameFor(m => m.Length)
+    </div>
+    <div class="medium-7 medium-offset-1 columns">
+        @Model.Length
+    </div>
+</div>
+
+<div class="row">
+    <div class="small-8 columns pull-right">
+
+    @Ajax.ActionLink("Accept", "!!", null, new AjaxOptions()
+    {
+    HttpMethod = "POST",
+    OnBegin = "Sociatis.AjaxBegin()",
+    OnComplete = "Sociatis.HandleJson(xhr.responseJSON); Sociatis.AjaxEnd() ",
+    OnFailure = "Sociatis.AjaxError(xhr)",
+    Url = Url.Action("AcceptContract", "Company", new { contractID = Model.JobOfferID })
+    }, new { @class = "button success pull-right" })
+    </div>
+</div>

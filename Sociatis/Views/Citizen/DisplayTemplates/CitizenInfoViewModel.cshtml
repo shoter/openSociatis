@@ -1,0 +1,36 @@
+﻿@model Sociatis.Models.Citizens.CitizenInfoViewModel
+
+@{
+    ViewData.TemplateInfo.HtmlFieldPrefix = "";
+}
+
+<div id="overallInfo" class="row ContentBox">
+    <div class="row">
+        <div class="small-3 medium-4 columns">
+            <div class="infoAvatar relative">
+                @Html.DisplayFor(m => m.Avatar)
+                @if (Model.IsUnderControl)
+                {
+                    @Html.EditorFor(m => m.AvatarChange)
+                }
+            </div>
+        </div>
+        <div class="small-9 medium-8 columns">
+            <h5>@Html.ActionLink(Model.CitizenName, "View", "Citizen", new { citizenID = Model.CitizenID }, null)</h5>
+            <h5>@Html.ActionLink(Model.RegionName, "View", "Region", new { regionID = Model.RegionID }, null)
+               , @Html.ActionLink(Model.CountryName, "View", "Country",  new { countryID = Model.CountryID }, null)</h5>
+            <h5>Citizen of @Html.ActionLink(Model.CitizenshipCountryName, "View", "Entity", new { entityID = Model.CitizenshipCountryID }, null)</h5>
+            @if (Model.WorkingCompanyID.HasValue)
+            {
+              <h5>Works at : @Html.ActionLink(Model.WorkingCompanyName, "View", "Company", new { companyID = Model.WorkingCompanyID }, null)</h5>
+            }
+            @if (Model.PartyID.HasValue)
+            {
+                <h5>Political party : @Html.ActionLink(Model.PartyName, "View", "Party", new { partyID = Model.PartyID }, null)</h5>
+            }
+            <h5>Military rank:  @Model.MilitaryRankReadable.</h5>
+        </div>
+    </div>
+    @Html.DisplayFor(m => m.Menu)
+</div>
+

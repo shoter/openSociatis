@@ -1,0 +1,25 @@
+﻿@import "../definitions.scss";
+
+#constructionView
+{
+    .moneys
+    {
+        & > div
+        {
+            margin-bottom: 0.7rem;
+        }
+    }
+
+    .managers
+    {
+        & > div
+        {
+            margin-bottom: 1rem;
+
+            &:last-child
+            {
+                margin-bottom: 0.5rem;
+            }
+        }
+    }
+}

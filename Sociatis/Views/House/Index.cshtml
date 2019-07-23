@@ -1,0 +1,50 @@
+﻿@model Sociatis.Models.Houses.HouseIndexViewModel
+
+@{
+    ViewBag.Title = "Houses";
+}
+
+<div id="houseIndex" class="contentBox">
+    <h3>Houses</h3>
+    @foreach (var house in Model.Houses)
+    {
+        <div class="house">
+            <div class="row">
+                <div class="medium-4 hide-for-small-only column">
+                    <a href="@Url.Action("View", "House", new { houseID = house.HouseID }, null)">
+                        @Html.DisplayFor(m => house.Image)
+                    </a>
+                </div>
+                <div class="medium-4 small-6 column">
+                    <div class="houseCol">
+                        <div>@Html.ActionLink("House", "View", "House", new { houseID = house.HouseID }, null)</div>
+                        <div>Condition: @(house.Condition)%</div>
+                        <div>@Html.ActionLink(house.RegionName, "View", "Region", new { regionID = house.RegionID }, null)</div>
+                        <div>@Html.ActionLink(house.CountryName, "View", "Country", new { countryID = house.CountryID }, null)</div>
+                        @if (house.IsInside)
+                        {
+                            <div class="isInside">
+                                Currently living here
+                            </div>
+                        }
+                    </div>
+                </div>
+                <div class="medium-4 small-6 column">
+                    <div class="houseCol">
+                        <h4>Furniture</h4>
+
+                        @foreach (var f in house.Furniture)
+                        {
+                            <div>
+                                @f.Name <b>Q@(f.Quality)</b>
+                            </div>
+                        }
+                    </div>
+                </div>
+            </div>
+        </div>
+    }
+
+
+
+</div>

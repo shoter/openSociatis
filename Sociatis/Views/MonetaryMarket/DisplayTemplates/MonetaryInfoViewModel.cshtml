@@ -1,0 +1,38 @@
+﻿@model Sociatis.Models.MonetaryMarket.MonetaryInfoViewModel
+
+<div id="overallInfo" class="ContentBox row">
+    <div class="row">
+        <div class="small-3 medium-4 large-3 columns">
+            <div class="monetaryAvatar infoAvatar">
+                @Html.DisplayFor(m => m.Avatar)
+            </div>
+        </div>
+        <div class="small-9 medium-8 large-9 columns">
+            <h5>Your offers on monetary market: @Model.MyOffersCount</h5>
+            <h5>Transactions today: @Model.TransactionTodayCount</h5>
+            <h5>Gold traded today: @Model.GoldTradedToday</h5>
+        </div>
+    </div>
+    <div class="row">
+        <div class="small-12 columns">
+           <div id="actionBar">
+                       <a href="@Url.Action("Index", "MonetaryMarket")" class="action">
+                           <i class="fa fa-line-chart" aria-hidden="true"></i>
+                           General
+                       </a>
+                    <a href="@Url.Action("MyOffers", "MonetaryMarket")" class="action">
+                        <i class="fa fa-bars" aria-hidden="true"></i>
+                        My offers
+                    </a>
+                    <a href="@Url.Action("Transactions", "MonetaryMarket")" class="action">
+                        <i class="fa fa-list-alt" aria-hidden="true"></i>
+                        Transaction log
+                    </a>
+                   <a href="@Url.Action("Reserved", "MonetaryMarket")" class="action">
+                       <i class="fa fa-money" aria-hidden="true"></i>
+                       Reserved money
+                   </a>
+            </div>
+        </div>
+    </div>
+</div>

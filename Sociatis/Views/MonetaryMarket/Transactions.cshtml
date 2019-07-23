@@ -1,0 +1,115 @@
+﻿@model Sociatis.Models.MonetaryMarket.MonetaryTransactionsViewModel
+
+@Html.DisplayFor(m => m.Info)
+
+
+<div class="ContentBox row">
+    <h3>Transaction log</h3>
+
+    <table id="transactionTable">
+        @*<thead>
+            <tr>
+                <th>Buyer/Seller(NAZWIJ TO)</th>
+                <th>Buyer currency</th>
+                <th>Seller Currency</th>
+                <th>Amount</th>
+                <th>Rate</th>
+                <th>Amount * Rate</th>
+                <th>Tax</th>
+                <th>Sum</th>
+            </tr>
+        </thead>
+        <tbody>
+
+        </tbody>*@
+    </table>
+</div>
+
+@section scripts
+{
+    <script type="text/javascript">
+        $(function () {
+
+            $('#transactionTable').dataTable({
+                serverSide: true,
+                "ajax": {
+                    "url": "TransactionsAjax",
+                    "type": "POST"
+                },
+                order : [[0, "desc"]],
+                columns: [
+                    {
+                        name: 'dateTime',
+                        data: "dateTime",
+                        title: "Date",
+                        sortable: true,
+                        searchable: false
+                    },
+                    {
+                        name: 'transactionType',
+                        data: 'transactionType',
+                        title: "Transaction type",
+                        sortable: false,
+                        searchable: false
+                    },
+                    {
+                        name: 'buyCurrency',
+                        data: "buyCurrency",
+                        title: "Buy currency",
+                        sortable: false,
+                        searchable: false
+                    },
+                    {
+                        name: 'sellCurrency',
+                        data: "sellCurrency",
+                        title: "Sell currency",
+                        sortable: false,
+                        searchable: false
+                    },
+                    {
+                        name: 'amount',
+                        data: "amount",
+                        title: "Amount",
+                        sortable: false,
+                        searchable: false
+                    },
+                    
+                    {
+                        name: 'rate',
+                        data: "rate",
+                        title: "Rate",
+                        sortable: false,
+                        searchable: false
+                    },
+                    {
+                        name: 'amountRate',
+                        data: "amountRate",
+                        title: "Amount * Rate",
+                        sortable: false,
+                        searchable: false
+                    },
+                    {
+                        name: 'tax',
+                        data: "tax",
+                        title: "Tax",
+                        sortable: false,
+                        searchable: false
+                    },
+                    //{
+                    //    name: "suma",
+                    //    data: "suma",
+                    //    title: "Sum",
+                    //    sortable: false,
+                    //    searchable: false
+                    //}
+                    
+                    
+
+
+                ]
+            });
+        });
+
+        //# sourceURL=Transactions.js
+    </script>
+}

@@ -1,0 +1,9 @@
+﻿@model Sociatis.Models.Organisation.OrganisationWalletViewModel
+
+@{
+
+    ViewBag.Title = "Wallet";
+}
+
+@Html.DisplayFor(m => m.Info)
+@Html.Partial("~/Views/Wallet/DisplayTemplates/WalletViewModel.cshtml", Model)

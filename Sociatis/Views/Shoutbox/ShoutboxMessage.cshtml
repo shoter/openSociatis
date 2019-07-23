@@ -1,0 +1,23 @@
+﻿<script id="shoutboxMessageTemplate" type="text/x-jsrender">
+    <div class="shoutboxMessage">
+        <div class="shoutboxHeader">
+            {{if imgURL}}
+            <a class="shoutboxAvatar" href="/Entity/{{:authorID}}">
+                <img src="{{:imgURL}}" />
+                <span class="shoutboxName">{{:authorName}}</span>
+            </a>
+            {{/if}}
+            <div class="shoutboxDate">
+                {{:time}} {{:day}}
+            </div>
+        </div>
+        <div class="shoutboxMessageContent">
+            {{:message}}
+        </div>
+        @*<div class="shoutboxFooter">
+            <div class="shoutboxExpand">
+                Expand
+            </div>
+        </div>*@
+    </div>
+</script>

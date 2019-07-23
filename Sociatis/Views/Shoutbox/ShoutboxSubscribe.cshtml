@@ -1,0 +1,20 @@
+﻿<script id="shoutboxSubscribeTemplate" type="text/x-jsrender">
+    <div data-channelid="{{:channelID}}" class="shoutboxSubscribe">
+        <div class="shoutboxSubscribeName">
+            {{:channelName}}
+        </div>
+        {{if subscribed}}
+        <div  class="shoutboxSubscribeRemove shoutboxSubscribeChange centerVerticalFlex text-center" onclick="Sociatis.Shoutbox.Unsubscribe({{:channelID}}, '{{:channelName}}')">
+            <div class="centerHorizontalFlex fullWidth">
+                <i class="fa fa-minus"></i>
+            </div>
+        </div>
+        {{else}}
+        <div class="shoutboxSubscribeAdd shoutboxSubscribeChange centerVerticalFlex text-center" onclick="Sociatis.Shoutbox.Subscribe({{:channelID}}, '{{:channelName}}')">
+            <div class="centerHorizontalFlex fullWidth">
+                <i class="fa fa-plus"></i>
+            </div>
+        </div>
+        {{/if}}
+    </div>
+</script>

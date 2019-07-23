@@ -1,0 +1,120 @@
+﻿@model Sociatis.Models.War.WarInfoViewModel
+
+<div id="overallInfo" class="ContentBox ">
+    <div class="row">
+        <div class="small-4 columns">
+            <div class="warHero  attacker">
+                <h4 class="text-center">War hero</h4>
+                @if (Model.AttackerHero != null)
+                {
+                    @Html.DisplayFor(m => m.AttackerHero)
+                }
+                else
+                {
+                    <h5 class="text-center">No hero</h5>
+                }
+            </div>
+        </div>
+        <div class="small-4 columns">
+            <a href="@Url.Action("View", "War", new { wariD = Model.Info.WarID })">
+                <h3 class="text-center">@(Model.IsRessistance ? "Ressistance war" : "War") #@Model.Info.WarID</h3>
+            </a>
+            <h4 class="text-center">@Model.WarStateText</h4>
+        </div>
+        <div class="small-4 columns">
+            <div class="warHero defender">
+                <h4 class="text-center">War hero</h4>
+                @if (Model.DefenderHero != null)
+                {
+                    @Html.DisplayFor(m => m.DefenderHero)
+                }
+                else
+                {
+                    <h5 class="text-center">No hero</h5>
+                }
+            </div>
+        </div>
+    </div>
+
+
+    <table class="layoutFixed">
+        <thead>
+            <tr>
+                <th class="text-center" colspan="2">Attacker</th>
+                <th>&nbsp;</th>
+                <th class="text-center" colspan="2">Defender</th>
+            </tr>
+        </thead>
+        <tbody>
+            <tr>
+                <td class="miniFlags">
+                    @Html.DisplayFor(m => m.Info.Attacker.Flag)
+                </td>
+                <td>
+                    @Model.Info.Attacker.Name
+                </td>
+                <td class="bigFont text-center">
+                    VS
+                </td>
+                <td class="miniFlags">
+                    @Html.DisplayFor(m => m.Info.Defender.Flag)
+                </td>
+                <td>
+                    @Model.Info.Defender.Name
+                </td>
+            </tr>
+            <tr>
+                <td colspan="2">
+                    <ul class="vertical menu text-center" data-accordion-menu>
+                        <li>
+                            <a href="#">Attacker allies (@Model.AttackerAllies.Count)</a>
+                            <ul class="menu vertical nested">
+                                @foreach (var ally in Model.AttackerAllies)
+                                {
+                                    <li>
+                                        <div class="row allyRow centerVerticalFlex">
+                                            <div class="small-6 columns miniFlags">
+                                                @Html.DisplayFor(m => ally.Flag)
+                                            </div>
+                                            <div class="small-6 columns">
+                                                @ally.Name
+                                            </div>
+                                        </div>
+                                    </li>
+                                }
+                            </ul>
+                        </li>
+                    </ul>
+                </td>
+                <td>&nbsp;</td>
+                <td colspan="2">
+                    <ul class="vertical menu text-center" data-accordion-menu>
+                        <li>
+                            <a href="#">Defender allies(@Model.DefendedAllies.Count)</a>
+                            <ul class="menu vertical nested">
+                                @foreach (var ally in Model.DefendedAllies)
+                                {
+                                    <li>
+                                        <div class="row allyRow centerVerticalFlex">
+                                            <div class="small-6 columns miniFlags">
+                                                @Html.DisplayFor(m => ally.Flag)
+                                            </div>
+                                            <div class="small-6 columns">
+                                                @ally.Name
+                                            </div>
+                                        </div>
+                                    </li>
+                                }
+                            </ul>
+                        </li>
+                    </ul>
+                </td>
+            </tr>
+        </tbody>
+    </table>
+
+    @if (Model.Menu != null)
+    {
+        @Html.DisplayFor(m => m.Menu)
+    }
+</div>

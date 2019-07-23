@@ -1,0 +1,97 @@
+﻿@import "definitions.scss";
+
+body#guest
+{
+    background-image: url("/Content/images/background.jpg");
+    background-repeat: no-repeat;
+    background-size: 100% 100%;
+
+
+    div.body-content
+    {
+        position:relative;
+        height:100%;
+        margin-bottom:0;
+        overflow-y:scroll;
+        max-width:none;
+        margin:0;
+
+        div.accountDialog
+        {
+            position: absolute;
+            left: 50%;
+            top: 50%;
+            transform: translateY(-50%) translateX(-50%);
+            min-width: 40vw;
+            max-height:100%;
+
+            @include respond-to-only(mobile)
+            {
+                min-width: 90vw;
+            }
+
+            @include respond-to-only(tablet)
+            {
+                min-width: 60vw;
+            }
+
+            background-color: $rowBackground;
+            border: 1px solid rgba($rowBorder, 0.4);
+
+            @include placeholder
+            {
+                color: gray;
+            }
+
+            .remember
+            {
+                label
+                {
+                    display: inline-block;
+                }
+
+                div
+                {
+                    display: inline-block;
+                }
+            }
+
+            .button-group
+            {
+                a.button
+                {
+                    width: auto !important;
+                    white-space: nowrap !important;
+                }
+            }
+
+            ul.tabs
+            {
+                li .tabs-title
+                {
+                    width: 50%;
+                }
+            }
+
+            div.tabs-content
+            {
+                // min-height:45vh;
+                .tabs-panel
+                {
+                    overflow: hidden;
+                    padding-bottom: 0.5rem;
+
+                    a
+                    {
+                        margin: 0;
+                    }
+                }
+            }
+        }
+    }
+
+    footer
+    {
+        position:static;
+    }
+}

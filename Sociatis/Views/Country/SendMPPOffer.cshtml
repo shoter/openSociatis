@@ -1,0 +1,52 @@
+﻿@model Sociatis.Models.President.OfferMPPViewModel
+
+@{
+    ViewBag.Title = "Create MPP Offer";
+    ScriptInjector.AddJavascript("Sociatis.President.SetCountryID(" + Model.Info.CountryID + ")");
+}
+
+@Html.DisplayFor(m => m.Info)
+
+<div class="ContentBox">
+    <h5>MPP Offer</h5>
+    @using (Html.BeginForm("PostSendMPPOffer", RouteDataHelper.ControllerName, FormMethod.Post))
+    {
+        @Html.Hidden("countryID", Model.Info.CountryID)
+        @Html.Render(Model.CountrySelect)
+        <div>
+            <label>MPP Length:</label>
+            <input type="number" value="@Model.MinimumLength" min="@Model.MinimumLength" max="@Model.MaximumLength" name="days" id="mppDays"/>
+            <div id="mppGoldCost" style="display:none">
+                <div class="currencyBoxer centerVerticalFlex">
+                    <text>Gold needed: </text>
+                    <span class="pull-right-flex text-3x centerVerticalFlex">
+                        <span class="moneyMargin" id="mppNeededGold">
+                            0.00
+                        </span>
+                        @Html.DisplayFor(m => m.GoldImage)
+                    </span>
+                    <span class="clearfix">&nbsp;</span>
+                </div>
+                <br />
+
+                <div class="currencyBoxer centerVerticalFlex">
+                    <text>@Model.Info.CountryName gold: </text>
+                    <span class="pull-right-flex text-3x centerVerticalFlex">
+                        <span class="moneyMargin">
+                            @Model.CountryGold.ToString("N2")
+                        </span>
+                        @Html.DisplayFor(m => m.GoldImage)
+                    </span>
+                    <span class="clearfix">&nbsp;</span>
+                </div>
+            </div>
+        </div>
+        <div class="pull-right">
+            <button class="button green">Send offer</button>
+        </div>
+    }
+</div>
+@section scripts
+{
+    <script src="~/Scripts/president/sociatis.president.mpp.js"></script>
+}

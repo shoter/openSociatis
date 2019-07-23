@@ -1,0 +1,62 @@
+﻿<div class="ContentBox">
+
+    @for (int i = 0; i < 12; ++i)
+    {
+        <div class="row collapse" style="margin-bottom:1rem;" data-equalizer data-equalize-on="medium">
+            <div class="small-12 medium-4 large-4 columns" data-equalizer-watch>
+                <div style="border:1px solid gray;border-right:1px rgba(128, 128, 128, 0.74) solid;">
+                    <div class="marketOfferHeader"
+                         style="background-color:rgba(40, 53, 141, 0.26); border-bottom : 1px gray solid; font-size:x-large">
+
+                        <img width="32" height="32" style="margin-left:0.2rem" src="~/Content/images/Product/Iron.png" />
+                        Iron
+                    </div>
+                    <div class="marketOfferOfferer" style="border-bottom:1px solid gray;">
+                        <img src="~/Content/images/placeholder.png" />
+                    </div>
+                    <div style="overflow:hidden; height:24px">
+                        <div class="marketOfferStars equipmentQuality" style="height:22px;float:right;padding:0 0.5rem;border-left:1px gray solid;">
+                            <i class="fa fa-star"></i>
+                            <i class="fa fa-star"></i>
+                            <i class="fa fa-star"></i>
+                        </div>
+                    </div>
+                </div>
+
+            </div>
+            <div class="small-12 medium-8 large-8 columns centerVerticalFlex" data-equalizer-watch style="position:relative;background-color:#f5f4f0;border-bottom:1px solid rgba(82, 65, 26, 0.21); border-top:1px solid rgba(82, 65, 26, 0.21)" >
+                @*<div style="padding-top:2rem" class="hide-for-small-only">&nbsp;</div>*@
+                
+                <div class="marketOfferPer" style="overflow:hidden; position:absolute;width:100%;padding-bottom:1.5rem; ">
+                    <div class="row">
+                        <div class="small-12 medium-7 columns">
+                            <div class="inlineBlock" style=" padding:1rem 2rem; font-family: Arial,Helvetica Neue,Helvetica,sans-serif;">
+                                <div style="font-size:small; font-weight:bold">Cost for 1 unit: </div>
+                                <div style="font-size:medium; font-weight:bold; line-height:2rem">20 PLN</div>
+                                <div style="font-size:medium; font-weight:bold; line-height:2rem">0.01 Fuel</div>
+                            </div>
+                            <div class="inlineBlock">
+                                <input style="width:5rem;" type="number" />
+                            </div>
+                            <div class="inlineBlock" style="font-size:small">
+                                from 19 units
+                            </div>
+                        </div>
+                        <div class="small-12 medium-5 columns">
+                            <div class="inlineBlock" style=" padding:1rem 2rem; font-family: Arial,Helvetica Neue,Helvetica,sans-serif;">
+                                <div style="font-size:small; font-weight:bold">total: </div>
+                                <div style="font-size:medium; font-weight:bold; line-height:2rem">20 PLN</div>
+                                <div style="font-size:medium; font-weight:bold; line-height:2rem">0.01 Fuel</div>
+                            </div>
+                            <div class="inlineBlock">
+                                <button class="button blue">Buy</button>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div style="height:4rem;" class="show-for-small-only">&nbsp;</div>
+    }
+
+</div>

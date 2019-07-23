@@ -1,0 +1,59 @@
+﻿@model Sociatis.Models.Equipment.EquipmentItemViewModel
+
+<div class="equipmentItem">
+    <div class="equipmentImage">
+        <span class="equipmentAmount">
+            @Model.Amount
+        </span>
+        <div class="centerHorizontalFlex">
+            @Html.DisplayFor(m => m.Image)
+        </div>
+        <div class="equipmentQuality">
+            @if (Model.CanShowQuality)
+            {
+                for (int i = 0; i < Model.Quality; ++i)
+                {
+                    <i class="fa fa-star"></i>
+                }
+            }
+        </div>
+    </div>
+    <div>
+        <div class="equipmenButtons">
+            @{
+                <button type="button" onclick="showDelete(this)" title="Drop one item" class="button red highlight eqButton" data-showID="productDiv@(Model.ID)" data-useID="use@(Model.ID)">
+                    <i class="fa fa-trash-o" aria-hidden="true"></i>
+                </button>
+                if (Model.CanUse)
+                {
+                    using (Html.BeginForm("UseItem", "Equipment", new { itemID = Model.ID }, FormMethod.Post, new { id = "use"+Model.ID }))
+                    {
+                    <button title="Use" class="button blue highlight eqButton">
+                        <i class="fa fa-check" aria-hidden="true"></i>
+                    </button>
+                        }
+                    }
+                }
+        </div>
+        @using (Html.BeginForm("DropItem", "Equipment", new { itemID = Model.ID }, FormMethod.Post, new { }))
+        {
+        <div id="productDiv@(Model.ID)" style="display:none">
+            <div>
+                <div class="slider" data-slider data-start=1 data-initial-start="1" data-end="@(Model.Amount)">
+                    <span class="slider-handle" data-slider-handle role="slider" tabindex="1" aria-controls="product@(Model.ID)"></span>
+                    <span class="slider-fill" data-slider-fill></span>
+                </div>
+            </div>
+            <div class="flex" style="margin-left:0.2rem;margin-right:0.2rem">
+                <input style="min-width:0" type="number" id="product@(Model.ID)" name="amount">
+                <div class="relative">
+                    <button title="Drop one item" class="button red highlight eqButton inputSize" style="padding:6px">
+                        <i class="fa fa-trash-o" aria-hidden="true"></i>
+                    </button>
+                </div>
+            </div>
+        </div>
+        }
+
+    </div>
+</div>

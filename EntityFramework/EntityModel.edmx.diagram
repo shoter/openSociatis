@@ -1,0 +1,390 @@
+<?xml version="1.0" encoding="utf-8"?>
+<edmx:Edmx Version="3.0" xmlns:edmx="http://schemas.microsoft.com/ado/2009/11/edmx">
+ <!-- EF Designer content (DO NOT EDIT MANUALLY BELOW HERE) -->
+  <edmx:Designer xmlns="http://schemas.microsoft.com/ado/2009/11/edmx">
+    <!-- Diagram content (shape and connector positions) -->
+    <edmx:Diagrams>
+      <Diagram DiagramId="149955cad7c84fb6ab37ac1e5f879316" Name="Diagram1" ZoomLevel="70">
+        <EntityTypeShape EntityType="SociatisModel.Currency" Width="1.5" PointX="0.5" PointY="3.625" />
+        <EntityTypeShape EntityType="SociatisModel.Entity" Width="1.5" PointX="3" PointY="8.75" />
+        <EntityTypeShape EntityType="SociatisModel.Region" Width="1.5" PointX="6" PointY="3.5" />
+        <EntityTypeShape EntityType="SociatisModel.VerificationEmail" Width="1.5" PointX="7.5" PointY="12" />
+        <EntityTypeShape EntityType="SociatisModel.Wallet" Width="1.5" PointX="0.75" PointY="6.375" />
+        <AssociationConnector Association="SociatisModel.FK_Entities_Wallets" />
+        <EntityTypeShape EntityType="SociatisModel.TransactionType" Width="1.5" PointX="5.375" PointY="0.875" />
+        <EntityTypeShape EntityType="SociatisModel.Country" Width="2.5" PointX="5" PointY="25" />
+        <EntityTypeShape EntityType="SociatisModel.EntityType" Width="1.5" PointX="9.375" PointY="0.75" />
+        <AssociationConnector Association="SociatisModel.FK_Countries_Entities" />
+        <AssociationConnector Association="SociatisModel.FK_Countries_Regions" />
+        <AssociationConnector Association="SociatisModel.FK_Regions_Countries" />
+        <EntityTypeShape EntityType="SociatisModel.Company" Width="1.5" PointX="10.375" PointY="3.75" />
+        <EntityTypeShape EntityType="SociatisModel.Product" Width="1.5" PointX="10.375" PointY="8.875" />
+        <AssociationConnector Association="SociatisModel.FK_Companies_ID" />
+        <AssociationConnector Association="SociatisModel.FK_Companies_OwnerID" />
+        <AssociationConnector Association="SociatisModel.FK_Companies_Products" />
+        <AssociationConnector Association="SociatisModel.FK_Companies_Regions" />
+        <EntityTypeShape EntityType="SociatisModel.CountryPolicy" Width="1.5" PointX="10.5" PointY="11.875" />
+        <AssociationConnector Association="SociatisModel.FK_CountryPolicies_Countries" />
+        <EntityTypeShape EntityType="SociatisModel.Organisation" Width="1.5" PointX="13.25" PointY="7" />
+        <AssociationConnector Association="SociatisModel.FK_Organizations_Entities" />
+        <EntityTypeShape EntityType="SociatisModel.PlayerType" Width="1.5" PointX="0.875" PointY="13.875" />
+        <EntityTypeShape EntityType="SociatisModel.TransactionLog" Width="1.5" PointX="14.375" PointY="2.125" />
+        <AssociationConnector Association="SociatisModel.FK_TransactionLogs_Currencies" />
+        <AssociationConnector Association="SociatisModel.FK_TransactionLogs_Destination" />
+        <AssociationConnector Association="SociatisModel.FK_TransactionLogs_Source" />
+        <AssociationConnector Association="SociatisModel.FK_TransactionLogs_TransactionTypes" />
+        <EntityTypeShape EntityType="SociatisModel.ContractJobOffer" Width="1.5" PointX="17.875" PointY="8.625" />
+        <EntityTypeShape EntityType="SociatisModel.JobOffer" Width="1.5" PointX="14.75" PointY="7.5" />
+        <EntityTypeShape EntityType="SociatisModel.JobType" Width="1.5" PointX="13.375" PointY="10.75" />
+        <EntityTypeShape EntityType="SociatisModel.NormalJobOffer" Width="1.5" PointX="17.875" PointY="5.875" />
+        <AssociationConnector Association="SociatisModel.FK_JobOffers_Companies" />
+        <AssociationConnector Association="SociatisModel.FK_ContractJobOffers_JobOffers" />
+        <AssociationConnector Association="SociatisModel.FK_JobOffers_JobTypes" />
+        <AssociationConnector Association="SociatisModel.FK_NormalJobOffers_JobOffers" />
+        <EntityTypeShape EntityType="SociatisModel.Session" Width="1.5" PointX="13.5" PointY="13.625" />
+        <EntityTypeShape EntityType="SociatisModel.ConfigurationTable" Width="1.5" PointX="0.75" PointY="15.75" />
+        <EntityTypeShape EntityType="SociatisModel.EquipmentItem" Width="1.5" PointX="12.625" PointY="17.75" />
+        <AssociationConnector Association="SociatisModel.FK_EquipmentItems_Products" />
+        <EntityTypeShape EntityType="SociatisModel.Citizen" Width="1.5" PointX="16.25" PointY="0.5" />
+        <AssociationConnector Association="SociatisModel.FK_Citizens_Citizens_CitizenshipID" />
+        <AssociationConnector Association="SociatisModel.FK_Citizens_PlayerTypes" />
+        <AssociationConnector Association="SociatisModel.FK_Citizens_Regions_RegionID" />
+        <AssociationConnector Association="SociatisModel.FK_Sessions_Citizens" />
+        <EntityTypeShape EntityType="SociatisModel.Equipment" Width="1.5" PointX="16.625" PointY="15.875" />
+        <AssociationConnector Association="SociatisModel.FK_Entities_Equipments" />
+        <AssociationConnector Association="SociatisModel.FK_EquipmentItems_Equipments" />
+        <AssociationConnector Association="SociatisModel.FK_Citizens_Entities" />
+        <AssociationConnector Association="SociatisModel.FK_ContractJobOffers_Citizens" />
+        <EntityTypeShape EntityType="SociatisModel.Message" Width="1.5" PointX="7.5" PointY="18.125" />
+        <AssociationConnector Association="SociatisModel.FK_Messages_Entities" />
+        <EntityTypeShape EntityType="SociatisModel.MessageThread" Width="1.5" PointX="5.25" PointY="10.25" />
+        <AssociationConnector Association="SociatisModel.FK_Messages_MessageThreads" />
+        <AssociationConnector Association="SociatisModel.MessageThreadRecipents" />
+        <EntityTypeShape EntityType="SociatisModel.WalletMoney" Width="1.5" PointX="3" PointY="4.5" />
+        <AssociationConnector Association="SociatisModel.FK_WalletMoney_Currencies" />
+        <AssociationConnector Association="SociatisModel.FK_WalletMoney_WalletMoney" />
+        <EntityTypeShape EntityType="SociatisModel.JobContract" Width="1.5" PointX="18.75" PointY="2.25" />
+        <AssociationConnector Association="SociatisModel.FK_JobContract_Citizens" />
+        <EntityTypeShape EntityType="SociatisModel.CommentRestriction" Width="1.5" PointX="3.75" PointY="1.25" />
+        <EntityTypeShape EntityType="SociatisModel.CongressVoting" Width="1.5" PointX="24.125" PointY="8.25" />
+        <EntityTypeShape EntityType="SociatisModel.Party" Width="1.5" PointX="21.5" PointY="20.5" />
+        <EntityTypeShape EntityType="SociatisModel.PartyPresidentVote" Width="1.5" PointX="22.125" PointY="2" />
+        <EntityTypeShape EntityType="SociatisModel.PartyPresidentVoting" Width="1.5" PointX="19.875" PointY="21.25" />
+        <EntityTypeShape EntityType="SociatisModel.PartyRole" Width="1.5" PointX="18.875" PointY="25.375" />
+        <EntityTypeShape EntityType="SociatisModel.VoteType" Width="1.5" PointX="2.75" PointY="3.125" />
+        <EntityTypeShape EntityType="SociatisModel.VotingStatus" Width="1.5" PointX="17.625" PointY="23.125" />
+        <EntityTypeShape EntityType="SociatisModel.VotingType" Width="1.5" PointX="19.875" PointY="14.25" />
+        <AssociationConnector Association="SociatisModel.FK_CongressVotings_Citizens" />
+        <AssociationConnector Association="SociatisModel.FK_PartyPresidentVotes_Citizens" />
+        <AssociationConnector Association="SociatisModel.FK_CongressVotings_Countries" />
+        <AssociationConnector Association="SociatisModel.FK_Parties_Entities" />
+        <AssociationConnector Association="SociatisModel.FK_PartyPresidentVoting_Parties" />
+        <AssociationConnector Association="SociatisModel.FK_PartyPresidentVotes_PartyPresidentVoting" />
+        <AssociationConnector Association="SociatisModel.FK_PartyPresidentVoting_VotingStatuses" />
+        <EntityTypeShape EntityType="SociatisModel.JoinMethod" Width="1.5" PointX="7.875" PointY="14.25" />
+        <AssociationConnector Association="SociatisModel.FK_Parties_Citizens" />
+        <AssociationConnector Association="SociatisModel.FK_Parties_JoinMethods" />
+        <AssociationConnector Association="SociatisModel.FK_Parties_Countries" />
+        <EntityTypeShape EntityType="SociatisModel.PartyMember" Width="1.5" PointX="23.75" PointY="13.875" />
+        <AssociationConnector Association="SociatisModel.FK_Congressmen_Citizens" />
+        <AssociationConnector Association="SociatisModel.FK_Congressmen_Congressmen" />
+        <AssociationConnector Association="SociatisModel.FK_Congressmen_PartyRoles" />
+        <EntityTypeShape EntityType="SociatisModel.PartyJoinRequest" Width="1.5" PointX="26.75" PointY="11.125" />
+        <AssociationConnector Association="SociatisModel.FK_PartyJoinRequests_Citizens" />
+        <AssociationConnector Association="SociatisModel.FK_PartyJoinRequests_Parties" />
+        <EntityTypeShape EntityType="SociatisModel.CompanyEmployee" Width="1.5" PointX="25" PointY="3.125" />
+        <AssociationConnector Association="SociatisModel.FK_CompanyEmployees_CompanyEmployees" />
+        <AssociationConnector Association="SociatisModel.FK_CompanyEmployees_Companies" />
+        <AssociationConnector Association="SociatisModel.FK_CompanyEmployees_JobContract" />
+        <EntityTypeShape EntityType="SociatisModel.PartyPresidentCandidate" Width="1.5" PointX="26.125" PointY="15.5" />
+        <AssociationConnector Association="SociatisModel.FK_PartyPresidentCandidates_Citizens" />
+        <AssociationConnector Association="SociatisModel.FK_PartyPresidentCandidates_PartyPresidentVoting" />
+        <AssociationConnector Association="SociatisModel.FK_PartyPresidentVotes_PartyPresidentCandidates" />
+        <EntityTypeShape EntityType="SociatisModel.CongressVotingComment" Width="1.5" PointX="27.375" PointY="5.25" />
+        <AssociationConnector Association="SociatisModel.FK_CongressVotingComment_Citizens" />
+        <AssociationConnector Association="SociatisModel.FK_CongressVotingComment_CongressVotings" />
+        <EntityTypeShape EntityType="SociatisModel.CongressCandidate" Width="1.5" PointX="29" PointY="12.75" />
+        <EntityTypeShape EntityType="SociatisModel.CongressCandidateVote" Width="1.5" PointX="20.5" PointY="5.875" />
+        <EntityTypeShape EntityType="SociatisModel.CongressCandidateVoting" Width="1.5" PointX="19.875" PointY="17" />
+        <AssociationConnector Association="SociatisModel.FK_CongressCandidateVotes_Citizens" />
+        <AssociationConnector Association="SociatisModel.FK_CongressCandidates_CongressCandidateVotings" />
+        <AssociationConnector Association="SociatisModel.FK_CongressCandidates_Regions" />
+        <AssociationConnector Association="SociatisModel.FK_CongressCandidateVotes_CongressCandidateVotings" />
+        <AssociationConnector Association="SociatisModel.FK_CongressCandidateVotings_Countries" />
+        <AssociationConnector Association="SociatisModel.FK_CongressCandidateVotings_VotingStatuses" />
+        <EntityTypeShape EntityType="SociatisModel.CongressCandidateStatus" Width="1.5" PointX="0.5" PointY="0.625" />
+        <AssociationConnector Association="SociatisModel.FK_CongressCandidates_CongressCandidateStatuses" />
+        <AssociationConnector Association="SociatisModel.FK_CongressCandidateVotes_CongressCandidates" />
+        <AssociationConnector Association="SociatisModel.FK_CongressCandidates_PartyMembers1" />
+        <AssociationConnector Association="SociatisModel.FK_CongressCandidates_Parties" />
+        <EntityTypeShape EntityType="SociatisModel.PresidentCandidate" Width="1.5" PointX="20.5" PointY="9" />
+        <EntityTypeShape EntityType="SociatisModel.PresidentCandidateStatus" Width="1.5" PointX="18.25" PointY="28.5" />
+        <EntityTypeShape EntityType="SociatisModel.PresidentVoting" Width="1.5" PointX="22.875" PointY="17.375" />
+        <AssociationConnector Association="SociatisModel.FK_Countries_Citizens" />
+        <AssociationConnector Association="SociatisModel.FK_PresidentCandidates_Citizens" />
+        <AssociationConnector Association="SociatisModel.FK_PresidentVotings_Countries" />
+        <AssociationConnector Association="SociatisModel.FK_PresidentCandidates_PresidentCandidateStatuses" />
+        <AssociationConnector Association="SociatisModel.FK_PresidentCandidates_PresidentVotings" />
+        <AssociationConnector Association="SociatisModel.FK_PresidentVotings_VotingStatuses" />
+        <EntityTypeShape EntityType="SociatisModel.PresidentVote" Width="1.5" PointX="30.125" PointY="6.625" />
+        <AssociationConnector Association="SociatisModel.FK_PresidentVotes_Citizens" />
+        <AssociationConnector Association="SociatisModel.FK_PresidentVotes_PresidentCandidates" />
+        <AssociationConnector Association="SociatisModel.FK_PresidentVotes_PresidentVotings" />
+        <EntityTypeShape EntityType="SociatisModel.Passage" Width="1.5" PointX="8.25" PointY="14.625" />
+        <AssociationConnector Association="SociatisModel.FK_Passages_Regions" />
+        <AssociationConnector Association="SociatisModel.FK_Passages_Regions1" />
+        <EntityTypeShape EntityType="SociatisModel.Resource" Width="1.5" PointX="8.25" PointY="0.75" />
+        <EntityTypeShape EntityType="SociatisModel.ResourceType" Width="1.5" PointX="6" PointY="17.875" />
+        <AssociationConnector Association="SociatisModel.FK_Resources_Regions" />
+        <AssociationConnector Association="SociatisModel.FK_Resources_ResourceTypes" />
+        <AssociationConnector Association="SociatisModel.FK_Organisations_Countries" />
+        <AssociationConnector Association="SociatisModel.FK_Organisations_Owner" />
+        <EntityTypeShape EntityType="SociatisModel.CompanyType" Width="1.5" PointX="5.375" PointY="14.75" />
+        <AssociationConnector Association="SociatisModel.FK_Companies_CompanyTypes" />
+        <AssociationConnector Association="SociatisModel.FK_Countries_Currencies" />
+        <EntityTypeShape EntityType="SociatisModel.MarketOffer" Width="1.5" PointX="12.75" PointY="0.75" />
+        <AssociationConnector Association="SociatisModel.FK_MarketOffers_Companies" />
+        <AssociationConnector Association="SociatisModel.FK_MarketOffers_Countries" />
+        <AssociationConnector Association="SociatisModel.FK_MarketOffers_Currencies" />
+        <AssociationConnector Association="SociatisModel.FK_MarketOffers_Products" />
+        <EntityTypeShape EntityType="SociatisModel.ProductTaxType" Width="1.5" PointX="21.875" PointY="11.375" />
+        <AssociationConnector Association="SociatisModel.OrganisationManagers" />
+        <EntityTypeShape EntityType="SociatisModel.Warning" Width="1.5" PointX="5.375" PointY="20.625" />
+        <AssociationConnector Association="SociatisModel.FK_Warnings_Entities" />
+        <AssociationConnector Association="SociatisModel.FK_JobContracts_Entities" />
+        <EntityTypeShape EntityType="SociatisModel.BattleParticipant" Width="1.5" PointX="24.5" PointY="0.75" />
+        <EntityTypeShape EntityType="SociatisModel.Battle" Width="2.625" PointX="15.75" PointY="18.875" />
+        <EntityTypeShape EntityType="SociatisModel.CountryInWar" Width="1.5" PointX="12.75" PointY="23.25" />
+        <EntityTypeShape EntityType="SociatisModel.MilitaryProtectionPact" Width="1.5" PointX="10.5" PointY="30" />
+        <EntityTypeShape EntityType="SociatisModel.Truce" Width="1.5" PointX="10.5" PointY="22.5" />
+        <EntityTypeShape EntityType="SociatisModel.War" Width="1.5" PointX="10.5" PointY="26.5" />
+        <AssociationConnector Association="SociatisModel.FK_BattleParticipants_Battles" />
+        <AssociationConnector Association="SociatisModel.FK_BattleParticipants_Citizens" />
+        <AssociationConnector Association="SociatisModel.FK_Battles_Regions" />
+        <AssociationConnector Association="SociatisModel.FK_Battles_Wars" />
+        <AssociationConnector Association="SociatisModel.FK_CountryInWars_Countries" />
+        <AssociationConnector Association="SociatisModel.FK_MilitaryProtectionPacts_Countries" />
+        <AssociationConnector Association="SociatisModel.FK_MilitaryProtectionPacts_Countries1" />
+        <AssociationConnector Association="SociatisModel.FK_Truces_Countries" />
+        <AssociationConnector Association="SociatisModel.FK_Truces_Countries1" />
+        <AssociationConnector Association="SociatisModel.FK_Wars_AttackerCountry" />
+        <AssociationConnector Association="SociatisModel.FK_Wars_DefenderCountry" />
+        <AssociationConnector Association="SociatisModel.FK_CountryInWars_Wars" />
+        <EntityTypeShape EntityType="SociatisModel.Embargo" Width="1.5" PointX="10.5" PointY="33.625" />
+        <AssociationConnector Association="SociatisModel.FK_ContractJobOffers_Entities" />
+        <AssociationConnector Association="SociatisModel.FK_JobOffers_Countries" />
+        <EntityTypeShape EntityType="SociatisModel.ArticleComment" Width="1.5" PointX="17.125" PointY="2.5" />
+        <EntityTypeShape EntityType="SociatisModel.Article" Width="1.5" PointX="12.75" PointY="0.75" />
+        <AssociationConnector Association="SociatisModel.FK_ArticleComments_Articles" />
+        <AssociationConnector Association="SociatisModel.FK_ArticleComments_Entities" />
+        <AssociationConnector Association="SociatisModel.FK_Articles_Entities" />
+        <EntityTypeShape EntityType="SociatisModel.Newspaper" Width="1.5" PointX="10.75" PointY="0.875" />
+        <AssociationConnector Association="SociatisModel.FK_Articles_Newspapers" />
+        <AssociationConnector Association="SociatisModel.FK_Newspapers_Countries" />
+        <AssociationConnector Association="SociatisModel.FK_Newspapers_Entities" />
+        <AssociationConnector Association="SociatisModel.FK_Newspapers_Owner" />
+        <AssociationConnector Association="SociatisModel.BoughtArticles" />
+        <EntityTypeShape EntityType="SociatisModel.NewspaperJournalist" Width="2.375" PointX="19.875" PointY="0.5" />
+        <AssociationConnector Association="SociatisModel.FK_NewspaperJournalists_Citizens" />
+        <AssociationConnector Association="SociatisModel.FK_NewspaperJournalists_Newspapers" />
+        <EntityTypeShape EntityType="SociatisModel.ArticleVote" Width="1.5" PointX="17" PointY="0.625" />
+        <AssociationConnector Association="SociatisModel.FK_ArticleVotes_Articles" />
+        <AssociationConnector Association="SociatisModel.FK_ArticleVotes_Entities" />
+        <AssociationConnector Association="SociatisModel.FK_Embargoes_CreatorCountry" />
+        <AssociationConnector Association="SociatisModel.FK_Embargoes_EmbargoedCountry" />
+        <EntityTypeShape EntityType="SociatisModel.BugReport" Width="1.5" PointX="0.75" PointY="19.75" />
+        <AssociationConnector Association="SociatisModel.FK_BugReports_Citizens" />
+        <EntityTypeShape EntityType="SociatisModel.MailboxMessage" Width="1.5" PointX="7.5" PointY="24.125" />
+        <AssociationConnector Association="SociatisModel.FK_MailboxMessage_Entity" />
+        <AssociationConnector Association="SociatisModel.FK_MailboxMessage_MessageThread" />
+        <EntityTypeShape EntityType="SociatisModel.ProductTax" Width="1.5" PointX="21.75" PointY="0.75" />
+        <AssociationConnector Association="SociatisModel.FK_ProductTaxes_Countries" />
+        <AssociationConnector Association="SociatisModel.FK_ProductTaxes_Products" />
+        <AssociationConnector Association="SociatisModel.FK_ProductTaxes_ProductTaxTpes" />
+        <EntityTypeShape EntityType="SociatisModel.DebugDayChanx" Width="1.5" PointX="7.5" PointY="21.75" />
+        <EntityTypeShape EntityType="SociatisModel.MonetaryOffer" Width="1.5" PointX="2.25" PointY="0.5" />
+        <EntityTypeShape EntityType="SociatisModel.MonetaryOfferType" Width="1.5" PointX="3" PointY="22.25" />
+        <EntityTypeShape EntityType="SociatisModel.MonetaryTransaction" Width="1.5" PointX="10.25" PointY="22.5" />
+        <AssociationConnector Association="SociatisModel.FK_MonetaryOffer_BuyCurrency" />
+        <AssociationConnector Association="SociatisModel.FK_MonetaryOffer_SellCurrency" />
+        <AssociationConnector Association="SociatisModel.FK_MonetaryTransactions_BuyerCurrency" />
+        <AssociationConnector Association="SociatisModel.FK_MonetaryTransactions_SellerCurrency" />
+        <AssociationConnector Association="SociatisModel.FK_MonetaryOffer_Seller" />
+        <AssociationConnector Association="SociatisModel.FK_MonetaryTransactions_Buyer" />
+        <AssociationConnector Association="SociatisModel.FK_MonetaryTransactions_Seller" />
+        <AssociationConnector Association="SociatisModel.FK_MonetaryOffer_MonetaryOfferType" />
+        <AssociationConnector Association="SociatisModel.FK_MonetaryOffer_MonetaryTransactions" />
+        <EntityTypeShape EntityType="SociatisModel.Friend" Width="1.5" PointX="18.5" PointY="31.875" />
+        <AssociationConnector Association="SociatisModel.FK_Friends_Citizens" />
+        <AssociationConnector Association="SociatisModel.FK_Friends_Citizens1" />
+        <EntityTypeShape EntityType="SociatisModel.FriendRequest" Width="1.5" PointX="18.5" PointY="35.375" />
+        <AssociationConnector Association="SociatisModel.FK_FriendRequests_Citizens" />
+        <AssociationConnector Association="SociatisModel.FK_FriendRequests_Citizens1" />
+        <EntityTypeShape EntityType="SociatisModel.Polygon" Width="1.5" PointX="0.75" PointY="25.625" />
+        <AssociationConnector Association="SociatisModel.FK_Regions_Polygons" />
+        <EntityTypeShape EntityType="SociatisModel.PolygonPoint" Width="1.5" PointX="3.25" PointY="25.875" />
+        <AssociationConnector Association="SociatisModel.FK_PolygonPoints_Polygons" />
+        <EntityTypeShape EntityType="SociatisModel.PartyInvite" Width="1.5" PointX="28.75" PointY="17.625" />
+        <AssociationConnector Association="SociatisModel.FK_PartyInvites_Citizens" />
+        <AssociationConnector Association="SociatisModel.FK_PartyInvites_Parties" />
+        <EntityTypeShape EntityType="SociatisModel.CongressVotingRejectionReason" Width="1.5" PointX="24.625" PointY="24.125" />
+        <EntityTypeShape EntityType="SociatisModel.LawAllowHolder" Width="1.5" PointX="24.625" PointY="21.125" />
+        <AssociationConnector Association="SociatisModel.FK_CongressVotings_CongressVotingRejectionReasons" />
+        <AssociationConnector Association="SociatisModel.FK_CountryPolicies_LawAllowHolders_CountryCompanyBuild" />
+        <AssociationConnector Association="SociatisModel.FK_CountryPolicies_LawAllowHolders_TreasuryVisibility" />
+        <EntityTypeShape EntityType="SociatisModel.ReservedEntityName" Width="1.5" PointX="25.375" PointY="18.75" />
+        <EntityTypeShape EntityType="SociatisModel.CongressVotingReservedMoney" Width="1.5" PointX="30.625" PointY="3.875" />
+        <AssociationConnector Association="SociatisModel.FK_CongressVotingReservedMoney_CongressVotings" />
+        <AssociationConnector Association="SociatisModel.FK_CongressVotingReservedMoney_Currencies" />
+        <EntityTypeShape EntityType="SociatisModel.CompanyManager" Width="1.5" PointX="8.25" PointY="3" />
+        <AssociationConnector Association="SociatisModel.FK_CompanyManagers_Companies" />
+        <AssociationConnector Association="SociatisModel.FK_CompanyManagers_Entities" />
+        <EntityTypeShape EntityType="SociatisModel.VotingGreetingMessage" Width="1.5" PointX="21.5" PointY="26.125" />
+        <AssociationConnector Association="SociatisModel.FK_Regions_CountriesCores" />
+        <AssociationConnector Association="SociatisModel.FK_Wars_Citizens_RessistanceStarter" />
+        <EntityTypeShape EntityType="SociatisModel.ShoutboxChannel" Width="1.5" PointX="0.75" PointY="11.5" />
+        <EntityTypeShape EntityType="SociatisModel.ShoutboxMessage" Width="1.5" PointX="15" PointY="24.125" />
+        <AssociationConnector Association="SociatisModel.FK_ConfigurationTable_ShoutboxChannels" />
+        <AssociationConnector Association="SociatisModel.FK_Countries_ShoutboxChannels" />
+        <AssociationConnector Association="SociatisModel.FK_ShoutboxMessages_Entities" />
+        <AssociationConnector Association="SociatisModel.FK_ShoutboxMessages_ShoutboxChannels" />
+        <AssociationConnector Association="SociatisModel.FK_ShoutboxMessages_ShoutboxMessages" />
+        <AssociationConnector Association="SociatisModel.FK_Countries_ShoutboxChannels_Help" />
+        <AssociationConnector Association="SociatisModel.FK_Countries_ShoutboxChannels_Trade" />
+        <EntityTypeShape EntityType="SociatisModel.GiftTransaction" Width="1.5" PointX="14.5" PointY="0.5" />
+        <AssociationConnector Association="SociatisModel.FK_GiftTransactions_Entities" />
+        <AssociationConnector Association="SociatisModel.FK_GiftTransactions_Entities1" />
+        <AssociationConnector Association="SociatisModel.FK_GiftTransactions_Products" />
+        <EntityTypeShape EntityType="SociatisModel.Trade" Width="1.5" PointX="24.375" PointY="26.75" />
+        <EntityTypeShape EntityType="SociatisModel.TradeMoney" Width="1.5" PointX="27.625" PointY="20.625" />
+        <EntityTypeShape EntityType="SociatisModel.TradeProduct" Width="1.5" PointX="30.625" PointY="21" />
+        <EntityTypeShape EntityType="SociatisModel.TradeStatus" Width="1.5" PointX="22.125" PointY="28.5" />
+        <AssociationConnector Association="SociatisModel.FK_TradeMoney_Currencies" />
+        <AssociationConnector Association="SociatisModel.FK_TradeMoney_Entities" />
+        <AssociationConnector Association="SociatisModel.FK_TradeProducts_Entities" />
+        <AssociationConnector Association="SociatisModel.FK_TradeProducts_Products" />
+        <AssociationConnector Association="SociatisModel.FK_TradeMoney_Trades" />
+        <AssociationConnector Association="SociatisModel.FK_TradeProducts_Trades" />
+        <AssociationConnector Association="SociatisModel.FK_Trades_TradeStatuses" />
+        <AssociationConnector Association="SociatisModel.FK_Trades_Entities_Destination" />
+        <AssociationConnector Association="SociatisModel.FK_Trades_Entities_Source" />
+        <EntityTypeShape EntityType="SociatisModel.Hospital" Width="1.5" PointX="26.375" PointY="8.75" />
+        <AssociationConnector Association="SociatisModel.FK_Hospitals_Companies" />
+        <AssociationConnector Association="SociatisModel.FK_Regions_Hospitals" />
+        <EntityTypeShape EntityType="SociatisModel.MilitaryProtectionPactOffer" Width="1.5" PointX="10.5" PointY="38.5" />
+        <AssociationConnector Association="SociatisModel.FK_MilitaryProtectionPactOffers_Countries" />
+        <AssociationConnector Association="SociatisModel.FK_MilitaryProtectionPactOffers_Countries1" />
+        <EntityTypeShape EntityType="SociatisModel.DevIssueComment" Width="1.5" PointX="31.875" PointY="14.875" />
+        <EntityTypeShape EntityType="SociatisModel.DevIssueLabelType" Width="1.5" PointX="26.375" PointY="27.625" />
+        <EntityTypeShape EntityType="SociatisModel.DevIssue" Width="1.5" PointX="28.625" PointY="27.25" />
+        <AssociationConnector Association="SociatisModel.FK_DevIssueComments_Citizens" />
+        <AssociationConnector Association="SociatisModel.FK_DevIssueComments_DevIssues" />
+        <AssociationConnector Association="SociatisModel.DevIssueLabels" />
+        <EntityTypeShape EntityType="SociatisModel.VisibilityOption" Width="1.5" PointX="21.375" PointY="31.875" />
+        <AssociationConnector Association="SociatisModel.FK_DevIssueComments_VisibilityOptions" />
+        <AssociationConnector Association="SociatisModel.FK_DevIssues_VisibilityOptions" />
+        <EntityTypeShape EntityType="SociatisModel.DevIssueUploadedFile" Width="1.5" PointX="30.875" PointY="28.125" />
+        <AssociationConnector Association="SociatisModel.FK_DevIssueUploadedFiles_DevIssues" />
+        <AssociationConnector Association="SociatisModel.FK_DevIssues_Citizens" />
+        <EntityTypeShape EntityType="SociatisModel.DevIssueVote" Width="1.5" PointX="31.875" PointY="11.625" />
+        <AssociationConnector Association="SociatisModel.FK_DevIssueVotes_Citizens" />
+        <AssociationConnector Association="SociatisModel.FK_DevIssueVotes_DevIssues" />
+        <EntityTypeShape EntityType="SociatisModel.UploadLocation" Width="1.5" PointX="17.25" PointY="41.375" />
+        <EntityTypeShape EntityType="SociatisModel.Upload" Width="1.5" PointX="20.5" PointY="0.75" />
+        <AssociationConnector Association="SociatisModel.FK_Uploads_Citizens" />
+        <AssociationConnector Association="SociatisModel.FK_Uploads_UploadLocations" />
+        <EntityTypeShape EntityType="SociatisModel.AllowedEmail" Width="1.5" PointX="27.375" PointY="0.75" />
+        <EntityTypeShape EntityType="SociatisModel.CongressVote" Width="1.5" PointX="32.375" PointY="8.875" />
+        <AssociationConnector Association="SociatisModel.FK_CongressVote_Citizens" />
+        <AssociationConnector Association="SociatisModel.FK_CongressVote_CongressVotings" />
+        <AssociationConnector Association="SociatisModel.FK_CongressVote_VotingTypes" />
+        <AssociationConnector Association="SociatisModel.FK_CongressVote_VoteTypes" />
+        <EntityTypeShape EntityType="SociatisModel.NewDay" Width="1.5" PointX="27.625" PointY="25.5" />
+        <EntityTypeShape EntityType="SociatisModel.HospitalNationalityHealingOption" Width="1.5" PointX="34.25" PointY="20.75" />
+        <AssociationConnector Association="SociatisModel.FK_HospitalNationalityHealingOptions_Countries" />
+        <AssociationConnector Association="SociatisModel.FK_HospitalNationalityHealingOptions_Hospitals" />
+        <EntityTypeShape EntityType="SociatisModel.Congressman" Width="1.5" PointX="31.5" PointY="25.25" />
+        <AssociationConnector Association="SociatisModel.FK_Congressmen_Citizens1" />
+        <AssociationConnector Association="SociatisModel.FK_Congressmen_Countries" />
+        <EntityTypeShape EntityType="SociatisModel.Construction" Width="1.5" PointX="12.75" PointY="0.75" />
+        <AssociationConnector Association="SociatisModel.FK_Constructions_Companies" />
+        <EntityTypeShape EntityType="SociatisModel.HotelPrice" Width="1.5" PointX="7.5" PointY="35.5" />
+        <EntityTypeShape EntityType="SociatisModel.HotelRoom" Width="1.5" PointX="7.5" PointY="38.625" />
+        <EntityTypeShape EntityType="SociatisModel.Hotel" Width="1.5" PointX="5.25" PointY="37.25" />
+        <AssociationConnector Association="SociatisModel.FK_Hotels_Entities" />
+        <AssociationConnector Association="SociatisModel.FK_HotelPrices_Hotels" />
+        <AssociationConnector Association="SociatisModel.FK_HotelRooms_Hotels" />
+        <AssociationConnector Association="SociatisModel.FK_Hotels_Entities_Owner" />
+        <AssociationConnector Association="SociatisModel.FK_HotelRooms_Citizens" />
+        <EntityTypeShape EntityType="SociatisModel.HotelManager" Width="1.5" PointX="25.125" PointY="32.5" />
+        <AssociationConnector Association="SociatisModel.FK_HotelManagers_Citizens" />
+        <AssociationConnector Association="SociatisModel.FK_HotelManagers_Hotels" />
+        <AssociationConnector Association="SociatisModel.FK_Hotels_Regions" />
+        <AssociationConnector Association="SociatisModel.FK_TransactionLogs_Wallets_Destination" />
+        <AssociationConnector Association="SociatisModel.FK_TransactionLogs_Wallets_Source" />
+        <EntityTypeShape EntityType="SociatisModel.FurnitureType" Width="1.5" PointX="19.125" PointY="42" />
+        <EntityTypeShape EntityType="SociatisModel.HouseChest" Width="1.5" PointX="11" PointY="23.125" />
+        <EntityTypeShape EntityType="SociatisModel.House" Width="1.5" PointX="19.125" PointY="0.75" />
+        <AssociationConnector Association="SociatisModel.FK_Houses_Citizens" />
+        <AssociationConnector Association="SociatisModel.FK_Houses_Regions" />
+        <EntityTypeShape EntityType="SociatisModel.HouseFurniture" Width="1.5" PointX="31.5" PointY="31.5" />
+        <AssociationConnector Association="SociatisModel.FK_HouseFurnitures_FurnitureTypes" />
+        <AssociationConnector Association="SociatisModel.FK_HouseFurnitures_Houses" />
+        <AssociationConnector Association="SociatisModel.FK_HouseChests_HouseFurnitures" />
+        <EntityTypeShape EntityType="SociatisModel.HouseChestItem" Width="1.5" PointX="13.25" PointY="29.25" />
+        <AssociationConnector Association="SociatisModel.FK_HouseChestItems_HouseChests" />
+        <AssociationConnector Association="SociatisModel.FK_HouseChestItems_Products" />
+        <EntityTypeShape EntityType="SociatisModel.SellHouse" Width="1.5" PointX="21.375" PointY="35.875" />
+        <AssociationConnector Association="SociatisModel.FK_SellHouses_Houses" />
+        <EntityTypeShape EntityType="SociatisModel.CompanyFinanceSummary" Width="1.5" PointX="13.25" PointY="0.75" />
+        <AssociationConnector Association="SociatisModel.FK_CompanyFinanceSummaries_Companies" />
+        <AssociationConnector Association="SociatisModel.FK_CompanyFinanceSummaries_Currencies" />
+        <EntityTypeShape EntityType="SociatisModel.Event" Width="1.5" PointX="15.375" PointY="28.75" />
+        <EntityTypeShape EntityType="SociatisModel.CountryEvent" Width="1.5" PointX="23.625" PointY="36.5" />
+        <EntityTypeShape EntityType="SociatisModel.CountryEventType" Width="1.5" PointX="21.375" PointY="38.875" />
+        <AssociationConnector Association="SociatisModel.FK_CountryEvents_Countries" />
+        <AssociationConnector Association="SociatisModel.FK_CountryEvents_CountryEventTypes" />
+        <AssociationConnector Association="SociatisModel.FK_CountryEvents_Events" />
+        <EntityTypeShape EntityType="SociatisModel.CountryVotingEvent" Width="1.5" PointX="33.375" PointY="28.75" />
+        <AssociationConnector Association="SociatisModel.FK_CountryVotingEvents_CongressVotings" />
+        <AssociationConnector Association="SociatisModel.FK_CountryVotingEvents_CountryEvents" />
+        <AssociationConnector Association="SociatisModel.FK_CountryVotingEvents_VotingStatuses" />
+        <EntityTypeShape EntityType="SociatisModel.BattleEvent" Width="1.5" PointX="28.25" PointY="32.625" />
+        <AssociationConnector Association="SociatisModel.FK_BattleEvents_Battles" />
+        <AssociationConnector Association="SociatisModel.FK_BattleEvents_Events" />
+        <EntityTypeShape EntityType="SociatisModel.PartyMemberEvent" Width="1.5" PointX="36.125" PointY="13" />
+        <AssociationConnector Association="SociatisModel.FK_PartyMemberEvents_Citizens" />
+        <AssociationConnector Association="SociatisModel.FK_PartyMemberEvents_Entities" />
+        <EntityTypeShape EntityType="SociatisModel.BattleStatus" Width="1.5" PointX="0.75" PointY="30.375" />
+        <EntityTypeShape EntityType="SociatisModel.EventType" Width="1.5" PointX="13.5" PointY="32.75" />
+        <EntityTypeShape EntityType="SociatisModel.MemberStatus" Width="1.5" PointX="29.75" PointY="1.375" />
+        <EntityTypeShape EntityType="SociatisModel.PartyEventType" Width="1.5" PointX="31.75" PointY="1.25" />
+        <AssociationConnector Association="SociatisModel.FK_BattleEvents_BattleStatuses" />
+        <AssociationConnector Association="SociatisModel.FK_Events_EventTypes" />
+        <AssociationConnector Association="SociatisModel.FK_PartyMemberEvents_MemberStatuses" />
+        <EntityTypeShape EntityType="SociatisModel.AggregatedCounter" Width="1.5" PointX="0.75" PointY="33.375" />
+        <EntityTypeShape EntityType="SociatisModel.Counter" Width="1.5" PointX="34.75" PointY="8.375" />
+        <EntityTypeShape EntityType="SociatisModel.Hash" Width="1.5" PointX="34.75" PointY="17.375" />
+        <EntityTypeShape EntityType="SociatisModel.Job" Width="1.5" PointX="34.75" PointY="2.875" />
+        <EntityTypeShape EntityType="SociatisModel.JobParameter" Width="1.5" PointX="37" PointY="1.75" />
+        <EntityTypeShape EntityType="SociatisModel.JobQueue" Width="1.5" PointX="34.75" PointY="32.375" />
+        <EntityTypeShape EntityType="SociatisModel.List" Width="1.5" PointX="33.75" PointY="35.375" />
+        <EntityTypeShape EntityType="SociatisModel.Schema" Width="1.5" PointX="31.75" PointY="19.375" />
+        <EntityTypeShape EntityType="SociatisModel.Server" Width="1.5" PointX="0.75" PointY="36.375" />
+        <EntityTypeShape EntityType="SociatisModel.Set" Width="1.5" PointX="2.75" PointY="36.375" />
+        <EntityTypeShape EntityType="SociatisModel.State" Width="1.5" PointX="37" PointY="4.375" />
+        <AssociationConnector Association="SociatisModel.FK_HangFire_JobParameter_Job" />
+        <AssociationConnector Association="SociatisModel.FK_HangFire_State_Job" />
+        <EntityTypeShape EntityType="SociatisModel.PartyEvent" Width="1.5" PointX="33.75" PointY="24.875" />
+        <AssociationConnector Association="SociatisModel.FK_PartyEvents_Events" />
+        <AssociationConnector Association="SociatisModel.FK_PartyEvents_Parties" />
+        <AssociationConnector Association="SociatisModel.FK_PartyMemberEvents_PartyEvents" />
+        <EntityTypeShape EntityType="SociatisModel.WarEvent" Width="1.5" PointX="26.875" PointY="36.875" />
+        <EntityTypeShape EntityType="SociatisModel.WarStatus" Width="1.5" PointX="24.625" PointY="40.25" />
+        <AssociationConnector Association="SociatisModel.FK_WarEvents_Events" />
+        <AssociationConnector Association="SociatisModel.FK_WarEvents_Wars" />
+        <AssociationConnector Association="SociatisModel.FK_WarEvents_WarStatuses" />
+        </Diagram>
+    </edmx:Diagrams>
+  </edmx:Designer>
+</edmx:Edmx>

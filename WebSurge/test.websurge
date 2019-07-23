@@ -1,0 +1,679 @@
+GET http://soctest.sociatis.net/ HTTP/1.1
+
+Host: soctest.sociatis.net
+User-Agent: Mozilla/5.0 (Windows NT 10.0; Win64; x64; rv:58.0) Gecko/20100101 Firefox/58.0
+Accept: text/html,application/xhtml+xml,application/xml;q=0.9,*/*;q=0.8
+Accept-Language: en-US,en;q=0.5
+Accept-Encoding: gzip, deflate
+Referer: http://soctest.sociatis.net/Account/Login
+Cookie: _ga=GA1.2.1347847604.1506928516; CITIZEN_SESSION=OTMuNzcuMTI5LjM3fDIwMTgtMDItMDIgMjA6NDY6MzcxMjEwNjEwOTEwNjEwOTk3MTA4MTA2MTA0OTgxMDc=; ASP.NET_SessionId=au1ob0eefmtxdhneauz0hbwo
+Connection: keep-alive
+Upgrade-Insecure-Requests: 1
+
+------------------------------------------------------------------
+
+GET http://soctest.sociatis.net/bundles/modernizr?v=wBEWDufH_8Md-Pbioxomt90vm6tJN2Pyy9u9zHtWsPo1 HTTP/1.1
+
+Host: soctest.sociatis.net
+User-Agent: Mozilla/5.0 (Windows NT 10.0; Win64; x64; rv:58.0) Gecko/20100101 Firefox/58.0
+Accept: */*
+Accept-Language: en-US,en;q=0.5
+Accept-Encoding: gzip, deflate
+Referer: http://soctest.sociatis.net/
+Cookie: _ga=GA1.2.1347847604.1506928516; CITIZEN_SESSION=OTMuNzcuMTI5LjM3fDIwMTgtMDItMDIgMjA6NDY6MzcxMjEwNjEwOTEwNjEwOTk3MTA4MTA2MTA0OTgxMDc=; ASP.NET_SessionId=au1ob0eefmtxdhneauz0hbwo
+Connection: keep-alive
+
+------------------------------------------------------------------
+
+GET http://soctest.sociatis.net/bundles/jqueryval?v=dt3XaqpEn4rFA9MkDy2QmR-5tTdUVpSHTuOr3x-Sw981 HTTP/1.1
+
+Host: soctest.sociatis.net
+User-Agent: Mozilla/5.0 (Windows NT 10.0; Win64; x64; rv:58.0) Gecko/20100101 Firefox/58.0
+Accept: */*
+Accept-Language: en-US,en;q=0.5
+Accept-Encoding: gzip, deflate
+Referer: http://soctest.sociatis.net/
+Cookie: _ga=GA1.2.1347847604.1506928516; CITIZEN_SESSION=OTMuNzcuMTI5LjM3fDIwMTgtMDItMDIgMjA6NDY6MzcxMjEwNjEwOTEwNjEwOTk3MTA4MTA2MTA0OTgxMDc=; ASP.NET_SessionId=au1ob0eefmtxdhneauz0hbwo
+Connection: keep-alive
+
+------------------------------------------------------------------
+
+GET http://soctest.sociatis.net/bundles/foundation?v=boPNIBmACBzWPKtZnvMAlXkABHSh8C-PFpMstKas1qY1 HTTP/1.1
+
+Host: soctest.sociatis.net
+User-Agent: Mozilla/5.0 (Windows NT 10.0; Win64; x64; rv:58.0) Gecko/20100101 Firefox/58.0
+Accept: */*
+Accept-Language: en-US,en;q=0.5
+Accept-Encoding: gzip, deflate
+Referer: http://soctest.sociatis.net/
+Cookie: _ga=GA1.2.1347847604.1506928516; CITIZEN_SESSION=OTMuNzcuMTI5LjM3fDIwMTgtMDItMDIgMjA6NDY6MzcxMjEwNjEwOTEwNjEwOTk3MTA4MTA2MTA0OTgxMDc=; ASP.NET_SessionId=au1ob0eefmtxdhneauz0hbwo
+Connection: keep-alive
+
+------------------------------------------------------------------
+
+GET http://soctest.sociatis.net/bundles/jquery?v=Zms12kGR6YK9VYQKKnXIEC3OwWnuJOweL5JzzbsJu8g1 HTTP/1.1
+
+Host: soctest.sociatis.net
+User-Agent: Mozilla/5.0 (Windows NT 10.0; Win64; x64; rv:58.0) Gecko/20100101 Firefox/58.0
+Accept: */*
+Accept-Language: en-US,en;q=0.5
+Accept-Encoding: gzip, deflate
+Referer: http://soctest.sociatis.net/
+Cookie: _ga=GA1.2.1347847604.1506928516; CITIZEN_SESSION=OTMuNzcuMTI5LjM3fDIwMTgtMDItMDIgMjA6NDY6MzcxMjEwNjEwOTEwNjEwOTk3MTA4MTA2MTA0OTgxMDc=; ASP.NET_SessionId=au1ob0eefmtxdhneauz0hbwo
+Connection: keep-alive
+
+------------------------------------------------------------------
+
+GET http://soctest.sociatis.net/Content/scrolling?v=wMOJlx2OYFnbE16UY9JltqOU8RSEvFNlPwkFdK1fBXI1 HTTP/1.1
+
+Host: soctest.sociatis.net
+User-Agent: Mozilla/5.0 (Windows NT 10.0; Win64; x64; rv:58.0) Gecko/20100101 Firefox/58.0
+Accept: text/css,*/*;q=0.1
+Accept-Language: en-US,en;q=0.5
+Accept-Encoding: gzip, deflate
+Referer: http://soctest.sociatis.net/
+Cookie: _ga=GA1.2.1347847604.1506928516; CITIZEN_SESSION=OTMuNzcuMTI5LjM3fDIwMTgtMDItMDIgMjA6NDY6MzcxMjEwNjEwOTEwNjEwOTk3MTA4MTA2MTA0OTgxMDc=; ASP.NET_SessionId=au1ob0eefmtxdhneauz0hbwo
+Connection: keep-alive
+
+------------------------------------------------------------------
+
+GET http://soctest.sociatis.net/scripts/global?v=yJIoRUPNn-dGkhJAfEYmI8ES6i2jAPzVCBhR-OtU9fk1 HTTP/1.1
+
+Host: soctest.sociatis.net
+User-Agent: Mozilla/5.0 (Windows NT 10.0; Win64; x64; rv:58.0) Gecko/20100101 Firefox/58.0
+Accept: */*
+Accept-Language: en-US,en;q=0.5
+Accept-Encoding: gzip, deflate
+Referer: http://soctest.sociatis.net/
+Cookie: _ga=GA1.2.1347847604.1506928516; CITIZEN_SESSION=OTMuNzcuMTI5LjM3fDIwMTgtMDItMDIgMjA6NDY6MzcxMjEwNjEwOTEwNjEwOTk3MTA4MTA2MTA0OTgxMDc=; ASP.NET_SessionId=au1ob0eefmtxdhneauz0hbwo
+Connection: keep-alive
+
+------------------------------------------------------------------
+
+GET http://soctest.sociatis.net/scripts/notify?v=Skco0jf6CRKzkoz8ahN1JbFsD4JHwY-2p0fxw5JMSqk1 HTTP/1.1
+
+Host: soctest.sociatis.net
+User-Agent: Mozilla/5.0 (Windows NT 10.0; Win64; x64; rv:58.0) Gecko/20100101 Firefox/58.0
+Accept: */*
+Accept-Language: en-US,en;q=0.5
+Accept-Encoding: gzip, deflate
+Referer: http://soctest.sociatis.net/
+Cookie: _ga=GA1.2.1347847604.1506928516; CITIZEN_SESSION=OTMuNzcuMTI5LjM3fDIwMTgtMDItMDIgMjA6NDY6MzcxMjEwNjEwOTEwNjEwOTk3MTA4MTA2MTA0OTgxMDc=; ASP.NET_SessionId=au1ob0eefmtxdhneauz0hbwo
+Connection: keep-alive
+
+------------------------------------------------------------------
+
+GET http://soctest.sociatis.net/scripts/scrolling?v=Si2t67uPzZavHRcQ6qVhzPcSCpsQn9nSOVqe__mcGpc1 HTTP/1.1
+
+Host: soctest.sociatis.net
+User-Agent: Mozilla/5.0 (Windows NT 10.0; Win64; x64; rv:58.0) Gecko/20100101 Firefox/58.0
+Accept: */*
+Accept-Language: en-US,en;q=0.5
+Accept-Encoding: gzip, deflate
+Referer: http://soctest.sociatis.net/
+Cookie: _ga=GA1.2.1347847604.1506928516; CITIZEN_SESSION=OTMuNzcuMTI5LjM3fDIwMTgtMDItMDIgMjA6NDY6MzcxMjEwNjEwOTEwNjEwOTk3MTA4MTA2MTA0OTgxMDc=; ASP.NET_SessionId=au1ob0eefmtxdhneauz0hbwo
+Connection: keep-alive
+
+------------------------------------------------------------------
+
+GET http://soctest.sociatis.net/Content/css?v=l5egCIy6IVVriTcI7uSUtezFQEkb_3nGwkEstPsFGhU1 HTTP/1.1
+
+Host: soctest.sociatis.net
+User-Agent: Mozilla/5.0 (Windows NT 10.0; Win64; x64; rv:58.0) Gecko/20100101 Firefox/58.0
+Accept: text/css,*/*;q=0.1
+Accept-Language: en-US,en;q=0.5
+Accept-Encoding: gzip, deflate
+Referer: http://soctest.sociatis.net/
+Cookie: _ga=GA1.2.1347847604.1506928516; CITIZEN_SESSION=OTMuNzcuMTI5LjM3fDIwMTgtMDItMDIgMjA6NDY6MzcxMjEwNjEwOTEwNjEwOTk3MTA4MTA2MTA0OTgxMDc=; ASP.NET_SessionId=au1ob0eefmtxdhneauz0hbwo
+Connection: keep-alive
+
+------------------------------------------------------------------
+
+GET http://soctest.sociatis.net/fonts/fontawesome-webfont.woff2?v=4.7.0 HTTP/1.1
+
+Host: soctest.sociatis.net
+User-Agent: Mozilla/5.0 (Windows NT 10.0; Win64; x64; rv:58.0) Gecko/20100101 Firefox/58.0
+Accept: application/font-woff2;q=1.0,application/font-woff;q=0.9,*/*;q=0.8
+Accept-Language: en-US,en;q=0.5
+Accept-Encoding: identity
+Referer: http://soctest.sociatis.net/Content/css?v=l5egCIy6IVVriTcI7uSUtezFQEkb_3nGwkEstPsFGhU1
+Cookie: _ga=GA1.2.1347847604.1506928516; CITIZEN_SESSION=OTMuNzcuMTI5LjM3fDIwMTgtMDItMDIgMjA6NDY6MzcxMjEwNjEwOTEwNjEwOTk3MTA4MTA2MTA0OTgxMDc=; ASP.NET_SessionId=au1ob0eefmtxdhneauz0hbwo
+Connection: keep-alive
+
+------------------------------------------------------------------
+
+GET http://soctest.sociatis.net/Citizen/12 HTTP/1.1
+
+Host: soctest.sociatis.net
+User-Agent: Mozilla/5.0 (Windows NT 10.0; Win64; x64; rv:58.0) Gecko/20100101 Firefox/58.0
+Accept: text/html,application/xhtml+xml,application/xml;q=0.9,*/*;q=0.8
+Accept-Language: en-US,en;q=0.5
+Accept-Encoding: gzip, deflate
+Referer: http://soctest.sociatis.net/
+Cookie: _ga=GA1.2.1347847604.1506928516; CITIZEN_SESSION=OTMuNzcuMTI5LjM3fDIwMTgtMDItMDIgMjA6NDY6MzcxMjEwNjEwOTEwNjEwOTk3MTA4MTA2MTA0OTgxMDc=; ASP.NET_SessionId=au1ob0eefmtxdhneauz0hbwo
+Connection: keep-alive
+Upgrade-Insecure-Requests: 1
+
+------------------------------------------------------------------
+
+GET http://soctest.sociatis.net/Content/fileuploader?v=rplTM0JJWyQBttSFJMSNy3M51q6xWlkJQC8oak7TTRI1 HTTP/1.1
+
+Host: soctest.sociatis.net
+User-Agent: Mozilla/5.0 (Windows NT 10.0; Win64; x64; rv:58.0) Gecko/20100101 Firefox/58.0
+Accept: text/css,*/*;q=0.1
+Accept-Language: en-US,en;q=0.5
+Accept-Encoding: gzip, deflate
+Referer: http://soctest.sociatis.net/Citizen/12
+Cookie: _ga=GA1.2.1347847604.1506928516; CITIZEN_SESSION=OTMuNzcuMTI5LjM3fDIwMTgtMDItMDIgMjA6NDY6MzcxMjEwNjEwOTEwNjEwOTk3MTA4MTA2MTA0OTgxMDc=; ASP.NET_SessionId=au1ob0eefmtxdhneauz0hbwo
+Connection: keep-alive
+
+------------------------------------------------------------------
+
+GET http://soctest.sociatis.net/Content/cropper?v=Na4W7RkqGbHrkGlxcDM7UMy7D2QdzZReXbD53cagRPo1 HTTP/1.1
+
+Host: soctest.sociatis.net
+User-Agent: Mozilla/5.0 (Windows NT 10.0; Win64; x64; rv:58.0) Gecko/20100101 Firefox/58.0
+Accept: text/css,*/*;q=0.1
+Accept-Language: en-US,en;q=0.5
+Accept-Encoding: gzip, deflate
+Referer: http://soctest.sociatis.net/Citizen/12
+Cookie: _ga=GA1.2.1347847604.1506928516; CITIZEN_SESSION=OTMuNzcuMTI5LjM3fDIwMTgtMDItMDIgMjA6NDY6MzcxMjEwNjEwOTEwNjEwOTk3MTA4MTA2MTA0OTgxMDc=; ASP.NET_SessionId=au1ob0eefmtxdhneauz0hbwo
+Connection: keep-alive
+
+------------------------------------------------------------------
+
+GET http://soctest.sociatis.net/bundles/uploader?v=21xyJUsjXwuP5mC_OtLyrjrNymvdnv-G58PEcwWCFF41 HTTP/1.1
+
+Host: soctest.sociatis.net
+User-Agent: Mozilla/5.0 (Windows NT 10.0; Win64; x64; rv:58.0) Gecko/20100101 Firefox/58.0
+Accept: */*
+Accept-Language: en-US,en;q=0.5
+Accept-Encoding: gzip, deflate
+Referer: http://soctest.sociatis.net/Citizen/12
+Cookie: _ga=GA1.2.1347847604.1506928516; CITIZEN_SESSION=OTMuNzcuMTI5LjM3fDIwMTgtMDItMDIgMjA6NDY6MzcxMjEwNjEwOTEwNjEwOTk3MTA4MTA2MTA0OTgxMDc=; ASP.NET_SessionId=au1ob0eefmtxdhneauz0hbwo
+Connection: keep-alive
+
+------------------------------------------------------------------
+
+GET http://soctest.sociatis.net/bundles/cropper?v=yGmn8Kekn6CjLx9rzKAcJAchoxyNesPqiVWQZn0hjIE1 HTTP/1.1
+
+Host: soctest.sociatis.net
+User-Agent: Mozilla/5.0 (Windows NT 10.0; Win64; x64; rv:58.0) Gecko/20100101 Firefox/58.0
+Accept: */*
+Accept-Language: en-US,en;q=0.5
+Accept-Encoding: gzip, deflate
+Referer: http://soctest.sociatis.net/Citizen/12
+Cookie: _ga=GA1.2.1347847604.1506928516; CITIZEN_SESSION=OTMuNzcuMTI5LjM3fDIwMTgtMDItMDIgMjA6NDY6MzcxMjEwNjEwOTEwNjEwOTk3MTA4MTA2MTA0OTgxMDc=; ASP.NET_SessionId=au1ob0eefmtxdhneauz0hbwo
+Connection: keep-alive
+
+------------------------------------------------------------------
+
+GET http://soctest.sociatis.net/Content/fonts/military-rank-icons.woff HTTP/1.1
+
+Host: soctest.sociatis.net
+User-Agent: Mozilla/5.0 (Windows NT 10.0; Win64; x64; rv:58.0) Gecko/20100101 Firefox/58.0
+Accept: application/font-woff2;q=1.0,application/font-woff;q=0.9,*/*;q=0.8
+Accept-Language: en-US,en;q=0.5
+Accept-Encoding: identity
+Referer: http://soctest.sociatis.net/Content/css?v=l5egCIy6IVVriTcI7uSUtezFQEkb_3nGwkEstPsFGhU1
+Cookie: _ga=GA1.2.1347847604.1506928516; CITIZEN_SESSION=OTMuNzcuMTI5LjM3fDIwMTgtMDItMDIgMjA6NDY6MzcxMjEwNjEwOTEwNjEwOTk3MTA4MTA2MTA0OTgxMDc=; ASP.NET_SessionId=au1ob0eefmtxdhneauz0hbwo
+Connection: keep-alive
+
+------------------------------------------------------------------
+
+GET http://soctest.sociatis.net/Message HTTP/1.1
+
+Host: soctest.sociatis.net
+User-Agent: Mozilla/5.0 (Windows NT 10.0; Win64; x64; rv:58.0) Gecko/20100101 Firefox/58.0
+Accept: text/html,application/xhtml+xml,application/xml;q=0.9,*/*;q=0.8
+Accept-Language: en-US,en;q=0.5
+Accept-Encoding: gzip, deflate
+Referer: http://soctest.sociatis.net/Citizen/12
+Cookie: _ga=GA1.2.1347847604.1506928516; CITIZEN_SESSION=OTMuNzcuMTI5LjM3fDIwMTgtMDItMDIgMjA6NDY6MzcxMjEwNjEwOTEwNjEwOTk3MTA4MTA2MTA0OTgxMDc=; ASP.NET_SessionId=au1ob0eefmtxdhneauz0hbwo
+Connection: keep-alive
+Upgrade-Insecure-Requests: 1
+
+------------------------------------------------------------------
+
+GET http://soctest.sociatis.net/Message/Send HTTP/1.1
+
+Host: soctest.sociatis.net
+User-Agent: Mozilla/5.0 (Windows NT 10.0; Win64; x64; rv:58.0) Gecko/20100101 Firefox/58.0
+Accept: text/html,application/xhtml+xml,application/xml;q=0.9,*/*;q=0.8
+Accept-Language: en-US,en;q=0.5
+Accept-Encoding: gzip, deflate
+Referer: http://soctest.sociatis.net/Message
+Cookie: _ga=GA1.2.1347847604.1506928516; CITIZEN_SESSION=OTMuNzcuMTI5LjM3fDIwMTgtMDItMDIgMjA6NDY6MzcxMjEwNjEwOTEwNjEwOTk3MTA4MTA2MTA0OTgxMDc=; ASP.NET_SessionId=au1ob0eefmtxdhneauz0hbwo
+Connection: keep-alive
+Upgrade-Insecure-Requests: 1
+
+------------------------------------------------------------------
+
+GET http://soctest.sociatis.net/Content/select2?v=m2ic4md2WZ9D9Ilm-kHAamyqkGlMXhlGEGs3IeHZxAE1 HTTP/1.1
+
+Host: soctest.sociatis.net
+User-Agent: Mozilla/5.0 (Windows NT 10.0; Win64; x64; rv:58.0) Gecko/20100101 Firefox/58.0
+Accept: text/css,*/*;q=0.1
+Accept-Language: en-US,en;q=0.5
+Accept-Encoding: gzip, deflate
+Referer: http://soctest.sociatis.net/Message/Send
+Cookie: _ga=GA1.2.1347847604.1506928516; CITIZEN_SESSION=OTMuNzcuMTI5LjM3fDIwMTgtMDItMDIgMjA6NDY6MzcxMjEwNjEwOTEwNjEwOTk3MTA4MTA2MTA0OTgxMDc=; ASP.NET_SessionId=au1ob0eefmtxdhneauz0hbwo
+Connection: keep-alive
+
+------------------------------------------------------------------
+
+GET http://soctest.sociatis.net/bundles/select2?v=1M-VdueOr_3ulV_cNh2x9JUFUk_DI9KkVKer838-0jk1 HTTP/1.1
+
+Host: soctest.sociatis.net
+User-Agent: Mozilla/5.0 (Windows NT 10.0; Win64; x64; rv:58.0) Gecko/20100101 Firefox/58.0
+Accept: */*
+Accept-Language: en-US,en;q=0.5
+Accept-Encoding: gzip, deflate
+Referer: http://soctest.sociatis.net/Message/Send
+Cookie: _ga=GA1.2.1347847604.1506928516; CITIZEN_SESSION=OTMuNzcuMTI5LjM3fDIwMTgtMDItMDIgMjA6NDY6MzcxMjEwNjEwOTEwNjEwOTk3MTA4MTA2MTA0OTgxMDc=; ASP.NET_SessionId=au1ob0eefmtxdhneauz0hbwo
+Connection: keep-alive
+
+------------------------------------------------------------------
+
+GET http://soctest.sociatis.net/Message HTTP/1.1
+
+Host: soctest.sociatis.net
+User-Agent: Mozilla/5.0 (Windows NT 10.0; Win64; x64; rv:58.0) Gecko/20100101 Firefox/58.0
+Accept: text/html,application/xhtml+xml,application/xml;q=0.9,*/*;q=0.8
+Accept-Language: en-US,en;q=0.5
+Accept-Encoding: gzip, deflate
+Referer: http://soctest.sociatis.net/Message/Send
+Cookie: _ga=GA1.2.1347847604.1506928516; CITIZEN_SESSION=OTMuNzcuMTI5LjM3fDIwMTgtMDItMDIgMjA6NDY6MzcxMjEwNjEwOTEwNjEwOTk3MTA4MTA2MTA0OTgxMDc=; ASP.NET_SessionId=au1ob0eefmtxdhneauz0hbwo
+Connection: keep-alive
+Upgrade-Insecure-Requests: 1
+
+------------------------------------------------------------------
+
+GET http://soctest.sociatis.net/Message/182/last HTTP/1.1
+
+Host: soctest.sociatis.net
+User-Agent: Mozilla/5.0 (Windows NT 10.0; Win64; x64; rv:58.0) Gecko/20100101 Firefox/58.0
+Accept: text/html,application/xhtml+xml,application/xml;q=0.9,*/*;q=0.8
+Accept-Language: en-US,en;q=0.5
+Accept-Encoding: gzip, deflate
+Referer: http://soctest.sociatis.net/Message
+Cookie: _ga=GA1.2.1347847604.1506928516; CITIZEN_SESSION=OTMuNzcuMTI5LjM3fDIwMTgtMDItMDIgMjA6NDY6MzcxMjEwNjEwOTEwNjEwOTk3MTA4MTA2MTA0OTgxMDc=; ASP.NET_SessionId=au1ob0eefmtxdhneauz0hbwo
+Connection: keep-alive
+Upgrade-Insecure-Requests: 1
+
+------------------------------------------------------------------
+
+POST http://soctest.sociatis.net/Message/SendMessage HTTP/1.1
+
+Host: soctest.sociatis.net
+User-Agent: Mozilla/5.0 (Windows NT 10.0; Win64; x64; rv:58.0) Gecko/20100101 Firefox/58.0
+Accept: text/html,application/xhtml+xml,application/xml;q=0.9,*/*;q=0.8
+Accept-Language: en-US,en;q=0.5
+Accept-Encoding: gzip, deflate
+Referer: http://soctest.sociatis.net/Message/182/last
+Content-Type: application/x-www-form-urlencoded
+Content-Length: 34
+Cookie: _ga=GA1.2.1347847604.1506928516; CITIZEN_SESSION=OTMuNzcuMTI5LjM3fDIwMTgtMDItMDIgMjA6NDY6MzcxMjEwNjEwOTEwNjEwOTk3MTA4MTA2MTA0OTgxMDc=; ASP.NET_SessionId=au1ob0eefmtxdhneauz0hbwo
+Connection: keep-alive
+Upgrade-Insecure-Requests: 1
+
+threadID=182&pageSize=10&content=1
+------------------------------------------------------------------
+
+GET http://soctest.sociatis.net/Message/182/last HTTP/1.1
+
+Host: soctest.sociatis.net
+User-Agent: Mozilla/5.0 (Windows NT 10.0; Win64; x64; rv:58.0) Gecko/20100101 Firefox/58.0
+Accept: text/html,application/xhtml+xml,application/xml;q=0.9,*/*;q=0.8
+Accept-Language: en-US,en;q=0.5
+Accept-Encoding: gzip, deflate
+Referer: http://soctest.sociatis.net/Message/182/last
+Cookie: _ga=GA1.2.1347847604.1506928516; CITIZEN_SESSION=OTMuNzcuMTI5LjM3fDIwMTgtMDItMDIgMjA6NDY6MzcxMjEwNjEwOTEwNjEwOTk3MTA4MTA2MTA0OTgxMDc=; ASP.NET_SessionId=au1ob0eefmtxdhneauz0hbwo
+Connection: keep-alive
+Upgrade-Insecure-Requests: 1
+
+------------------------------------------------------------------
+
+GET http://soctest.sociatis.net/Citizen/12/Inventory HTTP/1.1
+
+Host: soctest.sociatis.net
+User-Agent: Mozilla/5.0 (Windows NT 10.0; Win64; x64; rv:58.0) Gecko/20100101 Firefox/58.0
+Accept: text/html,application/xhtml+xml,application/xml;q=0.9,*/*;q=0.8
+Accept-Language: en-US,en;q=0.5
+Accept-Encoding: gzip, deflate
+Referer: http://soctest.sociatis.net/Message/182/last
+Cookie: _ga=GA1.2.1347847604.1506928516; CITIZEN_SESSION=OTMuNzcuMTI5LjM3fDIwMTgtMDItMDIgMjA6NDY6MzcxMjEwNjEwOTEwNjEwOTk3MTA4MTA2MTA0OTgxMDc=; ASP.NET_SessionId=au1ob0eefmtxdhneauz0hbwo
+Connection: keep-alive
+Upgrade-Insecure-Requests: 1
+
+------------------------------------------------------------------
+
+GET http://soctest.sociatis.net/Training HTTP/1.1
+
+Host: soctest.sociatis.net
+User-Agent: Mozilla/5.0 (Windows NT 10.0; Win64; x64; rv:58.0) Gecko/20100101 Firefox/58.0
+Accept: text/html,application/xhtml+xml,application/xml;q=0.9,*/*;q=0.8
+Accept-Language: en-US,en;q=0.5
+Accept-Encoding: gzip, deflate
+Referer: http://soctest.sociatis.net/Citizen/12/Inventory
+Cookie: _ga=GA1.2.1347847604.1506928516; CITIZEN_SESSION=OTMuNzcuMTI5LjM3fDIwMTgtMDItMDIgMjA6NDY6MzcxMjEwNjEwOTEwNjEwOTk3MTA4MTA2MTA0OTgxMDc=; ASP.NET_SessionId=au1ob0eefmtxdhneauz0hbwo
+Connection: keep-alive
+Upgrade-Insecure-Requests: 1
+
+------------------------------------------------------------------
+
+GET http://soctest.sociatis.net/Company/237 HTTP/1.1
+
+Host: soctest.sociatis.net
+User-Agent: Mozilla/5.0 (Windows NT 10.0; Win64; x64; rv:58.0) Gecko/20100101 Firefox/58.0
+Accept: text/html,application/xhtml+xml,application/xml;q=0.9,*/*;q=0.8
+Accept-Language: en-US,en;q=0.5
+Accept-Encoding: gzip, deflate
+Referer: http://soctest.sociatis.net/Training
+Cookie: _ga=GA1.2.1347847604.1506928516; CITIZEN_SESSION=OTMuNzcuMTI5LjM3fDIwMTgtMDItMDIgMjA6NDY6MzcxMjEwNjEwOTEwNjEwOTk3MTA4MTA2MTA0OTgxMDc=; ASP.NET_SessionId=au1ob0eefmtxdhneauz0hbwo
+Connection: keep-alive
+Upgrade-Insecure-Requests: 1
+
+------------------------------------------------------------------
+
+GET http://soctest.sociatis.net/Party/105 HTTP/1.1
+
+Host: soctest.sociatis.net
+User-Agent: Mozilla/5.0 (Windows NT 10.0; Win64; x64; rv:58.0) Gecko/20100101 Firefox/58.0
+Accept: text/html,application/xhtml+xml,application/xml;q=0.9,*/*;q=0.8
+Accept-Language: en-US,en;q=0.5
+Accept-Encoding: gzip, deflate
+Referer: http://soctest.sociatis.net/Company/237
+Cookie: _ga=GA1.2.1347847604.1506928516; CITIZEN_SESSION=OTMuNzcuMTI5LjM3fDIwMTgtMDItMDIgMjA6NDY6MzcxMjEwNjEwOTEwNjEwOTk3MTA4MTA2MTA0OTgxMDc=; ASP.NET_SessionId=au1ob0eefmtxdhneauz0hbwo
+Connection: keep-alive
+Upgrade-Insecure-Requests: 1
+
+------------------------------------------------------------------
+
+GET http://soctest.sociatis.net/Citizen/Wallet HTTP/1.1
+
+Host: soctest.sociatis.net
+User-Agent: Mozilla/5.0 (Windows NT 10.0; Win64; x64; rv:58.0) Gecko/20100101 Firefox/58.0
+Accept: text/html,application/xhtml+xml,application/xml;q=0.9,*/*;q=0.8
+Accept-Language: en-US,en;q=0.5
+Accept-Encoding: gzip, deflate
+Referer: http://soctest.sociatis.net/Party/105
+Cookie: _ga=GA1.2.1347847604.1506928516; CITIZEN_SESSION=OTMuNzcuMTI5LjM3fDIwMTgtMDItMDIgMjA6NDY6MzcxMjEwNjEwOTEwNjEwOTk3MTA4MTA2MTA0OTgxMDc=; ASP.NET_SessionId=au1ob0eefmtxdhneauz0hbwo
+Connection: keep-alive
+Upgrade-Insecure-Requests: 1
+
+------------------------------------------------------------------
+
+GET http://soctest.sociatis.net/Company HTTP/1.1
+
+Host: soctest.sociatis.net
+User-Agent: Mozilla/5.0 (Windows NT 10.0; Win64; x64; rv:58.0) Gecko/20100101 Firefox/58.0
+Accept: text/html,application/xhtml+xml,application/xml;q=0.9,*/*;q=0.8
+Accept-Language: en-US,en;q=0.5
+Accept-Encoding: gzip, deflate
+Referer: http://soctest.sociatis.net/Citizen/Wallet
+Cookie: _ga=GA1.2.1347847604.1506928516; CITIZEN_SESSION=OTMuNzcuMTI5LjM3fDIwMTgtMDItMDIgMjA6NDY6MzcxMjEwNjEwOTEwNjEwOTk3MTA4MTA2MTA0OTgxMDc=; ASP.NET_SessionId=au1ob0eefmtxdhneauz0hbwo
+Connection: keep-alive
+Upgrade-Insecure-Requests: 1
+
+------------------------------------------------------------------
+
+GET http://soctest.sociatis.net/Company HTTP/1.1
+
+Host: soctest.sociatis.net
+User-Agent: Mozilla/5.0 (Windows NT 10.0; Win64; x64; rv:58.0) Gecko/20100101 Firefox/58.0
+Accept: text/html,application/xhtml+xml,application/xml;q=0.9,*/*;q=0.8
+Accept-Language: en-US,en;q=0.5
+Accept-Encoding: gzip, deflate
+Referer: http://soctest.sociatis.net/Company
+Cookie: _ga=GA1.2.1347847604.1506928516; CITIZEN_SESSION=OTMuNzcuMTI5LjM3fDIwMTgtMDItMDIgMjA6NDY6MzcxMjEwNjEwOTEwNjEwOTk3MTA4MTA2MTA0OTgxMDc=; ASP.NET_SessionId=au1ob0eefmtxdhneauz0hbwo
+Connection: keep-alive
+Upgrade-Insecure-Requests: 1
+
+------------------------------------------------------------------
+
+GET http://soctest.sociatis.net/Newspaper HTTP/1.1
+
+Host: soctest.sociatis.net
+User-Agent: Mozilla/5.0 (Windows NT 10.0; Win64; x64; rv:58.0) Gecko/20100101 Firefox/58.0
+Accept: text/html,application/xhtml+xml,application/xml;q=0.9,*/*;q=0.8
+Accept-Language: en-US,en;q=0.5
+Accept-Encoding: gzip, deflate
+Referer: http://soctest.sociatis.net/Company
+Cookie: _ga=GA1.2.1347847604.1506928516; CITIZEN_SESSION=OTMuNzcuMTI5LjM3fDIwMTgtMDItMDIgMjA6NDY6MzcxMjEwNjEwOTEwNjEwOTk3MTA4MTA2MTA0OTgxMDc=; ASP.NET_SessionId=au1ob0eefmtxdhneauz0hbwo
+Connection: keep-alive
+Upgrade-Insecure-Requests: 1
+
+------------------------------------------------------------------
+
+GET http://soctest.sociatis.net/Monetary-Market HTTP/1.1
+
+Host: soctest.sociatis.net
+User-Agent: Mozilla/5.0 (Windows NT 10.0; Win64; x64; rv:58.0) Gecko/20100101 Firefox/58.0
+Accept: text/html,application/xhtml+xml,application/xml;q=0.9,*/*;q=0.8
+Accept-Language: en-US,en;q=0.5
+Accept-Encoding: gzip, deflate
+Referer: http://soctest.sociatis.net/Newspaper
+Cookie: _ga=GA1.2.1347847604.1506928516; CITIZEN_SESSION=OTMuNzcuMTI5LjM3fDIwMTgtMDItMDIgMjA6NDY6MzcxMjEwNjEwOTEwNjEwOTk3MTA4MTA2MTA0OTgxMDc=; ASP.NET_SessionId=au1ob0eefmtxdhneauz0hbwo
+Connection: keep-alive
+Upgrade-Insecure-Requests: 1
+
+------------------------------------------------------------------
+
+GET http://soctest.sociatis.net/bundles/plot?v=wFL93yEbbDL_P9Z21ZHqRdheUOcm4OlDlqGvFCHBPm01 HTTP/1.1
+
+Host: soctest.sociatis.net
+User-Agent: Mozilla/5.0 (Windows NT 10.0; Win64; x64; rv:58.0) Gecko/20100101 Firefox/58.0
+Accept: */*
+Accept-Language: en-US,en;q=0.5
+Accept-Encoding: gzip, deflate
+Referer: http://soctest.sociatis.net/Monetary-Market
+Cookie: _ga=GA1.2.1347847604.1506928516; CITIZEN_SESSION=OTMuNzcuMTI5LjM3fDIwMTgtMDItMDIgMjA6NDY6MzcxMjEwNjEwOTEwNjEwOTk3MTA4MTA2MTA0OTgxMDc=; ASP.NET_SessionId=au1ob0eefmtxdhneauz0hbwo
+Connection: keep-alive
+
+------------------------------------------------------------------
+
+POST http://soctest.sociatis.net/MonetaryMarket/GetData HTTP/1.1
+
+Host: soctest.sociatis.net
+User-Agent: Mozilla/5.0 (Windows NT 10.0; Win64; x64; rv:58.0) Gecko/20100101 Firefox/58.0
+Accept: */*
+Accept-Language: en-US,en;q=0.5
+Accept-Encoding: gzip, deflate
+Referer: http://soctest.sociatis.net/Monetary-Market
+Content-Type: application/x-www-form-urlencoded; charset=UTF-8
+X-Requested-With: XMLHttpRequest
+Content-Length: 32
+Cookie: _ga=GA1.2.1347847604.1506928516; CITIZEN_SESSION=OTMuNzcuMTI5LjM3fDIwMTgtMDItMDIgMjA6NDY6MzcxMjEwNjEwOTEwNjEwOTk3MTA4MTA2MTA0OTgxMDc=; ASP.NET_SessionId=au1ob0eefmtxdhneauz0hbwo
+Connection: keep-alive
+
+buyCurrencyID=1&sellCurrencyID=2
+------------------------------------------------------------------
+
+GET http://soctest.sociatis.net/Country/9/MarketOffers/0/0 HTTP/1.1
+
+Host: soctest.sociatis.net
+User-Agent: Mozilla/5.0 (Windows NT 10.0; Win64; x64; rv:58.0) Gecko/20100101 Firefox/58.0
+Accept: text/html,application/xhtml+xml,application/xml;q=0.9,*/*;q=0.8
+Accept-Language: en-US,en;q=0.5
+Accept-Encoding: gzip, deflate
+Referer: http://soctest.sociatis.net/Monetary-Market
+Cookie: _ga=GA1.2.1347847604.1506928516; CITIZEN_SESSION=OTMuNzcuMTI5LjM3fDIwMTgtMDItMDIgMjA6NDY6MzcxMjEwNjEwOTEwNjEwOTk3MTA4MTA2MTA0OTgxMDc=; ASP.NET_SessionId=au1ob0eefmtxdhneauz0hbwo
+Connection: keep-alive
+Upgrade-Insecure-Requests: 1
+
+------------------------------------------------------------------
+
+POST http://soctest.sociatis.net/MarketOffer/CalculateTotal?offerID=36&amount=1 HTTP/1.1
+
+Host: soctest.sociatis.net
+User-Agent: Mozilla/5.0 (Windows NT 10.0; Win64; x64; rv:58.0) Gecko/20100101 Firefox/58.0
+Accept: application/json, text/javascript, */*; q=0.01
+Accept-Language: en-US,en;q=0.5
+Accept-Encoding: gzip, deflate
+Referer: http://soctest.sociatis.net/Country/9/MarketOffers/0/0
+X-Requested-With: XMLHttpRequest
+Cookie: _ga=GA1.2.1347847604.1506928516; CITIZEN_SESSION=OTMuNzcuMTI5LjM3fDIwMTgtMDItMDIgMjA6NDY6MzcxMjEwNjEwOTEwNjEwOTk3MTA4MTA2MTA0OTgxMDc=; ASP.NET_SessionId=au1ob0eefmtxdhneauz0hbwo
+Connection: keep-alive
+Content-Length: 0
+
+------------------------------------------------------------------
+
+POST http://soctest.sociatis.net/MarketOffer/CalculateTotal?offerID=50&amount=1 HTTP/1.1
+
+Host: soctest.sociatis.net
+User-Agent: Mozilla/5.0 (Windows NT 10.0; Win64; x64; rv:58.0) Gecko/20100101 Firefox/58.0
+Accept: application/json, text/javascript, */*; q=0.01
+Accept-Language: en-US,en;q=0.5
+Accept-Encoding: gzip, deflate
+Referer: http://soctest.sociatis.net/Country/9/MarketOffers/0/0
+X-Requested-With: XMLHttpRequest
+Cookie: _ga=GA1.2.1347847604.1506928516; CITIZEN_SESSION=OTMuNzcuMTI5LjM3fDIwMTgtMDItMDIgMjA6NDY6MzcxMjEwNjEwOTEwNjEwOTk3MTA4MTA2MTA0OTgxMDc=; ASP.NET_SessionId=au1ob0eefmtxdhneauz0hbwo
+Connection: keep-alive
+Content-Length: 0
+
+------------------------------------------------------------------
+
+GET http://soctest.sociatis.net/Country/9/ResourceOffers/0/0 HTTP/1.1
+
+Host: soctest.sociatis.net
+User-Agent: Mozilla/5.0 (Windows NT 10.0; Win64; x64; rv:58.0) Gecko/20100101 Firefox/58.0
+Accept: text/html,application/xhtml+xml,application/xml;q=0.9,*/*;q=0.8
+Accept-Language: en-US,en;q=0.5
+Accept-Encoding: gzip, deflate
+Referer: http://soctest.sociatis.net/Country/9/MarketOffers/0/0
+Cookie: _ga=GA1.2.1347847604.1506928516; CITIZEN_SESSION=OTMuNzcuMTI5LjM3fDIwMTgtMDItMDIgMjA6NDY6MzcxMjEwNjEwOTEwNjEwOTk3MTA4MTA2MTA0OTgxMDc=; ASP.NET_SessionId=au1ob0eefmtxdhneauz0hbwo
+Connection: keep-alive
+Upgrade-Insecure-Requests: 1
+
+------------------------------------------------------------------
+
+GET http://soctest.sociatis.net/JobOffer/JobMarket HTTP/1.1
+
+Host: soctest.sociatis.net
+User-Agent: Mozilla/5.0 (Windows NT 10.0; Win64; x64; rv:58.0) Gecko/20100101 Firefox/58.0
+Accept: text/html,application/xhtml+xml,application/xml;q=0.9,*/*;q=0.8
+Accept-Language: en-US,en;q=0.5
+Accept-Encoding: gzip, deflate
+Referer: http://soctest.sociatis.net/Country/9/ResourceOffers/0/0
+Cookie: _ga=GA1.2.1347847604.1506928516; CITIZEN_SESSION=OTMuNzcuMTI5LjM3fDIwMTgtMDItMDIgMjA6NDY6MzcxMjEwNjEwOTEwNjEwOTk3MTA4MTA2MTA0OTgxMDc=; ASP.NET_SessionId=au1ob0eefmtxdhneauz0hbwo
+Connection: keep-alive
+Upgrade-Insecure-Requests: 1
+
+------------------------------------------------------------------
+
+GET http://soctest.sociatis.net/Country/9 HTTP/1.1
+
+Host: soctest.sociatis.net
+User-Agent: Mozilla/5.0 (Windows NT 10.0; Win64; x64; rv:58.0) Gecko/20100101 Firefox/58.0
+Accept: text/html,application/xhtml+xml,application/xml;q=0.9,*/*;q=0.8
+Accept-Language: en-US,en;q=0.5
+Accept-Encoding: gzip, deflate
+Referer: http://soctest.sociatis.net/JobOffer/JobMarket
+Cookie: _ga=GA1.2.1347847604.1506928516; CITIZEN_SESSION=OTMuNzcuMTI5LjM3fDIwMTgtMDItMDIgMjA6NDY6MzcxMjEwNjEwOTEwNjEwOTk3MTA4MTA2MTA0OTgxMDc=; ASP.NET_SessionId=au1ob0eefmtxdhneauz0hbwo
+Connection: keep-alive
+Upgrade-Insecure-Requests: 1
+
+------------------------------------------------------------------
+
+GET http://soctest.sociatis.net/Gift/9 HTTP/1.1
+
+Host: soctest.sociatis.net
+User-Agent: Mozilla/5.0 (Windows NT 10.0; Win64; x64; rv:58.0) Gecko/20100101 Firefox/58.0
+Accept: text/html,application/xhtml+xml,application/xml;q=0.9,*/*;q=0.8
+Accept-Language: en-US,en;q=0.5
+Accept-Encoding: gzip, deflate
+Referer: http://soctest.sociatis.net/Country/9
+Cookie: _ga=GA1.2.1347847604.1506928516; CITIZEN_SESSION=OTMuNzcuMTI5LjM3fDIwMTgtMDItMDIgMjA6NDY6MzcxMjEwNjEwOTEwNjEwOTk3MTA4MTA2MTA0OTgxMDc=; ASP.NET_SessionId=au1ob0eefmtxdhneauz0hbwo
+Connection: keep-alive
+Upgrade-Insecure-Requests: 1
+
+------------------------------------------------------------------
+
+POST http://soctest.sociatis.net/Gift/SendMoney HTTP/1.1
+
+Host: soctest.sociatis.net
+User-Agent: Mozilla/5.0 (Windows NT 10.0; Win64; x64; rv:58.0) Gecko/20100101 Firefox/58.0
+Accept: application/json, text/javascript, */*; q=0.01
+Accept-Language: en-US,en;q=0.5
+Accept-Encoding: gzip, deflate
+Referer: http://soctest.sociatis.net/Gift/9
+Content-Type: application/x-www-form-urlencoded; charset=UTF-8
+X-Requested-With: XMLHttpRequest
+Content-Length: 40
+Cookie: _ga=GA1.2.1347847604.1506928516; CITIZEN_SESSION=OTMuNzcuMTI5LjM3fDIwMTgtMDItMDIgMjA6NDY6MzcxMjEwNjEwOTEwNjEwOTk3MTA4MTA2MTA0OTgxMDc=; ASP.NET_SessionId=au1ob0eefmtxdhneauz0hbwo
+Connection: keep-alive
+
+destinationID=9&currencyID=2&amount=0.01
+------------------------------------------------------------------
+
+GET http://soctest.sociatis.net/gift/9 HTTP/1.1
+
+Host: soctest.sociatis.net
+User-Agent: Mozilla/5.0 (Windows NT 10.0; Win64; x64; rv:58.0) Gecko/20100101 Firefox/58.0
+Accept: text/html,application/xhtml+xml,application/xml;q=0.9,*/*;q=0.8
+Accept-Language: en-US,en;q=0.5
+Accept-Encoding: gzip, deflate
+Referer: http://soctest.sociatis.net/Gift/9
+Cookie: _ga=GA1.2.1347847604.1506928516; CITIZEN_SESSION=OTMuNzcuMTI5LjM3fDIwMTgtMDItMDIgMjA6NDY6MzcxMjEwNjEwOTEwNjEwOTk3MTA4MTA2MTA0OTgxMDc=; ASP.NET_SessionId=au1ob0eefmtxdhneauz0hbwo
+Connection: keep-alive
+Upgrade-Insecure-Requests: 1
+
+------------------------------------------------------------------
+
+GET http://soctest.sociatis.net/ HTTP/1.1
+
+Host: soctest.sociatis.net
+User-Agent: Mozilla/5.0 (Windows NT 10.0; Win64; x64; rv:58.0) Gecko/20100101 Firefox/58.0
+Accept: text/html,application/xhtml+xml,application/xml;q=0.9,*/*;q=0.8
+Accept-Language: en-US,en;q=0.5
+Accept-Encoding: gzip, deflate
+Referer: http://soctest.sociatis.net/gift/9
+Cookie: _ga=GA1.2.1347847604.1506928516; CITIZEN_SESSION=OTMuNzcuMTI5LjM3fDIwMTgtMDItMDIgMjA6NDY6MzcxMjEwNjEwOTEwNjEwOTk3MTA4MTA2MTA0OTgxMDc=; ASP.NET_SessionId=au1ob0eefmtxdhneauz0hbwo
+Connection: keep-alive
+Upgrade-Insecure-Requests: 1
+
+------------------------------------------------------------------
+
+GET http://soctest.sociatis.net/Game/GiveMeMoney HTTP/1.1
+
+Host: soctest.sociatis.net
+User-Agent: Mozilla/5.0 (Windows NT 10.0; Win64; x64; rv:58.0) Gecko/20100101 Firefox/58.0
+Accept: text/html,application/xhtml+xml,application/xml;q=0.9,*/*;q=0.8
+Accept-Language: en-US,en;q=0.5
+Accept-Encoding: gzip, deflate
+Referer: http://soctest.sociatis.net/
+Cookie: _ga=GA1.2.1347847604.1506928516; CITIZEN_SESSION=OTMuNzcuMTI5LjM3fDIwMTgtMDItMDIgMjA6NDY6MzcxMjEwNjEwOTEwNjEwOTk3MTA4MTA2MTA0OTgxMDc=; ASP.NET_SessionId=au1ob0eefmtxdhneauz0hbwo
+Connection: keep-alive
+Upgrade-Insecure-Requests: 1
+
+------------------------------------------------------------------
+
+GET http://soctest.sociatis.net/ HTTP/1.1
+
+Host: soctest.sociatis.net
+User-Agent: Mozilla/5.0 (Windows NT 10.0; Win64; x64; rv:58.0) Gecko/20100101 Firefox/58.0
+Accept: text/html,application/xhtml+xml,application/xml;q=0.9,*/*;q=0.8
+Accept-Language: en-US,en;q=0.5
+Accept-Encoding: gzip, deflate
+Referer: http://soctest.sociatis.net/
+Cookie: _ga=GA1.2.1347847604.1506928516; CITIZEN_SESSION=OTMuNzcuMTI5LjM3fDIwMTgtMDItMDIgMjA6NDY6MzcxMjEwNjEwOTEwNjEwOTk3MTA4MTA2MTA0OTgxMDc=; ASP.NET_SessionId=au1ob0eefmtxdhneauz0hbwo
+Connection: keep-alive
+Upgrade-Insecure-Requests: 1
+
+------------------------------------------------------------------
+
+GET http://soctest.sociatis.net/DevIssue HTTP/1.1
+
+Host: soctest.sociatis.net
+User-Agent: Mozilla/5.0 (Windows NT 10.0; Win64; x64; rv:58.0) Gecko/20100101 Firefox/58.0
+Accept: text/html,application/xhtml+xml,application/xml;q=0.9,*/*;q=0.8
+Accept-Language: en-US,en;q=0.5
+Accept-Encoding: gzip, deflate
+Referer: http://soctest.sociatis.net/
+Cookie: _ga=GA1.2.1347847604.1506928516; CITIZEN_SESSION=OTMuNzcuMTI5LjM3fDIwMTgtMDItMDIgMjA6NDY6MzcxMjEwNjEwOTEwNjEwOTk3MTA4MTA2MTA0OTgxMDc=; ASP.NET_SessionId=au1ob0eefmtxdhneauz0hbwo
+Connection: keep-alive
+Upgrade-Insecure-Requests: 1
+
+------------------------------------------------------------------
+

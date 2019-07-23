@@ -1,0 +1,95 @@
+﻿@model Sociatis.Models.Account.LoginRegisterViewModel
+@{
+    ViewBag.Title = "Login";
+    Layout = "~/Views/Shared/_LayoutGuest.cshtml";
+}
+<div class="accountDialog">
+    <h1 class="text-center">Sociatis</h1>
+    <ul class="tabs" data-tabs id="account-tabs">
+        <li class="tabs-title is-active"><a href="#login" aria-selected="true">Login</a></li>
+        <li class="tabs-title"><a href="#register" aria-selected="true">Register</a></li>
+        <li class="tabs-title"><a id="forForgot" href="#forgot" class="hide" aria-selected="true">Forgot Password</a></li>
+    </ul>
+    <div class="tabs-content" data-tabs-content="account-tabs">
+        <div class="tabs-panel is-active" id="login">
+            @using (Html.BeginForm())
+            {
+                @Html.ValidationSummary()
+
+
+                <div class="centerHorizontalFlex ">
+                    @Html.TextBoxFor(m => m.Login.Name, new { placeholder = "Citizen Name" })
+                </div>
+
+                <div class="centerHorizontalFlex ">
+                    @Html.PasswordFor(m => m.Login.Password, new { placeholder = "Password" })
+                </div>
+
+
+                <div class="remember">
+                    @Html.LabelFor(m => m.Login.RememberMe)
+
+                    <div class="switch">
+                        @Html.CheckBoxFor(m => m.Login.RememberMe)
+
+                    </div>
+                </div>
+
+                <a onclick='$("ul#account-tabs a#forForgot").click()' href="#forgot" aria-selected="true">Forgot Password</a>
+
+                <div class="pull-right">
+                    <a id="loginButton" class="button" href="#" onclick="$(this).closest('form').submit()">Login</a>
+                </div>
+            }
+
+        </div>
+        <div class="tabs-panel" id="register" data-tabs-content="account-tabs">
+            @using (Html.BeginForm())
+            {
+                @Html.ValidationSummary()
+
+                <div class="centerHorizontalFlex ">
+                    @Html.TextBoxFor(m => m.Register.Email, new { placeholder = "Email Address" })
+                </div>
+                <div class="centerHorizontalFlex ">
+                    @Html.TextBoxFor(m => m.Register.Name, new { placeholder = "Citizen Name" })
+                </div>
+                <div class="centerHorizontalFlex ">
+                    @Html.PasswordFor(m => m.Register.Password, new { placeholder = "Password" })
+                </div>
+
+                <div class="centerHorizontalFlex ">
+                    @Html.DropDownListFor(m => m.Register.CountryID, Model.Register.CountryList)
+                </div>
+
+                <div class="centerHorizontalFlex ">
+                    @Html.DropDownListFor(m => m.Register.RegionID, Model.Register.RegionsList)
+                </div>
+
+                <div class="pull-right">
+                    <a class="button" href="#" onclick="$(this).closest('form').submit()">Register</a>
+                </div>
+            }
+        </div>
+        <div class="tabs-panel" id="forgot" data-tabs-content="account-tabs">
+            @using(Html.BeginForm("ForgotPassword", RouteDataHelper.ControllerName, FormMethod.Post))
+            {
+            <div class="centerHorizontalFlex ">
+                @Html.TextBox("Email","", new { placeholder = "Email Address" })
+            </div>
+
+            <div class="pull-right">
+                <a class="button" href="#" onclick="$(this).closest('form').submit()">Submit</a>
+            </div>
+            }
+        </div>
+    </div>
+
+
+</div>
+
+
+@section scripts{
+    <script type="text/javascript" src="~/Scripts/Sociatis.account.register.js"></script>
+
+}

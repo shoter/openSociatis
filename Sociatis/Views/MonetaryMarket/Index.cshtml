@@ -1,0 +1,141 @@
+﻿@model Sociatis.Models.MonetaryMarket.ViewMonetaryMarketViewModel
+@using Entities.enums
+
+@Html.DisplayFor(m => m.Info)
+
+@using (Html.BeginForm("Create", RouteDataHelper.ControllerName, FormMethod.Post, new { onsubmit = "return validateMonetaryForm();"}))
+{
+
+<div class="ContentBox row">
+    <div class="row">
+        <div class="small-6 columns">
+            <span class="inlineDisplay">Sell: </span>
+            @Html.DropDownListFor(m => m.SellCurrencyID, Model.Currencies)
+        </div>
+        <div class="small-6 columns">
+            <span class="inlineDisplay">Buy: </span>
+            @Html.DropDownListFor(m => m.BuyCurrencyID, Model.Currencies)
+        </div>
+        
+    </div>
+    <div id="MonetaryMarketChart">
+
+    </div>
+
+    <table>
+        <thead>
+            <tr>
+                <th>Buy offer</th>
+                <th>Buy volume</th>
+                <th>Sell offer</th>
+                <th>Sell volume</th>
+            </tr>
+        </thead>
+        <tbody>
+            <tr>
+                <td id="buyOffer"> - </td>
+                <td id="buyVolume"> - </td>
+                <td id="sellOffer"> - </td>
+                <td id="sellVolume"> - </td>
+            </tr>
+        </tbody>
+    </table>
+</div>
+
+<div class="ContentBox row">
+    <div class="row">
+        <div class="small-6 medium-4  columns">
+            <label>
+                Offer:
+            </label>
+            @Html.RadioButton("OfferType", (int)MonetaryOfferTypeEnum.Buy)
+            <label class="green">Buy</label>
+            @Html.RadioButton("OfferType", (int)MonetaryOfferTypeEnum.Sell)
+            <label class="red">Sell</label>
+        </div>
+        <div class="small-6 medium-4  columns">
+            <label>Amount: </label>
+            <span class="input-group">
+                @Html.TextBoxFor(m => m.Amount)
+                <span id="buyCurrencyAddon" class="input-addon">
+                    
+                </span>
+            </span>
+        </div>
+        <div class="small-6 medium-4  columns">
+            <label>Rate : </label>
+            <span class="input-group">
+                @Html.TextBoxFor(m => m.Rate)
+                <span id="sellCurrencyAddon" class="input-addon">
+                    
+                </span>
+            </span>
+        </div>
+    </div>
+
+    <button class="pull-right button blue">Create offer</button>
+
+    <div id="mmHint" class="hint">
+
+    </div>
+
+    
+    <br/>
+    <div>
+        <span>Offer cost: </span><span id="offerCost"></span>
+    </div>
+    <div>
+        <span>Tax: </span><span id="taxCost"></span>
+    </div>
+    <div>
+        <span>Sum: </span><span id="sum"></span>
+    </div>
+    <br/>
+
+    <div class="hint">
+        When there is a buy offer on the market with rate higher than sell offer with the smallest rate then the trade is automatically done.
+        Buyer will receive money that he wanted and seller will receive amount of sold money multiplicated by his rate.
+    </div>
+</div>
+}
+<div class="ContentBox row">
+    <h3>Your offers</h3>
+    <table>
+        <thead>
+            <tr>
+                <th>Rate</th>
+                <th>Volume</th>
+                <th>Type</th>
+            </tr>
+        </thead>
+        <tbody id="myOfferTBody">
+            
+        </tbody>
+    </table>
+</div>
+
+@section scripts
+{
+    @Scripts.Render("~/bundles/plot")
+    @Scripts.Render("~/Scripts/MonetaryMarket/sociatis.monetary_market.main.js")
+
+    <script id="offerTemplate" type="text/x-jsrender">
+        {{for offers}}
+        <tr>
+            <td>
+                {{:Rate}}
+            </td>
+            <td>
+                {{:Amount}}
+            </td>
+            <td>
+                {{if Type == 1 }}
+                    <label class="green">Buy</label>
+                {{else Type == 2}}
+                    <label class="red">Sell</label>
+                {{/if}}
+            </td>
+        </tr>
+        {{/for}}
+    </script>
+}

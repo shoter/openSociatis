@@ -1,0 +1,12 @@
+{
+  "name": "map",
+  "version": "1.1.0",
+  "description": "",
+  "type": "overlay",
+  "format": "png",
+  "minzoom": "0",
+  "maxzoom": "3",
+  "scale": "1.000000",
+  "bounds": [-179.99999755, -85.05112878, 179.98204259, 85.05112878],
+  "profile": "mercator"
+}

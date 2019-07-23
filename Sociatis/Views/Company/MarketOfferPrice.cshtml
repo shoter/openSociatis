@@ -1,0 +1,10 @@
+﻿@model Sociatis.Models.MoneyViewModel
+
+@if((double)Model.Quantity < 0.001)
+{
+    @:Free
+}
+ else
+{
+    @Html.DisplayFor(m => m)
+}

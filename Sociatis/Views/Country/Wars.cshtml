@@ -1,0 +1,125 @@
+﻿@model Sociatis.Models.Country.CountryWarsViewModel
+
+@{ 
+    ViewBag.Title = "Wars";
+}
+
+@Html.DisplayFor(m => m.Info)
+
+<div class="ContentBox">
+    <h3>Wars</h3>
+
+    <table>
+        <thead>
+            <tr>
+                <th>#</th>
+                <th class="hide-for-small-only">Duration</th>
+                <th>Status</th>
+                <th colspan="2">
+                   Attacker
+                </th>
+                <th>
+                    &nbsp;
+                </th>
+                <th colspan="2">
+                    Defender
+                </th>
+                <th>
+                   
+                </th>
+                @if(Model.Info.IsPresident)
+                {
+                    <th>&nbsp;</th>
+                }
+            </tr>
+        </thead>
+        <tbody>
+            @foreach(var war in Model.WarsInfo)
+            {
+                <tr>
+                    <td>@war.WarID</td>
+                    <td class="hide-for-small-only">@war.Duration</td>
+                    <td>@war.StatusName</td>
+                    <td class="miniFlags">@Html.DisplayFor(m => war.Attacker.Flag)</td>
+                    <td>@war.Attacker.Name 
+                    @*<br/>Ally count : @war.Attacker.AllyCount
+                    <br/>Battle won : @war.AttackerBattleWon*@
+                    
+                    </td>
+
+                    <td>
+                        &nbsp;
+                    </td>
+
+                    <td class="miniFlags">@Html.DisplayFor(m => war.Defender.Flag)</td>
+                    <td>@war.Defender.Name 
+                    @*<br />Ally count : @war.Defender.AllyCount
+                    <br />Battle won : @war.DefenderBattleWon*@
+                    </td>
+
+                    <td>
+                    <a href="@Url.Action("View", "War", new { warID = war.WarID })" class="button blue">
+                        Info
+                    </a>
+                    
+                    </td>
+                    @if (Model.Info.IsPresident)
+                    {
+                        <td>
+                            <ul class="menu vertical">
+                                @if (war.CanInitiateBattle)
+                                {
+
+                                    <li>
+                                        <a class="no-padding" href="@Url.Action("StartBattle", "War", new { warID = war.WarID })">
+                                            <i class="fa fa-fighter-jet"></i>
+                                            Start battle
+                                        </a>
+                                    </li>
+                                }
+                                @if (war.CanInitiateSurrender)
+                                {
+                                    <li>
+                                        @using (Html.BeginForm("SurrenderWar", "War", new { warID = war.WarID }))
+                                        {
+                                            <a class="no-padding" onclick="$(this).closest('form').submit();">
+                                                <i class="fa fa-flag-o"></i>
+                                                @war.SurrenderText
+                                            </a>
+                                        }
+                                    </li>
+
+                                }
+                                @if (war.ShowAfterSurrenderText)
+                                {
+                                    <li>
+                                        <i class="fa fa-flag-o"></i>
+                                        @war.AfterSurrenderText
+                                    </li>
+
+                                }
+                                @if (war.CanCancelSurrender)
+                                {
+                                    <li>
+                                        @using (Html.BeginForm("CancelSurrender", "War", new { warID = war.WarID }))
+                                        {
+                                            <a class="no-padding" onclick="$(this).closest('form').submit();">
+                                                <i class="fa fa-times"></i>
+                                                Cancel surrender
+                                            </a>
+                                        }
+                                    </li>
+                                }
+                            </ul>
+                        </td>
+                    }
+                </tr>
+                
+
+            }
+        </tbody>
+    </table>
+
+    <hr/>
+    @PagingParamHtmlHelper.Render(Model.PagingParam)
+</div>

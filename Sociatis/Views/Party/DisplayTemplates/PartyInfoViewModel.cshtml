@@ -1,0 +1,41 @@
+﻿@model Sociatis.Models.Party.PartyInfoViewModel
+@using Entities.enums;
+
+@{
+    ViewData.TemplateInfo.HtmlFieldPrefix = "";
+    ScriptInjector.AddScript("~/Scripts/party/sociatis.party.info.js");
+}
+
+<div id="overallInfo" class="row ContentBox">
+    <div class="row">
+        <div class="small-3 medium-4 columns infoAvatar relative">
+            @Html.DisplayFor(m => m.PartyAvatar)
+            @if (Model.PartyRole >= PartyRoleEnum.Manager)
+            {
+                @Html.EditorFor(m => m.AvatarChange)
+            }
+        </div>
+        <div class="small-9 medium-8 columns">
+            <h5>@Html.ActionLink(Model.PartyName, "View", new { partyID = Model.PartyID })</h5>
+            <h6>@Model.PartyCountry</h6>
+        </div>
+    </div>
+
+    @Html.DisplayFor(m => m.Menu)
+  
+</div>
+@if (Model.CanSendJoinRequest)
+{
+    <div id="joinRequestModal" style="display:none">
+        @using (Html.BeginForm("SendJoinRequest", "Party", new { partyID = Model.PartyID }, FormMethod.Post))
+        {
+            <h6>Request message</h6>
+            <textarea class="noResize" rows="4" oninput="joinRequestMessageChange(this)" name="message"></textarea>
+
+            <div class="pull-right centerVerticalFlex">
+                <span id="joinRequestRemainingChar" data-fieldsize="250">250</span>
+                <button class="button blue noMargin">Send</button>
+            </div>
+        }
+    </div>
+}

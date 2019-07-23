@@ -1,0 +1,83 @@
+﻿@model Sociatis.Models.Companies.CreateCompanyViewModel
+
+@{
+    ViewBag.Title = "Create Company";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+<div id="createCompany" class="contentBox">
+    @using (Html.BeginForm())
+    {
+            <h3>
+                Create Company
+            </h3>
+        <hr />
+        <div class="row">
+            <div class="large-1 hide-for-medium-only hide-for-small-only columns">&nbsp;</div>
+            <div class="large-8 medium-10 small-12 columns">
+                <div class="row">
+                    <div class="small-4 columns">
+                        @Html.DisplayNameFor(m => m.CompanyName)
+                    </div>
+                    <div class="small-8 columns">
+                        @Html.TextBoxFor(m => m.CompanyName)
+                    </div>
+
+                    <div class="small-4 columns">
+                        @Html.DisplayNameFor(m => m.ProducedProductID)
+                    </div>
+                    <div class="small-8 columns">
+                        @Html.DropDownListFor(m => m.ProducedProductID, Model.ProducedProductTypes)
+                    </div>
+
+                    <div class="small-4 columns">
+                        Country
+                        @Html.HiddenFor(m => m.CountryID)
+                    </div>
+                    <div class="small-8 columns">
+                        <p>
+                            @Html.ActionLink(Model.CountryName, "View", "Country", new { countryID = Model.CountryID }, null)
+                        </p>
+                    </div>
+
+                    <div class="small-4 columns">
+                        Region
+                        @Html.HiddenFor(m => m.RegionID)
+                    </div>
+                    <div class="small-8 columns">
+                        <p>
+                            @Html.ActionLink(Model.RegionName, "View", "Region", new { regionID = Model.RegionID }, null)
+                        </p>
+                    </div>
+
+                    <div class="small-4 columns">
+                        <p>Fees</p>
+                    </div>
+                    <div class="small-8 columns">
+                        @Html.DisplayFor(m => m.AdminFee)
+                        @Html.DisplayFor(m => m.CountryFee)
+                    </div>
+
+                    
+                       
+                    
+                </div>
+            </div>
+
+
+            <div class="large-3 medium-2 hide-for-small-only columns">&nbsp;</div>
+
+        </div>
+
+        <div class="createButtons">
+            <div class="expanded button-group">
+                <a href="#" onclick="$(this).closest('form').submit()" class="button">Create Company</a>
+                <a href="@Url.Action("Index", "Home")" class="secondary button">Go back</a>
+            </div>
+        </div>
+
+    }
+</div>
+@section scripts{
+    <script type="text/javascript" src="~/Scripts/Sociatis.account.register.js"></script>
+
+}

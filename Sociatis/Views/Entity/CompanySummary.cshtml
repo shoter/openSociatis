@@ -1,0 +1,37 @@
+﻿@model Sociatis.Models.Companies.CompanySummaryViewModel
+@using Weber.Helpers
+
+<p>
+    @Html.ActionLink("Switch back into " + Model.SwitchBackEntityName, "SwitchBack", "Entity")
+</p>
+<div class="summaryAvatar">
+    @Html.DisplayFor(m => m.Avatar)
+</div>
+<div class="text-center">
+    @Html.ActionLink(Model.Name, "View", "Company", new { companyID = Model.ID }, null)
+</div>
+<div class="summaryIcons">
+    <a href="@Url.Action("Index", "Message")">
+        <i class="fa fa-envelope-o" aria-hidden="true"></i>
+    </a>
+    <a href="@Url.Action("Index", "Warning")">
+        <i class="fa fa-exclamation-circle" aria-hidden="true"></i>
+    </a>
+</div>
+
+<hr/>
+<p class="text-center">
+    Stock : @Model.Stock
+</p>
+<p class="text-center">
+    Queue : @Model.Queue
+</p>
+<hr />
+<p class="text-center">
+    @Html.DisplayFor(m => m.CountryMoney)
+</p>
+<p class="text-center">
+    @Html.DisplayFor(m => m.AdminMoney)
+</p>
+
+@Html.RenderCurrentTime()

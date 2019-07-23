@@ -1,0 +1,62 @@
+﻿@model Sociatis.Models.Hotels.HotelRoomsViewModel
+@{
+    ViewBag.Title = Model.Info.Name + "'s rooms";
+}
+
+@Html.DisplayFor(m => m.Info)
+
+<div id="hotelRooms" class="contentBox">
+    <h4>Hotel Rooms</h4>
+
+    <a href="@Url.Action("CreateRoom", "Hotel", new { hotelID = Model.Info.ID })" class="button green">Create new room</a>
+
+    @foreach (var group in Model.Rooms)
+    {
+
+        foreach (var room in group.Value)
+        {
+    <div class="hotelRoom">
+        <div class="roomQuality">
+            Quality
+            <div class="qualityStars">
+                @for (int q = 0; q < room.Quality; ++q)
+            {
+                <i class="fa fa-star"></i>
+        }
+            </div>
+        </div>
+        @if (room.InhabitantID.HasValue)
+    {
+
+        <div class="inhabitant">
+            @Html.DisplayFor(m => room.Avatar)
+        </div>
+        <div class="inhabitantName">
+            @Html.ActionLink(room.InhabitantName, "View", "Citizen", new { citizenID = room.InhabitantID })
+        </div>
+        <div class="inhabitantStay">
+            will stay to day @room.InhabitantLastDay
+        </div>
+
+}
+else
+{
+    <div class="free">
+
+        UNOCUPPIED
+    </div>
+    <div class="remove">
+        @if (Model.Info.HotelRights.CanBuildRooms)
+    {
+        using (Html.BeginForm("RemoveRoom", "Hotel", new { roomID = room.ID }, FormMethod.Post, null))
+        {
+            <button data-tooltip title="There will be no refund for destroying this room" class="button red">Destroy room</button>
+    }
+}
+    </div>
+}
+    </div>
+
+        }
+    }
+</div>

@@ -1,0 +1,18 @@
+﻿@import "../definitions.scss";
+
+.nationalConstruction
+{
+    background-color: rgba($rowBackground, 0.5);
+    border: solid 1px rgba($rowBorder, 0.4);
+    padding: 1rem 2rem;
+
+    .constructionInformations
+    {
+        margin-left: 2rem;
+
+        .constructionProgress
+        {
+            font-weight: bold;
+        }
+    }
+}

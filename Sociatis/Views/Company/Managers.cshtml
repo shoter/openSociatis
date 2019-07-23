@@ -1,0 +1,32 @@
+﻿@model Sociatis.Models.Companies.Managers.CompanyManagersViewModel
+@{
+    ViewBag.Title = "Managers - " + Model.Info.CompanyName;
+}
+@Html.DisplayFor(m => m.Info)
+
+<div id="companyManagers" class="ContentBox">
+    <h5>Managers</h5>
+    @using (Html.BeginForm("AddManager", RouteDataHelper.ControllerName, new { companyID = Model.Info.CompanyID }, FormMethod.Post))
+    {
+    <div class="addManager">
+        <div class="centerHorizontalFlex">
+            <span class="managerNew">
+                New Manager:
+            </span>
+            @Html.Render(Model.NewManagersSelector)
+        </div>
+        <div class="centerHorizontalFlex">
+            <button class="button green">Add</button>
+        </div>
+    </div>
+    }
+
+    <div class="managers">
+        @Html.EditorFor(m => m.Managers)
+    </div>
+</div>
+
+@section scripts
+{
+    <script src="~/Scripts/company/sociatis.company.managers.js"></script>
+}

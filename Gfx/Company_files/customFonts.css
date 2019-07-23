@@ -1,0 +1,9 @@
+﻿@font-face{
+    font-family: "Hand Written";
+    src: url(fonts/SCRIPTIN.ttf) format("truetype");
+}
+
+.handWritten { 
+    font-family: "Hand Written", Verdana, Tahoma;
+    font-size : xx-large;
+}

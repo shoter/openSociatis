@@ -1,0 +1,19 @@
+﻿@model Sociatis.Models.Products.ProductRequirementViewModel
+
+<div class="productRequirement">
+    <div class="productRequirementImage">
+        <span class="productRequirementCurrentAmount text-center">
+            @Model.CurrentAmount
+        </span>
+        <div class="centerHorizontalFlex productRequirementImageCenter">
+            @Html.DisplayFor(m => m.Image)
+        </div>
+        <div style="visibility:hidden" class="equipmentQuality">
+            <i class="fa fa-star"></i>
+        </div>
+
+        @*<div class="productRequirementAmount @(Model.CurrentAmount >= Model.Amount ? "met" : "unmet") text-center">
+            @Model.Amount
+        </div>*@
+    </div>
+</div>

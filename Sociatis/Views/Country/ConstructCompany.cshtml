@@ -1,0 +1,47 @@
+﻿@model Sociatis.Models.Country.ConstructCompanyViewModel
+@{
+
+    ViewBag.Title = "Construct National Company";
+}
+
+@Html.DisplayFor(m => m.Info)
+<div class="ContentBox">
+    @using (Html.BeginForm(RouteDataHelper.ActionName, RouteDataHelper.ControllerName, FormMethod.Post))
+    {
+        <div class="row">
+            <div class="small-12 large-4 columns">
+                @Html.LabelFor(m => m.CompanyName)
+                @Html.TextBoxFor(m => m.CompanyName)
+                @Html.ValidationMessageFor(m => m.CompanyName)
+            </div>
+            <div class="small-12 large-4 columns">
+                @Html.LabelFor(m => m.RegionID)
+                @Html.DropDownListFor(m => m.RegionID, Model.Regions)
+                @Html.ValidationMessageFor(m => m.RegionID)
+            </div>
+            <div class="small-12 large-4 columns end">
+                @Html.LabelFor(m => m.ProductID)
+                @Html.DropDownListFor(m => m.ProductID, Model.Functions)
+                @Html.ValidationMessageFor(m => m.ProductID)
+            </div>
+        </div>
+        <div>
+            Needed gold: <br />
+            @Html.DisplayFor(m => m.GoldNeeded) <br />
+            @if (Model.CanSeeTreasury)
+            {
+                <text>
+                    In treasury: <br />
+                    @Html.DisplayFor(m => m.TreasureGold)
+                </text>
+            }
+        </div>
+        <button class="pull-right button green">Create company</button>
+    }
+</div>
+@section scripts
+{
+    @Scripts.Render("~/bundles/select2");
+    @Styles.Render("~/content/select2");
+    <script src="~/Scripts/country/sociatis.country.create_company.js"></script>
+}

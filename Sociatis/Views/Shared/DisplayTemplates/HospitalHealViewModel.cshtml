@@ -1,0 +1,53 @@
+﻿@model Sociatis.Models.Hospitals.HospitalHealViewModel
+
+@if (Model.HealingEnabled)
+{
+    <div class="healing">
+
+        @if (Model.CanHealYou)
+        {
+            using (Html.BeginForm("Heal", "Hospital", new { hospitalID = Model.HospitalID }, FormMethod.Post))
+            {
+                if (Model.HealingPrice.HasValue)
+                {
+                    <button class="button green">
+                        Heal for @Model.HealingPrice @Model.CurrencySymbol
+                        @if (Model.ShowHospitalName)
+                        {
+                            <div class="hospitalName">
+                                <br />
+                                at @Model.HospitalName
+                            </div>
+                        }
+                    </button>
+                }
+                else
+                {
+                    <button class="button green">
+                        Heal for free
+                        @if (Model.ShowHospitalName)
+                        {
+                            <div class="hospitalName">
+                                <br />
+                                at @Model.HospitalName
+                            </div>
+                        }
+                    </button>
+                }
+            }
+        }
+        else
+        {
+            <button class="button green disabled" disabled title="@Model.NoHealingReason" data-tooltip>
+                Heal
+                @if (Model.ShowHospitalName)
+                {
+                    <div class="hospitalName">
+                        <br />
+                        at @Model.HospitalName
+                    </div>
+                }
+            </button>
+        }
+    </div>
+}

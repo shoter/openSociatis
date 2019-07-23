@@ -1,0 +1,32 @@
+﻿@import "../definitions.scss";
+
+$darkColor: rgba(black, 0.4);
+$interColor : rgba(black,0.35);
+$lightColor: rgba(black, 0.3);
+
+.faButton
+{
+    border: 1px solid $darkColor;
+    border-bottom: 1px solid $lightColor;
+    border-left: 1px solid $lightColor;
+    background-color: rgba($hintColor, 0.1);
+    padding: 0.5rem;
+
+    &:hover
+    {
+        cursor: pointer;
+        border: 1px solid $darkColor;
+        border-bottom: 1px solid $interColor;
+        border-left: 1px solid $interColor;
+        background-color: rgba($hintColor, 0.18);
+    }
+
+    &:active
+    {
+        cursor: pointer;
+        background-color: rgba($hintColor, 0.35);
+        border: 1px solid $darkColor;
+        border-top: 1px solid $lightColor;
+        border-right: 1px solid $lightColor;
+    }
+}

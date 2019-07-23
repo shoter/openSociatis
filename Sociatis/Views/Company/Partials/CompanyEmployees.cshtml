@@ -1,0 +1,71 @@
+﻿@model Sociatis.Models.Companies.ViewCompanyEmployeesViewModel
+
+
+<h4> Employees </h4>
+<table class="companyEmployees">
+    <thead>
+        <tr>
+            <th>@*Avatar*@</th>
+            <th>Name</th>
+            <th>Job contract</th>
+            @if (Model.ShowEmployeeStats)
+            {
+                <th>Today production</th>
+                    <th>Salary</th>
+                        <th>Minimum HP</th>
+                        <th>Skill</th>
+            }
+            @if (Model.Rights.CanManageWorkers)
+            {
+                <th></th>
+            }
+        </tr>
+    </thead>
+    <tbody>
+        @for (int i = 0; i < Model.Employees.Count; ++i)
+            {
+            <tr>
+                <td class="TableMiniature">
+                    @Html.DisplayFor(m => m.Employees[i].Avatar)
+                </td>
+                <td>
+                    @Html.ActionLink(Model.Employees[i].Name, "View", "Citizen", new { ID = Model.Employees[i].ID }, null)
+                </td>
+                <td>
+                    @if (Model.Employees[i].JobContractID.HasValue)
+                    {
+                        @Html.ActionLink("Contract", "Index", "Contract", new { contractID = Model.Employees[i].JobContractID.Value }, null)
+                    }
+                    else
+                    {
+                        @:Normal
+                        }
+                </td>
+                @if (Model.ShowEmployeeStats)
+                {
+                    <td>
+                        @if (Model.Employees[i].Production.HasValue)
+                        {
+                            @Model.Employees[i].Production @:(@Model.Employees[i].HP %)
+                            }
+                    </td>
+                        <td>
+                            @Model.Employees[i].Salary
+                        </td>
+                            <td>
+                                @Model.Employees[i].MinHP
+                            </td>
+                            <td>
+                                @Model.Employees[i].Skill
+                            </td>
+                }
+                <td class="minSize">
+                    @if (Model.Rights.CanManageWorkers || Model.Rights.CanManageManagers)
+                    {
+                        <a class="button blue" href="@Url.Action("ManageEmployee", "Company", new { citizenID = Model.Employees[i].ID })">Manage</a>
+                    }
+                </td>
+            </tr>
+        }
+    </tbody>
+</table>

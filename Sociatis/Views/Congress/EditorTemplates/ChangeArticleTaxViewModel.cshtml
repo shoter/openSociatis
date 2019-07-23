@@ -1,0 +1,9 @@
+﻿@model Sociatis.Models.Congress.ChangeArticleTaxViewModel
+
+@{ 
+    ViewData.TemplateInfo.HtmlFieldPrefix = "";
+}
+
+@Html.LabelFor(m => m.NewTax)
+@Html.TextBoxFor(m => m.NewTax)
+@Html.ValidationMessageFor(m => m.NewTax)

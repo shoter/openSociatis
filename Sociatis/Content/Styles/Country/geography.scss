@@ -1,0 +1,200 @@
+﻿@import "../definitions.scss";
+
+#geogrpahyView
+{
+    position: relative;
+    overflow: visible;
+
+    .geoDropdown
+    {
+        i.fa
+        {
+            height: 2rem;
+            background-color: $rowBackground;
+            width: 100%;
+            padding: 0.1rem 3rem;
+            line-height: 2rem;
+
+            &:hover
+            {
+                cursor: pointer;
+                background-color: darken($rowBackground, 8%);
+            }
+
+            &:active
+            {
+                background-color: darken($rowBackground, 15%);
+            }
+        }
+
+        .list
+        {
+            overflow-y: auto;
+
+
+            .regionOnList
+            {
+                background-color: lighten($rowBackground, 5%);
+                padding: 0.5rem 1rem;
+
+                &:hover
+                {
+                    cursor: pointer;
+                    background-color: darken($rowBackground, 5%);
+                }
+
+                &:active
+                {
+                    background-color: darken($rowBackground, 10%);
+                }
+            }
+
+            @include transition(max-height 0.25s ease-out);
+
+            &.colasped
+            {
+                max-height: 0;
+            }
+
+            &.expanded
+            {
+                max-height: 50vh;
+            }
+        }
+
+        text-align: center;
+        border: 1px solid $borderDecalColor;
+        border-top: 0;
+        border-bottom-left-radius: 2px;
+        border-bottom-right-radius: 2px;
+        position: absolute;
+        min-width: 25vw;
+        left: 0.5rem;
+        top: 0;
+    }
+
+    .region
+    {
+        background-color: $backgroundDecalColor;
+        border-top: 1px solid $borderDecalColor;
+        margin: 2rem 0 0 0;
+
+        .regionHeader
+        {
+            text-align: center;
+            border-bottom: 1px solid rgba($borderDecalColor, 0.15);
+
+            h3
+            {
+                display: inline-block;
+            }
+
+            .paddle
+            {
+                font-size: small;
+                float: right;
+            }
+        }
+
+        .regionInfo
+        {
+            padding: 0.5rem 1rem;
+
+            & > .row
+            {
+                & > div:first-child
+                {
+                    @include respond-to(tablet)
+                    {
+                        border-right: 1px solid rgba($borderDecalColor, 0.3);
+                    }
+
+                    .resources
+                    {
+                        .regionResource
+                        {
+                            border: 1px solid rgba(128, 128, 128, 0.32);
+                            @include box-shadow(2px 2px 2px 1px rgba(194,194,194,0.3));
+                            border-radius: 0.5em 0.5em;
+                            margin-right: 1rem;
+
+                            .regionResourceImage
+                            {
+                                margin-top: 0.7rem;
+                                margin-left: 0.6rem;
+                                margin-right: 0.6rem;
+                                background-color: rgba(128, 128, 128, 0.11);
+                                padding: 0.3rem;
+                                float: none;
+                                border: 1px solid rgba(0, 0, 0, 0.32);
+                                border-radius: 3px;
+
+                                img
+                                {
+                                    display: block;
+                                    margin-left: auto;
+                                    margin-right: auto;
+                                }
+                            }
+
+                            .regionResourceQuality
+                            {
+                                @include productQuality;
+                            }
+                        }
+                    }
+
+                    .services
+                    {
+                        & > div
+                        {
+                            margin-bottom: 1rem;
+                        }
+
+                        .hospitalInfo
+                        {
+                            display: flex;
+
+                            .hospitalLeft
+                            {
+                                .hospitalQuality
+                                {
+                                    @include productQuality;
+                                    font-size: small;
+                                }
+                            }
+
+                            .regionHospitalName
+                            {
+                                margin: 1rem;
+                            }
+                        }
+
+                        .defenseSystem
+                        {
+                            display: flex;
+
+                            .dsLeft
+                            {
+                                font-size: small;
+                            }
+
+                            .dsRight
+                            {
+                                margin: 1rem;
+                            }
+                        }
+                    }
+                }
+
+                & > div:last-child
+                {
+                    .container-bar
+                    {
+                        margin-bottom: 1rem;
+                    }
+                }
+            }
+        }
+    }
+}

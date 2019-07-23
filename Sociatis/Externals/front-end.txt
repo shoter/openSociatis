@@ -1,0 +1,3 @@
+﻿http://www.jqueryscript.net/demo/Customizable-jQuery-Select-Box-Replacement-Plugin-wSelect/
+ładny plugin na dropdown
+=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=

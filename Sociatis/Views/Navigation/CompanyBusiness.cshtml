@@ -1,0 +1,13 @@
+﻿@model Sociatis.Models.Navigation.CompanyBusinessViewModel
+
+
+<li>
+    <a href="#">Business</a>
+    <ul class="menu vertical">
+        <li><a href="@Url.Action("View", "Company", new { ID = Model.ID }, null)">Show company</a></li>
+        <li class="@Model.CanManageEmployees"><a href="@Url.Action("Index", "Company")">Show employees</a></li>
+        <li class="@Model.CanPostJobOffers"><a href="@Url.Action("CreateJobOffer", "Company", new { ID = Model.ID }, null)">Create job offer</a></li>
+        <li class="@Model.CanPostTradeOffer"><a href="@Url.Action("Index", "Company")">Sell stock</a></li>
+        <li class="@Model.CanChangeRights"><a href="@Url.Action("Index", "Company")">Change rights</a></li>
+    </ul>
+</li>

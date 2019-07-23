@@ -1,0 +1,33 @@
+﻿@model Sociatis.Models.Searchs.SearchListViewModel
+
+@{
+    ViewBag.Title = "Search";
+}
+
+<div class="ContentBox">
+    <h5>Search results</h5>
+
+    <table>
+        <thead>
+            <tr>
+                <td>Avatar</td>
+                <td>Name</td>
+            </tr>
+        </thead>
+        <tbody>
+            @foreach (var item in Model.Items)
+            {
+                <tr>
+                    <td>
+                        <a class="smallEntityAvatar" href="@Url.Action("View", "Entity", new { entityID = item.ID })">
+                            @Html.DisplayFor(m => item.Avatar)
+                        </a>
+                    </td>
+                    <td>
+                        @Html.ActionLink(item.Name, "View", "Entity", new { entityID = item.ID }, null)
+                    </td>
+                </tr>
+            }
+        </tbody>
+    </table>
+</div>

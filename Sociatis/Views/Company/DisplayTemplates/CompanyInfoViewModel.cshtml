@@ -1,0 +1,30 @@
+﻿@model Sociatis.Models.Companies.CompanyInfoViewModel
+@{
+    ScriptInjector.AddScript("~/Scripts/company/sociatis.company.info.js");
+}
+
+<div id="overallInfo" class="row ContentBox">
+    <div class="row">
+        <div class="small-3 medium-4 columns">
+            <div class="infoAvatar relative">
+                @Html.DisplayFor(m => m.Avatar)
+                @if (Model.CompanyRights.CanSwitch)
+                {
+                    @Html.EditorFor(m => m.AvatarChange)
+                }
+            </div>
+        </div>
+        <div class="small-9 medium-8 columns">
+            <h5>@Html.ActionLink(Model.CompanyName, "View", "Company", new { companyID = Model.CompanyID }, null)</h5>
+            <h5>
+                @Html.ActionLink(Model.RegionName, "View", "Region", new { regionID = Model.RegionID }, null)
+                , @Html.ActionLink(Model.CountryName, "View", "Country", new { countryID = Model.CountryID }, null)
+            </h5>
+            @if (Model.IsRawCompany)
+            {
+                <h5>Fertility: @Model.Fertility</h5>
+            }
+        </div>
+    </div>
+    @Html.DisplayFor(m => m.Menu)
+</div>

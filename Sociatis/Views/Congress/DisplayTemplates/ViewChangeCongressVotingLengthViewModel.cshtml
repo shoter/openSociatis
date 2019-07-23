@@ -1,0 +1,4 @@
+﻿@model Sociatis.Models.Congress.Votings.ViewChangeCongressVotingLengthViewModel
+
+<h4>Proposition #@Model.VotingID : Change congress voting length to <b>@Model.NewCongressVotingLength</b> day@(PluralHelper.S(Model.NewCongressVotingLength))</h4>
+by @Html.ActionLink(Model.CreatorName, "View", "Citizen", new { citizenID = Model.CreatorID }, null)

@@ -1,0 +1,9 @@
+﻿@model Sociatis.Models.Congress.RemoveNationalCompanyViewModel
+
+@{
+    ViewData.TemplateInfo.HtmlFieldPrefix = "";
+}
+
+@Html.LabelFor(m => m.CompanyID)
+@Html.DropDownListFor(m => m.CompanyID, Model.Companies)
+@Html.ValidationMessageFor(m => m.CompanyID)

@@ -1,0 +1,28 @@
+﻿@model Sociatis.Models.Congress.CongressVotingsPartialViewModel
+@using (Ajax.BeginForm("VotingsPartial", new AjaxOptions()
+{
+    OnBegin = "Sociatis.AjaxBegin()",
+    OnComplete = "Sociatis.AjaxEnd()",
+    OnFailure = "Sociatis.AjaxError(xhr.responseText)",
+    UpdateTargetId = "votings"
+
+}))
+{
+    @Html.HiddenFor(m => m.CountryID)
+    
+    <table>
+        <thead>
+            <tr>
+                <th>Proposal</th>
+                <th>Creator</th>
+                <th>Time</th>
+                <th>Status</th>
+            </tr>
+        </thead>
+        <tbody>
+            @Html.DisplayFor(m => m.Votings)
+        </tbody>
+    </table>
+
+    @PagingParamHtmlHelper.Render(Model.PagingParam)
+}

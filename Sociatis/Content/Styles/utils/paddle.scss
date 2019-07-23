@@ -1,0 +1,73 @@
+﻿@import "../definitions.scss";
+
+.paddle
+{
+    padding: 0.1rem 1rem;
+    display: flex;
+    position: relative;
+    align-items:center;
+    @include no-select;
+
+    &.activated
+    {
+        background-color: $infoColor;
+
+        .paddle-block
+        {
+            left: 50%;
+            bottom: 4px;
+            top: 4px;
+            right: 4px;
+        }
+
+        .paddle-inactive
+        {
+            color: transparent;
+        }
+    }
+
+    &.disabled
+    {
+        .paddle-block
+        {
+            left: 4px;
+            bottom: 4px;
+            top: 4px;
+            right: 50%
+        }
+
+        .paddle-active
+        {
+            color: transparent;
+        }
+
+        background-color: $hintColor;
+    }
+
+    .paddle-block
+    {
+        position: absolute;
+        // width: 50%;
+        background-color: white;
+
+        @include transition(left 0.5s ease-out, right 0.5s ease-out);
+    }
+
+    .paddle-state
+    {
+        @include transition(color 0.25s ease-out);
+        width: 50%;
+    }
+
+    .paddle-active
+    {
+        color: white;
+        margin-right: 1rem;
+    }
+
+    .paddle-inactive
+    {
+        color: darken(white, 5%);
+        margin-left: 1rem;
+    }
+}

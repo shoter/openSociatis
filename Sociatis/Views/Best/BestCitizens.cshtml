@@ -1,0 +1,144 @@
+﻿@model Sociatis.Models.Best.BestCitizensViewModel
+@{
+    ViewBag.Title = "Best citizens";
+}
+
+<div id="bestCitizensView" class="ContentBox">
+    <h3>Best citizens</h3>
+    <label>Country :</label>
+    <select id="countries">
+        <option selected>All countries</option>
+        @foreach (var c in Model.Countries)
+        {
+            <option value="@c.Key">@(c.Value)</option>
+        }
+    </select>
+
+    <div class="hide-for-medium-up">
+        <select id="sortingForMobiles">
+            <option value="">No Sort</option>
+            <option value="1" data-dir="asc">Sort by name (ascending)</option>
+            <option value="1" data-dir="desc">Sort by name (descending)</option>
+            <option value="2" data-dir="desc">Sort by Experience (descending)</option>
+            <option value="3" data-dir="desc"> Sort by Military Rank (descending)</option>
+            <option value="4" data-dir="desc">Sort by Medals (descending)</option>
+        </select>
+    </div>
+    <table id="bestCitizens"></table>
+</div>
+
+
+@section scripts
+{
+    <script type="text/javascript">
+
+        $(function () {
+
+            $("#sortingForMobiles").change(() => {
+                var value = $("#sortingForMobiles").val();
+                var dir = $("#sortingForMobiles option:selected").data("dir");
+                console.log(dir);
+                if (value)
+                    $('#bestCitizens').DataTable()
+                        .order([Number(value), dir])
+                        .draw();
+                else
+                    $('#bestCitizens').DataTable()
+                        .order()
+                        .draw();
+            });
+
+
+            $("#countries").change(() => {
+                $('#bestCitizens').DataTable().ajax.reload();
+            });
+            var dt = $('#bestCitizens').dataTable({
+                serverSide: true,
+                "ajax": {
+                    "url": "/Best/CitizensAjax",
+                    "type": "POST",
+                    data: function (data) {
+                        data.countryID = $("#countries").val();
+                    }
+                },
+                columnDefs:
+                [{
+                    className: "col_avatar",
+                    render: function (data, type, row) {
+                        return "<img class='smallEntityAvatar' src='" + data + "' />";
+                    },
+                    targets: 0
+                },
+                {
+                    className: "col_name",
+                    render: function (data, type, row) {
+                        return "<a href='/Citizen/" + row.id + "'>" + data + "</a>";
+                    },
+                    targets: 1
+                },
+                {
+                    className: "col_exp",
+                    render: function (data, type, row) {
+                        return data + " (Lvl " + row.level + ")";
+                    },
+                    targets: 2
+                },
+                {
+                    className: "col_mr",
+                    targets: 3
+                },
+                {
+                    className: "col_medals",
+                    targets: 4
+                },
+                ],
+                order: [[0, "desc"]],
+                columns: [
+                    {
+                        name: 'imgUrl',
+                        data: "imgUrl",
+                        title: "Avatar",
+                        sortable: true,
+                        searchable: false
+                    },
+                    {
+                        name: 'name',
+                        data: 'name',
+                        title: "Name",
+                        sortable: true,
+                        searchable: true
+                    },
+                    {
+                        name: 'exp',
+                        data: "exp",
+                        title: "Experience",
+                        sortable: true,
+                        searchable: false
+                    },
+                    {
+                        name: 'mil',
+                        data: "mil",
+                        title: "MR",
+                        sortable: true,
+                        searchable: false
+                    },
+
+                    {
+                        name: 'medals',
+                        data: "medals",
+                        title: "Medals",
+                        sortable: true,
+                        searchable: false
+                    }
+
+
+
+
+
+                ]
+            });
+        });
+
+        //# sourceURL=BestCitizens.js.js
+    </script>
+}

@@ -1,0 +1,139 @@
+﻿@import "definitions.scss";
+
+#responsive-menu
+{
+    display: flex;
+
+    @include respond-to-only(mobile)
+    {
+        flex-direction: column;
+    }
+
+    .searchBox
+    {
+        form
+        {
+            position: relative;
+
+            input
+            {
+                margin: 0;
+            }
+
+
+
+            .fa
+            {
+                margin-right: 0.4rem;
+                position: absolute;
+                right: 0;
+                top: 50%;
+                transform: translateY(-50%);
+            }
+        }
+    }
+
+    div.top-bar
+    {
+        @include respond-to(tablet)
+        {
+            display: flex;
+            justify-content: flex-end;
+            flex-grow: 2;
+        }
+
+
+
+        .searchBox
+        {
+            @include respond-to(tablet)
+            {
+                float: right;
+                display: flex;
+                align-items: center;
+            }
+
+
+            @include respond-to-only(mobile)
+            {
+                float: left;
+            }
+        }
+    }
+
+    li
+    {
+        color: white;
+
+        a
+        {
+            color: white;
+        }
+    }
+
+    li.border
+    {
+        @include respond-to-only(mobile)
+        {
+            border-bottom: 1px solid #5996bf;
+            margin-right: 1rem;
+            margin-left: 0.5rem;
+        }
+    }
+
+    & > div > ul > li
+    {
+        margin-right: 65vw;
+    }
+
+    ul
+    {
+        & > li
+        {
+            border-left: 1px solid #006ca8;
+        }
+
+        li
+        {
+            li
+            {
+                a:hover
+                {
+                    color: #e4ddff;
+                    background-color: #275d80;
+                }
+
+                a:active
+                {
+                    background-color: #589dc7;
+                }
+            }
+        }
+    }
+}
+
+/*.top-bar li
+{
+    color: white;
+}
+
+.top-bar ul > li
+{
+    border-left: 1px solid #006ca8;
+}
+
+.top-bar li a
+{
+    color: white;
+}
+
+.top-bar ul > li li a:hover
+{
+    color: #e4ddff;
+    background-color: #275d80;
+}
+
+.top-bar ul > li li a:active
+{
+    
+}*/

@@ -1,0 +1,18 @@
+﻿@model Sociatis.Models.Organisation.OrganisationListViewModel
+
+@{ 
+    
+}
+
+<div class="ContentBox">
+    <h3>Organisations</h3>
+    <a class="button blue" href="@Url.Action("Create")">
+        Create new
+    </a>
+    <div class="miniAvatars">
+        @foreach (var org in Model.Organisations)
+        {
+            @Html.DisplayFor(m => org)
+        }
+    </div>
+</div>

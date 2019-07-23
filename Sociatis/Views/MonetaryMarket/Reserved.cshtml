@@ -1,0 +1,35 @@
+﻿@model Sociatis.Models.MonetaryMarket.ViewReservedViewModel
+
+@Html.DisplayFor(m => m.Info)
+
+<div class="ContentBox row">
+    <h3>Reserved money</h3>
+    <table>
+        <thead>
+            <tr>
+                <th>Currency</th>
+                <th>Money reserved for offer</th>
+                <th>Money reserved for tax</th>
+                <th>Money reserved overall</th>
+            </tr>
+        </thead>
+        <tbody>
+            @foreach(var res in Model.Reserved)
+            {
+                <tr>
+                    <td>@res.CurrencySymbol</td>
+                    <td>@res.OfferReserved</td>
+                    <td>@res.TaxReserved</td>
+                    <td>@res.Sum</td>
+                </tr>
+            }
+        </tbody>
+    </table>
+
+    <div class="hint">
+        Every offer in Sociatis that you put on the Monetary Market is taken from your wallet and reserved. <br/>
+        You are not able to use that cash to do anything else than to exchange currency on the MM. <br/>
+        The table shows how much money MM reserved from you to be able to process all transactions that you posted. There is also tax included
+        that you paid in-front for future transactions.
+    </div>
+</div>

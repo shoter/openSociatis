@@ -1,0 +1,12 @@
+﻿@model Sociatis.Models.Companies.NoAccessRightsViewModel
+@{
+    ViewBag.Title = "No access";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+
+<div class="row ContentBox">
+    @Html.Action("TopBar", new { ID = Model.CompanyID })
+    <hr/>
+    <h2>No access</h2>
+</div>

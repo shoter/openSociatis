@@ -1,0 +1,98 @@
+﻿@model Sociatis.Models.Newspapers.ManageArticlesViewModel
+@using NRights = Entities.enums.NewspaperRightsEnum
+@Html.DisplayFor(m => m.Info)
+
+<div class="row ContentBox">
+    <h3>Manage articles</h3>
+
+    <table>
+        <thead>
+            <tr>
+                <th>Name</th>
+                <th>Author</th>
+                <th>Creation date</th>
+                <th>Income</th>
+                <th>Price</th>
+                <th>@*Published button*@</th>
+                <th>@*Remove button*@</th>
+                @if(Model.Info.NewspaperRights.HasFlag(NRights.CanWriteArticles))
+                {
+                    <th>@*Edit button*@</th>
+                }
+
+            </tr>
+        </thead>
+        <tbody>
+            @foreach(var article in Model.Articles)
+            {
+                <tr>
+                    <td>@Html.ActionLink(article.Title, "ReadArticle", "Newspaper", new { articleID = article.ID }, null)</td>
+                    <td>@Html.ActionLink(article.AuthorName, "View", "Entity", new { entityID = article.AuthorID }, null) </td>
+                    <td>@article.CreationDate</td>
+                    <td class="text-center">@article.Income</td>
+                    <td class="eliminateFoundationMargin">
+                        @if(article.HasPaidContent == false)
+                    {
+                            @:Free
+                        } else
+                        {
+                            using (Ajax.BeginForm("SetNewPrice", "Newspaper", null, new AjaxOptions()
+                            {
+                                HttpMethod = "POST",
+                                OnBegin = "Sociatis.AjaxBegin()",
+                                OnComplete = "Sociatis.AjaxEnd() ",
+                                OnFailure = "Sociatis.AjaxError(xhr)",
+                                OnSuccess = "Sociatis.HandleJson(xhr.responseJSON, Sociatis.ShowMessage)"
+                            }, new { @class = "flex" }))
+                            {
+                                <input type="hidden" name="NewspaperID" value="@Model.Info.EntityID" />
+                                <input type="hidden" name="ArticleID" value="@article.ID" />
+                                <input type="text" name="Price" value="@article.Price" class="small" />
+                                <button class="button green">Accept</button>
+                            }
+                        }
+                    </td>
+                    <td>
+                        @if (article.IsPublished == false)
+                        {
+                            using (Html.BeginForm("ChangePublishOptions", RouteDataHelper.ControllerName, FormMethod.Post))
+                            {
+                                <input type="hidden" name="articleID" value="@article.ID" />
+                                <input type="hidden" name="publish" value="true" />
+                                <button class="button green">Publish</button>
+                            }
+                        }
+                        else
+                        {
+                            using (Html.BeginForm("ChangePublishOptions", RouteDataHelper.ControllerName, FormMethod.Post))
+                            {
+                                <input type="hidden" name="articleID" value="@article.ID" />
+                                <input type="hidden" name="publish" value="false" />
+                                <button class="button blue">Unpublish</button>
+                            }
+                        }
+                    </td>
+                    @if (Model.Info.NewspaperRights.HasFlag(NRights.CanWriteArticles))
+                    {
+                        <td>
+                            <a href="@Url.Action("EditArticle", "Newspaper", new { articleID = article.ID })" class="button blue"><i class="fa fa-2x fa-pencil-square"></i></a>
+                        </td>
+                    }
+                    <td>
+                        @using (Html.BeginForm("DeleteArticle", RouteDataHelper.ControllerName, FormMethod.Post))
+                        {
+                            <input type="hidden" name="articleID" value="@article.ID" />
+                            <button class="button red"><i class="fa fa-2x fa-trash"></i></button>
+                        }
+                    </td>
+                    
+                </tr>
+            }
+        </tbody>
+    </table>
+
+    @using (Html.BeginForm(RouteDataHelper.ActionName + "Post", RouteDataHelper.ControllerName, new { newspaperID = Model.Info.EntityID }, FormMethod.Post))
+    {
+        @PagingParamHtmlHelper.Render(Model.PagingParam)
+    }
+</div>

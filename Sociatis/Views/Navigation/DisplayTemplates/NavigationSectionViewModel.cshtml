@@ -1,0 +1,27 @@
+﻿@model Sociatis.Models.Navigation.NavigationSectionViewModel
+
+@if (Model.Children.Any() == false)
+{
+<li>
+    <a @if (string.IsNullOrWhiteSpace(Model.Url) == false)
+    {
+        @: href="@Model.Url" 
+    }>
+        @Model.Name
+    </a>
+</li>
+}
+else
+{
+    
+        <li data-is-click="false" class="has-submenu horizontal" >
+            <a href="#">@Model.Name</a>
+            <ul class="menu vertical" data-submenu>
+                @foreach (var child in Model.Children)
+                {
+                    @Html.DisplayFor(m => child)
+                }
+            </ul>
+        </li>
+    
+}

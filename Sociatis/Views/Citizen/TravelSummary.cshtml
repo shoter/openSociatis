@@ -1,0 +1,18 @@
+﻿@model Sociatis.Models.Citizens.TravelSummaryViewModel
+
+<h4>Travel summary</h4>
+<div>
+    You @(Model.CanTravel ? "can" : "cannot") travel to this region. @(Model.CanTravel ? "" : "(" + Model.CannotTravelReason + ")")
+</div>
+@if (Model.Distance != null)
+{
+<div>
+        Distance: @string.Format("{0:#}", Model.Distance) Km (including infrastructure)
+</div>
+}
+<div>
+    Ticket travel distance : @Model.TicketTravelDistance Km
+</div>
+<div>
+    HP Loss from travel : @Model.HpLoss HP
+</div>

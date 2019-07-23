@@ -1,0 +1,30 @@
+﻿@import "definitions.scss";
+
+.ui-dialog
+{
+    padding: 0;
+    overflow: hidden !important;
+
+    .ui-dialog-titlebar
+    {
+        background: none;
+        border: none;
+        font-size: large;
+        padding: 0.2rem 0.4rem;
+    }
+
+    .ui-dialog-content
+    {
+        padding: 0 !important;
+        overflow: hidden !important;
+
+        button.fullWidthDialog
+        {
+            width: 100%;
+            margin: 1px 0 0 0;
+            border-left: 0;
+            border-right: 0;
+            border-bottom: 0;
+        }
+    }
+}

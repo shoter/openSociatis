@@ -1,0 +1,92 @@
+﻿@model Sociatis.Models.Gifts.GiftViewModel
+@{
+    ViewBag.Title = "Gift";
+}
+
+<div class="contentBox" >
+    <h5>Gift</h5>
+
+    <div class="giftWho centerHorizontalFlex">
+        <span class="giftWhoDesc">
+            Who will receive gift:
+        </span>
+            @Html.Render(Model.DestinationSelector)
+    </div>
+    <div class="giftTable">
+        <ul class="exchangeHeader tabs" data-tabs id="giftTabs">
+            <li class="giftTypeSelector tabs-title tabs-title-2 is-active">
+                <a href="#moneyList" aria-selected="true">Money</a>
+            </li>
+            @if (Model.CanSendProducts)
+            {
+            <li class="exchangeTypeSelector tabs-title tabs-title-2">
+                <a onclick="Sociatis.Gifts.OnDestinationChange()" href="#productList" data-tabs-target="productList" aria-selected="true">Product</a>
+            </li>
+            }
+        </ul>
+        <div class="tabs-content" data-tabs-content="giftTabs">
+            <div class="tabs-panel is-active" id="moneyList">
+                @foreach (var money in Model.MoneyGifts)
+                {
+                    <div class="exchangeItem exchangeMoney flex">
+                        <div class="centerVerticalFlex">
+                            <div class="centerVerticalFlex">
+                                <div class="money">
+                                    @Html.DisplayFor(m => money.MoneyImage)
+                                </div>
+                                <div class="moneyAmount inputGroup">
+                                    <input class="noMargin" data-symbol="@money.Symbol" data-currencyid="@money.CurrencyID" type="number" step="0.01" value="@money.Amount" min="0.01" max="@money.Amount" /> 
+                                    <div class="inputInfo noMargin noselect">
+                                        @money.Symbol
+                                    </div>
+                                    <button onclick="Sociatis.Gifts.SetMaxMoney(@money.CurrencyID)" type="button" class="hide-for-small-only max button blue">Max value</button>
+                                    <button  onclick="Sociatis.Gifts.SendMoneyGift(@money.CurrencyID)" type="button" class="button green moneySendButton">Send</button>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                }
+            </div>
+            @if (Model.CanSendProducts)
+            {
+            <div class="tabs-panel" id="productList">
+                @foreach (var product in Model.ProductGifts)
+                {
+                    <div class="exchangeItem exchangeProduct flex">
+                        <div class="centerVerticalFlex">
+                            <div class="exchangeProductImage has-tip" data-tooltip data-position="right" data-alignment="center" aria-haspopup="true"   title="@product.ProductName">
+                                @Html.DisplayFor(m => product.ProductImage)
+                                <div class="quality">
+                                    @for (int i = 0; i < product.Quality; ++i)
+                                    {
+                                        <i class="fa fa-star"></i>
+                                    }
+                                </div>
+                            </div>
+                            <div class="productAmount inputGroup">
+                                <input  onchange="Sociatis.Gifts.RecalculateFuel(this)" class="noMargin" data-productname="@product.ProductName" data-productid="@product.ProductID" data-quality="@product.Quality" size="1" type="number" step="1" value="1" max="@product.Amount" min="1" />
+                                <div class="inputInfo noMargin noselect">
+                                    @product.ProductName Q@(product.Quality)
+                                </div>
+                            </div>
+                        </div>
+                        <button onclick="Sociatis.Gifts.SetMaxProduct(@product.ProductID, @product.Quality)" type="button" class="hide-for-small-only max button blue">Max value</button>
+                        <button data-position="right"  onclick="Sociatis.Gifts.SendProductGift(@product.ProductID, @product.Quality, '@product.ProductName', this)" type="button" class="button green productSendButton">Send
+                            <br/>
+                            <span data-fuelcost="0" data-productid="@product.ProductID" data-quality="@product.Quality" class="fuelCost">
+                            </span>
+                        </button>
+                    </div>
+                }
+            </div>
+            }
+
+        </div>
+    </div>
+
+</div>
+
+@section scripts
+{
+    <script src="~/Scripts/gifts/sociatis.gift.js"></script>
+}

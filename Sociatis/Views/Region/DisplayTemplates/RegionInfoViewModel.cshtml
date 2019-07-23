@@ -1,0 +1,43 @@
+﻿@model Sociatis.Models.Regions.RegionInfoViewModel
+
+<div id="overallInfo" class="row ContentBox">
+    <div class="row">
+        <div class="small-3 medium-4 columns">
+            <div class="infoAvatar">
+                @if (Model.CountryFlag != null)
+                {
+                    @Html.DisplayFor(m => m.CountryFlag)
+                }
+            </div>
+        </div>
+        <div class="small-9 medium-8 columns">
+            <h5>@Html.ActionLink(Model.RegionName, "View", new { regionID = Model.RegionID })</h5>
+            @if (Model.CountryID.HasValue)
+            {
+                <h5>@Html.ActionLink(Model.CountryName, "View", "Country", new { countryID = Model.CountryID }, null)</h5>
+            }
+            else
+            {
+                <h5>No country.</h5>
+            }
+            <h5>Population: @Model.Population</h5>
+            @if (Model.CoreCountryID.HasValue)
+            {
+                <h5>Core region of @Html.ActionLink(Model.CoreCountryName, "View", "Country", new { CountryID = Model.CoreCountryID }, null).
+                    
+                </h5>
+                if (Model.CanStartRessistanceWar)
+                {
+                    using (Html.BeginForm("StartRessistanceBattle", "war", new { regionID = Model.RegionID }, FormMethod.Post))
+                    {
+                        <div class="centerVerticalFlex">
+                            <button class="button red">Start ressistance!</button>
+                            @Html.DisplayFor(m => m.RessistanceCost)
+                        </div>
+                    }
+                }
+            }
+
+        </div>
+    </div>
+</div>

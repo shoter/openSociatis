@@ -1,0 +1,11 @@
+﻿@model Sociatis.Models.Battle.BattleStartInformationViewModel
+
+<div class="currencyBoxer centerVerticalFlex">
+    <text>Gold needed: </text>
+    <span class="pull-right-flex text-3x centerVerticalFlex">
+
+        @Html.DisplayFor(m => m.GoldNeeded.Quantity)
+        @Html.DisplayFor(m => m.GoldNeeded.Image)
+    </span>
+    <span class="clearfix">&nbsp;</span>
+</div>

@@ -1,0 +1,70 @@
+﻿@import "definitions.scss";
+
+#overallInfo, .entityInfoBox
+{
+    $actionColor: #1585cf;
+
+    #actionBar
+    {
+        overflow: visible; /*It must be this value*/
+        margin: auto;
+        margin-bottom: 0;
+        background-color: rgba(46, 172, 255, 0.15);
+        width: 100%;
+        border-radius: 5px;
+        padding: 0.5em 2em;
+        padding-right: 0;
+
+        @include box-shadow(2px 2px 6px 0px rgba(0,0,0,0.3), inset 2px 2px 20px 0px rgba(0, 184, 255, 0.12));
+
+        &:after
+        {
+            display: block;
+            content: ' ';
+            clear: both;
+        }
+
+        .action
+        {
+            border: 1px solid rgba(64, 64, 64, 0.2);
+            padding: 0.1em 0.4em;
+            margin-bottom: 0.1em;
+            border-radius: 3px;
+            float: right;
+            font-size: 1.2em;
+            cursor: pointer;
+            margin-right: 20px;
+            line-height: 1.4;
+            color: $actionColor;
+
+            @include no-select;
+            @include transition(background-color 0.5s ease, color 0.3s ease);
+
+            &:hover
+            {
+                background-color: rgba(0, 154, 255, 0.60);
+                color: white;
+            }
+        }
+
+        .action.disabled
+        {
+            &:hover
+            {
+                background-color: rgba(255, 166, 166, 0.24);
+            }
+        }
+
+        .disabled
+        {
+            cursor: not-allowed;
+            color: rgba(#658296, 0.4);
+            border-bottom: none;
+
+            &:hover
+            {
+                color: rgba(#658296, 0.7);
+            }
+        }
+    }
+}

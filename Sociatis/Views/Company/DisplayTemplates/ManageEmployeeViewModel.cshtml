@@ -1,0 +1,57 @@
+﻿@model Sociatis.Models.Companies.ManageEmployeeViewModel
+
+<h3>@Model.CitizenName Skill @Model.Skill 
+    @using (Html.BeginForm("KickEmployee", RouteDataHelper.ControllerName, FormMethod.Post, new { @class = "inlineDisplay" }))
+    {
+        @Html.HiddenFor(m => m.CitizenID)
+        <button class="button red alignBottom">Kick</button>
+    }
+    
+    
+    </h3>
+
+
+<hr />
+@if(!ViewData.ModelState.IsValid)
+{
+    @Html.ValidationSummary()
+    <hr/>
+}
+
+@using (Html.BeginForm(RouteDataHelper.ActionName, RouteDataHelper.ControllerName, new { citizenID = Model.CitizenID }, FormMethod.Post))
+{
+<div class="row">
+    <div class="small-4 columns">
+        @Html.DisplayNameFor(m => m.Salary)
+    </div>
+    <div class="small-4 columns">
+        @Html.TextBoxFor(m => m.Salary)
+    </div>
+    <div class="small-4 columns">
+        <p class="money">
+            @Html.DisplayFor(m => m.CurrencyImage)
+        </p>
+    </div>
+</div>
+<hr />
+<div class="row">
+    <div class="small-4 columns">
+        @Html.DisplayNameFor(m => m.MinimumHP)
+    </div>
+    <div class="small-4 columns">
+        @Html.TextBoxFor(m => m.MinimumHP)
+    </div>
+    <div class="small-4 columns">
+        @Html.DisplayFor(m => Images.HpCross.VM)
+    </div>
+</div>
+<hr />
+<div class="row">
+    <div class="small-12 columns">
+        
+            <button class="button blue pull-right">Save changes</button>
+        
+    </div>
+</div>
+}
+

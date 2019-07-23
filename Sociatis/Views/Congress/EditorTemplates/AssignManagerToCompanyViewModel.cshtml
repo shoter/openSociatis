@@ -1,0 +1,17 @@
+﻿@model Sociatis.Models.Congress.AssignManagerToCompanyViewModel
+
+@{
+    ViewData.TemplateInfo.HtmlFieldPrefix = "";
+}
+
+@Html.LabelFor(m => m.CompanyID)
+@Html.DropDownListFor(m => m.CompanyID, Model.Companies)
+@Html.ValidationMessageFor(m => m.CompanyID)
+
+@Html.LabelFor(m => m.CitizenID)
+@Html.Render(Model.Citizens)
+@Html.ValidationMessageFor(m => m.CitizenID)
+
+<script>
+    Common.Select2.initialize($("#CitizenID"));
+</script>

@@ -1,0 +1,78 @@
+﻿@model Sociatis.Models.Hotels.HotelPricesViewModel
+
+@{
+    ViewBag.Title = Model.Info.Name + "'s prices";
+}
+
+@Html.DisplayFor(m => m.Info)
+@using (Html.BeginForm(RouteDataHelper.ActionName, RouteDataHelper.ControllerName, new { hotelID = Model.Info.ID }, FormMethod.Post, null))
+{
+    <div id="hotelPricing" class="contentBox">
+        <h4>@ViewBag.Title</h4>
+
+        <div class="pricing">
+            <div class="quality">
+                Quality 1
+            </div>
+            <input @(Model.PriceQ1.HasValue == false ? "disabled" : "") name="price1" value="@Model.PriceQ1" />
+            <div class="disable">
+                <label>Disable rooms</label>
+                <input @(Model.PriceQ1.HasValue == false ? "checked" : "") type="checkbox" id="price1Disable" data-target="price1" />
+            </div>
+        </div>
+
+        <div class="pricing">
+            <div class="quality">
+                Quality 2
+            </div>
+            <input @(Model.PriceQ2.HasValue == false ? "disabled" : "") name="price2" value="@Model.PriceQ2" />
+            <div class="disable">
+                <label>Disable rooms</label>
+                <input @(Model.PriceQ2.HasValue == false ? "checked" : "") type="checkbox" id="price2Disable" data-target="price2" />
+            </div>
+        </div>
+
+        <div class="pricing">
+            <div class="quality">
+                Quality 3
+            </div>
+            <input @(Model.PriceQ3.HasValue == false ? "disabled" : "") name="price3" value="@Model.PriceQ3" />
+            <div class="disable">
+                <label>Disable rooms</label>
+                <input @(Model.PriceQ3.HasValue == false ? "checked" : "") type="checkbox" id="price3Disable" data-target="price3" />
+            </div>
+        </div>
+
+        <div class="pricing">
+            <div class="quality">
+                Quality 4
+            </div>
+            <input @(Model.PriceQ4.HasValue == false ? "disabled" : "") name="price4" value="@Model.PriceQ4" />
+            <div class="disable">
+                <label>Disable rooms</label>
+                <input @(Model.PriceQ4.HasValue == false ? "checked" : "") type="checkbox" id="price4Disable" data-target="price4" />
+            </div>
+        </div>
+
+        <div class="pricing">
+            <div class="quality">
+                Quality 5
+            </div>
+            <input @(Model.PriceQ5.HasValue == false ? "disabled" : "") name="price5" value="@Model.PriceQ5" />
+            <div class="disable">
+                <label>Disable rooms</label>
+                <input @(Model.PriceQ5.HasValue == false ? "checked" : "") type="checkbox" id="price5Disable" data-target="price5" />
+            </div>
+        </div>
+        <br />
+        <button class="button green pull-right">Update</button>
+
+
+    </div>
+}
+@section scripts
+{
+    <script src="~/Scripts/hotel/sociatis.hotel.pricing.js">
+
+    </script>
+}

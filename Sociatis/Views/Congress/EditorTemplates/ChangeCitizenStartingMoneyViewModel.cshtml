@@ -1,0 +1,14 @@
+﻿@model Sociatis.Models.Congress.ChangeCitizenStartingMoneyViewModel
+
+@{
+    ViewData.TemplateInfo.HtmlFieldPrefix = "";
+}
+
+@Html.LabelFor(m => m.Fee)
+<div class="inputGroup">
+    @Html.TextBoxFor(m => m.Fee)
+    <span class="inputInfo">
+        @(Model.CurrencySymbol)
+    </span>
+</div>
+@Html.ValidationMessageFor(m => m.Fee)

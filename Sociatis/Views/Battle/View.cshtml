@@ -1,0 +1,233 @@
+﻿@model Sociatis.Models.Battle.BattleViewModel
+@{
+    ViewBag.Title = "Battle at " + Model.RegionName;
+}
+
+@Html.Partial(@"~\Views\War\DisplayTemplates\WarInfoViewModel.cshtml", Model.Info)
+
+<input type="hidden" id="battleID" value="@Model.BattleID" />
+<input type="hidden" id="isAttacker" />
+
+<div class="ContentBox">
+    <h3 class="text-center">Battle at @Model.RegionName started at day @Model.StartDay</h3>
+
+    <div class="row">
+        <div class="small-4 columns">
+            <div class="battleHero attacker">
+                <h4 class="text-center">Battle hero</h4>
+                @if (Model.AttackerHero != null)
+                {
+                    @Html.DisplayFor(m => m.AttackerHero)
+                }
+                else
+                {
+                    <h5 class="text-center">No hero</h5>
+                }
+            </div>
+        </div>
+        <div class="small-4 columns">
+            <h3 class="text-center">
+                @if (Model.AttackerWon == true)
+                {
+                    @:Attacker won!<br />
+                    @:Attacker took @Model.GoldTaken gold.
+                }
+                else if (Model.AttackerWon == false)
+                {
+                    @:Defender won!
+                }
+                else if (Model.WaitingForResolve)
+                {
+                    @:Waiting for resolve.
+                }
+                else
+                {
+                    @:Remaining Time:<br/>
+                    @Model.TimeLeft
+                }
+            </h3>
+        </div>
+        <div class="small-4 columns">
+            <div class="battleHero defender">
+                <h4 class="text-center">Battle hero</h4>
+                @if (Model.DefenderHero != null)
+                {
+                    @Html.DisplayFor(m => m.DefenderHero)
+                }
+                else
+                {
+                    <h5 class="text-center">No hero</h5>
+                }
+            </div>
+        </div>
+    </div>
+    <hr />
+    <div class="row">
+        <div class="hide-for-medium-only hide-for-small-only large-4 columns">
+            <div class="battleParticipants attacker">
+                <div class="text-center">
+                    <h4>@Model.AttackerName's attackers</h4>
+                </div>
+
+                    @Html.DisplayFor(m => m.AttackerBattleParticipants)
+            </div>
+        </div>
+        <div class="small-12 large-4 columns">
+            <div class="text-center">
+                Wall Health @Model.WallHealth
+            </div>
+        </div>
+        <div class="hide-for-medium-only hide-for-small-only large-4 columns ">
+            <div class="battleParticipants defender">
+                <div class="text-center">
+                    <h4>@Model.DefenderName's defenders</h4>
+                </div>
+
+                    @Html.DisplayFor(m => m.DefenderBattleParticipants)
+
+            </div>
+        </div>
+    </div>
+    @if (Model.CanFight)
+    {
+        <div class="row">
+            <div class="medium-2 large-4 centerHorizontalFlex columns">
+                @if (Model.CanFightAsAttacker)
+                {
+                    <button id="preAttFightButton" class="red button ">
+                        ATTACK!
+                    </button>
+                }
+            </div>
+            <div class="small-12 medium-8 large-4 columns ">
+                &nbsp;
+            </div>
+            <div class="medium-2 large-4 centerHorizontalFlex columns">
+                @if (Model.CanFighstAsDefender)
+                {
+                    <button id="preDefFightButton" class="blue button">
+                        DEFEND!
+                    </button>
+                }
+            </div>
+
+        </div>
+    }
+</div>
+
+<div id="battleDialog" style="display:none">
+
+    <div class="row">
+        
+        <div class="small-6 columns">
+            Weapon quality :
+        </div>
+        <div class="small-6 columns">
+            <select id="weaponQuality">
+                <option value="none">Select weapon</option>
+                <option value="0">No weapon</option>
+                @foreach (var q in Model.AvailableWeaponQualities)
+                {
+                    <option value="@q">Weapon Q@(q)</option>
+                }
+
+            </select>
+        </div>
+    </div>
+    <hr />
+    <div class="row statistic">
+
+        @{
+            var firstColumn = 8;
+            var secondColumn = 4;
+
+        }
+
+        <div class="small-@firstColumn columns">
+            Possible damage :
+        </div>
+        <div id="possibleDamage" class="small-@secondColumn columns">
+            ?
+        </div>
+    </div>
+    <div class="row statistic">
+
+        <div class="small-@firstColumn columns">
+            Weapon bonus :
+        </div>
+        <div id="weaponBonus" class="small-@secondColumn columns">
+            ?
+        </div>
+    </div>
+    <div class="row statistic">
+        <div class="small-@firstColumn columns">
+            Health modifier :
+        </div>
+        <div id="healthModifier" class="small-@secondColumn columns">
+            ?
+        </div>
+
+    </div>
+    <div class="row statistic">
+        <div class="small-@firstColumn columns">
+            Military rank modifier :
+        </div>
+        <div id="militaryRankModifier" class="small-@secondColumn columns">
+            ?
+        </div>
+    </div>
+    <div class="row statistic">
+        <div class="small-@firstColumn columns">
+            Weapon and Strength modifier :
+        </div>
+        <div id="weaponStrengthModifier" class="small-@secondColumn columns">
+            ?
+        </div>
+    </div>
+    <div class="row statistic">
+        <div class="small-@firstColumn columns">
+            Distance modifier :
+        </div>
+        <div id="distanceModifier" class="small-@secondColumn columns">
+            ?
+        </div>
+    </div>
+    <div class="row statistic">
+        <div class="small-@firstColumn columns">
+            Development modifier :
+        </div>
+        <div id="developmentModifier" class="small-@secondColumn columns">
+            ?
+        </div>
+    </div>
+    <div class="row statistic">
+        <div class="small-@firstColumn columns">
+            Overall modifier:
+        </div>
+        <div id="overallModifier" class="small-@secondColumn columns">
+            ?
+        </div>
+
+    </div>
+
+    <br />
+
+    <div class="centerHorizontalFlex">
+        <button id="realFightButton" class="red button">Fight</button>
+    </div>
+
+</div>
+
+<div id="battleStatistics" class="contentBoxNew">
+    <h4>Statistics</h4>
+
+    <table>
+    </table>
+
+</div>
+
+@section scripts
+{
+    @Scripts.Render("~/Scripts/Battle/sociatis.battle.js")
+    @Scripts.Render("~/Scripts/battle/sociatis.battle.statistics.js")
+}

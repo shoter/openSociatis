@@ -1,0 +1,27 @@
+﻿@model Sociatis.Models.Bugs.BugReportViewModel
+
+@{
+    ViewBag.Title = "Report bug";
+    Layout = null;
+}
+
+<h2>ReportBug</h2>
+
+@if (Model.Sent)
+{
+    <hr/>
+    <p>Zgłoszenie zostało wysłane. Dziękuje za zgłoszenie.</p>
+    <p>Bug report has been sent.</p>
+    <hr/>
+}
+@using (Html.BeginForm(RouteDataHelper.ActionName, RouteDataHelper.ControllerName, FormMethod.Post, new { enctype = "multipart/form-data" }))
+{
+    <label>Bug description</label>
+    <br/>
+    @Html.TextAreaFor(m => m.Content, new { style = "width: 400px; height : 200px" })
+    <br/><br/>
+    <label>File with image describing the failure (Optional)</label><br/>
+    <input type="file" name="BugImage" id="BugImage" />
+    <br/>
+    <button>Send</button>
+}

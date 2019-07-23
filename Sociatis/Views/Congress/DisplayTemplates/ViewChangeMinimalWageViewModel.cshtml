@@ -1,0 +1,4 @@
+﻿@model Sociatis.Models.Congress.Votings.ViewChangeMinimalWageViewModel
+
+<h4>Proposition #@Model.VotingID : Change minimal wage to <b>@Model.NewMinimalWage</b> @Model.CurrencySymbol</h4>
+by @Html.ActionLink(Model.CreatorName, "View", "Citizen", new { citizenID = Model.CreatorID }, null)

@@ -1,0 +1,16 @@
+﻿@model Sociatis.Models.Equipment.EquipmentViewModel
+@using Sociatis.Models.Equipment
+@{
+    ViewBag.Title = "Inventory";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+<div class="row ContentBox inventory">
+
+    <h1>@ViewBag.Title (@Model.ItemCount/@Model.ItemCapacity)</h1>
+
+    <hr />
+
+    @Html.DisplayFor(m => m)
+</div>
+

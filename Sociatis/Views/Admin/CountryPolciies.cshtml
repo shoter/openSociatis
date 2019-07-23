@@ -1,0 +1,123 @@
+﻿@model List<Sociatis.Models.Admin.CountryPolicyViewModel>
+
+
+@foreach(var policy in Model)
+{
+    <div class="row">
+        <div class="small-12 columns">
+            @policy.CountryName (@policy.CountryID)
+        </div>
+    </div>
+    
+
+    <div class="row">
+        <div class="small-4 columns">
+            Citizen Fee
+        </div>
+        <div class="small-4 columns">
+            @policy.CitizenFee
+        </div>
+    </div>
+
+    <div class="row">
+        <div class="small-4 columns">
+            Citizen Company Cost
+        </div>
+        <div class="small-4 columns">
+            @policy.CitizenCompanyCost
+        </div>
+    </div>
+
+    <div class="row">
+        <div class="small-4 columns">
+            Organisation Company Cost
+        </div>
+        <div class="small-4 columns">
+            @policy.OrganisationCompanyCost
+        </div>
+    </div>
+
+    <div class="row">
+        <div class="small-4 columns">
+            Normal Job Market Fee
+        </div>
+        <div class="small-4 columns">
+            @policy.NormalJobMarketFee
+        </div>
+    </div>
+
+    <div class="row">
+        <div class="small-4 columns">
+            Contract Job Market Fee
+        </div>
+        <div class="small-4 columns">
+            @policy.ContractJobMarketFee
+        </div>
+    </div>
+
+    <div class="row">
+        <div class="small-4 columns">
+            Minimum Contract Length
+        </div>
+        <div class="small-4 columns">
+            @policy.MinimumContractLength
+        </div>
+    </div>
+
+    <div class="row">
+        <div class="small-4 columns">
+            Maximum Contract Length
+        </div>
+        <div class="small-4 columns">
+            @policy.MaximumContractLength
+        </div>
+    </div>
+
+    <div class="row">
+        <div class="small-4 columns">
+            Normal Congress Voting Win Percentage
+        </div>
+        <div class="small-4 columns">
+            @policy.NormalCongressVotingWinPercentage
+        </div>
+    </div>
+
+    <div class="row">
+        <div class="small-4 columns">
+            party Founding Fee
+        </div>
+        <div class="small-4 columns">
+            @policy.PartFoundingFee
+        </div>
+    </div>
+
+    <div class="row">
+        <div class="small-4 columns">
+            Party president cadence length
+        </div>
+        <div class="small-4 columns">
+            @policy.PartyPresidentCadenceLength
+        </div>
+    </div>
+
+    <div class="row">
+        <div class="small-4 columns">
+            Congress cadence length
+        </div>
+        <div class="small-4 columns">
+            @policy.CongressCadenceLength
+        </div>
+    </div>
+
+    <div class="row">
+        <div class="small-4 columns">
+            Congress voting length
+        </div>
+        <div class="small-4 columns">
+            @policy.CongressVotingLength
+        </div>
+    </div>
+
+    <hr/>
+    <br/>
+}

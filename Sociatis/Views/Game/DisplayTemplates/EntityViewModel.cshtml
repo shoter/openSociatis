@@ -1,0 +1,19 @@
+﻿@model Sociatis.Models.Game.EntityViewModel
+
+<table>
+    <thead>
+        <tr>
+            <th>Name</th>
+            <th>Value</th>
+        </tr>
+    </thead>
+    <tbody>
+        @foreach(var pi in Model.GetType().GetProperties())
+        {
+            <tr>
+                <td>@pi.Name</td>
+                <td>@pi.GetValue(Model)</td>
+            </tr>
+        }
+    </tbody>
+</table>

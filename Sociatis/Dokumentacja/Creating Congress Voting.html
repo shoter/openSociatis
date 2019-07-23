@@ -1,0 +1,133 @@
+﻿<!DOCTYPE html>
+<html>
+<head>
+    <title>Creating new congress voting</title>
+</head>
+<body>
+
+    <h1 id="creating-new-congress-voting">Creating new congress voting</h1>
+<h2 id="step-1">Step 1</h2>
+<h3 id="add-new-voting-type">Add new voting type.</h3>
+<p><del>Firstly add it to dbo.<strong>VotingTypes</strong></del>. &lt;- it's now created automatically. no need for that</p>
+<p>Complete <strong>VotingTypeEnum</strong> with new enum.</p>
+<h2 id="step-2">Step 2</h2>
+<h3 id="add-new-model-which-will-handle-this-voting-in-services">Add new model which will handle this voting in services.</h3>
+<p>namespace : <strong>WebServices.structs.Votings</strong></p>
+<p>Example :</p>
+<pre><code>public class ChangeVatCongressVotingParameters : StartCongressVotingParameters
+{
+    public double NewVat { get; set; }
+
+    public override VotingTypeEnum VotingType { protected set; get; } = VotingTypeEnum.ChangeVat;
+
+    public  ChangeVatCongressVotingParameters(double newVat)
+    {
+        this.NewVat = newVat;
+    }
+
+    public override void FillCongressVotingArguments(CongressVoting voting)
+    {
+        voting.Argument1 = NewVat.ToString();
+    }
+}
+</code></pre>
+<h2 id="step-3">Step 3</h2>
+<h3 id="create-viewmodel-which-represents-the-start-voting-sequence">Create ViewModel which represents the start voting sequence.</h3>
+<p>ViewModel need to be in <strong>Sociatis.Models.Congress</strong> namespace.</p>
+<p>Example :</p>
+<pre><code>public class ChangeVatViewModel : CongressVotingViewModel
+{
+    [DisplayName(&quot;New VAT&quot;)]
+    [Range(0, 1000)]
+    public double NewVat { get; set; }
+
+
+
+    public override VotingTypeEnum VotingType { get; set; } = VotingTypeEnum.ChangeVat;
+
+    public ChangeVatViewModel() { }
+    public ChangeVatViewModel(int countryID) :base(countryID)
+    {
+    }
+    public ChangeVatViewModel(CongressVoting voting)
+        :base(voting)
+    {
+    }
+
+    public ChangeVatViewModel(FormCollection values)
+        :base(values)
+    {
+    }
+
+
+    public override StartCongressVotingParameters CreateVotingParameters()
+    {
+        return new ChangeVatCongressVotingParameters(NewVat);
+    }
+}	
+</code></pre>
+<h2 id="step-4">Step 4</h2>
+<h3 id="add-this-view-model-to-congressvotingviewmodelchooser">Add this view model to CongressVotingViewModelChooser</h3>
+<pre><code>Add&lt;ChangeVatViewModel&gt;();
+</code></pre>
+<h2 id="step-5">Step 5</h2>
+<h3 id="add-new-editor-template-for-start-voting.its-name-must-be-the-same-as-view-model-created-in-step-3">Add new editor template for start voting. It's name must be the same as view model created in step 3</h3>
+<p>example :</p>
+<pre><code>@model Sociatis.Models.Congress.ChangeVatViewModel
+
+@{
+    ViewData.TemplateInfo.HtmlFieldPrefix = &quot;&quot;;
+}
+
+@Html.LabelFor(m =&gt; m.NewVat)
+@Html.TextBoxFor(m =&gt; m.NewVat)
+@Html.ValidationMessageFor(m =&gt; m.NewVat)
+</code></pre>
+<h2 id="step-6">Step 6</h2>
+<h3 id="create-viewmodel-for-displaying-current-voting">Create viewmodel for displaying current voting</h3>
+<p>It need to be created in <strong>Sociatis.Models.Congress.Votings</strong> namespace.</p>
+<p>example</p>
+<pre><code>public class ViewChangeMinimalWageViewModel : ViewVotingBaseViewModel
+{
+    public double NewMinimalWage { get; set; }
+
+    public override VotingTypeEnum VotingType =&gt; VotingTypeEnum.ChangeMinimalWage;
+
+    public ViewChangeMinimalWageViewModel(Entities.CongressVoting voting, bool isPlayerCongressman, bool canVote)
+    : base(voting, isPlayerCongressman, canVote)
+    {
+        NewMinimalWage = double.Parse(voting.Argument1);
+    }
+
+
+}
+</code></pre>
+<h2 id="step-7">Step 7</h2>
+<h3 id="add-viewmodel-to-congressviewvotingviewmodelchooser">Add ViewModel to  CongressViewVotingViewModelChooser</h3>
+<p>Example :</p>
+<pre><code>add&lt;ViewChangeMinimalWageViewModel&gt;();
+</code></pre>
+<h2 id="step-8">Step 8</h2>
+<h3 id="create-view-for-displaying-this-view-model-in-display-templates-with-the-same-name-as-vm-created-in-step-6">Create view for displaying this view model in Display Templates with the same name as VM created in step 6</h3>
+<p>Example</p>
+<pre><code>@model Sociatis.Models.Congress.Votings.ViewChangeVatViewModel
+
+&lt;h4&gt;Proposition #@Model.VotingID : Change vat to &lt;b&gt;@Model.NewVat&lt;/b&gt;%&lt;/h4&gt;
+by @Html.ActionLink(Model.CreatorName, &quot;View&quot;, &quot;Citizen&quot;, new { citizenID = Model.CreatorID })
+</code></pre>
+<h2 id="step-9">Step 9</h2>
+<h3 id="create-operation-done-after-completing-voting-in-congressvotingservice">Create operation done after completing voting in CongressVotingService</h3>
+<p>method <strong>FinishVoting</strong></p>
+<p>example :</p>
+<pre><code>case VotingTypeEnum.ChangeVat:
+                {
+                    voting.Country.CountryPolicy.VAT = (decimal)(double.Parse(voting.Argument1) / 100.0);
+                    break;
+                }
+</code></pre>
+<h2 id="step-10">Step 10</h2>
+<h3 id="update-actuallawviewmodel">Update ActualLawViewModel</h3>
+
+
+</body>
+</html>

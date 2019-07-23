@@ -1,0 +1,25 @@
+﻿@model Sociatis.Models.Organisation.OrganisationSummaryViewModel
+@using Sociatis.Helpers
+@using Weber.Helpers
+
+<p>
+    @Html.ActionLink("Switch back into " + Model.SwitchBackEntityName, "SwitchBack", "Entity")
+</p>
+<div class="summaryAvatar">
+    @Html.DisplayFor(m => m.Avatar)
+</div>
+<div class="text-center">
+    @Html.ActionLink(Model.Name, "View", "Organisation", new { organisationID = Model.OrganisationID }, null)
+</div>
+
+<hr />
+
+
+<p class="text-center">
+    @Html.DisplayFor(m => m.CountryMoney)
+</p>
+<p class="text-center">
+    @Html.DisplayFor(m => m.AdminMoney)
+</p>
+
+@Html.RenderCurrentTime()

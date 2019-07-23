@@ -1,0 +1,54 @@
+﻿@model Sociatis.Models.Constructions.ConstructionViewModel
+@using Entities.enums;
+@{
+    ViewBag.Title = Model.Info.ConstructionType.ToHumanReadable() + " construction";
+}
+@Html.DisplayFor(m => m.Info)
+<div id="constructionView" class="row collapse">
+
+    <div class="small-12 medium-5 large-3 columns">
+        <div class="ContentBox">
+
+            <hr />
+            <h4>Founds <i data-tooltip class="fa hint smallFont fa-question-circle" title="Remaining founds will be transfered to owner after construction"></i></h4>
+
+            <div class="moneys">
+                @foreach (var money in Model.WalletMoneys)
+            {
+                    @Html.DisplayFor(m => money)
+                }
+            </div>
+
+            <h4>Managers</h4>
+            <div class="managers">
+                @for (int i = 0; i < 5 && i < Model.Managers.Count; ++i)
+                {
+                    var manager = Model.Managers[i];
+                    @Html.DisplayFor(m => manager.Avatar)
+                }
+            </div>
+            @if (Model.IsThereMoreManagers)
+            {
+                <div class="centerHorizontalFlex">
+                    @Html.ActionLink("More managers...", "Managers", "Controller", new { constructionID = Model.Info.ConstructionID }, null)
+                </div>
+            }
+
+        </div>
+    </div>
+    <div class="small-12 medium-7 large-9 columns">
+        <div class="contentBox">
+            <h4>Progress</h4>
+
+            <div class="container-bar-full-big">
+                <div class="construction-bar-big" style="width : @Model.ProgressPercentage%;">
+                </div>
+                <span class="BlendMix">
+                    @Model.Progress/@Model.MaxProgress CP
+                </span>
+            </div>
+
+
+        </div>
+    </div>
+</div>

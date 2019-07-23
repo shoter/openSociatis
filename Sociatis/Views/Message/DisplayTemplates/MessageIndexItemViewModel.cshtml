@@ -1,0 +1,8 @@
+﻿@model Sociatis.Models.Messages.MessageIndexItemViewModel
+
+<tr>
+    <td>@Html.ActionLink(Model.Title, "Message", new { threadID = Model.ThreadID }) @(Model.Unread? " (unread)":"")</td>
+    <td>@Model.Recipients</td>
+    <td>@Model.Replies</td>
+    <td>day @Model.ReplyDay @Model.ReplyDate.ToString("HH:mm")</td>
+</tr>

@@ -1,0 +1,34 @@
+﻿@model Sociatis.Models.Hotels.HotelInfoViewModel
+
+<div id="hotelInfo" class="row ContentBox entityInfoBox">
+    <div class="row">
+        <div class="small-3 medium-4 columns">
+            <div class="infoAvatar relative">
+                @Html.DisplayFor(m => m.Avatar)
+                @if (Model.AvatarChange != null)
+                {
+                    @Html.EditorFor(m => m.AvatarChange)
+                }
+            </div>
+        </div>
+        <div class="small-9 medium-8 columns">
+            <h5>@Html.ActionLink(Model.Name, "View", "Hotel", new { hotelID = Model.ID }, null)</h5>
+            <h5>Owner:  @Html.ActionLink(Model.OwnerName, "View", "Entity", new { entityID = Model.OwnerID }, null)</h5>
+            <h5>
+                @Html.ActionLink(Model.RegionName, "View", "Region", new { regionID = Model.RegionID }, null)
+                , @Html.ActionLink(Model.CountryName, "View", "Country", new { countryID = Model.CountryID }, null)
+            </h5>
+            <div class="centerVerticalFlex">
+                Condition:
+                <div style="margin-left:0.5rem" class="inline container-bar-full" title="@Model.Condition%" data-tooltip>
+                    <div class="hp-bar" style="width:@Model.ConditionPercent%; background-color:@Model.ConditionColor; "></div>
+                </div>
+            </div>
+            <h5>
+                @Model.RoomsDescription
+            </h5>
+        </div>
+    </div>
+    @Html.DisplayFor(m => m.Menu)
+</div>
+

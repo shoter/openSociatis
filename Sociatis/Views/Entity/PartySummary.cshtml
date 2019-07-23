@@ -1,0 +1,13 @@
+﻿@model Sociatis.Models.Party.PartySummaryViewModel
+@using Weber.Helpers
+
+<div class="text-center">
+<p>
+    @Html.ActionLink("Switch back into " + Model.SwitchBackEntityName, "SwitchBack", "Entity")
+</p>
+    @Html.DisplayFor(m => m.Avatar)
+<br />
+    @Html.ActionLink(Model.Name, "View", "Party", new { partyID = Model.PartyID }, null)
+</div>
+
+@Html.RenderCurrentTime()

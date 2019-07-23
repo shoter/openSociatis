@@ -1,0 +1,871 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="14.0" DefaultTargets="Build" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <Import Project="$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props" Condition="Exists('$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props')" />
+  <Import Project="$(MSBuildExtensionsPath32)\Microsoft\VisualStudio\v$(VisualStudioVersion)\WebApplications\Microsoft.WebApplication.targets" />
+  <PropertyGroup>
+    <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
+    <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
+    <ProjectGuid>{380A6F11-2271-4223-9C25-CE187BD3CC08}</ProjectGuid>
+    <OutputType>Library</OutputType>
+    <AppDesignerFolder>Properties</AppDesignerFolder>
+    <RootNamespace>Entities</RootNamespace>
+    <AssemblyName>Entities</AssemblyName>
+    <TargetFrameworkVersion>v4.5.2</TargetFrameworkVersion>
+    <FileAlignment>512</FileAlignment>
+    <NuGetPackageImportStamp>
+    </NuGetPackageImportStamp>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
+    <DebugSymbols>true</DebugSymbols>
+    <DebugType>full</DebugType>
+    <Optimize>false</Optimize>
+    <OutputPath>bin\Debug\</OutputPath>
+    <DefineConstants>DEBUG;TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|AnyCPU' ">
+    <DebugType>pdbonly</DebugType>
+    <Optimize>true</Optimize>
+    <OutputPath>bin\Release\</OutputPath>
+    <DefineConstants>TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)' == 'Test|AnyCPU'">
+    <DebugSymbols>true</DebugSymbols>
+    <OutputPath>bin\Test\</OutputPath>
+    <DefineConstants>DEBUG;TRACE</DefineConstants>
+    <DebugType>full</DebugType>
+    <PlatformTarget>AnyCPU</PlatformTarget>
+    <ErrorReport>prompt</ErrorReport>
+    <CodeAnalysisRuleSet>MinimumRecommendedRules.ruleset</CodeAnalysisRuleSet>
+  </PropertyGroup>
+  <ItemGroup>
+    <Reference Include="EntityFramework, Version=6.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089, processorArchitecture=MSIL">
+      <HintPath>..\packages\EntityFramework.6.2.0\lib\net45\EntityFramework.dll</HintPath>
+    </Reference>
+    <Reference Include="EntityFramework.SqlServer, Version=6.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089, processorArchitecture=MSIL">
+      <HintPath>..\packages\EntityFramework.6.2.0\lib\net45\EntityFramework.SqlServer.dll</HintPath>
+    </Reference>
+    <Reference Include="System" />
+    <Reference Include="System.ComponentModel.DataAnnotations" />
+    <Reference Include="System.Core" />
+    <Reference Include="System.Data.Linq" />
+    <Reference Include="System.Runtime.Serialization" />
+    <Reference Include="System.Security" />
+    <Reference Include="System.Web" />
+    <Reference Include="System.Xml.Linq" />
+    <Reference Include="System.Data.DataSetExtensions" />
+    <Reference Include="Microsoft.CSharp" />
+    <Reference Include="System.Data" />
+    <Reference Include="System.Net.Http" />
+    <Reference Include="System.Xml" />
+  </ItemGroup>
+  <ItemGroup>
+    <Compile Include="AggregatedCounter.cs">
+      <DependentUpon>EntityModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="AllowedEmail.cs">
+      <DependentUpon>EntityModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Article.cs">
+      <DependentUpon>EntityModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="ArticleComment.cs">
+      <DependentUpon>EntityModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="ArticleVote.cs">
+      <DependentUpon>EntityModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Battle.cs">
+      <DependentUpon>EntityModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="BattleEvent.cs">
+      <DependentUpon>EntityModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="BattleParticipant.cs">
+      <DependentUpon>EntityModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="BattleStatus.cs">
+      <DependentUpon>EntityModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="BugReport.cs">
+      <DependentUpon>EntityModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Citizen.cs">
+      <DependentUpon>EntityModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="CommentRestriction.cs">
+      <DependentUpon>EntityModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Company.cs">
+      <DependentUpon>EntityModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="CompanyEmployee.cs">
+      <DependentUpon>EntityModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="CompanyFinanceSummary.cs">
+      <DependentUpon>EntityModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="CompanyManager.cs">
+      <DependentUpon>EntityModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="CompanyType.cs">
+      <DependentUpon>EntityModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="ConfigurationTable.cs">
+      <DependentUpon>EntityModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="CongressCandidate.cs">
+      <DependentUpon>EntityModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="CongressCandidateStatus.cs">
+      <DependentUpon>EntityModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="CongressCandidateVote.cs">
+      <DependentUpon>EntityModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="CongressCandidateVoting.cs">
+      <DependentUpon>EntityModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Congressman.cs">
+      <DependentUpon>EntityModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="CongressVote.cs">
+      <DependentUpon>EntityModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="CongressVoting.cs">
+      <DependentUpon>EntityModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="CongressVotingComment.cs">
+      <DependentUpon>EntityModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="CongressVotingRejectionReason.cs">
+      <DependentUpon>EntityModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="CongressVotingReservedMoney.cs">
+      <DependentUpon>EntityModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Construction.cs">
+      <DependentUpon>EntityModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="ContractJobOffer.cs">
+      <DependentUpon>EntityModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Counter.cs">
+      <DependentUpon>EntityModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Country.cs">
+      <DependentUpon>EntityModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="CountryEvent.cs">
+      <DependentUpon>EntityModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="CountryEventType.cs">
+      <DependentUpon>EntityModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="CountryInWar.cs">
+      <DependentUpon>EntityModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="CountryPolicy.cs">
+      <DependentUpon>EntityModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="CountryVotingEvent.cs">
+      <DependentUpon>EntityModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Currency.cs">
+      <DependentUpon>EntityModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="DebugDayChanx.cs">
+      <DependentUpon>EntityModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="DevIssue.cs">
+      <DependentUpon>EntityModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="DevIssueComment.cs">
+      <DependentUpon>EntityModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="DevIssueLabelType.cs">
+      <DependentUpon>EntityModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="DevIssueUploadedFile.cs">
+      <DependentUpon>EntityModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="DevIssueVote.cs">
+      <DependentUpon>EntityModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Embargo.cs">
+      <DependentUpon>EntityModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Entity.cs">
+      <DependentUpon>EntityModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="EntityModel.Context.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>EntityModel.Context.tt</DependentUpon>
+    </Compile>
+    <Compile Include="EntityModel.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>EntityModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="EntityModel.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>EntityModel.edmx</DependentUpon>
+    </Compile>
+    <Compile Include="EntityType.cs">
+      <DependentUpon>EntityModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="enums\Attributes\AlwaysVotableAttribute.cs" />
+    <Compile Include="enums\Attributes\ConstructionAttribute.cs" />
+    <Compile Include="enums\Attributes\DoNotShowStockQuantityAttribute.cs" />
+    <Compile Include="enums\Attributes\WhoCanBuyAttribute.cs" />
+    <Compile Include="enums\BattleStatusEnum.cs" />
+    <Compile Include="enums\BusinessTypeEnum.cs" />
+    <Compile Include="enums\CommentRestrictionTypeEnum.cs" />
+    <Compile Include="enums\CompanyFinanceTypeEnum.cs" />
+    <Compile Include="enums\CompanyRightsEnum.cs" />
+    <Compile Include="enums\CompanyTypeEnum.cs" />
+    <Compile Include="enums\CongressCandidateStatusEnum.cs" />
+    <Compile Include="enums\CongressVotingRejectionReasonEnum.cs" />
+    <Compile Include="enums\CountryEventTypeEnum.cs" />
+    <Compile Include="enums\CurrencyTypeEnum.cs" />
+    <Compile Include="enums\DevIssueLabelTypeEnum.cs" />
+    <Compile Include="enums\EntityTypeEnum.cs" />
+    <Compile Include="enums\EventTypeEnum.cs" />
+    <Compile Include="enums\FurnitureTypeEnum.cs" />
+    <Compile Include="enums\HotelRightsEnum.cs" />
+    <Compile Include="enums\JobOfferTypeEnum.cs" />
+    <Compile Include="enums\JobTypeEnum.cs" />
+    <Compile Include="enums\JoinMethodsEnum.cs" />
+    <Compile Include="enums\LawAllowHolderEnum.cs" />
+    <Compile Include="enums\MemberStatusEnum.cs" />
+    <Compile Include="enums\MilitaryRankEnum.cs" />
+    <Compile Include="enums\MonetaryOfferTypeEnum.cs" />
+    <Compile Include="enums\NewspaperRightsEnum.cs" />
+    <Compile Include="enums\PartyEventTypeEnum.cs" />
+    <Compile Include="enums\PartyRoleEnum.cs" />
+    <Compile Include="enums\PathFindingModeEnum.cs" />
+    <Compile Include="enums\PresidentCandidateStatusEnum.cs" />
+    <Compile Include="enums\ProductTypeEnum.cs" />
+    <Compile Include="enums\ResourceFertilityEnum.cs" />
+    <Compile Include="enums\ResourceTypeEnum.cs" />
+    <Compile Include="enums\ProductTaxTypeEnum.cs" />
+    <Compile Include="enums\SupplyProgramTypeEnum.cs" />
+    <Compile Include="enums\TraderTypeEnum.cs" />
+    <Compile Include="enums\TradeSideEnum.cs" />
+    <Compile Include="enums\TradeStatusEnum.cs" />
+    <Compile Include="enums\TransactionTypeEnum.cs" />
+    <Compile Include="enums\PlayerTypeEnum.cs" />
+    <Compile Include="enums\VisibilityOptionEnum.cs" />
+    <Compile Include="enums\VoteTypeEnum.cs" />
+    <Compile Include="enums\VotingStatusEnum.cs" />
+    <Compile Include="enums\VotingTypeEnum.cs" />
+    <Compile Include="enums\WarSideEnum.cs" />
+    <Compile Include="enums\WarStatusEnum.cs" />
+    <Compile Include="enums\WorkTypeEnum.cs" />
+    <Compile Include="Equipment.cs">
+      <DependentUpon>EntityModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="EquipmentItem.cs">
+      <DependentUpon>EntityModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Event.cs">
+      <DependentUpon>EntityModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="EventType.cs">
+      <DependentUpon>EntityModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Extensions\BattleExtensions.cs" />
+    <Compile Include="Extensions\ConstructionExtensions.cs" />
+    <Compile Include="Extensions\DevIssueExtensions.cs" />
+    <Compile Include="Extensions\EquipmentItemExtension.cs" />
+    <Compile Include="Extensions\HotelExtensions.cs" />
+    <Compile Include="Extensions\HouseChestExtensions.cs" />
+    <Compile Include="Extensions\HouseExtensions.cs" />
+    <Compile Include="Extensions\HouseFurnitureExtensions.cs" />
+    <Compile Include="Extensions\MarketOfferExtensions.cs" />
+    <Compile Include="Extensions\MonetaryOfferExtensions.cs" />
+    <Compile Include="Extensions\NewspaperJournalistExtension.cs" />
+    <Compile Include="Extensions\TradeExtensions.cs" />
+    <Compile Include="Extensions\WarExtensions.cs" />
+    <Compile Include="Friend.cs">
+      <DependentUpon>EntityModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="FriendRequest.cs">
+      <DependentUpon>EntityModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="FurnitureType.cs">
+      <DependentUpon>EntityModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="GiftTransaction.cs">
+      <DependentUpon>EntityModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Groups\ProductGroups.cs" />
+    <Compile Include="Hash.cs">
+      <DependentUpon>EntityModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Hospital.cs">
+      <DependentUpon>EntityModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="HospitalNationalityHealingOption.cs">
+      <DependentUpon>EntityModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Hotel.cs">
+      <DependentUpon>EntityModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="HotelManager.cs">
+      <DependentUpon>EntityModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="HotelPrice.cs">
+      <DependentUpon>EntityModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="HotelRoom.cs">
+      <DependentUpon>EntityModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="House.cs">
+      <DependentUpon>EntityModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="HouseChest.cs">
+      <DependentUpon>EntityModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="HouseChestItem.cs">
+      <DependentUpon>EntityModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="HouseFurniture.cs">
+      <DependentUpon>EntityModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Job.cs">
+      <DependentUpon>EntityModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="JobParameter.cs">
+      <DependentUpon>EntityModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="JobQueue.cs">
+      <DependentUpon>EntityModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="List.cs">
+      <DependentUpon>EntityModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="MemberStatus.cs">
+      <DependentUpon>EntityModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Models\Events\CountryEventModel.cs" />
+    <Compile Include="Models\Events\CountryVotingEventModel.cs" />
+    <Compile Include="Models\Events\EventModel.cs" />
+    <Compile Include="Models\Finances\CompanyFinance.cs" />
+    <Compile Include="PartyEvent.cs">
+      <DependentUpon>EntityModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="PartyEventType.cs">
+      <DependentUpon>EntityModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="PartyMemberEvent.cs">
+      <DependentUpon>EntityModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Repository\CompanyFinanceSummaryRepository.cs" />
+    <Compile Include="Repository\CountryEventRepository.cs" />
+    <Compile Include="Repository\EventRepository.cs" />
+    <Compile Include="Repository\HouseChestItemRepository.cs" />
+    <Compile Include="Repository\HouseFurnitureRepository.cs" />
+    <Compile Include="Repository\ICompanyFinanceSummaryRepository.cs" />
+    <Compile Include="Repository\ICountryEventRepository.cs" />
+    <Compile Include="Repository\IEventRepository.cs" />
+    <Compile Include="Repository\IHouseChestItemRepository.cs" />
+    <Compile Include="Repository\IHouseFurnitureRepository.cs" />
+    <Compile Include="Items\ItemBase.cs" />
+    <Compile Include="Extensions\CitizenExtensions.cs" />
+    <Compile Include="Extensions\CompanyExtension.cs" />
+    <Compile Include="Extensions\ConfigurationExtension.cs" />
+    <Compile Include="Extensions\CongressCandidateExtensions.cs" />
+    <Compile Include="Extensions\CongressCandidateVotingExtensions.cs" />
+    <Compile Include="Extensions\CongressVotingExtension.cs" />
+    <Compile Include="Extensions\CountryExtensions.cs" />
+    <Compile Include="Extensions\CountryPolicyExtension.cs" />
+    <Compile Include="Extensions\EmployeeExtension.cs" />
+    <Compile Include="Extensions\EntityExtension.cs" />
+    <Compile Include="Extensions\EquipmentExtension.cs" />
+    <Compile Include="Extensions\JobOfferExtensions.cs" />
+    <Compile Include="Extensions\PartyExtensions.cs" />
+    <Compile Include="Extensions\PartyMemberExtension.cs" />
+    <Compile Include="Extensions\RegionExtensions.cs" />
+    <Compile Include="Extensions\WalletExtension.cs" />
+    <Compile Include="Extensions\WalletMoneyExtension.cs" />
+    <Compile Include="Items\TravelTicket.cs" />
+    <Compile Include="JobContract.cs">
+      <DependentUpon>EntityModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="JobOffer.cs">
+      <DependentUpon>EntityModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="JobType.cs">
+      <DependentUpon>EntityModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="JoinMethod.cs">
+      <DependentUpon>EntityModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="LawAllowHolder.cs">
+      <DependentUpon>EntityModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="MailboxMessage.cs">
+      <DependentUpon>EntityModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="MarketOffer.cs">
+      <DependentUpon>EntityModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Message.cs">
+      <DependentUpon>EntityModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="MessageThread.cs">
+      <DependentUpon>EntityModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="MilitaryProtectionPact.cs">
+      <DependentUpon>EntityModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="MilitaryProtectionPactOffer.cs">
+      <DependentUpon>EntityModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Models\Battles\AggregatedBattleParticipant.cs" />
+    <Compile Include="Models\Businesses\Business.cs" />
+    <Compile Include="Models\Citizens\CitizenSummaryInfo.cs" />
+    <Compile Include="Models\Constructions\NationalConstruction.cs" />
+    <Compile Include="Models\Hospitals\HealingPrice.cs" />
+    <Compile Include="Models\Hospitals\HospitalManage.cs" />
+    <Compile Include="Models\Hotels\HotelInfo.cs" />
+    <Compile Include="Models\Hotels\HotelMain.cs" />
+    <Compile Include="Models\Hotels\HotelMainRoom.cs" />
+    <Compile Include="Models\Hotels\HotelManagersModel.cs" />
+    <Compile Include="Models\Hotels\HotelRights.cs" />
+    <Compile Include="Models\Hotels\HotelRoomInfo.cs" />
+    <Compile Include="Models\Hotels\HotelRoomModel.cs" />
+    <Compile Include="Models\Market\MarketOfferModel.cs" />
+    <Compile Include="Models\Regions\RegionSpawnInformation.cs" />
+    <Compile Include="Models\Wallet\MoneyModel.cs" />
+    <Compile Include="MonetaryOffer.cs">
+      <DependentUpon>EntityModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="MonetaryOfferType.cs">
+      <DependentUpon>EntityModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="MonetaryTransaction.cs">
+      <DependentUpon>EntityModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="NewDay.cs">
+      <DependentUpon>EntityModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Newspaper.cs">
+      <DependentUpon>EntityModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="NewspaperJournalist.cs">
+      <DependentUpon>EntityModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="NormalJobOffer.cs">
+      <DependentUpon>EntityModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Organisation.cs">
+      <DependentUpon>EntityModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Party.cs">
+      <DependentUpon>EntityModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="PartyInvite.cs">
+      <DependentUpon>EntityModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="PartyJoinRequest.cs">
+      <DependentUpon>EntityModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="PartyMember.cs">
+      <DependentUpon>EntityModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="PartyPresidentCandidate.cs">
+      <DependentUpon>EntityModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="PartyPresidentVote.cs">
+      <DependentUpon>EntityModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="PartyPresidentVoting.cs">
+      <DependentUpon>EntityModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="PartyRole.cs">
+      <DependentUpon>EntityModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Passage.cs">
+      <DependentUpon>EntityModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="PlayerType.cs">
+      <DependentUpon>EntityModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Polygon.cs">
+      <DependentUpon>EntityModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="PolygonPoint.cs">
+      <DependentUpon>EntityModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="PresidentCandidate.cs">
+      <DependentUpon>EntityModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="PresidentCandidateStatus.cs">
+      <DependentUpon>EntityModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="PresidentVote.cs">
+      <DependentUpon>EntityModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="PresidentVoting.cs">
+      <DependentUpon>EntityModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Product.cs">
+      <DependentUpon>EntityModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="ProductTax.cs">
+      <DependentUpon>EntityModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="ProductTaxType.cs">
+      <DependentUpon>EntityModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="QueryEnums\WarActivitySearchCriteria.cs" />
+    <Compile Include="Region.cs">
+      <DependentUpon>EntityModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Repository\ArticleRepository.cs" />
+    <Compile Include="Repository\Base\IPersistentRepositoryStorage.cs" />
+    <Compile Include="Repository\Base\PersistentListStorage.cs" />
+    <Compile Include="Repository\Base\PersistentRepositoryBase.cs" />
+    <Compile Include="Repository\BattleRepository.cs" />
+    <Compile Include="Repository\BugReportRepository.cs" />
+    <Compile Include="Repository\BusinessRepository.cs" />
+    <Compile Include="Repository\CitizenRepository.cs" />
+    <Compile Include="Repository\CompanyEmployeeRepository.cs" />
+    <Compile Include="Repository\CompanyManagerRepository.cs" />
+    <Compile Include="Repository\CompanyRepository.cs" />
+    <Compile Include="Repository\ConfigurationRepository.cs" />
+    <Compile Include="Repository\CongressCandidateVotingRepository.cs" />
+    <Compile Include="Repository\CongressmenRepository.cs" />
+    <Compile Include="Repository\CongressVotingReservedMoneyRepository.cs" />
+    <Compile Include="Repository\ConstructionRepository.cs" />
+    <Compile Include="Repository\CountryPersistentRepository.cs" />
+    <Compile Include="Repository\CurrencyPersistentRepository.cs" />
+    <Compile Include="Repository\DebugDayChangeRepository.cs" />
+    <Compile Include="Repository\DevIssueCommentRepository.cs" />
+    <Compile Include="Repository\DevIssueRepository.cs" />
+    <Compile Include="Repository\EmbargoRepository.cs" />
+    <Compile Include="Repository\EquipmentItemRepository.cs" />
+    <Compile Include="Repository\FriendRepository.cs" />
+    <Compile Include="Repository\GiftTransactionRepository.cs" />
+    <Compile Include="Repository\HospitalRepository.cs" />
+    <Compile Include="Repository\HotelManagerRepository.cs" />
+    <Compile Include="Repository\HotelRepository.cs" />
+    <Compile Include="Repository\HotelRoomRepository.cs" />
+    <Compile Include="Repository\HouseRepository.cs" />
+    <Compile Include="Repository\IArticleRepository.cs" />
+    <Compile Include="Repository\IBattleRepository.cs" />
+    <Compile Include="Repository\IBugReportRepository.cs" />
+    <Compile Include="Repository\IBusinessRepository.cs" />
+    <Compile Include="Repository\ICompanyManagerRepository.cs" />
+    <Compile Include="Repository\ICongressCandidateVotingRepository.cs" />
+    <Compile Include="Repository\ICongressmenRepository.cs" />
+    <Compile Include="Repository\ICongressVotingReservedMoneyRepository.cs" />
+    <Compile Include="Repository\IConstructionRepository.cs" />
+    <Compile Include="Repository\IDebugDayChangeRepository.cs" />
+    <Compile Include="Repository\IDevIssueCommentRepository.cs" />
+    <Compile Include="Repository\IDevIssueRepository.cs" />
+    <Compile Include="Repository\IEmbargoRepository.cs" />
+    <Compile Include="Repository\IEquipmentItemRepository.cs" />
+    <Compile Include="Repository\IFriendRepository.cs" />
+    <Compile Include="Repository\IGiftTransactionRepository.cs" />
+    <Compile Include="Repository\IHospitalRepository.cs" />
+    <Compile Include="Repository\IHotelManagerRepository.cs" />
+    <Compile Include="Repository\IHotelRepository.cs" />
+    <Compile Include="Repository\IHotelRoomRepository.cs" />
+    <Compile Include="Repository\IHouseRepository.cs" />
+    <Compile Include="Repository\IMilitaryProtectionPactOfferRepository.cs" />
+    <Compile Include="Repository\INewDayRepository.cs" />
+    <Compile Include="Repository\IPartyInviteRepository.cs" />
+    <Compile Include="Repository\IPartyJoinRequestRepository.cs" />
+    <Compile Include="Repository\IPolygonRepository.cs" />
+    <Compile Include="Repository\IMarketOfferRepository.cs" />
+    <Compile Include="Repository\IMilitaryProtectionPactRepository.cs" />
+    <Compile Include="Repository\IMonetaryOfferRepository.cs" />
+    <Compile Include="Repository\IMonetaryTransactionRepository.cs" />
+    <Compile Include="Repository\INewspaperRepository.cs" />
+    <Compile Include="Repository\IPresidentVotingRepository.cs" />
+    <Compile Include="Repository\IProductTaxRepository.cs" />
+    <Compile Include="Repository\IReservedEntityNameRepository.cs" />
+    <Compile Include="Repository\IResourceRepository.cs" />
+    <Compile Include="Repository\ISellHouseRepository.cs" />
+    <Compile Include="Repository\IShoutboxChannelRepository.cs" />
+    <Compile Include="Repository\IShoutboxMessageRepository.cs" />
+    <Compile Include="Repository\ITradeMoneyRepository.cs" />
+    <Compile Include="Repository\ITradeProductRepository.cs" />
+    <Compile Include="Repository\ITradeRepository.cs" />
+    <Compile Include="Repository\ITruceRepository.cs" />
+    <Compile Include="Repository\IUploadRepository.cs" />
+    <Compile Include="Repository\IVotingGreetingMessageRepository.cs" />
+    <Compile Include="Repository\IWarningRepository.cs" />
+    <Compile Include="Repository\IWarRepository.cs" />
+    <Compile Include="Repository\MarketOfferRepository.cs" />
+    <Compile Include="Repository\MilitaryProtectionPactOfferRepository.cs" />
+    <Compile Include="Repository\MilitaryProtectionPactRepository.cs" />
+    <Compile Include="Repository\MonetaryOfferRepository.cs" />
+    <Compile Include="Repository\MonetaryTransactionRepository.cs" />
+    <Compile Include="Repository\NewDayRepository.cs" />
+    <Compile Include="Repository\NewspaperRepository.cs" />
+    <Compile Include="Repository\PartyInviteRepository.cs" />
+    <Compile Include="Repository\PartyJoinRequestRepository.cs" />
+    <Compile Include="Repository\PartyMemberRepository.cs" />
+    <Compile Include="Repository\CongressVotingRepository.cs" />
+    <Compile Include="Repository\ContractRepository.cs" />
+    <Compile Include="Repository\CountryRepository.cs" />
+    <Compile Include="Repository\CurrencyRepository.cs" />
+    <Compile Include="Repository\EntityRepository.cs" />
+    <Compile Include="Repository\EquipmentRepository.cs" />
+    <Compile Include="Repository\ICitizenRepository.cs" />
+    <Compile Include="Repository\ICompanyEmployeeRepository.cs" />
+    <Compile Include="Repository\ICompanyRepository.cs" />
+    <Compile Include="Repository\IConfigurationRepository.cs" />
+    <Compile Include="Repository\IPartyMemberRepository.cs" />
+    <Compile Include="Repository\ICongressVotingRepository.cs" />
+    <Compile Include="Repository\IContractRepository.cs" />
+    <Compile Include="Repository\ICountryRepository.cs" />
+    <Compile Include="Repository\ICurrencyRepository.cs" />
+    <Compile Include="Repository\IEntityRepository.cs" />
+    <Compile Include="Repository\IEquipmentRepository.cs" />
+    <Compile Include="Repository\IJobOfferRepository.cs" />
+    <Compile Include="Repository\IMessageRepository.cs" />
+    <Compile Include="Repository\IOrganisationRepository.cs" />
+    <Compile Include="Repository\IPartyRepository.cs" />
+    <Compile Include="Repository\IProductRepository.cs" />
+    <Compile Include="Repository\IRegionRepository.cs" />
+    <Compile Include="Repository\ISessionRepository.cs" />
+    <Compile Include="Repository\ITransactionLogRepository.cs" />
+    <Compile Include="Repository\IVerificationEmailRepository.cs" />
+    <Compile Include="Repository\IWalletRepository.cs" />
+    <Compile Include="Repository\JobOfferRepository.cs" />
+    <Compile Include="Repository\MessageRepository.cs" />
+    <Compile Include="Repository\OrganisationRepository.cs" />
+    <Compile Include="Repository\PartyRepository.cs" />
+    <Compile Include="Repository\PolygonRepository.cs" />
+    <Compile Include="Repository\PresidentVotingRepository.cs" />
+    <Compile Include="Repository\ProductRepository.cs" />
+    <Compile Include="Repository\ProductTaxRepository.cs" />
+    <Compile Include="Repository\RegionPersistentRepository.cs" />
+    <Compile Include="Repository\RegionRepository.cs" />
+    <Compile Include="Repository\ReservedEntityNameRepository.cs" />
+    <Compile Include="Repository\ResourceRepository.cs" />
+    <Compile Include="Repository\SellHouseRepository.cs" />
+    <Compile Include="Repository\SessionRepository.cs" />
+    <Compile Include="Repository\ShoutboxChannelRepository.cs" />
+    <Compile Include="Repository\ShoutboxMessageRepository.cs" />
+    <Compile Include="Repository\SingleChangeRepository.cs" />
+    <Compile Include="Repository\TradeMoneyRepository.cs" />
+    <Compile Include="Repository\TradeProductRepository.cs" />
+    <Compile Include="Repository\TradeRepository.cs" />
+    <Compile Include="Repository\TransactionLogRepository.cs" />
+    <Compile Include="Repository\TruceRepository.cs" />
+    <Compile Include="Repository\UploadRepository.cs" />
+    <Compile Include="Repository\VerificationEmailRepository.cs" />
+    <Compile Include="Repository\VotingGreetingMessageRepository.cs" />
+    <Compile Include="Repository\WalletRepository.cs" />
+    <Compile Include="Repository\WarningRepository.cs" />
+    <Compile Include="Repository\WarRepository.cs" />
+    <Compile Include="ReservedEntityName.cs">
+      <DependentUpon>EntityModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Resource.cs">
+      <DependentUpon>EntityModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="ResourceType.cs">
+      <DependentUpon>EntityModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Schema.cs">
+      <DependentUpon>EntityModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Selector\ArticleDomSelector.cs" />
+    <Compile Include="Selector\JobOffersDOMSelector.cs" />
+    <Compile Include="SellHouse.cs">
+      <DependentUpon>EntityModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Server.cs">
+      <DependentUpon>EntityModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Session.cs">
+      <DependentUpon>EntityModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Set.cs">
+      <DependentUpon>EntityModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="ShoutboxChannel.cs">
+      <DependentUpon>EntityModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="ShoutboxMessage.cs">
+      <DependentUpon>EntityModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="State.cs">
+      <DependentUpon>EntityModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="structs\CitizenDom.cs" />
+    <Compile Include="structs\EntityDom.cs" />
+    <Compile Include="structs\jobOffers\CountryBestJobOffers.cs" />
+    <Compile Include="structs\jobOffers\JobOffersDOM.cs" />
+    <Compile Include="structs\MonetaryMarket\ActualBuySellOffers.cs" />
+    <Compile Include="structs\MonetaryMarket\ReservedMoney.cs" />
+    <Compile Include="structs\Neighbour.cs" />
+    <Compile Include="structs\Newspapers\ArticleCommentDom.cs" />
+    <Compile Include="structs\Newspapers\ArticleDom.cs" />
+    <Compile Include="structs\SessionDom.cs" />
+    <Compile Include="structs\Trades\TradeMoneyFindArgs.cs" />
+    <Compile Include="structs\Trades\TradeProductFindArgs.cs" />
+    <Compile Include="Trade.cs">
+      <DependentUpon>EntityModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="TradeMoney.cs">
+      <DependentUpon>EntityModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="TradeProduct.cs">
+      <DependentUpon>EntityModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="TradeStatus.cs">
+      <DependentUpon>EntityModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="TransactionLog.cs">
+      <DependentUpon>EntityModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="TransactionType.cs">
+      <DependentUpon>EntityModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Truce.cs">
+      <DependentUpon>EntityModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Upload.cs">
+      <DependentUpon>EntityModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="UploadLocation.cs">
+      <DependentUpon>EntityModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="VerificationEmail.cs">
+      <DependentUpon>EntityModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="VisibilityOption.cs">
+      <DependentUpon>EntityModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="VoteType.cs">
+      <DependentUpon>EntityModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="VotingGreetingMessage.cs">
+      <DependentUpon>EntityModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="VotingStatus.cs">
+      <DependentUpon>EntityModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="VotingType.cs">
+      <DependentUpon>EntityModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Wallet.cs">
+      <DependentUpon>EntityModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="WalletMoney.cs">
+      <DependentUpon>EntityModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="War.cs">
+      <DependentUpon>EntityModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="WarEvent.cs">
+      <DependentUpon>EntityModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Warning.cs">
+      <DependentUpon>EntityModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="WarStatus.cs">
+      <DependentUpon>EntityModel.tt</DependentUpon>
+    </Compile>
+  </ItemGroup>
+  <ItemGroup>
+    <EntityDeploy Include="EntityModel.edmx">
+      <Generator>EntityModelCodeGenerator</Generator>
+      <LastGenOutput>EntityModel.Designer.cs</LastGenOutput>
+    </EntityDeploy>
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="App.Base.Config">
+      <DependentUpon>App.Config</DependentUpon>
+    </None>
+    <None Include="App.Config">
+      <TransformOnBuild>true</TransformOnBuild>
+    </None>
+    <None Include="App.Debug.Config">
+      <DependentUpon>App.Config</DependentUpon>
+      <IsTransformFile>True</IsTransformFile>
+      <SubType>Designer</SubType>
+    </None>
+    <None Include="App.Release.Config">
+      <DependentUpon>App.Config</DependentUpon>
+      <IsTransformFile>True</IsTransformFile>
+    </None>
+    <None Include="App.SocTest.Config">
+      <DependentUpon>App.Config</DependentUpon>
+    </None>
+    <None Include="App.Test.Config">
+      <DependentUpon>App.Config</DependentUpon>
+      <IsTransformFile>True</IsTransformFile>
+    </None>
+    <None Include="EntityModel.edmx.diagram">
+      <DependentUpon>EntityModel.edmx</DependentUpon>
+    </None>
+    <None Include="packages.config" />
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="EntityModel.Context.tt">
+      <Generator>TextTemplatingFileGenerator</Generator>
+      <DependentUpon>EntityModel.edmx</DependentUpon>
+      <LastGenOutput>EntityModel.Context.cs</LastGenOutput>
+    </Content>
+    <Content Include="EntityModel.tt">
+      <Generator>TextTemplatingFileGenerator</Generator>
+      <DependentUpon>EntityModel.edmx</DependentUpon>
+      <LastGenOutput>EntityModel.cs</LastGenOutput>
+    </Content>
+  </ItemGroup>
+  <ItemGroup>
+    <Service Include="{508349B6-6B84-4DF5-91F0-309BEEBAD82D}" />
+  </ItemGroup>
+  <ItemGroup>
+    <ProjectReference Include="..\C-Common\Common\Common.csproj">
+      <Project>{7833de49-4309-4c54-bd72-ea7b9f99f71f}</Project>
+      <Name>Common</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\SociatisCommon\SociatisCommon.csproj">
+      <Project>{14589fee-dd34-4264-965c-8edba22abfe1}</Project>
+      <Name>SociatisCommon</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\WebUtils\WebUtils.csproj">
+      <Project>{3737CAE9-1E9F-4687-B53D-D1A7D43DE19C}</Project>
+      <Name>WebUtils</Name>
+    </ProjectReference>
+  </ItemGroup>
+  <ItemGroup />
+  <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
+  <Import Project="..\packages\Microsoft.VisualStudio.SlowCheetah.3.0.61\build\Microsoft.VisualStudio.SlowCheetah.targets" Condition="Exists('..\packages\Microsoft.VisualStudio.SlowCheetah.3.0.61\build\Microsoft.VisualStudio.SlowCheetah.targets')" />
+  <Target Name="EnsureNuGetPackageBuildImports" BeforeTargets="PrepareForBuild">
+    <PropertyGroup>
+      <ErrorText>This project references NuGet package(s) that are missing on this computer. Use NuGet Package Restore to download them.  For more information, see http://go.microsoft.com/fwlink/?LinkID=322105. The missing file is {0}.</ErrorText>
+    </PropertyGroup>
+    <Error Condition="!Exists('..\packages\Microsoft.VisualStudio.SlowCheetah.3.0.61\build\Microsoft.VisualStudio.SlowCheetah.targets')" Text="$([System.String]::Format('$(ErrorText)', '..\packages\Microsoft.VisualStudio.SlowCheetah.3.0.61\build\Microsoft.VisualStudio.SlowCheetah.targets'))" />
+  </Target>
+  <Target Name="BeforeBuild">
+    <TransformXml Source="App.Base.config" Transform="App.$(Configuration).config" Destination="App.config" />
+  </Target>
+  <PropertyGroup>
+    <PostBuildEvent>
+    </PostBuildEvent>
+  </PropertyGroup>
+  <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
+       Other similar extension points exist, see Microsoft.Common.targets.
+  <Target Name="BeforeBuild">
+  </Target>
+  <Target Name="AfterBuild">
+  </Target>
+  -->
+</Project>

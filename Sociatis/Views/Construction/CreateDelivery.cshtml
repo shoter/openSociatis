@@ -1,0 +1,83 @@
+﻿@model Sociatis.Models.Constructions.ConstructionCreateDeliveryViewModel
+
+@{
+    ViewBag.Title = "Create delivery";
+    ScriptInjector.AddScript("~/Scripts/market/sociatis.market.js");
+}
+
+@Html.DisplayFor(m => m.Info)
+
+<div class="ContentBox">
+    <h3>Filters</h3>
+    @using (Html.BeginForm(RouteDataHelper.ActionName + "Post", RouteDataHelper.ControllerName, FormMethod.Post))
+    {
+        <div class="row">
+            <div class="medium-3 small-6 columns">
+                @Html.DropDownList("countryID", Model.Market.CountryList, new { })
+            </div>
+            <div class="medium-3 small-6 columns">
+                @Html.DropDownList("productID", Model.Market.ProductList)
+            </div>
+            <div class="medium-3 small-6 columns">
+                @Html.DropDownList("quality", Model.Market.QualityList)
+            </div>
+            <div class="medium-3 small-6 columns">
+                <button class="button blue">Search</button>
+            </div>
+        </div>
+    }
+</div>
+
+<div class="ContentBox">
+    <h3>@Model.Info.CountryName Market offers</h3>
+    <div class="marketOffersList">
+        @for (int i = 0; i < Model.Market.Offers.Count; ++i)
+        {
+            var offer = Model.Market.Offers[i];
+            @Html.DisplayFor(m => offer)
+        }
+    </div>
+
+    <hr />
+
+    @using (Html.BeginForm(RouteDataHelper.ActionName + "Post", RouteDataHelper.ControllerName, new { countryID = Model.Info.CountryID, quality = Model.Market.Quality, productID = Model.Market.ProductID }, FormMethod.Post, null))
+    {
+        @PagingParamHtmlHelper.Render(Model.Market.PagingParam)
+    }
+
+</div>
+
+
+<div id="walletChooser" style="display:none">
+    @using (Html.BeginForm("MakeDelivery", "Construction", new { constructionID = Model.Info.ConstructionID }, FormMethod.Post, null))
+    {
+        <input type="hidden" name="amount" id="deliveryAmount" />
+        <input type="hidden" name="offerID" id="deliveryOfferID" />
+        <div class="walletChooser">
+            <div>Needed money: <span id="neededMoney">-</span></div>
+            <div>
+                <select id="walletChooser">
+                    Choose wallet:
+                    @foreach (var w in Model.PossibleWalletIDs)
+                    {
+                        <option value="@w.Key">
+                            @w.Value
+                        </option>
+                    }
+                </select>
+            </div>
+            <div>Available money: <span id="availableMoney">-</span></div>
+            <div>
+                <button id="proceedWallet" class="button green pull-right">Proceed</button>
+            </div>
+        </div>
+    }
+</div>
+
+<script>
+    Sociatis.Global.ConstructionID = @Model.Info.ConstructionID;
+</script>
+@{
+    ScriptInjector.AddScript("~/Scripts/Construction/sociatis.construction.create_delivery.js");
+}
+<script src="~/Scripts/Shared/sociatis.walletChooser.js"></script>

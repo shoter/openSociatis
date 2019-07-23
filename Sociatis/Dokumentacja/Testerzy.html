@@ -1,0 +1,430 @@
+<!DOCTYPE html>
+<html>
+<head>
+<title>Testerzy</title>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<style type="text/css">
+/* GitHub stylesheet for MarkdownPad (http://markdownpad.com) */
+/* Author: Nicolas Hery - http://nicolashery.com */
+/* Version: b13fe65ca28d2e568c6ed5d7f06581183df8f2ff */
+/* Source: https://github.com/nicolahery/markdownpad-github */
+
+/* RESET
+=============================================================================*/
+
+html, body, div, span, applet, object, iframe, h1, h2, h3, h4, h5, h6, p, blockquote, pre, a, abbr, acronym, address, big, cite, code, del, dfn, em, img, ins, kbd, q, s, samp, small, strike, strong, sub, sup, tt, var, b, u, i, center, dl, dt, dd, ol, ul, li, fieldset, form, label, legend, table, caption, tbody, tfoot, thead, tr, th, td, article, aside, canvas, details, embed, figure, figcaption, footer, header, hgroup, menu, nav, output, ruby, section, summary, time, mark, audio, video {
+  margin: 0;
+  padding: 0;
+  border: 0;
+}
+
+/* BODY
+=============================================================================*/
+
+body {
+  font-family: Helvetica, arial, freesans, clean, sans-serif;
+  font-size: 14px;
+  line-height: 1.6;
+  color: #333;
+  background-color: #fff;
+  padding: 20px;
+  max-width: 960px;
+  margin: 0 auto;
+}
+
+body>*:first-child {
+  margin-top: 0 !important;
+}
+
+body>*:last-child {
+  margin-bottom: 0 !important;
+}
+
+/* BLOCKS
+=============================================================================*/
+
+p, blockquote, ul, ol, dl, table, pre {
+  margin: 15px 0;
+}
+
+/* HEADERS
+=============================================================================*/
+
+h1, h2, h3, h4, h5, h6 {
+  margin: 20px 0 10px;
+  padding: 0;
+  font-weight: bold;
+  -webkit-font-smoothing: antialiased;
+}
+
+h1 tt, h1 code, h2 tt, h2 code, h3 tt, h3 code, h4 tt, h4 code, h5 tt, h5 code, h6 tt, h6 code {
+  font-size: inherit;
+}
+
+h1 {
+  font-size: 28px;
+  color: #000;
+}
+
+h2 {
+  font-size: 24px;
+  border-bottom: 1px solid #ccc;
+  color: #000;
+}
+
+h3 {
+  font-size: 18px;
+}
+
+h4 {
+  font-size: 16px;
+}
+
+h5 {
+  font-size: 14px;
+}
+
+h6 {
+  color: #777;
+  font-size: 14px;
+}
+
+body>h2:first-child, body>h1:first-child, body>h1:first-child+h2, body>h3:first-child, body>h4:first-child, body>h5:first-child, body>h6:first-child {
+  margin-top: 0;
+  padding-top: 0;
+}
+
+a:first-child h1, a:first-child h2, a:first-child h3, a:first-child h4, a:first-child h5, a:first-child h6 {
+  margin-top: 0;
+  padding-top: 0;
+}
+
+h1+p, h2+p, h3+p, h4+p, h5+p, h6+p {
+  margin-top: 10px;
+}
+
+/* LINKS
+=============================================================================*/
+
+a {
+  color: #4183C4;
+  text-decoration: none;
+}
+
+a:hover {
+  text-decoration: underline;
+}
+
+/* LISTS
+=============================================================================*/
+
+ul, ol {
+  padding-left: 30px;
+}
+
+ul li > :first-child, 
+ol li > :first-child, 
+ul li ul:first-of-type, 
+ol li ol:first-of-type, 
+ul li ol:first-of-type, 
+ol li ul:first-of-type {
+  margin-top: 0px;
+}
+
+ul ul, ul ol, ol ol, ol ul {
+  margin-bottom: 0;
+}
+
+dl {
+  padding: 0;
+}
+
+dl dt {
+  font-size: 14px;
+  font-weight: bold;
+  font-style: italic;
+  padding: 0;
+  margin: 15px 0 5px;
+}
+
+dl dt:first-child {
+  padding: 0;
+}
+
+dl dt>:first-child {
+  margin-top: 0px;
+}
+
+dl dt>:last-child {
+  margin-bottom: 0px;
+}
+
+dl dd {
+  margin: 0 0 15px;
+  padding: 0 15px;
+}
+
+dl dd>:first-child {
+  margin-top: 0px;
+}
+
+dl dd>:last-child {
+  margin-bottom: 0px;
+}
+
+/* CODE
+=============================================================================*/
+
+pre, code, tt {
+  font-size: 12px;
+  font-family: Consolas, "Liberation Mono", Courier, monospace;
+}
+
+code, tt {
+  margin: 0 0px;
+  padding: 0px 0px;
+  white-space: nowrap;
+  border: 1px solid #eaeaea;
+  background-color: #f8f8f8;
+  border-radius: 3px;
+}
+
+pre>code {
+  margin: 0;
+  padding: 0;
+  white-space: pre;
+  border: none;
+  background: transparent;
+}
+
+pre {
+  background-color: #f8f8f8;
+  border: 1px solid #ccc;
+  font-size: 13px;
+  line-height: 19px;
+  overflow: auto;
+  padding: 6px 10px;
+  border-radius: 3px;
+}
+
+pre code, pre tt {
+  background-color: transparent;
+  border: none;
+}
+
+kbd {
+    -moz-border-bottom-colors: none;
+    -moz-border-left-colors: none;
+    -moz-border-right-colors: none;
+    -moz-border-top-colors: none;
+    background-color: #DDDDDD;
+    background-image: linear-gradient(#F1F1F1, #DDDDDD);
+    background-repeat: repeat-x;
+    border-color: #DDDDDD #CCCCCC #CCCCCC #DDDDDD;
+    border-image: none;
+    border-radius: 2px 2px 2px 2px;
+    border-style: solid;
+    border-width: 1px;
+    font-family: "Helvetica Neue",Helvetica,Arial,sans-serif;
+    line-height: 10px;
+    padding: 1px 4px;
+}
+
+/* QUOTES
+=============================================================================*/
+
+blockquote {
+  border-left: 4px solid #DDD;
+  padding: 0 15px;
+  color: #777;
+}
+
+blockquote>:first-child {
+  margin-top: 0px;
+}
+
+blockquote>:last-child {
+  margin-bottom: 0px;
+}
+
+/* HORIZONTAL RULES
+=============================================================================*/
+
+hr {
+  clear: both;
+  margin: 15px 0;
+  height: 0px;
+  overflow: hidden;
+  border: none;
+  background: transparent;
+  border-bottom: 4px solid #ddd;
+  padding: 0;
+}
+
+/* TABLES
+=============================================================================*/
+
+table th {
+  font-weight: bold;
+}
+
+table th, table td {
+  border: 1px solid #ccc;
+  padding: 6px 13px;
+}
+
+table tr {
+  border-top: 1px solid #ccc;
+  background-color: #fff;
+}
+
+table tr:nth-child(2n) {
+  background-color: #f8f8f8;
+}
+
+/* IMAGES
+=============================================================================*/
+
+img {
+  max-width: 100%
+}
+</style>
+</head>
+<body>
+<h1>Sociatis 0.2</h1>
+<h3>Wersja bardzo (bardzo) wczesnego dostępu</h3>
+<p>Po pierwsze na wstępie. Chciałbym wam z góry podziękować za czas poświęcony na testowanie mojej gry. Mam nadzieje że dzięki temu uda nam się stworzyć produkt który zadowoli wasze potrzeby jak i wymagania innych graczy. Jeszcze raz dziękuje.</p>
+<p>Tutaj zostaną przedstawione najważniejsze koncepcje które aktualnie działają w grze.</p>
+<p>Na panelu startowym gry będziecie mieć wyświetlony zestaw przycisków debugowych. Jest on dość ważny ze względu na to że gra działa w systemie dziennym a nie widze potrzeby uruchamiania harmonogragramu aby zmieniać dzień raz dziennie. Sami go sobie zmienicie za pomocą tego panelu. Dodatkowo możecie się tam uleczyć i dodać do ekwipunku dodatkowy przedmiot. Najpierw wybieracie przedmiot, potem jego jakość i na końcu wpisujecie jego ilość i sobie go pobieracie.</p>
+<p>Tutaj ważna uwaga. Niektóre przedmioty nie mogą mieć quality innego niż 1. Do takich przedmiotów zaliczają się:</p>
+<ul>
+<li>Żelazo</li>
+<li>Drewno</li>
+<li>Pszenica</li>
+<li>Liście herbaty</li>
+<li>Olej</li>
+<li>Papier</li>
+</ul>
+<h2>Ważne pojęcia</h2>
+<p>Entity - tak będe nazywał wszystkie grywalne obiekty w grze którymi mogą zarządzać gracze. Są to :</p>
+<ul>
+<li>Obywatele (citizen) - postać gracza</li>
+<li>Firma (company)</li>
+<li>Gazeta (newspaper)</li>
+<li>Organizacja (organisation)</li>
+<li>Państwo (country)</li>
+<li>Partia (party)</li>
+</ul>
+<h3>Zaimplementowane funkcjonalności</h3>
+<h5>System firm</h5>
+<p>Możemy założyć własną firmę. Mamy ich 3 rodzaje:
+- Firmy wydobywające/tworzące surowce (Żelazo, zboże etc.).
+- Firmy przetwarzające surowce/produkty na gotowe produkty (Większość firm).
+- Sklepy skupujące od przetwórców towary aby potem sprzedawać je na rynku krajowym/lokalnym.</p>
+<p>Aby firma produkujące surowce mogła efektywnie działać musi być postawiona w regionie który posiada surowce. Aktualnie nie ma nigdzie informacji o tym jakie surowce gdzie są więc możecie po prostu dodawać sobie surowiec poprzez menu debugu. Pojawi się to na dniach.</p>
+<p>Firma przetwarzająca/sklep aby kupić cokolwiek potrzebuje paliwa w celu przetransportowania surowców do swoich magazynów. Od razu po utworzeniu firmy dostajemy (a przynajmniej powinniśmy :P) jakąś startową ilość paliwa aby móc rozkręcić firme. (W przyszłości jak będziemy mogli kupić paliwo bez posiadania własnego paliwa w firmie. Ilośc zużyta przy transporcie zostanie odjęta od transportu).</p>
+<p>Wszystkie firmy mogą sprzedawać swój towar za pośrednictwem dwóch dróg :
+- Wystawić oferte na swojej stronie firmy. 
+- Wystawić oferte na rynku danego kraju (Może być płatne, zależy od tego co konkres ustali.)</p>
+<p>Jeśli oferta zostanie wystawiona na rynku danego kraju to wtedy będziemy mogli kupować towar takiej firmy z każdego miejsca w kraju w którym ten towar jest sprzedawany. W przeciwnym razie musimy być w tym samym regionie co firma (Dotyczy tylko sklepów, w przypadku wymiany między firmami nie ma takiego obowiązku).</p>
+<p>Wielkość produkcji każdego pracownika w firmie zależy od :
+- jakości towaru który produkuje. Im większa jakość tym dłużej produkujemy dany towar
+- (Tylko firmy surowcowe) Jakości złoża surowców
+- Rodzaju surowca (na razie tylko papier jest produkowany 3.5 razy szybciej)
+- Umiejętności pracownika
+- Zdrowia pracownika
+- Stanu zaopatrzenia danego regionu (o tym później!)</p>
+<p>Każda firma może zatrudnić pracownika na krzywy ryj lub za pomocą umowy.
+- Zatrudnienie na krzywy ryj polega na tym że tworzymy normalną oferte pracy. Możemy takiemu pracownikowi dowolnie zmieniać jego wynagrodzenie w czasie pracy u nas, jednakże on może w każdej chwili odejść.
+- Zatrudnienie za pomocą kontraktu. Określamy minimalną ilość punktów życia jaką musi posiadać pracownik aby mógł pracować. Nie może on pracować mająć mniejsza ilość życia. Dodatkowo określamy minimalną wypłate jaką możemy pracownikowi ustalić. Jego wypłate możemy zmienić w każdej chwili, jednakże nie może być ona mniejsza niż ta co była na kontrakcie.
+Pracownik nie może odejść w każdej chwili ani być zwlniony w każdej chwili. Pracownik może odejść jeśli pracodawca danego dnia nie wypłaci mu pieniędzy za prace lub nie będzie miał wystarczającej ilości surowców aby ten mógł kontynuować prace. Pracodawca może zwolnić pracownika jeśli następnego dnia jeśli pracownik nie pracował dzień wcześniej</p>
+<p>W firmie możemy określić domyślną ilość życia potrzebną do pracy dla pracowników na krzywy ryj. Jeśli nie będa mięc tej minimalnej ilości życia to nie mogą pracować. </p>
+<p>Sklepy aby sprzedwać muszą zatrudniać pracownikó którzy produkują 'moc sprzedaży'. 1 moc sprzedaży pozwala sprzedać 1 produkt. Każdy sklep ma na początek dnia 10 mocy sprzedaży.</p>
+<h5>Trening</h5>
+<p>Każdy obywatel może raz dziennie trenować na polu treningowym w celu zwiększenia swojej siły.
+Po roku grania obywatel winien mieć około 8 siły. Żeby zdobyć następny punkt siły musi poświęcić około 500 dni.
+Chyba jeszcze nie zaimplementowałem dobrze tej formuły. Jest napisana ale nie wykorzystana. Będzie poprawione</p>
+<p>Zależność siły od ilości dni spędzonych na treningu</p>
+<p><img src="http://i.imgur.com/ndnff1l.png" /></p>
+<h5>Wiadomości</h5>
+<p>Każde entity może wysłać i odbierać wiadomości od innego entity. Wiadomości posegregowane są w wątki do których możemy zaprosić większa ilość uczestników.
+Nie ma jak na razie żadnego widecznego powiadomienia o nowych wiadomościach dopóty nie wejdziemy do widoku z wiadomościami.</p>
+<h5>Alerty (warningi)</h5>
+<p>Wyświetlają informacje tekstowe o tym co się z nami ostatnio działo (szef nas wyrąbał z roboty etc.). 
+Nie ma żadnych widocznych powiadomień o nieodczytanych alertach.</p>
+<h5>System zaopatrzenia (supply)</h5>
+<p>KAŻDY region ma tzw poziom zaopatrzenia. Jego poziom determinuje skuteczność takich akcji jak :
+- Produkcja towarów
+- Obrażenia zadawane w walce przez obrońców (nie zaimplementowane jeszcze)</p>
+<p>Prezydent danego kraju może zwiększać dofinansowanie danych regionów swojego kraju na rzecz zwiększenia poziomu zaopatrzenia.
+Ma 4 poziomy dofinansowania w którym każdy pobiera inną ilość złota każdego dnia ze skarbca krajowego.
+Poziomy dofinansowania :
+- Brak. Przy takim stanie poziom zaopatrzenia będzie spadał do wartości 0.
+- Małe. Rośnie do ~1
+- Średnie. Rośnie do ~2.8
+- Duże. Rośnie do wartości maksymalnej 5.</p>
+<p>Po wygranej przegranej bitwie dochodzi do uskodzenia poziomu zaopatrzenia danego regionu.</p>
+<h5>Wojny</h5>
+<p>Można już toczyć wojny. Aktualnie po wypowiedzeniu wojny dochodzi do wezwania wszystkich aktualnych sojuszników do walki w danej wojnie.
+Każdy taki sojusznik bierze tzw niebezpośredni udział w wojnie. Jego żołnierze mogą brać udział w walkach ale nie może rozpoczynać walk lub być atakowanym.
+(Oczywiście można mu wypowiedzieć wojne aby nie czuł się taki niebezpośredni :P)
+Tylko 2 główne państwa w wojnie mogą atakować swoje regiony.</p>
+<p>Czy to rozwiązanie idealne/dobre? Nie wiem. Musze nad tym pomyśleć.</p>
+<p>Wojny i bitwy wypowiada prezydent. Do wypowiedzenia wojny potrzebuje złota.</p>
+<p>Wojny powodują utrudnienia w przepływie obywateli dla obywateli krajów które uczestniczą w wojnie. Koszt ruchu dla takich osobników jest zwiększony</p>
+<h5>Bitwy</h5>
+<p>W bitwach mogą brać udział wszyscy członkowie państw bezpośrednich/pośrednich biorących udział w wojnie.
+Ilość obrażen jakie zadadzą zależy od:
+- jakości broni którą użyją
+- Odległości od walki (lepiej podróżować do miejsca walki!)
+- Wartości zaopatrzenia (nie zaimplementowane)</p>
+<h5>Liczenie odległości (dotyczy bitew/podróży/handlu)</h5>
+<p>Wszystko jest liczone automatycznie. Wybierana jest najkrótsza możliwa droga.</p>
+<p>Podczas liczenia odległości dla bitwy przejścia między regionami gdzie na przejściu jest chociaż jeden wrogi region dochodzi do policzenia kary za bycie w wojnie.
+Przechodzenie przez regiony państw uczestniczących pośrednio w wojnie ma mniejsze kary. </p>
+<p>Podczas liczenia odległości podróży nie liczone są żadne kary.</p>
+<p>Podczas obliczania drogi dla handlu omijane są regiony z embargiem nałożonym na dany kraj (wypowiadanie embarg nie jest zaimplementowane)</p>
+<p>Na ostateczną odległość pokonaną na danym przejściu między regionami ma wpływ poziom infrastrktury między tymi dwoma regionami. Tym większy tym lepiej. 
+Aktualnie nie ma możliwości zmiany stopnia infrastruktury. W bazie danych są wstawione sztywne wartości</p>
+<h5>Partie</h5>
+<p>Politykują. Co jakiś czas są wybory na prezydenta partii i do kongresu.
+Prezydenta partii wybierają klubowicze danej partii.
+Wybory kongresowe są rozstrzygane za pomocą głosów obywateli.</p>
+<h5>Kongres</h5>
+<p>Tam politycy którzy dostali się do kongresu ustalają prawo.</p>
+<h5>Prezydent kraju</h5>
+<p>Wybierany co jakiś czas (czas ustalany przez kongres). Aktualnie może wypowiadać wojny i ustalać poziom dofinansowania zaopatrzenia.</p>
+<h5>Gazety</h5>
+<p>Organizacja/obywatel może założyc gazete i pisać w niej wiadomości. Oprócz tego można zaprosić do gazety dziennikarzy i określić im prawa wewnątrz gazety. Tacy zaproszeni ludzie są w stanie zarządzać gazetą i pisać w niej wiadomości.
+Gazeta może mieć płatne artykuły. W takim przypadku właściciel ustala cene jednej sztuki. Aby móc sprzedać 1 sztuke gazety należy mieć 1 sztuke papieru.</p>
+<h5>Organizacje</h5>
+<p>One wymagaja doszlifowania. Działają to na pewno. Nie moge za dużo o nich napisać bo nie mogę się zdecydować na koncepcje co z nimi zrobić.
+Ogólnie to są byty za pomocą których możemy zarządzać firmą/gazetą w większa ilość osób.</p>
+<h4>Embarga</h4>
+<p>Zostały wprowadzone w wersji 0.2.2.5</p>
+<p>Pozwalają na całkowitą blokade ruchu handlowego między danymi państwami. Powoduje to omijanie państw podczas obliczania kosztów podróży w wymianach handlowych firm. Skutkiem takiego embarga może być drastyczny wzrost zaopotrzebowania na paliwo w handlu.</p>
+<p>Każde embargo może zostać zainicjowane przez prezydenta. Embarga mają swój dzienny koszt utrzymania.</p>
+<h5>Mapa</h5>
+<p>Jest w bardzo biednej wersji :).</p>
+<p><img src="http://i.imgur.com/3g6lewG.png" /></p>
+<p>Liczby między regionami oznaczają ilość kilometrów między nimi. Pamiętajmy że ostateczna odległość może być zależna od wojny/infrastruktury.</p>
+<h3>Interfejs</h3>
+<p>jest brzydki bo testowy. Doskonale o tym wiem :)</p>
+<h3>Monetary Market</h3>
+<p>Nareszcie został zaimplementowany. Nie wiem dokładnie jak działą Forex więc model działania oparłem bardziej o GPW z tym że na GPW handluje się akcjami a tutaj musiałem przełożyć to na waluty.</p>
+<p>Można tworzyć oferte sprzedaży/kupna danej waluty i jeśli po stworzeniu oferty jest inna oferta na podstawie której może nastapić wymiana to do takowej wymiany dochodzi na rynku i jest aktualizowany aktualny kurs waluty.</p>
+<p>Jest pobierany od tego podatek.
+Każde państwo może wprowadzić procent wartości jaki pobiera z MM oraz minimalny podatek jaki trzeba zapłacić jeśli obliczony procent ceny jest mniejszy od podanej wartości minimalnej.</p>
+<h3>Nowe wersje.</h3>
+<p>Jeśli pojawi się jakaś nowa wersja której schemat bazy danych jest niezgodny ze schematem starej wersi to nastąpi restart.
+Nie ma co się bawić w dodawaniu pojedynczych kolumn do bazy etc. I tak jest to wersja mocno testowa :).</p>
+<p>Jeszcze najważniejsze. Za pomocą <a href="http://testx.sociatis.net/Account/Register">http://testx.sociatis.net/Account/Register</a> możecie się zarejestrować.<br/>
+Za pomocą <a href="http://testx.sociatis.net/Account/Login">http://testx.sociatis.net/Account/Login</a>  możecie się zalogować.<br/>
+Wasze hasła są zaszyfrowane. Jak je zgubicie i chcecie dostęp do swojego konta to moge je co najwyżej ustawić na dane hasło. To i tak wersja testowa więc nie sądze aby taka potrzeba zaistniała.</p>
+<p>Email nie jest weryfikowany w żaden sposób. Najlepiej podać coś w stylu a@b.c</p>
+<p>Pozdrawiam,</p>
+<p><em>Admin</em></p>
+
+</body>
+</html>
+<!-- This document was created with MarkdownPad, the Markdown editor for Windows (http://markdownpad.com) -->

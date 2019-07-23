@@ -1,0 +1,80 @@
+﻿@model Sociatis.Models.JobOffers.JobMarketViewModel
+<div class="ContentBox">
+    <h3>Job market</h3>
+    <hr/>
+
+    @using (Ajax.BeginForm("Offers", new AjaxOptions()
+    {
+        HttpMethod = "POST",
+        UpdateTargetId = "searchResults",
+        OnBegin = "Sociatis.AjaxBegin();",
+        OnComplete = "Sociatis.AjaxEnd();",
+        OnFailure = "Sociatis.AjaxError(xhr.responseText);"
+    }))
+    {
+        <input type="hidden" id="MinSalary" name="MinSalary" />
+        <input type="hidden" id="MaxSalary" name="MaxSalary" />
+        <input type="hidden" id="MinSkill" name="MinSkill" />
+        <input type="hidden" id="MaxSkill" name="MaxSkill" />
+        <div class="row">
+            <div class="large-3 medium-4 small-12 columns">
+                <div class="row">
+                    <div class="small-12 columns">
+                        <label for="CountryID">Select country :</label>
+                        @Html.DropDownListFor(m => m.CountryID, Model.Countries)
+                    </div>
+                    <div class="small-12 columns">
+                        <label for="WorkTypeID">Select work type:</label>
+                        @Html.DropDownList("WorkTypeID", Model.WorkTypes)
+                    </div>
+                    <div class="small-12 columns">
+                        <label for="offerType">Select offer type:</label>
+                        @Html.DropDownList("offerType", Model.OfferTypes)
+                    </div>
+                    <div class="small-12 columns">
+                        <label for="sameRegion">Only your region</label>
+                        <input type="checkbox" id="sameRegion" name="sameRegion" value="true" />
+                    </div>
+                </div>
+            </div>
+            <div class="large-9 medium-8 small-12 columns">
+                <div class="row">
+                    <div class="small-12 columns">
+                        <div class="text-center salary-slider-helper">Salary</div>
+                        <div class="salary-slider" data-min="0" data-max="@Model.MinMax.MaximumSalary" data-symbol="@Model.MinMax.CurrencySymbol"></div>
+                        <div class="text-center salary-slider-text"></div>
+                    </div>
+                </div>
+                <div class="row">
+                    <div class="small-12 columns">
+                        <div class="text-center skill-slider-helper">Skill</div>
+                        <div class="skill-slider" data-min="0" data-max="@Model.MinMax.MaximumSkill"></div>
+                        <div class="text-center skill-slider-text"></div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <button class="button blue pull-right">Search</button>
+    }
+
+
+    <hr/>
+    <h4>Search results: </h4>
+    <div id="searchResults" >
+
+    </div>
+</div>
+
+<div id="contractDialog" style="display:none">
+
+
+</div>
+
+
+
+@section scripts
+{
+    @Scripts.Render("~/Scripts/joboffer/sociatis.job_offer.main.js")
+    @Scripts.Render("~/Scripts/Company/sociatis.job_offers.js")
+}
+

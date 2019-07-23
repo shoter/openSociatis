@@ -1,0 +1,25 @@
+﻿@model Sociatis.Models.Party.CreatePartyViewModel
+
+@{ 
+
+}
+@using (Html.BeginForm("Create"))
+{
+<div class="row ContentBox">
+    <h4>Create Party</h4>
+
+    @Html.LabelFor(m => m.Name)
+    @Html.EditorFor(m => m.Name)
+
+    @Html.LabelFor(m => m.AdminFee)
+    @Html.DisplayFor(m => m.AdminFee)
+
+    @Html.LabelFor(m => m.CountryFee)
+    @Html.DisplayFor(m => m.CountryFee)
+
+    <p>
+        <button class="button pull-right">Create</button>
+    </p>
+
+</div>
+}

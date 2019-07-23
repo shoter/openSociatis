@@ -1,0 +1,4 @@
+﻿@model Sociatis.Models.Congress.Votings.ViewTransferCashToCompanyViewModel
+
+<h4>Proposition #@Model.VotingID : Donate @Model.Amount @Model.CurrencySymbol to @Html.ActionLink(Model.CompanyName, "View", "Company", new { companyID = Model.CompanyID }, null)</h4>
+by @Html.ActionLink(Model.CreatorName, "View", "Citizen", new { citizenID = Model.CreatorID }, null)

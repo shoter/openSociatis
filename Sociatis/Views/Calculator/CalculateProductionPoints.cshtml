@@ -1,0 +1,49 @@
+﻿@model Sociatis.Models.Calculator.CalculateProductionPointsViewModel
+@{
+   
+}
+
+@using (Html.BeginForm(RouteDataHelper.ActionName, RouteDataHelper.ControllerName, FormMethod.Post, new { id = "calculator" }))
+{
+    <div class="contentBox">
+        <h4>Production Points Calculator</h4>
+
+        @Html.ValidationSummary()
+
+        <label>Product</label>
+        @Html.DropDownListFor(m => m.ProducedProductID, Model.Products)
+
+        <label>HitPoints</label>
+        @Html.TextBoxFor(m => m.HitPoints)
+
+        <label>Quality</label>
+        @Html.TextBoxFor(m => m.Quality)
+
+        <label>Skill</label>
+        @Html.TextBoxFor(m => m.Skill)
+
+        <label>People in company(including you)</label>
+        @Html.TextBoxFor(m => m.PeopleCount)
+
+        <label>Development</label>
+        @Html.TextBoxFor(m => m.Development)
+
+        <label>Distance (0 if you work on place)</label>
+        @Html.TextBoxFor(m => m.Distance)
+
+        <label>Resource Quality (if company is producing raw).</label>
+        @Html.DropDownListFor(m => m.ResourceQuality, Model.ResourceQualities)
+
+        <br />
+        <button class="button blue">Calculate</button>
+
+        @if (Model.Result.HasValue)
+        {
+            <hr />
+            <h4>Result</h4>
+            @Math.Round(Model.Result.Value, 4) @:Production <br />
+    }
+    </div>
+}
+
+<script src="~/Scripts/calculators/sociatis.production_points.calc.js"></script>

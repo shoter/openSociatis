@@ -1,0 +1,32 @@
+﻿@model Sociatis.Models.Party.PartyPendingInviteListViewModel
+
+@{
+    ViewBag.Title = "Invites";
+}
+
+@Html.DisplayFor(m => m.Info)
+
+<div class="ContentBox">
+    <h4>Invited citizens</h4>
+    <div class="row partyInviteRow small-up-2 medium-up-3 large-up-5" data-equalizer data-equalize-on="small">
+        @foreach (var invite in Model.CitizensWithInvites)
+            {
+            <div data-citizenid="@invite.ID" class="column column-block relative" data-equalizer-watch>
+                @Html.DisplayFor(m => invite)
+                @if (Model.Info.PartyRole > Entities.enums.PartyRoleEnum.Member)
+                {
+                <span class="partyInviteDelete">
+                    <a onclick="removeInvite(@invite.ID, @Model.Info.PartyID)">
+                        <i class="fa fa-trash fa-3x red"></i>
+                    </a>
+                </span>
+                }
+            </div>
+        }
+    </div>
+</div>
+
+@section scripts
+{
+    <script src="~/Scripts/party/sociatis.party.invites.js"></script>
+}

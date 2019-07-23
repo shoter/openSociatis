@@ -1,0 +1,42 @@
+﻿@import "definitions.scss";
+
+
+.partyRequest {
+    background-color: $rowBackground;
+    border: 1px solid rgba($rowBorder, 0.21);
+    padding: 1rem 0.5rem;
+    margin-bottom: 1rem;
+    display: flex;
+
+    justify-content: space-between; 
+    @include respond-to-only(mobile) {
+        flex-direction: column;
+    }
+
+    
+}
+
+.partyRequestMessage {
+    white-space: pre-wrap;
+    flex: 0 0 65%;
+    @include respond-to(tablet) {
+        margin-right: 2rem;
+    }
+    background-color: lighten($rowBackground, 3%);
+    border: 1px solid rgba($rowBorder, 0.13);
+    padding: 0.8rem 1.5rem;
+}
+
+.partyRequestAvatar {
+    margin-left: 2rem;
+    margin-right: 2rem;
+
+    @include respond-to-only(mobile) {
+        @include centerHorizontalFlex;
+    }
+
+    @include respond-to(tablet) {
+        @include centerVerticalFlex;
+    }
+}
+

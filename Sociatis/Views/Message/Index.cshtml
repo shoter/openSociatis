@@ -1,0 +1,28 @@
+﻿@model Sociatis.Models.Messages.MessageIndexViewModel
+
+@{
+    ViewBag.Title = "Messages";
+}
+
+
+<div class="ContentBox">
+    <h3>Messages</h3>
+    <p>
+        <a class="button" href="@Url.Action("Send")">Create new message</a>
+    </p>
+    <div>
+        <table>
+            <thead>
+                <tr>
+                    <th>Title</th>
+                    <th>Recipients</th>
+                    <th>Replies</th>
+                    <th>Last Reply</th>
+                </tr>
+            </thead>
+            <tbody>
+                @Html.DisplayFor(m => m.Messages)
+            </tbody>
+        </table>
+    </div>
+</div>

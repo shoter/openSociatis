@@ -1,0 +1,14 @@
+﻿@model Sociatis.Models.Citizens.CitizenDropdownViewModel
+
+<li>
+    <a href="#">Citizen</a>
+    <ul class="menu vertical">
+        @if (Model.JobID != null)
+        {
+            <li><a href="@Url.Action("View", "Company", new { ID = Model.JobID.Value })">Job</a></li>
+        }
+        <li><a href="@Url.Action("Inventory", "Citizen", new { ID = Model.CitizenID })">Inventory</a></li>
+        <li><a href="@Url.Action("Index", "Message")">Messages</a></li>
+        <li><a href="@Url.Action("View", "Citizen", new { ID = Model.CitizenID })" >Profile</a></li>
+    </ul>
+</li>

@@ -1,0 +1,73 @@
+﻿@model Sociatis.Models.Companies.CompanyAddSpecificMarketOfferViewModel
+
+
+@using (Html.BeginForm(RouteDataHelper.ActionName, RouteDataHelper.ControllerName, FormMethod.Post))
+{
+    <input type="hidden" id="companyID" name="companyID" value="@Model.Info.CompanyID" />
+    @Html.HiddenFor(m => m.ProductID)
+    @Html.HiddenFor(m => m.Quality)
+
+    <div class="ContentBox">
+        <h3>Create market offer</h3>
+        @Html.ValidationSummary()
+        <div class="row">
+
+            <div class="small-12 large-6 columns">
+                <h4>Product</h4>
+                <div class="equipmentItem marketOfferCreateItem">
+                    <div class="equipmentImage">
+                        <div class="centerHorizontalFlex">
+                            @Html.DisplayFor(m => m.ProductImage)
+                        </div>
+                    </div>
+                    <div class="equipmentQuality">
+                        @for (int i = 0; i < Model.Quality; ++i)
+                {
+                            <i class="fa fa-star"></i>
+                    }
+                    </div>
+
+                    <div class="addMarketOffer">
+                        <div class="small-12 columns">
+                            @Html.TextBoxFor(m => m.Amount, new { placeholder = "Amount" })
+                            @Html.TextBoxFor(m => m.Price, new { placeholder = "Price" })
+                        </div>
+                    </div>
+                </div>
+                
+            </div>
+            
+            <div class="small-12 large-6 columns">
+
+
+
+                <h4>Public market options</h4>
+                @Html.DropDownListFor(m => m.CountryID, Model.Countries)
+
+                <div id="MarketFee">
+                    Free
+                </div>
+
+                <div id="freeHint">
+                    Without market offer your offer will not be visible across a country. Your buyer will need to go to your company offer page to see it. <br/> <br/>
+                </div>
+            </div>
+        </div>
+
+        <div id="CalculateCost">
+
+        </div>
+
+        <text class="hint">
+            Całe to "okienko" zostanie przeniesione potem w popup
+        </text>
+
+        <button class="button green pull-right">Create</button>
+
+    </div>
+}
+
+<script type="text/javascript">
+    ProductQualityList = @Html.Raw(Json.Encode ( Model.ProductQualities ));
+    CompanyID = @Model.Info.CompanyID;
+</script>

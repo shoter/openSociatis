@@ -1,0 +1,1584 @@
+﻿.contract
+{
+    font-family: Helvetica, sans-serif;
+    background: linear-gradient(rgba(46, 172, 255, 0.2) 1px, transparent 1px), #ffffff;
+    background-size: 80px 40px, 80px 40px;
+    overflow: hidden;
+    padding: 10px 40px;
+}
+
+.contractDialog
+{
+    font-family: Helvetica, sans-serif;
+    background: linear-gradient(0, #fff2ff, #f2f2f2);
+    padding: 10px 5px;
+}
+
+.mailMessage
+{
+    padding: 12px 0 0 8px;
+    overflow: hidden;
+}
+
+.messageAvatar
+{
+    display: flex;
+    justify-content: center;
+}
+
+    .messageAvatar img
+    {
+        width: 6rem;
+        height: 100%;
+    }
+
+.author-box
+{
+    background: #f5f5f5;
+}
+
+article.messageContent
+{
+    background: rgba(46, 172, 255, 0.07);
+    width: 100%;
+    padding-left: 10px;
+    padding-top: 5px;
+    border: 1px solid rgba(8, 26, 38, 0.13);
+    border-radius: 10px;
+}
+
+
+
+.strechFlex
+{
+    align-items: stretch;
+}
+
+.fullWidth
+{
+    width: 100%;
+}
+
+.inlineDisplay
+{
+    display: inline;
+}
+
+.noMargin
+{
+    margin: 0 !important;
+}
+
+.noHorizontalPadding
+{
+    padding-left: 0 !important;
+    padding-right: 0 !important;
+}
+
+.miniAvatars img
+{
+    width: 3em;
+    height: 3em;
+    border: 1px solid gray;
+    margin-left: 0.5em;
+}
+
+
+
+.miniFlags img
+{
+    width: 3.8em;
+    height: 3em;
+    border: 1px solid gray;
+    margin-left: 0.5em;
+}
+
+.relative
+{
+    position: relative;
+}
+
+.alignBottom
+{
+    margin: auto;
+    margin-bottom: 0;
+}
+
+#overallInfo
+{
+    padding-bottom: 10px;
+    overflow: visible;
+}
+/*
+#overallInfo > div:nth-child(2) {
+    display: flex;
+    -ms-flex-direction: column;
+    -webkit-flex-direction: column;
+    flex-direction: column;
+}*/
+
+.input-control button
+{
+    margin-top: 14px;
+}
+
+.button
+{
+    border-radius: 2px;
+}
+
+    .button.green
+    {
+        border: 1px solid #004500;
+        background-color: #20a320;
+        color: white;
+        font-weight: 700;
+    }
+
+i.fa.green
+{
+    color: green;
+}
+
+i.fa.red
+{
+    color: red;
+}
+
+.text.red
+{
+    color: red;
+}
+
+.text.green
+{
+    color: green;
+}
+
+.button.blue
+{
+    border: 1px solid #093551;
+    background-color: rgba(0, 116, 194, 0.87);
+    color: white;
+    font-weight: 700;
+}
+
+.button.red
+{
+    border: 1px solid #510909;
+    background-color: rgba(194, 0, 0, 0.87);
+    color: white;
+    font-weight: 700;
+}
+
+label.red
+{
+    color: red;
+}
+
+label.green
+{
+    color: green;
+}
+
+
+.infoAvatar
+{
+    margin-bottom: 1.5em;
+}
+
+    .infoAvatar img
+    {
+        width: 100%;
+    }
+
+.yesVoters, .noVoters
+{
+    border: solid 1px #cacaca;
+    padding: 4px, 20px;
+}
+
+    .yesVoters .voter, .noVoters .voter
+    {
+        margin: 1rem;
+    }
+
+.yesVoters
+{
+    background-color: rgba(32, 163, 32, 0.07);
+}
+
+.noVoters
+{
+    background-color: rgba(255, 0, 0, 0.07);
+}
+
+.votingParty
+{
+    margin-top: 0;
+    font-size: small;
+    color: #838383;
+}
+
+.votingUsername
+{
+    display: block;
+    margin-bottom: 0;
+}
+
+.votingUserInfo, .congressMemberUserInfo
+{
+    margin-left: 1rem;
+}
+
+.congressMember
+{
+    margin-bottom: 0.5rem;
+}
+
+.tooltip-inner
+{
+    white-space: pre-wrap;
+}
+
+li > ul.menu.nested.voterUl
+{
+    margin-left: 0;
+}
+
+.congressVoteButton
+{
+    margin-left: 1rem;
+}
+
+.congressComment
+{
+    border: 1px solid rgba(0, 0, 0, 0.26);
+    border-radius: 5px;
+    padding: 10px 5px;
+    margin-bottom: 1em;
+    word-break: break-all;
+}
+
+.congressCommentAuthor
+{
+    background-color: rgba(0, 154, 255, 0.29);
+    border: 1px solid gray;
+    border-radius: 5px;
+    display: flex;
+    -ms-flex-direction: column;
+    -webkit-flex-direction: column;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+}
+
+    .congressCommentAuthor img
+    {
+        margin: auto;
+        margin-top: 1em;
+        margin-bottom: 0;
+    }
+
+.congressCommentMessage
+{
+    margin-top: 0;
+}
+
+.flex.flex-row
+{
+    -ms-flex-direction: row;
+    -webkit-flex-direction: row;
+    flex-direction: row;
+}
+
+.flex.flex-columns
+{
+    -ms-flex-direction: column;
+    -webkit-flex-direction: column;
+    flex-direction: column;
+}
+
+.flex-grow1
+{
+    flex-grow: 1;
+}
+
+.pagingParamContainer
+{
+    display: flex;
+    justify-content: space-between;
+    -ms-flex-direction: row;
+    -webkit-flex-direction: row;
+    flex-direction: row;
+}
+
+.smallAmount.pagingParamContainer
+{
+    justify-content: center !important;
+}
+
+.timeLeft
+{
+    font-size: xx-large;
+}
+
+text.green
+{
+    color: green;
+}
+
+text.red
+{
+    color: red;
+}
+
+.votingResult
+{
+    font-size: 2.5em;
+}
+
+.candidateInfo > .miniAvatars
+{
+    display: inline-block;
+    margin-right: 1em;
+}
+
+.candidateInfo > form
+{
+    display: inline-block;
+    margin: 1px
+}
+
+    .candidateInfo > form button
+    {
+        margin-bottom: 0;
+        margin-left: 1em;
+    }
+
+.candidateInfo
+{
+    margin-bottom: 2em;
+}
+
+.smallFont
+{
+    font-size: small;
+}
+
+
+
+#resourcesList
+{
+    margin-bottom: 1em;
+}
+
+.hp-bar
+{
+    background-color: #0bd50b;
+    height: 10px;
+}
+
+.hp-bar-big
+{
+    background-color: #0bd50b;
+    height: 1.3rem;
+}
+
+
+
+.exp-bar
+{
+    background-color: rgb(233, 147, 50);
+    height: 10px;
+}
+
+.exp-bar-big
+{
+    background-color: rgb(233, 147, 50);
+    height: 1.3rem;
+}
+
+.military-bar
+{
+    background-color: rgb(57, 123, 50);
+    height: 10px;
+}
+
+.military-bar-big
+{
+    background-color: rgb(57, 123, 50);
+    height: 1.3rem;
+}
+
+
+.BlendMix
+{
+    mix-blend-mode: difference;
+    color: white;
+    position: absolute;
+    margin-left: auto;
+    margin-right: auto;
+    left: 0;
+    right: 0;
+    top: 0;
+    bottom: 0;
+    text-align: center;
+}
+
+.queue-bar
+{
+    background-color: #310bd5;
+    height: 10px;
+}
+
+
+.container-bar
+{
+    background-color: #efefef;
+    border: 1px solid #8b8b8b;
+    width: 80%;
+    height: 12px;
+    margin-left: auto;
+    margin-right: auto;
+}
+
+.container-bar-big
+{
+    background-color: #efefef;
+    border: 1px solid #8b8b8b;
+    width: 80%;
+    height: calc(1.3rem + 2px);
+    margin-left: auto;
+    margin-right: auto;
+    position: relative;
+}
+
+.container-bar-full
+{
+    background-color: #efefef;
+    border: 1px solid #8b8b8b;
+    width: 100%;
+    height: 12px;
+}
+
+
+.container-bar-full-big
+{
+    background-color: #efefef;
+    border: 1px solid #8b8b8b;
+    width: 100%;
+    height: calc(1.3rem + 2px);
+    position: relative;
+}
+
+
+
+.marketOffer img
+{
+    width: 45px;
+    height: 45px;
+    margin-top: auto;
+    margin-bottom: auto;
+}
+
+.addMarketOffer
+{
+    display: flex;
+    justify-content: space-between;
+    -ms-flex-direction: row;
+    -webkit-flex-direction: row;
+    flex-direction: row;
+}
+
+    .addMarketOffer > *
+    {
+        margin-right: 0.5em;
+    }
+
+.marketOffersList
+{
+    margin-top: 1em;
+}
+
+.summaryAvatar
+{
+    display: flex;
+    justify-content: center;
+}
+
+    .summaryAvatar img
+    {
+        width: 4em;
+        height: 4em;
+        border: 1px solid gray;
+    }
+
+.entitySummary
+{
+    margin-top: 1em;
+    padding-left: 0 !important;
+    padding-right: 0 !important;
+}
+
+.summaryIcons
+{
+    margin-top: 0.1em;
+    margin-bottom: 0;
+    display: flex;
+    justify-content: space-around;
+    font-size: 1.3em;
+    padding: 0 1em;
+    align-items: baseline;
+}
+
+
+
+.sociatisWarning.unread
+{
+    background: rgba(243, 249, 81, 0.48);
+}
+
+.sociatisWarning input
+{
+    margin-bottom: 0;
+}
+
+.centerVerticalFlex
+{
+    display: flex;
+    align-items: center;
+}
+
+
+.dropdown-z-fix
+{
+    overflow: visible;
+    display: inline-block;
+}
+
+    .dropdown-z-fix > ul
+    {
+        z-index: 99;
+        position: relative;
+        display: inline-block;
+        overflow: visible;
+    }
+
+
+ul.dropdown.menu a.action
+{
+    width: 100%
+}
+/*
+.dropdown-z-fix::before, .dropdown-z-fix::after {
+    content: ' ';
+    display: table; }
+    */
+
+.bigFont
+{
+    font-size: x-large;
+}
+
+table.layoutFixed
+{
+    table-layout: fixed;
+}
+
+.allyRow
+{
+    margin-bottom: 1em;
+}
+
+.battleParticipants
+{
+    padding-top: 0.5em;
+    padding-bottom: 0.2em;
+    border-radius: 15px;
+    padding-left: 1em;
+}
+
+
+
+    .battleParticipants.attacker
+    {
+        background-color: rgba(255, 0, 0, 0.1);
+        margin-left: 1em;
+    }
+
+    .battleParticipants.defender
+    {
+        background-color: rgba(0, 0, 255, 0.1);
+        margin-right: 1em;
+    }
+
+.battleParticipant
+{
+    margin-bottom: 10px;
+}
+
+
+
+.buyGroup
+{
+    float: left;
+}
+
+input.buyGroup
+{
+    width: auto;
+}
+
+.productRequirementImageCenter
+{
+    margin-right: 0;
+    width: 100%;
+}
+
+.createForm
+{
+    margin-left: 1em;
+}
+
+.markdown-textarea
+{
+    height: 14em;
+    max-width: none;
+}
+
+.button-bar
+{
+    overflow: hidden;
+}
+
+.shortArticle:first-child
+{
+    border-right: 4px solid rgba(229, 229, 229, 0.2);
+}
+
+.shortArticle:last-child
+{
+    border-right: none;
+}
+
+.shortArticle > .articleImage
+{
+    position: relative;
+    display: flex;
+    justify-content: center;
+}
+
+    .shortArticle > .articleImage:hover::before
+    {
+        background: url(data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAEAAAABCAQAAAC1HAwCAAAAC0lEQVR4nGP6LwgAAhgBEwgl0bQAAAAASUVORK5CYII=) \9;
+        background: rgba(255,255,222,0.15);
+        content: "";
+        height: 100%;
+        left: 0;
+        position: absolute;
+        top: 0;
+        width: 100%;
+        z-index: 3;
+    }
+
+.row.articleRow
+{
+    border-top: 1px solid #dbdbdb;
+    padding-top: 10px;
+}
+
+.shortArticle > .articleImage img
+{
+    flex-basis: 0;
+    height: 15em;
+}
+
+.shortArticle > .articleInfo > div
+{
+    overflow: hidden;
+}
+
+.shortArticle > .articleDate
+{
+    float: right;
+    border: rgba(8, 26, 38, 0.13);
+    background-color: rgba(86, 46, 255, 0.80);
+    color: white;
+    padding: 5px 10px;
+}
+
+.lockedContent
+{
+    color: #d70000;
+    text-align: center;
+    margin-left: 5%;
+    width: 90%;
+    background-color: rgba(205, 205, 205, 0.18);
+    padding: 0.5em 1em;
+}
+
+.articleTitle
+{
+    text-align: center;
+}
+
+.articleContent
+{
+    width: 90%;
+    margin-left: 5%;
+}
+
+
+.lockedContentUnlock
+{
+    display: flex;
+    justify-content: center;
+    background-color: rgba(205, 205, 205, 0.10);
+    padding: 1em 0 0.1em 0;
+    margin-left: 5%;
+    width: 90%;
+    text-align: center;
+    flex-direction: column;
+    align-content: center;
+}
+
+    .lockedContentUnlock > button
+    {
+        align-self: center;
+    }
+
+    .lockedContentUnlock > text
+    {
+        color: black;
+        font-size: large;
+    }
+
+
+.lockedContent text
+{
+    font-size: small;
+}
+
+.lockedContent i.fa-lock, .lockedContent i.fa-circle-o
+{
+    color: #cb0000;
+}
+
+article .score, .articleSpotlight .score
+{
+    font-size: x-large;
+    margin-bottom: 0.2em;
+    display: flex;
+    flex-direction: column;
+    float: left;
+    text-align: center;
+}
+
+    article .score i
+    {
+        cursor: pointer;
+    }
+
+    article .score form
+    {
+        line-height: 0;
+    }
+
+    article .score text
+    {
+        line-height: 1.5rem;
+    }
+
+    article .score i:hover
+    {
+        color: #ababab;
+    }
+
+    article .score i.disabled
+    {
+        color: rgba(0,0,0, 0.4);
+        cursor: auto;
+    }
+
+        article .score i.disabled:hover
+        {
+            color: rgba(0,0,0, 0.4);
+        }
+
+.articleWriteComment textarea
+{
+    width: 25rem;
+    height: 4rem;
+    resize: none;
+    max-width: none;
+}
+
+.articleWriteComment button
+{
+    float: right;
+    margin-right: 1rem;
+    box-shadow: none;
+}
+
+    .articleWriteComment button.flash
+    {
+        box-shadow: 0px 0px 15px 1px rgba(0, 106, 222, 0.46);
+    }
+
+
+.articleWriteComment
+{
+    display: flex;
+    justify-content: center;
+    margin-bottom: 1em;
+    margin-left: auto;
+    margin-right: auto;
+}
+
+section.articleComments
+{
+    text-align: center
+}
+
+    section.articleComments > .ContentBox
+    {
+        display: inline-block;
+    }
+
+.articleWriteComment > div
+{
+    padding: 0.5em 1em 1em 1em;
+    background-color: rgba(205, 205, 205, 0.10);
+}
+
+.articleComment
+{
+    overflow: hidden;
+    margin-bottom: 1rem;
+    margin-left: 5rem;
+    margin-right: 5rem;
+    border-bottom: 1px solid rgba(128, 128, 128, 0.23);
+}
+
+    .articleComment .flex > div
+    {
+        flex-shrink: 0;
+    }
+
+    .articleComment .commentAuthor
+    {
+        display: flex;
+        overflow: visible;
+        padding: 0 0 0.5em 0.5em;
+        margin-left: 0.3em;
+        border-radius: 0.3em;
+    }
+
+        .articleComment .commentAuthor img
+        {
+            border-radius: 50%;
+            transition-delay: 0.1s;
+            transition-duration: 0.5s;
+        }
+
+            .articleComment .commentAuthor img:hover
+            {
+                border-radius: 0%;
+            }
+
+    .articleComment a
+    {
+        padding-left: 0.8em;
+        color: #1a1aff;
+        font-weight: 600;
+        margin-right: 1rem;
+        transition: color 0.2s ease-in-out;
+    }
+
+
+        .articleComment a:hover
+        {
+            color: #4a58b7;
+        }
+
+    .articleComment .commentContent
+    {
+        padding: 0 1em 1em 1em;
+        flex-grow: 1;
+        text-align: left;
+        word-break: break-all;
+    }
+
+    .articleComment .commentDate
+    {
+        overflow: hidden;
+        margin-bottom: 1em;
+        padding-right: 1em;
+        color: gray;
+    }
+
+        .articleComment .commentDate text
+        {
+            float: right;
+        }
+
+.articleSpotlight
+{
+    display: flex;
+}
+
+    .articleSpotlight .score
+    {
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+    }
+
+    .articleSpotlight .miniFlags
+    {
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+    }
+
+    .articleSpotlight .miniAvatars .flag img
+    {
+        width: 0.95em;
+        height: 0.75em;
+        border: 1px solid gray;
+        margin-left: calc(1em - 1px);
+        position: absolute;
+        left: 0.5em;
+        top: 0;
+    }
+
+    .articleSpotlight .day
+    {
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+        font-size: large;
+    }
+
+
+
+    .articleSpotlight .miniAvatars
+    {
+        position: relative;
+    }
+
+    .articleSpotlight a
+    {
+        font-size: large;
+    }
+
+
+.flex.default label, .centerVerticalFlex.default label,
+.flex.default button, .centerVerticalFlex.default button,
+.flex.default input, .centerVerticalFlex.default input
+{
+    margin-left: 1em;
+}
+
+
+
+.eliminateFoundationMargin input, input.eliminateButtonMargin,
+.eliminateFoundationMargin button, button.eliminateButtonMargin,
+.eliminateFoundationMargin .button, .button.eliminateButtonMargin
+{
+    margin-bottom: 0 !important;
+}
+
+.eliminateFoundationMargin td button, td button.eliminateButtonMargin,
+td.eliminateFoundationMargin button, td button.eliminateButtonMargin
+{
+    margin-top: 0 !important;
+}
+
+input.small
+{
+    width: 5em;
+}
+
+.bar
+{
+    height: 10px;
+    margin: 0 !important;
+}
+
+
+
+.flex.passages div
+{
+    margin: 0 1rem 0.5rem 1rem;
+}
+
+.p50Border img
+{
+    border-radius: 50%;
+    transition-delay: 0.1s;
+    transition-duration: 0.5s;
+}
+
+    .p50Border img:hover
+    {
+        border-radius: 0%;
+    }
+
+.no-border img
+{
+    border: none !important;
+}
+
+.noBottomMargin
+{
+    margin-bottom: 0;
+}
+
+.secondaryText
+{
+    color: gray;
+}
+
+button.embargoCancel
+{
+    margin-left: 1rem;
+    width: calc(100% - 1rem);
+}
+
+.marketOfferCreateItem
+{
+    display: inline-block;
+}
+
+.hint
+{
+    color: gray;
+}
+
+.shortInfo text
+{
+    display: block;
+}
+
+.shortInfo
+{
+    padding-bottom: 0.7rem;
+    padding-top: 0.7rem;
+    border-top: 1px solid rgba(128, 128, 128, 0.25);
+}
+
+    .shortInfo:nth-child(2n+1)
+    {
+        background-color: rgba(0, 154, 255, 0.05);
+    }
+
+    .shortInfo img
+    {
+        margin-right: 1.5rem;
+    }
+
+.productionQueue
+{
+    margin-top: 1rem;
+}
+
+.productCost text
+{
+    display: block;
+}
+
+.walletMoney
+{
+    border: 1px #c2c2c2 solid;
+    height: 3rem;
+    padding: 0.3rem 0.5rem 0.4rem 0.6rem;
+    box-shadow: 1px 1px 2px 0px rgba(0,0,0,0.2);
+    border-radius: 5px;
+}
+
+    .walletMoney img
+    {
+        width: 2.5rem;
+        margin: 1px;
+        border: 1px solid #b8b8b8;
+    }
+
+    .walletMoney > div
+    {
+        width: 100%;
+    }
+
+.overfall-info
+{
+    display: flex;
+    justify-content: center;
+}
+
+.text-2x
+{
+    font-size: large;
+}
+
+.text-3x
+{
+    font-size: x-large;
+}
+
+.text-4x
+{
+    font-size: xx-large;
+}
+
+.currencyBoxer
+{
+    border: 1px #c2c2c2 solid;
+    height: 3rem;
+    padding: 0.3rem 0.5rem 0.4rem 0.6rem;
+    box-shadow: 1px 1px 2px 0px rgba(0,0,0,0.2);
+    border-radius: 5px;
+}
+
+@media (min-width: 64em)
+{
+    .currencyBoxer
+    {
+        width: 50%;
+    }
+}
+
+.currencyBoxer img
+{
+    width: 2.5rem;
+    margin: 1px;
+    border: 1px solid #b8b8b8;
+}
+
+
+.pull-right-flex
+{
+    margin-left: auto;
+}
+
+.dropdown-pane button
+{
+    margin-bottom: 0.2rem;
+}
+
+
+
+.highlight:hover::before
+{
+    background: url(data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAEAAAABCAQAAAC1HAwCAAAAC0lEQVR4nGP6LwgAAhgBEwgl0bQAAAAASUVORK5CYII=) \9;
+    background: rgba(255,255,222,0.15);
+    content: "";
+    height: 100%;
+    left: 0;
+    position: absolute;
+    top: 0;
+    width: 100%;
+    z-index: 3;
+}
+
+
+
+
+
+
+.noselect
+{
+    -webkit-touch-callout: none; /* iOS Safari */
+    -webkit-user-select: none; /* Safari */
+    -khtml-user-select: none; /* Konqueror HTML */
+    -moz-user-select: none; /* Firefox */
+    -ms-user-select: none; /* Internet Explorer/Edge */
+    user-select: none; /* Non-prefixed version, currently
+                                  supported by Chrome and Opera */
+}
+
+.top-bar .dropdown > .menu-text
+{
+    padding-top: 0;
+    padding-bottom: 0;
+}
+
+.input-group
+{
+    display: flex;
+}
+
+.input-addon
+{
+    padding: 0.5rem 0.6rem;
+    background-color: rgb(230,230,230);
+    border: 1px solid rgba(50,50,50,0.3);
+    margin-bottom: 1rem;
+    height: 2.4375rem;
+    color: #555;
+    -webkit-box-shadow: inset 0 1px 2px rgba(10, 10, 10, 0.1);
+    -moz-box-shadow: inset 0 1px 2px rgba(10, 10, 10, 0.1);
+    box-shadow: inset 0 1px 2px rgba(10, 10, 10, 0.1);
+}
+
+    .input-addon:first-child
+    {
+        border-right: 0;
+    }
+
+    .input-addon:last-child
+    {
+        border-left: 0;
+    }
+
+#MonetaryMarketChart
+{
+    height: 35rem;
+}
+
+.monetaryAvatar
+{
+    border: 1px solid rgba(128, 128, 128, 0.62);
+}
+
+.overlayed
+{
+    position: relative;
+}
+
+.overlay
+{
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+}
+
+.atBottom
+{
+    position: absolute;
+    bottom: 0;
+}
+
+
+.dangerousAction
+{
+    color: red;
+    cursor: pointer;
+}
+
+    .dangerousAction:hover
+    {
+        color: #a42400;
+    }
+
+.battleHero
+{
+    padding-top: 0.5em;
+    padding-bottom: 0.2em;
+    border-radius: 15px;
+    padding-left: 1em;
+}
+
+    .battleHero.attacker
+    {
+        background-color: rgba(255, 0, 0, 0.1);
+        border: 1px solid #886c6c;
+        margin-left: 1em;
+    }
+
+    .battleHero.defender
+    {
+        background-color: rgba(0, 0, 255, 0.1);
+        border: 1px solid #6c7588;
+        margin-right: 1em;
+    }
+
+.warHero
+{
+    padding-top: 0.5em;
+    padding-bottom: 0.2em;
+    border-radius: 15px;
+    padding-left: 1em;
+    margin-bottom: 1rem;
+}
+
+    .warHero.attacker
+    {
+        border: 1px solid #886c6c;
+        background-color: rgba(255, 0, 0, 0.1);
+        margin-left: 1em;
+    }
+
+    .warHero.defender
+    {
+        border: 1px solid #6c7588;
+        background-color: rgba(0, 0, 255, 0.1);
+        margin-right: 1em;
+    }
+
+.moneyMargin
+{
+    margin-right: 0.4rem;
+}
+
+.soc-flex-columns
+{
+    display: flex;
+    align-items: center;
+}
+
+
+.bold
+{
+    font-weight: bold;
+}
+
+.dropdown-z-fix.float-right
+{
+    float: right;
+    margin-left: 20px;
+}
+
+
+
+
+.smallEntityName
+{
+    word-wrap: break-word;
+}
+
+.flexDisplayer
+{
+    display: flex;
+    justify-content: space-between
+}
+
+    .flexDisplayer.oneElement
+    {
+        justify-content: space-around
+    }
+
+.threadBar
+{
+}
+
+.threadRecipients
+{
+}
+
+.inlineBlock
+{
+    display: inline-block;
+}
+
+.inputSize
+{
+    width: 2.4375rem;
+    height: 2.4375rem;
+}
+
+#map
+{
+    background-color: #000;
+}
+
+.ContentBox.forMap
+{
+    width: 85%;
+    height: 85%;
+}
+
+.leaflet-info
+{
+    padding: 6px 8px;
+    font: 14px/16px Arial, Helvetica, sans-serif;
+    background: white;
+    background: rgba(255,255,255,0.8);
+    box-shadow: 0 0 15px rgba(0,0,0,0.2);
+    border-radius: 5px;
+}
+
+    .leaflet-info h4
+    {
+        margin: 0 0 5px;
+        color: #777;
+    }
+
+.leaflet-legend
+{
+    line-height: 18px;
+    color: #555;
+}
+
+    .leaflet-legend i
+    {
+        width: 18px;
+        height: 18px;
+        float: left;
+        margin-right: 8px;
+        opacity: 0.7;
+    }
+
+.no-padding
+{
+    padding: 0 !important;
+}
+
+.marketOfferImage > img
+{
+    width: 32px;
+    height: 32px;
+    margin-left: 0.2rem;
+}
+
+.marketOfferHeader
+{
+    background-color: rgba(40, 53, 141, 0.26);
+    border-bottom: 1px gray solid;
+    font-size: x-large
+}
+
+.marketOfferCost
+{
+    font-size: medium;
+    font-weight: bold;
+    line-height: 2rem
+}
+
+.marketOfferCostInfo
+{
+    font-size: small;
+    font-weight: bold;
+}
+
+.marketOfferOfferer
+{
+    border-bottom: 1px solid gray;
+}
+
+    .marketOfferOfferer > img
+    {
+        width: 100%;
+    }
+
+.marketOfferFooter
+{
+    overflow: hidden;
+    height: 24px;
+    position: relative;
+}
+
+    .marketOfferFooter .marketOfferCompanyName
+    {
+        position: absolute;
+        margin-left: 0.2rem;
+        font-weight: bolder;
+    }
+
+        .marketOfferFooter .marketOfferCompanyName > i
+        {
+            font-size: 23px;
+        }
+
+    .marketOfferFooter .marketOfferStars
+    {
+        height: 24px;
+        position: absolute;
+        right: 0;
+        padding-right: 2px;
+        border-left: 1px gray solid;
+        background-color: white;
+        z-index: 1;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+    }
+
+        .marketOfferFooter .marketOfferStars i
+        {
+            margin-left: 2px;
+            font-size: small;
+        }
+
+.marketOfferInfo > div:first-child
+{
+    padding: 1rem 2rem;
+}
+
+.marketOfferSecondColumn
+{
+    background-color: #f5f4f0;
+    border-bottom: 1px solid rgba(82, 65, 26, 0.21);
+    border-top: 1px solid rgba(82, 65, 26, 0.21);
+    border-right: 1px solid rgba(82, 65, 26, 0.21)
+}
+
+.marketOfferInfo
+{
+    overflow: hidden;
+    width: 100%;
+    padding-bottom: 1.5rem;
+    font-family: Arial,Helvetica Neue,Helvetica,sans-serif;
+}
+
+.marketOfferFirstColumn
+{
+    border: 1px solid gray;
+    border-right: 1px rgba(128, 128, 128, 0.74) solid;
+}
+
+.marketOfferRow
+{
+    margin-bottom: 1rem;
+}
+
+.marketOfferInput
+{
+    width: 5rem;
+}
+
+.marketAfterOffer
+{
+    font-size: small;
+}
+
+
+.text-error
+{
+    color: red;
+}
+
+.text-warning
+{
+    color: darkorange;
+}
+
+#joinRequestRemainingChar
+{
+    margin-right: 1rem;
+}
+
+textarea.noResize
+{
+    resize: none;
+}
+
+.tableSmallFlag
+{
+    width: 5rem;
+    border: 1px gray solid;
+}
+
+.sumaryHealingButton
+{
+    text-align: center;
+}
+
+    .sumaryHealingButton button
+    {
+        width: 80%;
+        padding-top: 0.2rem;
+        padding-bottom: 0.2rem;
+    }

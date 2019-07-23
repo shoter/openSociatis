@@ -1,0 +1,23 @@
+﻿@model Sociatis.Models.Trades.MoneyForTradeViewModel
+
+<div class="column column-block">
+    <div class="tradeItem">
+        <div class="tradeCurrencyImage">
+            @Html.DisplayFor(m => m.Image)
+        </div>
+        <div class="tradeWhat">
+            @Model.Amount @Model.Symbol
+        </div>
+        @if (Model.CanRemove)
+        {
+        <div class="deleteRow">
+            @using (Html.BeginForm("RemoveMoney", RouteDataHelper.ControllerName, new { tradeID = Model.TradeID, currencyID = Model.CurrencyID, entityID = Model.EntityID }))
+            {
+                <button type="submit" class="button red highlight eqButton noMargin">
+                    <i class="fa fa-trash-o" aria-hidden="true"></i>
+                </button>
+            }
+        </div>
+        }
+    </div>
+</div>

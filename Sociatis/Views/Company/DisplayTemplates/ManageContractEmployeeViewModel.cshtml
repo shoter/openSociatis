@@ -1,0 +1,110 @@
+﻿@model Sociatis.Models.Companies.ManageContractEmployeeViewModel
+
+<h3>
+    @Model.CitizenName Skill @Model.Skill
+@if (Model.AbusedCompanyRules)
+{
+    using (Html.BeginForm("KickEmployee", RouteDataHelper.ControllerName, FormMethod.Post, new { @class = "inlineDisplay" }))
+    {
+        @Html.HiddenFor(m => m.CitizenID)
+        <button class="button red alignBottom">Kick</button>
+    }
+}
+
+
+</h3>
+
+@if (!ViewData.ModelState.IsValid)
+{
+    @Html.ValidationSummary()
+    <hr />
+}
+
+<hr />
+@using (Html.BeginForm("ManageContractEmployee", RouteDataHelper.ControllerName, new { citizenID = Model.CitizenID }, FormMethod.Post))
+{
+    <div class="row">
+        <div class="small-4 columns">
+            @Html.DisplayNameFor(m => m.MinimumSalary)
+        </div>
+        <div class="small-4 columns">
+            @Html.DisplayFor(m => m.MinimumSalary)
+        </div>
+        <div class="small-4 columns">
+            <p class="money">
+                @Html.DisplayFor(m => m.CurrencyImage)
+            </p>
+        </div>
+    </div>
+    <hr/>
+    <div class="row">
+        <div class="small-4 columns">
+            @Html.DisplayNameFor(m => m.Salary)
+        </div>
+        <div class="small-4 columns">
+            @Html.TextBoxFor(m => m.Salary)
+        </div>
+        <div class="small-4 columns">
+            <p class="money">
+                @Html.DisplayFor(m => m.CurrencyImage)
+            </p>
+        </div>
+    </div>
+    <hr />
+    <div class="row">
+        <div class="small-4 columns">
+            @Html.DisplayNameFor(m => m.RemainingLength)
+        </div>
+        <div class="small-4 columns">
+            @Html.DisplayFor(m => m.RemainingLength) 
+        </div>
+        <div class="small-4 columns">
+            day@(PluralHelper.S(Model.RemainingLength))
+        </div>
+    </div>
+    <hr />
+    <div class="row">
+        <div class="small-4 columns">
+            @Html.DisplayNameFor(m => m.MinimumHPOnContract)
+        </div>
+        <div class="small-4 columns">
+            @Html.DisplayFor(m => m.MinimumHPOnContract)
+        </div>
+        <div class="small-4 columns">
+            @Html.DisplayFor(m => Images.HpCross.VM)
+        </div>
+    </div>
+    <hr />
+    <div class="row">
+        <div class="small-4 columns">
+            @Html.DisplayNameFor(m => m.MinimumHP)
+        </div>
+        <div class="small-4 columns">
+            @Html.TextBoxFor(m => m.MinimumHP) 
+        </div>
+        <div class="small-4 columns">
+            @Html.DisplayFor(m => Images.HpCross.VM)
+        </div>
+    </div>
+    <hr />
+    <div class="row">
+        <div class="small-4 columns">
+            @Html.DisplayNameFor(m => m.SignedByName)
+        </div>
+        <div class="small-4 columns">
+            &nbsp;
+        </div>
+        <div class="small-4 columns">
+            @Html.DisplayFor(m => m.SignedByName)
+        </div>
+    </div>
+    <hr />
+    <div class="row">
+        <div class="small-12 columns">
+
+            <button class="button blue pull-right">Save changes</button>
+
+        </div>
+    </div>
+}
+

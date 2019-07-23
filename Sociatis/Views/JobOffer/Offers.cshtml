@@ -1,0 +1,109 @@
+﻿@model Sociatis.Models.JobOffers.JobMarketOfferListViewModel
+@using Entities.enums;
+
+@using (Ajax.BeginForm("Offers", new AjaxOptions()
+{
+    HttpMethod = "POST",
+    UpdateTargetId = "searchResults",
+    OnBegin = "Sociatis.AjaxBegin();",
+    OnComplete = "Sociatis.AjaxEnd();",
+    OnFailure = "Sociatis.AjaxError(xhr.responseText);"
+}))
+{
+@Html.HiddenFor(m => m.PParam)
+@Html.HiddenFor(m => m.WorkTypeID)
+@Html.HiddenFor(m => m.OfferType)
+@Html.HiddenFor(m => m.CountryID)
+@Html.HiddenFor(m => m.MinSkill)
+@Html.HiddenFor(m => m.MaxSkill)
+@Html.HiddenFor(m => m.MinSalary)
+@Html.HiddenFor(m => m.MaxSalary)
+<table role="grid" class="text-center">
+    <thead>
+        <tr >
+            <td class="text-center">Company</td>
+            <td class="text-center">Work Type</td>
+            <td class="text-center">Offer Type</td>
+            @if(Model.IncludeRegionInformation)
+            {
+                <td class="text-center">Region</td>
+            }
+            <td class="text-center">Salary</td>
+            <td class="text-center">Skill</td>
+            <td class="text-center">Minimum HP</td>
+            <td class="text-center">Contract length</td>
+            @if (Model.IsCitizen)
+            {
+            <td class="text-center"></td>
+            }
+        </tr>
+    </thead>
+    <tbody>
+        @foreach (var offer in Model.Offers)
+        {
+        <tr >
+            <td>
+                @Html.ActionLink(offer.CompanyName, "View", "Company", new { companyID = offer.CompanyID }, null)
+            </td>
+            <td>
+                @offer.WorkTypeReadable
+            </td>
+            <td>
+                @offer.OfferTypeReadable
+            </td>
+            @if(Model.IncludeRegionInformation)
+            {
+                <td>
+                    @offer.RegionName
+                </td>
+            }
+            <td>
+                @offer.Salary
+            </td>
+            <td>
+                @offer.Skill
+            </td>
+            <td>
+                @offer.MinimumHP
+            </td>
+            <td>
+                @offer.Length
+            </td>
+            @if (Model.IsCitizen)
+            {
+            <td>
+                @if (offer.OfferType == JobOfferTypeEnum.Normal)
+                {
+                    <a href="@Url.Action("AcceptJobOffer", "Company", new { jobOfferID = offer.OfferID })" class="button green">Accept</a>
+                }
+                else if (offer.OfferType == JobOfferTypeEnum.Contract)
+                {
+                    @Ajax.ActionLink("Show details", "", "", new AjaxOptions()
+               {
+                   HttpMethod = "Get",
+                   Url = Url.Action("ContractDetails", "Company", new { contractID = offer.OfferID }),
+                   OnBegin = "$.blockUI();",
+                   OnComplete = "$.unblockUI();",
+                   OnSuccess = "showContract();",
+                   InsertionMode = InsertionMode.Replace,
+                   UpdateTargetId = "contractDialog",
+
+
+               }, new { href = "#!", @class = "button blue" }
+
+
+
+            )
+                }
+            </td>
+            }
+        </tr>
+        }
+    </tbody>
+</table>
+
+@PagingParamHtmlHelper.Render(Model.PParam)
+
+}
+
+

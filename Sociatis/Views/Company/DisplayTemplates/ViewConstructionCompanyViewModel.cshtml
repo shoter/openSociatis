@@ -1,0 +1,91 @@
+﻿@model Sociatis.Models.Companies.ViewConstructionCompanyViewModel
+
+
+@if (Model.Progress >= Model.MaxProgress && Model.IsOneTimeConstruction)
+{
+    <div class="contentBox">
+        @if (Model.Rights.CanAcceptConstruction)
+        {
+            using (Html.BeginForm("AcceptConstruction", "Construction", new { constructionID = Model.Info.CompanyID }, FormMethod.Post, null))
+            {
+                <div class="centerHorizontalFlex">
+                    <button class="button green">Finish construction</button>
+                </div>
+            }
+            <div class="hint">
+                All money that are in company's wallets will be moved into country's wallet after finishing production.
+            </div><hr />
+                <div class="hint">
+                    It's important to transport resources from company somewhere. They will be removed from game after clicking finish construction.
+                </div>
+
+        }
+        else
+        {
+            <h3>Construction is finished. Waiting for appropriate manager to accept construction.</h3>
+        }
+    </div>
+}
+else
+{
+    Layout = "ViewCompanyBase.cshtml";
+
+    @section Progress
+            {
+        <div class="centerHorizontalFlex">
+            <div data-tooltip title="Progress: @Model.Progress/@Model.MaxProgress" class="container-bar productionQueue">
+                <div class="queue-bar" style="width : @(Model.ProgressPercentage)%;">
+                </div>
+
+            </div>
+        </div>
+    }
+
+    @section Production
+    {
+        <div class="row">
+
+            @if (Model.ProductionRequirements.Count > 0)
+    {
+                <div class="medium-6 columns">
+
+                    <h4>Required raws</h4>
+                    <div class="row small-up-1 medium-up-2">
+                        @foreach (var requirement in Model.ProductionRequirements)
+                        {
+                            <div class="column column-block">
+                                @Html.DisplayFor(m => requirement)
+                            </div>
+                        }
+                    </div>
+                </div>
+                <div class="medium-2 columns">
+                    &nbsp;
+                </div>
+            }
+            @if (Model.ProductionRequirements.Count == 0)
+            {
+                <div class="medium-4 columns">&nbsp;</div>
+            }
+            <div class="medium-4 columns">
+                <h4 class="text-center">Construction</h4>
+                <div class="row">
+                    <div class="hide-for-small-only medium-1 large-2 columns">
+                        &nbsp;
+                    </div>
+                    <div class="small-12 medium-10 large-8 columns">
+                        @Html.DisplayFor(m => m.Stock)
+                    </div>
+                    <div class="hide-for-small-only medium-1 large-2 columns">
+                        &nbsp;
+                    </div>
+                </div>
+            </div>
+            @if (Model.ProductionRequirements.Count == 0)
+            {
+                <div class="medium-4 columns">&nbsp;</div>
+            }
+        </div>
+
+    }
+}

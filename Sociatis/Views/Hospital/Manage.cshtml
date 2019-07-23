@@ -1,0 +1,148 @@
+﻿@model Sociatis.Models.Hospitals.ManageHospitalViewModel
+
+@{
+    var nationalitiesRowIndex = 0;
+    ViewBag.Title = "Manage Hospital";
+}
+
+@Html.Partial(@"~\Views\Company\DisplayTemplates\CompanyInfoViewModel.cshtml", Model.Info)
+@using (Ajax.BeginForm("UpdateHospital", "Hospital", new AjaxOptions()
+{
+    HttpMethod = "POST",
+    OnBegin = "Sociatis.AjaxBegin()",
+    OnComplete = "Sociatis.AjaxEnd()",
+    OnFailure = "Sociatis.AjaxError()",
+    OnSuccess = "Sociatis.HandleJson(xhr.responseJSON, Sociatis.ShowAjaxSuccess);",
+    AllowCache = false
+}))
+{
+    @Html.Hidden("hospitalID", Model.Info.CompanyID)
+    <div id="manageHospital" class="ContentBox">
+        <h5>Manage hospital</h5>
+
+        <div class="pricing">
+            <div class="centerVerticalFlex">
+                <input id="healingEnabled" value="true" name="healingEnabled" class="noMargin" type="checkbox" @(Model.HealingEnabled ? "checked" : "") />
+                <label>
+                    Healing enabled
+                </label>
+            </div>
+
+
+            <div class="inputGroup centerVerticalFlex ">
+                <div class="inputInfo noMargin nonHint">
+                    Default price
+                </div>
+                <div class="inputDiv">
+                    @Html.TextBoxFor(m => m.HealingPrice, new { @class = "noMargin" })
+                </div>
+                <div class="inputInfo noMargin">
+                    PLN
+                </div>
+                <div class="inputInfo noMargin nonHint">
+                    <input type="checkbox" id="FreeHealing" @(Model.HealingPrice.HasValue ? "" : "checked") /> Free healing
+                </div>
+            </div>
+
+            <br />
+            <h5>Nationalities rules</h5>
+
+            <table id="nationalityHealingOptions">
+                <thead>
+                    <tr>
+                        <th>Nationality</th>
+                        <th>Price</th>
+                        <th>Free healing</th>
+                        <th></th>
+                    </tr>
+                </thead>
+                <tbody>
+                    @foreach (var countryOption in Model.NationalityOptions)
+                    {
+                        var prefix = "countryOptions[" + nationalitiesRowIndex + "].";
+                        object inputOption = new
+                        {
+                            @class = "noMargin"
+                        };
+                        if (countryOption.HealingFree)
+                        {
+                            inputOption = new
+                            {
+                                @class = "noMargin",
+                                disabled = "disabled"
+                            };
+                        }
+                        <tr>
+
+
+                            <td>@Html.DropDownList(prefix + "countryID", Model.Countries.SelectValue(countryOption.CountryID), new { @class = "noMargin"})</td>
+
+
+                            <td>
+                                <div class="inputGroup">
+                                    <div class="inputDiv">
+                                        @Html.TextBox(prefix + "price", countryOption.Price, inputOption)
+                                    </div>
+                                    <div class="inputInfo noMargin">
+                                        PLN
+                                    </div>
+                                </div>
+                            </td>
+                            <td>
+                                @Html.CheckBox(prefix + "healingFree", countryOption.HealingFree, new { @class = "centerHorizontalAsBlock" })
+                            </td>
+                            <td>
+                                <button type="button" class="faButton" data-deleteButton>
+                                    <i class="fa fa-trash"></i>
+                                </button>
+                            </td>
+                        </tr>
+                        nationalitiesRowIndex++;
+                    }
+                    <tr id="newNationalityOption">
+                        <td>@Html.DropDownList("NewCountryID", Model.Countries, new { @id= "newCountryID", @class = "noMargin" })</td>
+                        <td>
+                            <div class="inputGroup">
+                                <div class="inputDiv">
+                                    <input type="text" id="NewHealingPrice" class="noMargin"/>
+                                </div>
+                                <div class="inputInfo noMargin">
+                                    PLN
+                                </div>
+                            </div>
+                        </td>
+                        <td>
+                            <input id="NewFreeHealing" class="centerHorizontalAsBlock" style="margin:auto" type="checkbox" />
+                        </td>
+                        <td>
+                            <button id="NewAddButton" type="button" class="faButton">
+                                <i class="fa fa-plus"></i>
+                            </button>
+                        </td>
+                    </tr>
+                </tbody>
+            </table>
+
+            <div class="hint">
+                These rules will be applied to the citizens with citizenships of defined countries. They take precedence over default price.
+            </div>
+
+
+
+        </div>
+        <div class="buttons">
+            <button class="button green">Save changes</button>
+        </div>
+    </div>
+}
+@section scripts
+{
+@Scripts.Render("~/bundles/select2")
+@Styles.Render("~/Content/select2")
+    <script src="~/Scripts/hospital/sociatis.hospital.js"></script>
+    <script src="~/Scripts/hospital/sociatis.hospital.nationalityOptions.js"></script>
+    <script>
+        Sociatis.Hospital.NationalityOptions.SetNationalitiesRowIndex(@nationalitiesRowIndex);
+    </script>
+    
+}

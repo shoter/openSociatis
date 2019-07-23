@@ -1,0 +1,59 @@
+﻿@import "definitions.scss";
+
+.hoverOnUploader
+{
+    position: absolute;
+    top: 0;
+    right: 0;
+    left: 0;
+    bottom: 0;
+    cursor: pointer;
+    opacity: 0;
+    $color: rgba(0,0,0, 1.0);
+
+
+    &:hover
+    {
+        &:hover
+        {
+            opacity: 0.7;
+            color: $color;
+        }
+
+        &:active
+        {
+            color: lighten($color, 25%);
+        }
+    }
+
+    .positioner
+    {
+        position: relative;
+        top: 50%;
+        left: 0;
+        right: 0;
+        bottom: 0;
+
+        i.fa
+        {
+            position: absolute;
+            top: -50%;
+            right: 0;
+            left: 0;
+            bottom: 0;
+            text-align: center;
+            font-size: xx-large;
+            font-size: 5rem;
+            $borderColor: rgba(#FFF, 0.5);
+            text-shadow: -1px 0 $borderColor, 0 1px $borderColor, 1px 0 $borderColor, 0 -1px $borderColor;
+        }
+    }
+}
+
+.croppie
+{
+    button
+    {
+        margin-top: 0.5rem;
+    }
+}

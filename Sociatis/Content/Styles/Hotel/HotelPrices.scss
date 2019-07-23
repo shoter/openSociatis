@@ -1,0 +1,34 @@
+﻿@import "../definitions.scss";
+
+
+#hotelPricing
+{
+    overflow:hidden;
+    .pricing
+    {
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+
+        .quality
+        {
+        }
+
+        .disable
+        {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+
+            label
+            {
+                margin-right:0.3rem;
+            }
+
+            input
+            {
+                margin: 0;
+            }
+        }
+    }
+}

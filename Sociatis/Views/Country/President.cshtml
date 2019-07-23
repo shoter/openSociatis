@@ -1,0 +1,48 @@
+﻿@model Sociatis.Models.Country.PresidentViewModel
+@{ 
+    ViewBag.Title = Model.Info.CountryName;
+}
+
+@Html.DisplayFor(m => m.Info)
+
+<div class="ContentBox">
+    @if (Model.PresidentName != null)
+    {
+        <h3>President</h3>
+        <div class="miniAvatars">
+            @Html.DisplayFor(m => m.PresidentAvatar)
+            @Html.ActionLink(Model.PresidentName, "View", "Citizen", new { citizenID = Model.PresidentID}, null)
+        </div>
+    }
+    else
+    {
+        <h3>President</h3>
+        <div>There is no actual president.</div>
+    }
+    <br/>
+    <h4>President elections</h4>
+    @if(Model.IsElectionTime)
+    {
+        <div>
+            Elections are being held today.
+        </div>
+    }
+    else
+    {
+        <div>
+            Elections are going to be held in @Model.NextElectionInDays day@(PluralHelper.S(Model.NextElectionInDays)) <br />
+
+            <a href="@Url.Action("PresidentCandidates", "Country", new { countryID = Model.Info.CountryID})" class="blue button">See candidates</a><br />
+
+            @if (Model.CanBeCandidate)
+            {
+                <div>
+                    @using (Html.BeginForm("CandidateAsPresident", RouteDataHelper.ControllerName, FormMethod.Post))
+                    {
+                        <input type="hidden" name="countryID" value="@Model.Info.CountryID" />
+                        <button class="button green">Candidate</button>
+                    }
+                </div>
+            }
+        </div>
+    }

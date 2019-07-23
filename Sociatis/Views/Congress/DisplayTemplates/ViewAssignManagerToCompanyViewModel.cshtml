@@ -1,0 +1,4 @@
+﻿@model Sociatis.Models.Congress.Votings.ViewAssignManagerToCompanyViewModel
+
+<h4>Proposition #@Model.VotingID : Assign @Html.ActionLink(Model.CitizenName, "View", "Citizen", new { CitizenID = Model.CitizenID }, null) as manager of @Html.ActionLink(Model.CompanyName, "View", "Company", new { CompanyID = Model.CompanyID }, null).</h4>
+by @Html.ActionLink(Model.CreatorName, "View", "Citizen", new { citizenID = Model.CreatorID }, null)

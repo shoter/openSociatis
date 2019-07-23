@@ -1,0 +1,86 @@
+﻿@import "../definitions.scss";
+
+
+#hotelRooms
+{
+    .hotelRoom
+    {
+        display: flex;
+        font-size: large;
+        border: 1px solid gray;
+        background-color: #f5f4f0;
+        padding: 1rem 2rem;
+        margin-bottom: 1rem;
+
+        @include respond-to(tablet)
+        {
+            flex-direction: row;
+            align-items: center;
+        }
+
+        @include respond-to-only(mobile)
+        {
+            flex-direction: column;
+            justify-content: center;
+            text-align: center;
+        }
+
+        .free
+        {
+            text-align: center;
+            font-size: x-large;
+        }
+
+        .roomQuality
+        {
+            display: flex;
+            flex-direction: column;
+
+            @include respond-to(tablet)
+            {
+                margin-right: 1.5rem;
+            }
+
+            @include respond-to-only(mobile)
+            {
+                margin-bottom: 0.5rem;
+            }
+        }
+
+        .inhabitant
+        {
+        }
+
+        .inhabitantName
+        {
+            @include respond-to(tablet)
+            {
+                margin-left: 2rem;
+            }
+        }
+
+        .inhabitantStay
+        {
+            @include respond-to(tablet)
+            {
+                margin-left: 0.5rem;
+            }
+        }
+
+        .remove
+        {
+           flex-grow:1;
+            button
+            {
+                float:right;
+                margin: 0
+            }
+
+            @include respond-to(pc)
+            {
+                margin-left: 1rem;
+            }
+            margin-left:0.3rem;
+        }
+    }
+}

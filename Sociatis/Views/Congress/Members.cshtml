@@ -1,0 +1,26 @@
+﻿@model Sociatis.Models.Congress.CongressMemberSectionViewModel
+
+@Html.DisplayFor(m => m.Info)
+
+<div class="ContentBox">
+    <h4>Members</h4>
+
+    @foreach(var party in Model.OrderedMembersByParty)
+    {
+        <h5>@party.PartyName - @party.Members.Count Member@(PluralHelper.S(party.Members.Count))</h5>
+
+            foreach (var member in party.Members)
+            {
+                <div class="flex congressMember">
+                    <div class="miniAvatars">
+                        @Html.DisplayFor(m => member.Avatar)
+                    </div>
+                    <div class="congressMemberUserInfo">
+                        <text class="votingUsername">@member.CitizenName</text>
+                        <text class="votingParty">@member.PartyName</text>
+                    </div>
+                </div>
+            }
+
+        }
+</div>

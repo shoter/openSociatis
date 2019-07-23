@@ -1,0 +1,41 @@
+﻿@model Sociatis.Models.Companies.CompanyStatisticsViewModel
+
+@if (Model != null)
+{
+    <div id="companyStatistics" class="ContentBox">
+        <h4>Company stats</h4>
+
+        <div class="evenInfo">
+            <div class="left">
+                @if (Model.ShowRawMultiplier)
+                {
+                    <div>Raw Multiplier:</div>
+                }
+                @if (Model.ShowQualityModifier)
+                {
+                    <div>Quality modifier:</div>
+                }
+                <div>Production modifier:</div>
+                <div>Development modifier:</div>
+                <div>People modifier</div>
+            </div>
+            <div class="right">
+                @if (Model.ShowRawMultiplier)
+                {
+                    <div>@Model.RawMultiplier %</div>
+                }
+                @if (Model.ShowQualityModifier)
+                {
+                    <div>@Model.QualityModifier %</div>
+                }
+                <div>@Model.ProductionModifier %</div>
+                <div>@Model.DevelopmentModifier %</div>
+                <div>@Model.PeopleModifier %</div>
+            </div>
+        </div>
+        <hr />
+        <div class="hint">
+            Values here are approximations of real values. Formula is complicated and due to it's nature it's hard to express it easily by percents.
+        </div>
+    </div>
+}

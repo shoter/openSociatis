@@ -1,0 +1,9 @@
+﻿@import "../definitions.scss";
+
+#constructionInfo
+{
+    .constructionQuality
+    {
+        @include productQuality;
+    }
+}

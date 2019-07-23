@@ -1,0 +1,11 @@
+﻿@model Sociatis.Models.Training.TrainingIndexViewModel
+
+<div class="ContentBox">
+    <div class="text-center">
+        <h3>Training Field</h3>
+        @using (Html.BeginForm("Train", RouteDataHelper.ControllerName, FormMethod.Post))
+        {
+            <button id="trainingButton" class="button blue @(Model.Trained ? "disabled" : "")">Train</button>
+        }
+    </div>
+</div>

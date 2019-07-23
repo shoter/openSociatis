@@ -1,0 +1,6 @@
+﻿@model Sociatis.Models.Infos.InfoCustomActionViewModel
+
+<a @Model.ClassField.ToHtml() onclick="@Model.OnClick">
+    <i class="fa @Model.Icon"></i>
+    @Model.Name
+</a>

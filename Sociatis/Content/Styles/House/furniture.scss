@@ -1,0 +1,11 @@
+﻿@import "../definitions.scss";
+
+.furniture
+{
+
+    margin-bottom: 1rem;
+    border: 1px solid rgba(128, 128, 128, 0.32);
+    border-radius: 0.5em 0.5em;
+    @include box-shadow(2px 2px 2px 1px rgba(194,194,194,0.3));
+    padding: 0.5rem 1rem;
+}

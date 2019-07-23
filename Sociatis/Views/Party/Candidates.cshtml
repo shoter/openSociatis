@@ -1,0 +1,41 @@
+﻿@model Sociatis.Models.Party.PartyCandidateListViewModel
+@using Sociatis.Models;
+@{
+    ViewBag.Title = "Candidates";
+}
+
+@Html.DisplayFor(m => m.Info)
+
+<div class="ContentBox">
+    <h4>Party President Candidates</h4>
+    @if(Model.Count > 0)
+    {
+        using (Html.BeginForm("VotePresident", "Party", FormMethod.Post))
+        {
+            foreach (var candidate in Model)
+            {
+
+            <div class="miniAvatars">
+                @if (Model.CanVote)
+                {
+                    <input type="radio" name="candidateID" value="@candidate.CandidateID">
+                }
+                @Html.DisplayFor(m => candidate.Avatar)
+                @candidate.Name
+            </div>
+            <hr/>
+            }
+            <br/>
+            if (Model.CanVote)
+                {
+                    <button class="button blue float-right">Vote!</button>
+                }
+        }
+    }
+    else
+    {
+        <p>
+            Party has no candidates on upcoming party president elections.
+        </p>
+    }
+</div>

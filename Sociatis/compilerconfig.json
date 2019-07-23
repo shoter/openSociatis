@@ -1,0 +1,30 @@
+﻿[
+  {
+    "outputFile": "Content/Styles/main.css",
+    "inputFile": "Content/Styles/main.scss"
+  },
+  {
+    "outputFile": "Content/Styles/partyInvites.css",
+    "inputFile": "Content/Styles/partyInvites.scss"
+  },
+  {
+    "outputFile": "Content/Styles/partyRequests.css",
+    "inputFile": "Content/Styles/partyRequests.scss"
+  },
+  {
+    "outputFile": "Content/Styles/definitions.css",
+    "inputFile": "Content/Styles/definitions.scss"
+  },
+  {
+    "outputFile": "Content/Styles/input.css",
+    "inputFile": "Content/Styles/input.scss"
+  },
+  {
+    "outputFile": "Content/Styles/gifts.css",
+    "inputFile": "Content/Styles/gifts.scss"
+  },
+  {
+    "outputFile": "Content/Styles/trade.css",
+    "inputFile": "Content/Styles/trade.scss"
+  }
+]

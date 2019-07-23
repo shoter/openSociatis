@@ -1,0 +1,76 @@
+﻿@model Sociatis.Models.Country.CountrySetSupplyLevelsViewModel
+@{
+
+
+}
+
+@Html.DisplayFor(m => m.Info)
+
+<div class="ContentBox">
+    <h3>Set supply levels</h3>
+    @using (Html.BeginForm(RouteDataHelper.ActionName, RouteDataHelper.ControllerName, FormMethod.Post))
+    {
+        <table>
+            <thead>
+                <tr>
+                    <td>Region Name</td>
+                    <td>Supply level</td>
+                    <td>Tomorrow supply level</td>
+                    <td>Supply program</td>
+                    <td>Cost per day</td>
+                </tr>
+            </thead>
+            <tbody>
+                @for (int i = 0; i < Model.RegionSupplies.Count; ++i)
+                {
+                    @Html.HiddenFor(m => m.RegionSupplies[i].RegionID)
+                    <tr data-regionID="@Model.RegionSupplies[i].RegionID">
+                        <td>@Model.RegionSupplies[i].RegionName</td>
+                        <td class="text-center">@Model.RegionSupplies[i].CurrentSupplyLevel</td>
+                        <td class="text-center" name="tomorrowSupplyLevel">@Model.RegionSupplies[i].TomorrowSupplyLevel 
+                        <i class=" @Model.RegionSupplies[i].TomorrowSupplyLevelIcon" aria-hidden="true"></i>
+                        </td>
+                        <td>@Html.DropDownListFor(m => m.RegionSupplies[i].CurrentSupplyProgramType, Model.RegionSupplies[i].SupplyProgramTypesList)</td>
+                        <td class="text-center"><text name="currentCost">@Model.RegionSupplies[i].CurrentCost</text> Gold</td>
+                    </tr>
+                }
+            </tbody>
+            <tfoot>
+                <tr>
+                    <td class="float-right">Sum </td>
+                    <td class="text-center">@Model.OverallSupplyLevel</td>
+                    <td></td>
+                    <td class="float-right">Sum</td>
+                    <td class="text-center"><text id="upkeepSum">@Model.RegionUpkeepSum</text> Gold</td>
+                </tr>
+            </tfoot>
+        </table>
+    <button id="submitButton" class="float-right button blue" disabled>Submit</button>
+
+    <div class="hint">
+        <h5>Supply usage:</h5>
+        <ul>
+            <li>With more supply in region the industry will be able to produce more goods.</li>
+            <li>With bigger supply levels it's more expensive for enemy to start battle with you.</li>
+            <li>The more supply the territory have the more gold country will lose after losing battle.</li>
+            <li>It affects hospital healing rates</li>
+        </ul>
+        On the end of the day your supply with either decay or increase depending on supply level.  <br/>
+        Low supply level will plateu above 1.0, medium supply level have it's maximum below 3.0 and high supply level stops at 5.0.
+    </div>
+    }
+
+</div>
+
+@section scripts
+{
+    @Scripts.Render("~/Scripts/country/sociatis.country.supply_levels.js")
+
+    <script type="text/javascript">
+        var supplyProgramCost = []
+        @foreach(var supplyProgram in Model.SupplyProgramTypesCosts.OrderBy(s => s.Key))
+        {
+            @:supplyProgramCost.push(@supplyProgram.Value);
+        }
+    </script>
+}

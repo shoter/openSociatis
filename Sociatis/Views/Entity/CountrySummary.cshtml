@@ -1,0 +1,41 @@
+﻿@model Sociatis.Models.Country.CountrySummaryViewModel
+@using Sociatis.Helpers
+@using Weber.Helpers
+
+<p>
+    @Html.ActionLink("Switch back into " + Model.SwitchBackEntityName, "SwitchBack", "Entity")
+</p>
+<div class="summaryAvatar">
+    @Html.DisplayFor(m => m.Avatar)
+</div>
+<div class="text-center">
+    @Html.ActionLink(Model.CountryName, "View", "Country", new { countryID = Model.CountryID }, null)
+</div>
+
+<div class="summaryIcons">
+    <a href="@Url.Action("Index", "Message")">
+        <i class="fa fa-envelope-o" aria-hidden="true"></i>
+    </a>
+    <a href="@Url.Action("Index", "Warning")">
+        <i class="fa fa-exclamation-circle" aria-hidden="true"></i>
+    </a>
+</div>
+
+<hr />
+
+
+<p class="text-center">
+    @Html.DisplayFor(m => m.CountryMoney)
+</p>
+<p class="text-center">
+    @Html.DisplayFor(m => m.AdminMoney)
+</p>
+
+@foreach(var foreignMoney in Model.ForeignMoney)
+{
+    <p class="text-center">
+        @Html.DisplayFor(m => foreignMoney)
+    </p>
+}
+
+@Html.RenderCurrentTime()

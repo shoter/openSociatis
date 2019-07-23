@@ -1,0 +1,399 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="14.0" DefaultTargets="Build" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <Import Project="$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props" Condition="Exists('$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props')" />
+  <PropertyGroup>
+    <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
+    <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
+    <ProjectGuid>{7A3B9C1B-4609-4225-A2C7-8B0C4FF0BBFA}</ProjectGuid>
+    <OutputType>Library</OutputType>
+    <AppDesignerFolder>Properties</AppDesignerFolder>
+    <RootNamespace>WebServices</RootNamespace>
+    <AssemblyName>WebServices</AssemblyName>
+    <TargetFrameworkVersion>v4.5.2</TargetFrameworkVersion>
+    <FileAlignment>512</FileAlignment>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
+    <DebugSymbols>true</DebugSymbols>
+    <DebugType>full</DebugType>
+    <Optimize>false</Optimize>
+    <OutputPath>bin\Debug\</OutputPath>
+    <DefineConstants>DEBUG;TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|AnyCPU' ">
+    <DebugType>pdbonly</DebugType>
+    <Optimize>true</Optimize>
+    <OutputPath>bin\Release\</OutputPath>
+    <DefineConstants>TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)' == 'Test|AnyCPU'">
+    <DebugSymbols>true</DebugSymbols>
+    <OutputPath>bin\Test\</OutputPath>
+    <DefineConstants>DEBUG;TRACE</DefineConstants>
+    <DebugType>full</DebugType>
+    <PlatformTarget>AnyCPU</PlatformTarget>
+    <ErrorReport>prompt</ErrorReport>
+    <CodeAnalysisRuleSet>MinimumRecommendedRules.ruleset</CodeAnalysisRuleSet>
+  </PropertyGroup>
+  <ItemGroup>
+    <Reference Include="EntityFramework, Version=6.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089, processorArchitecture=MSIL">
+      <HintPath>..\packages\EntityFramework.6.2.0\lib\net45\EntityFramework.dll</HintPath>
+    </Reference>
+    <Reference Include="EntityFramework.SqlServer, Version=6.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089, processorArchitecture=MSIL">
+      <HintPath>..\packages\EntityFramework.6.2.0\lib\net45\EntityFramework.SqlServer.dll</HintPath>
+    </Reference>
+    <Reference Include="Markdown, Version=2.0.0.0, Culture=neutral, PublicKeyToken=1b320cc08ad5aa89, processorArchitecture=MSIL">
+      <HintPath>..\packages\Markdown.2.2.1\lib\net451\Markdown.dll</HintPath>
+    </Reference>
+    <Reference Include="Microsoft.Web.Infrastructure, Version=1.0.0.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
+      <HintPath>..\packages\Microsoft.Web.Infrastructure.1.0.0.0\lib\net40\Microsoft.Web.Infrastructure.dll</HintPath>
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="System" />
+    <Reference Include="System.ComponentModel.DataAnnotations" />
+    <Reference Include="System.Core" />
+    <Reference Include="System.Data.Entity.Design" />
+    <Reference Include="System.Data.Linq" />
+    <Reference Include="System.Drawing" />
+    <Reference Include="System.Transactions" />
+    <Reference Include="System.Web" />
+    <Reference Include="System.Web.Helpers, Version=3.0.0.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
+      <HintPath>..\packages\Microsoft.AspNet.WebPages.3.2.7\lib\net45\System.Web.Helpers.dll</HintPath>
+    </Reference>
+    <Reference Include="System.Web.Mvc, Version=5.2.7.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
+      <HintPath>..\packages\Microsoft.AspNet.Mvc.5.2.7\lib\net45\System.Web.Mvc.dll</HintPath>
+    </Reference>
+    <Reference Include="System.Web.Razor, Version=3.0.0.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
+      <HintPath>..\packages\Microsoft.AspNet.Razor.3.2.7\lib\net45\System.Web.Razor.dll</HintPath>
+    </Reference>
+    <Reference Include="System.Web.WebPages, Version=3.0.0.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
+      <HintPath>..\packages\Microsoft.AspNet.WebPages.3.2.7\lib\net45\System.Web.WebPages.dll</HintPath>
+    </Reference>
+    <Reference Include="System.Web.WebPages.Deployment, Version=3.0.0.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
+      <HintPath>..\packages\Microsoft.AspNet.WebPages.3.2.7\lib\net45\System.Web.WebPages.Deployment.dll</HintPath>
+    </Reference>
+    <Reference Include="System.Web.WebPages.Razor, Version=3.0.0.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
+      <HintPath>..\packages\Microsoft.AspNet.WebPages.3.2.7\lib\net45\System.Web.WebPages.Razor.dll</HintPath>
+    </Reference>
+    <Reference Include="System.Xml.Linq" />
+    <Reference Include="System.Data.DataSetExtensions" />
+    <Reference Include="Microsoft.CSharp" />
+    <Reference Include="System.Data" />
+    <Reference Include="System.Net.Http" />
+    <Reference Include="System.Xml" />
+  </ItemGroup>
+  <ItemGroup>
+    <Compile Include="AuthService.cs" />
+    <Compile Include="BaseService.cs" />
+    <Compile Include="BattleEventService.cs" />
+    <Compile Include="BattleService.cs" />
+    <Compile Include="BigParams\auth\SwitchSessionParameters.cs" />
+    <Compile Include="BigParams\Company\EmployCitizenParameters.cs" />
+    <Compile Include="BigParams\CreateCountryParameters.cs" />
+    <Compile Include="BigParams\CreateRegionParameters.cs" />
+    <Compile Include="BigParams\jobOffers\CreateContractJobOfferParams.cs" />
+    <Compile Include="BigParams\jobOffers\CreateJobOfferParams.cs" />
+    <Compile Include="BigParams\jobOffers\CreateNormalJobOfferParams.cs" />
+    <Compile Include="BigParams\MarketOffers\AddMarketOfferParameters.cs" />
+    <Compile Include="BigParams\messages\SendMessageParams.cs" />
+    <Compile Include="Calculators\ProductionPoints\ConstructionProductionPointsCalculator.cs" />
+    <Compile Include="Calculators\ProductionPoints\DefaultProductionPointsCalculator.cs" />
+    <Compile Include="Calculators\ProductionPoints\DevelopmentProductionPointsCalculator.cs" />
+    <Compile Include="Calculators\ProductionPoints\IProductionPointsCalculator.cs" />
+    <Compile Include="Calculators\ProductionPoints\ProductionPointsCalculateArgs.cs" />
+    <Compile Include="Calculators\ProductionPoints\ProductionPointsCalculatorFactory.cs" />
+    <Compile Include="CitizenService.cs" />
+    <Compile Include="Classes\Constructions\ConstructionBase.cs" />
+    <Compile Include="Classes\Constructions\ConstructionFactory.cs" />
+    <Compile Include="Classes\Constructions\ConstructionFinishWorkerProvider.cs" />
+    <Compile Include="Classes\Constructions\DefeneseSystemFinishWorker.cs" />
+    <Compile Include="Classes\Constructions\DefenseSystemConstruction.cs" />
+    <Compile Include="Classes\Constructions\HotelFinishWorker.cs" />
+    <Compile Include="Classes\Constructions\IConstruction.cs" />
+    <Compile Include="Classes\Constructions\IConstructionFinishWorker.cs" />
+    <Compile Include="Companies\CompanyFinanceBase.cs" />
+    <Compile Include="Companies\ExportTaxFinance.cs" />
+    <Compile Include="Companies\GiftBalanceFinance.cs" />
+    <Compile Include="Companies\ICompanyFinance.cs" />
+    <Compile Include="Companies\ImportTaxFinance.cs" />
+    <Compile Include="Companies\JobOfferCostFinance.cs" />
+    <Compile Include="Companies\MarketOfferCostFinance.cs" />
+    <Compile Include="Companies\SalaryCostFinance.cs" />
+    <Compile Include="Companies\SellRevenueFinance.cs" />
+    <Compile Include="Companies\VatFinance.cs" />
+    <Compile Include="Companies\TradeBalanceFinance.cs" />
+    <Compile Include="CompanyFinanceService.cs" />
+    <Compile Include="CompanyFinanceSummaryService.cs" />
+    <Compile Include="CompanyService.cs" />
+    <Compile Include="CongressCandidateService.cs" />
+    <Compile Include="CongressVotingService.cs" />
+    <Compile Include="Constants.cs" />
+    <Compile Include="ConstructionService.cs" />
+    <Compile Include="ContractService.cs" />
+    <Compile Include="CountryEventService.cs" />
+    <Compile Include="CountryPresidentService.cs" />
+    <Compile Include="CountryService.cs" />
+    <Compile Include="CountryTreasureService.cs" />
+    <Compile Include="DefenseSystemService.cs" />
+    <Compile Include="DevIssueService.cs" />
+    <Compile Include="EmailService.cs" />
+    <Compile Include="Emails\EmailTemplate.cs" />
+    <Compile Include="EmbargoService.cs" />
+    <Compile Include="EmployeeService.cs" />
+    <Compile Include="EntityService.cs" />
+    <Compile Include="enums\PopupMessageType.cs" />
+    <Compile Include="enums\TransactionResult.cs" />
+    <Compile Include="enums\UploadLocationEnum.cs" />
+    <Compile Include="Events\BattleGameEvent.cs" />
+    <Compile Include="Events\CountryGameEvent.cs" />
+    <Compile Include="Events\CountryVotingGameEvent.cs" />
+    <Compile Include="Events\GameEvent.cs" />
+    <Compile Include="Events\IGameEvent.cs" />
+    <Compile Include="Events\PartyGameEvent.cs" />
+    <Compile Include="Events\PartyMemberGameEvent.cs" />
+    <Compile Include="Events\WarGameEvent.cs" />
+    <Compile Include="Extensions\HtmlRenderer.cs" />
+    <Compile Include="FriendService.cs" />
+    <Compile Include="GiftService.cs" />
+    <Compile Include="Helpers\CongressVotingLinkCreator.cs" />
+    <Compile Include="Helpers\HtmlHelper.cs" />
+    <Compile Include="Helpers\ScoreHelper.cs" />
+    <Compile Include="Helpers\SociatisTransactionOptions.cs" />
+    <Compile Include="Helpers\UploadLocation.cs" />
+    <Compile Include="EquipmentService.cs" />
+    <Compile Include="FileService.cs" />
+    <Compile Include="Helpers\ConfigurationHelper.cs" />
+    <Compile Include="Helpers\GameHelper.cs" />
+    <Compile Include="Helpers\VirtualFileHelper.cs" />
+    <Compile Include="HospitalService.cs" />
+    <Compile Include="HotelDayChangeProcessor.cs" />
+    <Compile Include="HotelService.cs" />
+    <Compile Include="HotelTransactionsService.cs" />
+    <Compile Include="HouseChestService.cs" />
+    <Compile Include="HouseDayChangeProcessor.cs" />
+    <Compile Include="HouseService.cs" />
+    <Compile Include="Houses\HouseBedObject.cs" />
+    <Compile Include="Houses\HouseChestObject.cs" />
+    <Compile Include="Houses\HouseFurnitureObject.cs" />
+    <Compile Include="Houses\HouseFurnitureObjectFactory.cs" />
+    <Compile Include="Houses\IHouseFurnitureObject.cs" />
+    <Compile Include="HouseTransactions.cs" />
+    <Compile Include="Html\BaseLinkCreator.cs" />
+    <Compile Include="Html\DevIssueLinkCreator.cs" />
+    <Compile Include="Html\EntityLinkCreator.cs" />
+    <Compile Include="Html\ILinkCreator.cs" />
+    <Compile Include="Html\LinkCreator.cs" />
+    <Compile Include="Html\MvcLinkCreator.cs" />
+    <Compile Include="Html\RegionLinkCreator.cs" />
+    <Compile Include="Html\StringLinkCreator.cs" />
+    <Compile Include="Html\TradeLinkCreator.cs" />
+    <Compile Include="Html\WarLinkCreator.cs" />
+    <Compile Include="IAuthService.cs" />
+    <Compile Include="IBattleEventService.cs" />
+    <Compile Include="IBattleService.cs" />
+    <Compile Include="ICitizenService.cs" />
+    <Compile Include="ICompanyFinanceService.cs" />
+    <Compile Include="ICompanyFinanceSummaryService.cs" />
+    <Compile Include="ICompanyService.cs" />
+    <Compile Include="ICongressCandidateService.cs.cs" />
+    <Compile Include="ICongressVotingService.cs" />
+    <Compile Include="IConstructionService.cs" />
+    <Compile Include="IContractService.cs" />
+    <Compile Include="ICountryEventService.cs" />
+    <Compile Include="ICountryPresidentService.cs" />
+    <Compile Include="ICountryService.cs" />
+    <Compile Include="ICountryTreasureService.cs" />
+    <Compile Include="IDefenseSystemService.cs" />
+    <Compile Include="IDevIssueService.cs" />
+    <Compile Include="IEmailService.cs" />
+    <Compile Include="IEmbargoService.cs" />
+    <Compile Include="IEmployeeService.cs" />
+    <Compile Include="IEntityService.cs" />
+    <Compile Include="IEquipmentService.cs" />
+    <Compile Include="IFileService.cs" />
+    <Compile Include="IFriendService.cs" />
+    <Compile Include="IGiftService.cs" />
+    <Compile Include="IHospitalService.cs" />
+    <Compile Include="IHotelService.cs" />
+    <Compile Include="IHotelTransactionsService.cs" />
+    <Compile Include="IHouseChestService.cs" />
+    <Compile Include="IHouseService.cs" />
+    <Compile Include="IHouseTransactions.cs" />
+    <Compile Include="IJobOfferService.cs" />
+    <Compile Include="IMahService.cs" />
+    <Compile Include="IMarketService.cs" />
+    <Compile Include="IMessageService.cs" />
+    <Compile Include="IMonetaryMarketService.cs" />
+    <Compile Include="IMPPService.cs" />
+    <Compile Include="INewspaperService.cs" />
+    <Compile Include="IOrganisationService.cs" />
+    <Compile Include="IPartyService.cs" />
+    <Compile Include="IPopupService.cs" />
+    <Compile Include="IProductService.cs" />
+    <Compile Include="IRegionService.cs" />
+    <Compile Include="IRemovalService.cs" />
+    <Compile Include="ISellHouseService.cs" />
+    <Compile Include="IShoutBoxService.cs" />
+    <Compile Include="IStartService.cs" />
+    <Compile Include="ISummaryService.cs" />
+    <Compile Include="ITradeService.cs" />
+    <Compile Include="ITransactionService.cs" />
+    <Compile Include="ITravelService.cs" />
+    <Compile Include="IUploadAvatarService.cs" />
+    <Compile Include="IUploadService.cs" />
+    <Compile Include="IWalletService.cs" />
+    <Compile Include="IWarEventService.cs" />
+    <Compile Include="IWarningService.cs" />
+    <Compile Include="IWarService.cs" />
+    <Compile Include="IWorldService.cs" />
+    <Compile Include="JobOfferService.cs" />
+    <Compile Include="MahService.cs" />
+    <Compile Include="MarketService.cs" />
+    <Compile Include="MessageService.cs" />
+    <Compile Include="Models\PopupMessageViewModel.cs" />
+    <Compile Include="MonetaryMarketService.cs" />
+    <Compile Include="MPPService.cs" />
+    <Compile Include="NewspaperService.cs" />
+    <Compile Include="OrganisationService.cs" />
+    <Compile Include="PartyService.cs" />
+    <Compile Include="PathFinding\AvoidCountriesRegionSelector.cs" />
+    <Compile Include="PathFinding\AvoidEnemiesRegionSelector.cs" />
+    <Compile Include="PathFinding\BattlePathFindingCostCalculator.cs" />
+    <Compile Include="PathFinding\DefaultPassageCostCalculator.cs" />
+    <Compile Include="PathFinding\DefaultRegionSelector.cs" />
+    <Compile Include="PathFinding\IPathFindingCostCalculator.cs" />
+    <Compile Include="PathFinding\IPathFindingRegionSelector.cs" />
+    <Compile Include="PathFinding\TradeRegionSelector.cs" />
+    <Compile Include="PathFinding\WarsPenaltyCostCalculator.cs" />
+    <Compile Include="Persistent.cs" />
+    <Compile Include="PopupService.cs" />
+    <Compile Include="ProductService.cs" />
+    <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="BigParams\CreateOrganisationParameters.cs" />
+    <Compile Include="BigParams\auth\CreateSessionParameters.cs" />
+    <Compile Include="RegionService.cs" />
+    <Compile Include="RemovalService.cs" />
+    <Compile Include="SellHouseService.cs" />
+    <Compile Include="ShoutBoxService.cs" />
+    <Compile Include="StartService.cs" />
+    <Compile Include="structs\Avatars\CropRectangle.cs" />
+    <Compile Include="structs\Battles\BattleHero.cs" />
+    <Compile Include="structs\ChangeJournalistsRightsParam.cs" />
+    <Compile Include="structs\Companies\ManageableCompanyInfo.cs" />
+    <Compile Include="structs\CompanyRights.cs" />
+    <Compile Include="structs\Credentials.cs" />
+    <Compile Include="structs\Hospitals\UpdateHospitalNationalityOption.cs" />
+    <Compile Include="structs\Hotels\HotelCost.cs" />
+    <Compile Include="structs\Issues\CreateIssueArgs.cs" />
+    <Compile Include="structs\Market\CitizenTrader.cs" />
+    <Compile Include="structs\Market\CompanyTrader.cs" />
+    <Compile Include="structs\Market\EntityTraderPriority.cs" />
+    <Compile Include="structs\Market\HotelTrader.cs" />
+    <Compile Include="structs\Market\ITrader.cs" />
+    <Compile Include="structs\Market\NewspaperTrader.cs" />
+    <Compile Include="structs\Market\Trader.cs" />
+    <Compile Include="structs\Market\TraderFactory.cs" />
+    <Compile Include="structs\MonetaryMarket\MonetaryOfferCost.cs" />
+    <Compile Include="structs\MonetaryMarket\MonetaryOfferTax.cs" />
+    <Compile Include="structs\Money.cs" />
+    <Compile Include="structs\Node.cs" />
+    <Compile Include="structs\OfferCost.cs" />
+    <Compile Include="structs\Organisations\OrganisationRights.cs" />
+    <Compile Include="structs\Params\Attributes\IParamAttribute.cs" />
+    <Compile Include="structs\Params\Attributes\RequiredAttribute.cs" />
+    <Compile Include="structs\Params\BaseParam.cs" />
+    <Compile Include="structs\Params\MonetaryMarket\CreateMonetaryOfferParam.cs" />
+    <Compile Include="structs\Path.cs" />
+    <Compile Include="structs\ProductAllTaxes.cs" />
+    <Compile Include="structs\ProductCost.cs" />
+    <Compile Include="structs\ProductRequirement.cs" />
+    <Compile Include="structs\RegisterInfo.cs" />
+    <Compile Include="structs\Votings\AssignManagerToCompanyVotingParameters.cs" />
+    <Compile Include="structs\Votings\BuildDefenseSystemVotingsParameters.cs" />
+    <Compile Include="structs\Votings\ChangeArticleTaxVotingParameters.cs" />
+    <Compile Include="structs\Votings\ChangeCitizenCompanyCostVotingParameters.cs" />
+    <Compile Include="structs\Votings\ChangeCitizenStartingMoneyVotingParameters.cs" />
+    <Compile Include="structs\Votings\ChangeCompanyCreationLawHolderVotingParameters.cs" />
+    <Compile Include="structs\Votings\ChangeCongressCadenceLengthParameters.cs" />
+    <Compile Include="structs\Votings\ChangeCongressVotingLnegthParameters.cs" />
+    <Compile Include="structs\Votings\ChangeContractJobMarketFeeParameters.cs" />
+    <Compile Include="structs\Votings\ChangeGreetingMessageVotingParameters.cs" />
+    <Compile Include="structs\Votings\ChangeHotelTaxVotingParameters.cs" />
+    <Compile Include="structs\Votings\ChangeHouseTaxVotingParameters.cs" />
+    <Compile Include="structs\Votings\ChangeMarketOfferCostVotingParameters.cs" />
+    <Compile Include="structs\Votings\ChangeMaximumContractLengthParameters.cs" />
+    <Compile Include="structs\Votings\ChangeMinimalWageVotingParameters.cs" />
+    <Compile Include="structs\Votings\ChangeMinimumContractLengthParameters.cs" />
+    <Compile Include="structs\Votings\ChangeMinimumMonetaryTaxRateParameters.cs" />
+    <Compile Include="structs\Votings\ChangeMinimumMonetaryTaxValueParameters.cs" />
+    <Compile Include="structs\Votings\ChangeNewspaperCreateCostVotingParameters.cs" />
+    <Compile Include="structs\Votings\ChangeNormalCongressVotingWinPercentageVotingParameters.cs" />
+    <Compile Include="structs\Votings\ChangeNormalJobMarketFeeParameters.cs" />
+    <Compile Include="structs\Votings\ChangeOrganisationCompanyCostVotingParameters.cs" />
+    <Compile Include="structs\Votings\ChangeOrganisationCreateCostVotingParameters.cs" />
+    <Compile Include="structs\Votings\ChangePartyCreateFeeVotingParameters.cs" />
+    <Compile Include="structs\Votings\ChangePartyPresidentCadenceLengthVotingParameters.cs" />
+    <Compile Include="structs\Votings\ChangePresidentCadenceLengthVotingParameters.cs" />
+    <Compile Include="structs\Votings\ChangeProductExportTaxVotingParameters.cs" />
+    <Compile Include="structs\Votings\ChangeProductImportTaxVotingParameters.cs" />
+    <Compile Include="structs\Votings\ChangeProductVatVotingParameters.cs" />
+    <Compile Include="structs\Votings\ChangeTreasureLawHolderVotingParameters.cs" />
+    <Compile Include="structs\Votings\CreateNationalCompanyVotingParameters.cs" />
+    <Compile Include="structs\Votings\PrintMoneyVotingParameters.cs" />
+    <Compile Include="structs\Votings\RemoveNationalCompanyVotingParameters.cs" />
+    <Compile Include="structs\Votings\StartCongressVotingParameters.cs" />
+    <Compile Include="structs\Transaction.cs" />
+    <Compile Include="structs\Votings\TransferCashToCompanyVotingParameters.cs" />
+    <Compile Include="structs\WorkStatistics.cs" />
+    <Compile Include="SummaryService.cs" />
+    <Compile Include="Times\GameTime.cs" />
+    <Compile Include="TradeService.cs" />
+    <Compile Include="TransactionService.cs" />
+    <Compile Include="TravelService.cs" />
+    <Compile Include="UploadAvatarService.cs" />
+    <Compile Include="UploadService.cs" />
+    <Compile Include="WalletService.cs" />
+    <Compile Include="WarEventService.cs" />
+    <Compile Include="WarningService.cs" />
+    <Compile Include="WarService.cs" />
+    <Compile Include="WorldService.cs" />
+  </ItemGroup>
+  <ItemGroup>
+    <ProjectReference Include="..\C-Common\Common\Common.csproj">
+      <Project>{7833DE49-4309-4C54-BD72-EA7B9F99F71F}</Project>
+      <Name>Common</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\EntityFramework\Entities.csproj">
+      <Project>{380a6f11-2271-4223-9c25-ce187bd3cc08}</Project>
+      <Name>Entities</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\SociatisCommon\SociatisCommon.csproj">
+      <Project>{14589FEE-DD34-4264-965C-8EDBA22ABFE1}</Project>
+      <Name>SociatisCommon</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\WebUtils\WebUtils.csproj">
+      <Project>{3737CAE9-1E9F-4687-B53D-D1A7D43DE19C}</Project>
+      <Name>WebUtils</Name>
+    </ProjectReference>
+  </ItemGroup>
+  <ItemGroup>
+    <Folder Include="ActionFilters\" />
+    <Folder Include="structs\Summaries\" />
+    <Folder Include="utils\" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="App.config" />
+    <None Include="packages.config" />
+  </ItemGroup>
+  <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
+  <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
+       Other similar extension points exist, see Microsoft.Common.targets.
+  <Target Name="BeforeBuild">
+  </Target>
+  <Target Name="AfterBuild">
+  </Target>
+  -->
+</Project>

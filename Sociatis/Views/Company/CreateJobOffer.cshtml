@@ -1,0 +1,52 @@
+﻿@model Sociatis.Models.Companies.CreateJobOfferViewModel
+@using Entities.enums
+@{
+    ViewBag.Title = "Companies";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+@using (Html.BeginForm())
+{
+
+    <div class="row ContentBox">
+
+        @Html.Action("TopBar", new { ID = Model.CompanyID })
+
+
+        <hr />
+
+
+        <h3>Choose job offer type: </h3>
+
+        @Html.RadioButtonFor(m => m.JobType, (int)JobTypeEnum.Normal, false) @Html.Label("Normal")
+        @Html.RadioButtonFor(m => m.JobType, (int)JobTypeEnum.Contracted, false) @Html.Label("Contract")
+
+        @Html.HiddenFor(m => m.CompanyID)
+        <div class="row">
+            <div class="small-7 columns">&nbsp;</div>
+            <div class="small-5 columns">
+                <div class="expanded button-group">
+                    <a href="#" onclick="$(this).closest('form').submit()" class="button">Next</a>
+                    <a href="@Url.Action("View", "Company", new { ID = Model.CompanyID }, null)" class="secondary button">Go back</a>
+                </div>
+            </div>
+        </div>
+
+        <p id="normalDescription" class="hint" style="display:none">
+            With normal job offers your employee can resign from work at any given time. <br/>
+            You can also change his salary to any given value at any given time.
+        </p>
+
+        <p id="contractDescription" class="hint" style="display:none">
+            Employee with contract cannot quit your job unless you are not able to pay him or you do not have enough raw in company's inventory. <br/>
+            You also cannot kick him from job at any moment. It is only possible when employee did not work in previous day. <br />
+            You also cannot set salary lower than minimum salary guaranted by contract, but you can set it higher. 
+        </p>
+    </div>
+}
+
+
+@section scripts
+{
+    @Scripts.Render("~/Scripts/company/sociatis.company.create_job_offer.js")
+}

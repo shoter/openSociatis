@@ -1,0 +1,145 @@
+﻿@model Sociatis.Models.Congress.ViewCongressViewModel
+@using Entities.enums
+
+@{
+    ViewBag.Title = string.Format("{0}'s congress", Model.CountryName);
+}
+
+@Html.DisplayFor(m => m.Info)    
+<div class="ContentBox row">
+    @if (Model.IsVotingDay == false)
+    {
+        <h4>Next congressmen voting</h4>
+
+            <text>Next congressmen voting will be held at @Model.NextCongressmenVoting day.</text> <br /><br/>
+        if (Model.IsCandidating)
+        {
+            <text>You are actual candidate to congress</text>
+        }
+        else if (Model.IsCountryPartyMember)
+        {
+            if (Model.IsInCountry)
+            {
+                using (Html.BeginForm("CandidateToCongress", "Party", FormMethod.Post))
+                {
+                    <button class="button green">Candidate in <b>@Model.CandidateRegion</b></button>
+                }
+            }
+            else
+            {
+                <text>You are eligible to start in congress voting but you cannot candidate now. To do so you need to travel to @Model.Info.CountryName.</text>
+            }
+        }
+    } else
+    {
+        <h4>Congress voting</h4>
+        <text>Today eligible citizens can vote on congress members. Go to @Html.ActionLink("Congress candidates", "CongressCandidates", new { countrID = Model.Info.CountryID }) to see candidates.</text>
+    }
+
+    <hr />
+    Actual law:
+
+    <br/>This table is temporary<br/>
+
+    <table>
+        <thead>
+            <tr>
+                <th>Law</th>
+                <th>Value</th>
+            </tr>
+        </thead>
+        <tbody>
+            <tr>
+                <td>Citizen birth pack</td>
+                <td>@Model.ActualLaw.CitizenFee @Model.ActualLaw.CurrencySymbol</td>
+            </tr>
+            <tr>
+                <td>Citizen company cost</td>
+                <td>@Model.ActualLaw.CitizenCompanyCost @Model.ActualLaw.CurrencySymbol</td>
+            </tr>
+            <tr>
+                <td>Organisation company cost</td>
+                <td>@Model.ActualLaw.OrganisationCompanyCost @Model.ActualLaw.CurrencySymbol</td>
+            </tr>
+            <tr>
+                <td>Job offer fee - normal</td>
+                <td>@Model.ActualLaw.NormalJobMarketFee @Model.ActualLaw.CurrencySymbol</td>
+            </tr>
+            <tr>
+                <td>Job offer fee - contract</td>
+                <td>@Model.ActualLaw.ContractJobMarketFee @Model.ActualLaw.CurrencySymbol</td>
+            </tr>
+            <tr>
+                <td>Minimum contract length</td>
+                <td>@Model.ActualLaw.MaximumContractLength days</td>
+            </tr>
+            <tr>
+                <td>Maximum contract length</td>
+                <td>@Model.ActualLaw.MaximumContractLength days</td>
+            </tr>
+            <tr>
+                <td>Normal congress voting - acceptance percentage</td>
+                <td>@(Model.ActualLaw.NormalCongressVotingWinPercentage * 100)%</td>
+            </tr>
+            <tr>
+                <td>Party founding cost</td>
+                <td>@Model.ActualLaw.PartyFoundingFee @Model.ActualLaw.CurrencySymbol</td>
+            </tr>
+            <tr>
+                <td>Party president cadence length</td>
+                <td>@Model.ActualLaw.PartyPresidentCadenceLength days</td>
+            </tr>
+            <tr>
+                <td>Congress cadence length</td>
+                <td>@Model.ActualLaw.CongressCadenceLength days</td>
+            </tr>
+            <tr>
+                <td>Congress voting length</td>
+                <td>@Model.ActualLaw.CongressVotingLength hours</td>
+            </tr>
+            <tr>
+                <td>President cadence length</td>
+                <td>@Model.ActualLaw.PresidentCadenceLength</td>
+            </tr>
+            <tr>
+                <td>Organisation create cost</td>
+                <td>@Model.ActualLaw.OrganisationCreateCost @Model.ActualLaw.CurrencySymbol</td>
+            </tr>
+            <tr>
+                <td>Market offer cost</td>
+                <td>@Model.ActualLaw.MarketOfferCost @Model.ActualLaw.CurrencySymbol</td>
+            </tr>
+            <tr>
+                <td>Newspaper creation cost</td>
+                <td>@Model.ActualLaw.NewspaperCreateCost @Model.ActualLaw.CurrencySymbol</td>
+            </tr>
+            <tr>
+                <td>Article tax</td>
+                <td>@(Model.ActualLaw.ArticleTax * 100)%</td>
+            </tr>
+            <tr>
+                <td>Monetary tax rate</td>
+                <td>@(Model.ActualLaw.MonetaryTaxRate * 100)%</td>
+            </tr>
+            <tr>
+                <td>Minimum monetary tax</td>
+                <td>@Model.ActualLaw.MinimumMonetaryTax @Model.ActualLaw.CurrencySymbol</td>
+            </tr>
+            <tr>
+                <td>Who can see treasury:</td>
+                <td>@Model.ActualLaw.TreasuryLawAllowHolder.ToHumanReadableString().FirstToUpper()</td>
+            </tr>
+            <tr>
+                <td>Who can build national companies:</td>
+                <td>@Model.ActualLaw.NationalCompanyBuildLawAllowHolder.ToHumanReadableString().OnlyFirstUpper()</td>
+            </tr>
+            <tr>
+                <td>Minimal wage:</td>
+                <td>@Model.ActualLaw.MinimalWage @Model.ActualLaw.CurrencySymbol</td>
+            </tr>
+        </tbody>
+    </table>
+
+
+</div>
+

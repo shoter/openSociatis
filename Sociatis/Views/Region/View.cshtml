@@ -1,0 +1,34 @@
+﻿@model Sociatis.Models.Regions.RegionViewModel
+@{
+    ViewBag.Title = Model.Info.RegionName + " - " + Model.Info.CountryName;
+}
+@Html.DisplayFor(m => m.Info)
+
+<div id="viewRegion" class="ContentBox">
+
+    @if (Model.Heal != null)
+    {
+        @Html.DisplayFor(m => m.Heal)
+    }
+
+    <h4>Resources</h4>
+    <div id="resourcesList" class="row">
+        @foreach (var resource in Model.Resources)
+        {
+        <div class="small-4 medium-3 large-2 columns end">
+            <div class="regionResource" title="@resource.ResourceName">
+                <div class="regionResourceImage">
+                    @Html.DisplayFor(m => resource.ResourceImage)
+                </div>
+                <div class="regionResourceQuality">
+                    @for (int i = 0; i < (int)resource.ResourceQuality; ++i)
+                    {
+                        <i class="fa fa-star"></i>
+                    }
+                </div>
+            </div>
+            
+        </div>
+        }
+    </div>
+</div>

@@ -1,0 +1,35 @@
+﻿@model Sociatis.Models.Houses.HouseSellViewModel
+
+@{
+    ViewBag.Title = "Sell house";
+}
+
+@Html.DisplayFor(m => m.Info)
+
+@using (Html.BeginForm("SellHouse", "House", new { houseID = Model.Info.HouseID }, FormMethod.Post, null))
+{
+    <div class="contentBox" id="sellHouse">
+        <h3>Create sell house offer</h3>
+
+        <div class="row" data-equalizer>
+            <div class="medium-6 column" data-equalizer-watch>
+                <label>Price:</label>
+                <div class="inputGroup">
+                    <input type="number" min="0.01" step="0.01"  class="noMargin" name="price" placeholder="Price" />
+                    <div class="inputInfo noMargin">
+                        @Model.CurrencySymbol
+                    </div>
+                </div>
+
+            </div>
+            <div class="medium-6 column relative" data-equalizer-watch>
+                <button class="button blue">Sell house</button>
+            </div>
+        </div>
+        <div class="hint">
+            You will still be able to use the house until it is sold.
+            <br/>
+            If the region where house is will be captured then house sell offer will be canceled and you will need to create sell offer for house again.
+        </div>
+    </div>
+}

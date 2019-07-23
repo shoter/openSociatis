@@ -1,0 +1,44 @@
+﻿@model Sociatis.Models.Houses.HouseBaseFurnitureViewModel
+
+<div class="furniture">
+    <div class="row">
+        <div class="large-6 column">
+            <h4>@Model.Name Q@(Model.Quality)</h4>
+
+            <div class="maintaince">
+                Decay:
+                <span>@Model.MaintainceCost %</span>
+            </div>
+            <div class="furnitureSpecific">
+                @RenderSection("furnitureSpecific", required: false)
+            </div>
+        </div>
+        <div class="large-6 column">
+            @if (Model.CanManage)
+            {
+            <h5>Upgrade</h5>
+                if (Model.CanUpgrade)
+                {
+                <div class="upgradeCost">
+                    cost: @Model.UpgradeCost UP
+                </div>
+                <div class="newLevelDescription">
+                    @RenderSection("newLevelDescription", required: false)
+                </div>
+                <div class="upgrade">
+                    @using (Html.BeginForm("UpgradeFurniture", "House", new { houseID = Model.HouseID, furnitureTypeID = Model.FurnitureTypeID }))
+                    {
+                        <button class="button green">Upgrade</button>
+                    }
+                </div>
+                }
+                else
+                {
+                <div>
+                    No further upgrades
+                </div>
+                }
+            }
+        </div>
+    </div>
+</div>

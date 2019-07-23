@@ -1,0 +1,55 @@
+﻿@import "definitions.scss";
+
+#viewRegion
+{
+    .healing
+    {
+        text-align: center;
+        margin-top: 0.5rem;
+        margin-bottom: 1rem;
+
+        button
+        {
+            font-size: xx-large;
+            padding: 0.5em 1em;
+        }
+
+        .hospitalName
+        {
+            font-size: small;
+            line-height: 0.5rem;
+        }
+    }
+
+    .regionResource
+    {
+        border: 1px solid rgba(128, 128, 128, 0.32);
+        @include box-shadow(2px 2px 2px 1px rgba(194,194,194,0.3));
+        border-radius: 0.5em 0.5em;
+        margin-right: 1rem;
+
+        .regionResourceImage
+        {
+            margin-top: 0.7rem;
+            margin-left: 0.6rem;
+            margin-right: 0.6rem;
+            background-color: rgba(128, 128, 128, 0.11);
+            padding: 0.3rem;
+            float: none;
+            border: 1px solid rgba(0, 0, 0, 0.32);
+            border-radius: 3px;
+
+            img
+            {
+                display: block;
+                margin-left: auto;
+                margin-right: auto;
+            }
+        }
+
+        .regionResourceQuality
+        {
+            @include productQuality;
+        }
+    }
+}

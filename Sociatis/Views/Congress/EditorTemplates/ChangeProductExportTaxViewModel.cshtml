@@ -1,0 +1,16 @@
+﻿@model Sociatis.Models.Congress.ChangeProductExportTaxViewModel
+
+@{
+    ViewData.TemplateInfo.HtmlFieldPrefix = "";
+}
+
+@Html.LabelFor(m => m.NewExportTax)
+@Html.TextBoxFor(m => m.NewExportTax)
+
+
+@Html.LabelFor(m => m.ProductType)
+@Html.DropDownListFor(m => m.ProductType, Model.Products)
+
+
+@Html.LabelFor(m => m.ForeignCountryID)
+@Html.DropDownListFor(m => m.ForeignCountryID, Model.Countries)

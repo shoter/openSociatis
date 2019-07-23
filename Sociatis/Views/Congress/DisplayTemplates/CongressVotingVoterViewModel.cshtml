@@ -1,0 +1,11 @@
+﻿@model Sociatis.Models.Congress.Votings.CongressVotingVoterViewModel
+
+<div class="flex voter">
+    <div class="miniAvatars">
+        @Html.DisplayFor(m => m.Avatar)
+    </div>
+    <div class="votingUserInfo">
+        <text class="votingUsername">@Model.Name</text>
+        <text class="votingParty">@Model.PartyName</text>
+    </div>
+</div>

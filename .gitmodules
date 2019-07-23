@@ -1,0 +1,6 @@
+[submodule "C-Common"]
+	path = C-Common
+	url = https://github.com/shoter/C-Common
+[submodule "WebUtils"]
+	path = WebUtils
+	url = https://github.com/shoter/WebUtils.git

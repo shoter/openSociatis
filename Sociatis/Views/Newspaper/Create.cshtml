@@ -1,0 +1,62 @@
+﻿@model Sociatis.Models.Newspapers.CreateNewspaperViewModel
+@{
+    ViewBag.Title = "Create newspaper";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+<div class="ContentBox">
+    @using (Html.BeginForm(RouteDataHelper.ActionName, RouteDataHelper.ControllerName, FormMethod.Post))
+    {
+        @Html.ValidationSummary()
+        <div class="row">
+            <h3 class="small-12 columns">
+                @ViewBag.Title
+            </h3>
+        </div>
+        <hr />
+        <div class="row">
+            <div class="small-12 columns">
+                <div class="createForm row">
+                    <div class="small-4 columns">
+                        @Html.DisplayNameFor(m => m.Name)
+                    </div>
+                    <div class="small-8 columns">
+                        @Html.TextBoxFor(m => m.Name)
+                        @Html.ValidationMessageFor(m => m.Name)
+                    </div>
+
+                    <div class="small-4 columns">
+                        @Html.DisplayNameFor(m => m.CountryName)
+                    </div>
+                    <div class="small-8 columns">
+                        <p>
+                            @Html.DisplayFor(m => m.CountryName)
+                        </p>
+                    </div>
+
+                    <hr />
+                    <div class="small-12 columns">
+                        <p>Creation fee : </p>
+                        @Html.Partial("~/Views/Wallet/MoneyPrintout.cshtml", Model.Fees)
+                    </div>
+                    @if (Model.IsParty)
+                    {
+                    <div class="small-12 columns">
+                        <div class="hint">
+                            Your citizen will pay the creation fee.
+                        </div>
+                    </div>
+                    }
+
+                    <div class="small-7 columns">&nbsp;</div>
+                    <div class="small-5 columns">
+                        <div class="expanded button-group">
+                            <button class="button green">Create newspaper</button>
+                            <a href="@Url.Action("Index", "Home")" class="secondary button">Go back</a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+        </div>
+    }
+</div>

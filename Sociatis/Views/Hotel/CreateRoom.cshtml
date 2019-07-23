@@ -1,0 +1,25 @@
+﻿@model Sociatis.Models.Hotels.HotelCreateRoomViewModel
+@{
+    ViewBag.Title = "Create room for " + Model.Info.Name;
+}
+
+@Html.DisplayFor(m => m.Info)
+@using (Html.BeginForm(RouteDataHelper.ActionName, RouteDataHelper.ControllerName, new { hotelID = Model.Info.ID }))
+{
+    <div id="hotelCreateRoom" class="contentBox">
+        <div class="quality">
+            <label>Quality:</label>
+            @Html.DropDownListFor(m => m.Quality, Model.QualitySelect)
+        </div>
+        <div class="cost">
+            <label>Construction Materials cost:</label>
+            <span id="constructionMaterialsNeeded"></span>
+        </div>
+        <button id="hotelCreateRoomButton" class="button green" disabled>Create</button>
+    </div>
+}
+@section scripts
+{
+    <script>Sociatis.Global.hotelID = @Model.Info.ID;</script>
+    <script src="~/Scripts/hotel/sociatis.hotel.create_room.js"></script>
+}

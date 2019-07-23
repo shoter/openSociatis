@@ -1,0 +1,77 @@
+﻿@model Sociatis.Models.Companies.CreateNormalJobOfferViewModel
+@{
+    ViewBag.Title = "Create normal job offer";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+@Html.DisplayFor(m => m.Info)
+
+@using (Html.BeginForm())
+{
+    <div class="row ContentBox">
+
+        @Html.HiddenFor(m => m.CompanyID)
+        <hr />
+
+        @Html.ValidationSummary()
+
+        <div class="row">
+            <div class="small-4 columns">
+                Skill
+            </div>
+            <div class="small-8 columns">
+                @Html.TextBoxFor(m => m.MinSkill, new { Placeholder = "Minimum skill" })
+            </div>
+        </div>
+        <div class="row">
+            <div class="small-4 columns">
+                @Html.DisplayNameFor(m => m.Salary)
+            </div>
+            <div class="small-4 columns">
+                @Html.TextBoxFor(m => m.Salary, new { placeholder = "Salary" } )
+                @Html.ValidationMessageFor(m => m.Salary)
+
+            </div>
+            <div class="small-4 columns">
+                <p class="money">
+                    @Html.DisplayFor(m => m.JobMarketFee.Image)
+                </p>
+            </div>
+        </div>
+
+        <div class="row">
+            <div class="small-4 columns">
+                @Html.DisplayNameFor(m => m.Amount)
+            </div>
+            <div class="small-4 columns end">
+                @Html.TextBoxFor(m => m.Amount)
+            </div>
+        </div>
+
+        <div class="row">
+            <div class="small-4 columns">
+                @Html.DisplayNameFor(m => m.JobMarketFee)
+            </div>
+            <div class="small-8 columns">
+                <span class="marketFee">
+                    @Html.DisplayFor(m => m.JobMarketFee)
+                </span>
+                @Html.CheckBoxFor(m => m.PostOfferOnJobMarket)
+                @Html.DisplayNameFor(m => m.PostOfferOnJobMarket)
+                @Html.ValidationMessageFor(m => m.PostOfferOnJobMarket)
+            </div>
+        </div>
+
+        <div class="row">
+            <div class="small-8 columns">&nbsp;</div>
+            <div class="small-3 text-right columns">
+                <a href="#" onclick="$(this).closest('form').submit()" class="button">Create</a>
+            </div>
+            <div class="small-1 columns"/>
+        </div>
+
+
+
+
+    </div>
+}

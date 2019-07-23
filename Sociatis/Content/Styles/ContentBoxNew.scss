@@ -1,0 +1,13 @@
+﻿@import "definitions.scss";
+
+.contentBoxNew
+{
+    background-color: #ffffff;
+    border: 1px solid rgba(128, 128, 128, 0.3);
+    @include box-shadow(1px 1px 1px 1px rgba(194,194,194,0.3));
+
+    border-radius: 5px;
+
+    margin: 2px 5px 5px 2px;
+    overflow: hidden;
+}

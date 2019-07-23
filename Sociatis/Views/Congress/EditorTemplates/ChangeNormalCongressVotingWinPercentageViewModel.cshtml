@@ -1,0 +1,9 @@
+﻿@model Sociatis.Models.Congress.ChangeNormalCongressVotingWinPercentageViewModel
+
+@{
+    ViewData.TemplateInfo.HtmlFieldPrefix = "";
+}
+
+@Html.LabelFor(m => m.WinPercentage)
+@Html.TextBoxFor(m => m.WinPercentage)
+@Html.ValidationMessageFor(m => m.WinPercentage)

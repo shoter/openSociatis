@@ -1,0 +1,5 @@
+﻿@model Sociatis.Models.Congress.Votings.ViewChangeCitizenStartingMoneyViewModel
+
+<h4>Proposition #@Model.VotingID : Change citizen starting money to <b>@Model.Fee</b> @(Model.CurrencySymbol).
+    Every citizen will be given this amount of cash from country treasury on birth.</h4>
+by @Html.ActionLink(Model.CreatorName, "View", "Citizen", new { citizenID = Model.CreatorID }, null)

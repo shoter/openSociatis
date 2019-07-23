@@ -1,0 +1,72 @@
+﻿@model Sociatis.Models.Congress.CongressStartVotingViewModel
+
+@{
+    ViewBag.Title = "Start Voting";
+}
+@Html.DisplayFor(m => m.Info)
+@using (Html.BeginForm("StartVoting"))
+{
+    @Html.HiddenFor(m => m.CountryID)
+    <div class="ContentBox row">
+        <h5>Select voting type</h5>
+        <div class="row">
+            <div class="small-12  medium-6 columns">
+                <label for="votingType">Voting type</label>
+                @if (Model.EmbeddedVote == null)
+                {
+                    @Html.DropDownList("votingType", Model.VotingTypes)
+                }
+                else
+                {
+                    @Html.DropDownList("votingType", Model.VotingTypes.Choose((int)Model.EmbeddedVote.VotingType))
+                }
+            </div>
+            <div class="small-12 medium-6 columns">
+                <label for="commentRestriction">Comment options?</label>
+                @Html.DropDownList("commentRestriction", Model.CommentRestrictions)
+            </div>
+        </div>
+    </div>
+
+    <div class="ContentBox row">
+        <h5>Options</h5>
+
+    
+            <div id="options">
+                @if(Model.EmbeddedVote != null)
+                {
+                    
+                    if (ViewData.ModelState.IsValid == false)
+                    {
+                        @Html.ValidationSummary()
+                        <hr/>
+                    }
+
+                    @Html.EditorFor(m => m.EmbeddedVote)
+
+                    <br/>
+
+                    @Html.DisplayNameFor(m => m.EmbeddedVote.Message)
+
+                    @Html.TextArea("Message", Model.EmbeddedVote.Message)
+                }
+            </div>
+        @if (Model.EmbeddedVote == null)
+        {
+            <button id="submitButton" class="button disabled pull-right">Submit</button>
+        }
+        else
+        {
+            <button id="submitButton" class="button pull-right">Submit</button>
+        }
+
+
+    </div>
+}
+@section scripts
+{
+    @Scripts.Render("https://cdn.jsdelivr.net/ace/1.2.6/min/ace.js")
+    @Scripts.Render("~/Scripts/Congress/sociatis.congress.start_voting.js")
+    @Scripts.Render("~/bundles/select2")
+    @Styles.Render("~/Content/select2")
+}

@@ -1,0 +1,30 @@
+﻿@model Sociatis.Models.Constructions.ConstructionInfoViewModel
+@using Entities.enums;
+@{
+    ViewData.TemplateInfo.HtmlFieldPrefix = "";
+}
+
+<div id="constructionInfo" class="row ContentBox entityInfoBox">
+    <div class="row">
+        <div class="small-3 medium-4 columns">
+            <div class="infoAvatar relative">
+                @Html.DisplayFor(m => m.Image)
+            </div>
+        </div>
+        <div class="small-9 medium-8 columns">
+            <h5>Construction of  @Html.ActionLink(Model.ConstructionType.ToHumanReadable(), "View", "Construction", new { constructionID = Model.ConstructionID }, null)</h5>
+            <h5>Quality : <span class="constructionQuality">
+                @for (int i = 0; i < Model.Quality; ++i)
+                {
+                    <i class="fa fa-star"></i>
+                }</span></h5>
+            <h5>
+                @Html.ActionLink(Model.RegionName, "View", "Region", new { regionID = Model.RegionID }, null)
+                , @Html.ActionLink(Model.CountryName, "View", "Country", new { countryID = Model.CountryID }, null)
+            </h5>
+            <h5>Owner:  @Html.ActionLink(Model.OwnerName, "View", "Entity", new { entityID = Model.OwnerID }, null)</h5>
+        </div>
+    </div>
+    @Html.DisplayFor(m => m.Menu)
+</div>
+

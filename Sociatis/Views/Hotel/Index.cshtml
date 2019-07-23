@@ -1,0 +1,42 @@
+﻿@model Sociatis.Models.Hotels.HotelIndexViewModel
+
+@{
+    ViewBag.Title = "Hotels";
+}
+
+<div class="contentBox">
+    <label>Region</label>
+    @Html.DropDownListFor(m => m.RegionID, Model.Regions)
+
+    <hr/>
+
+    <table>
+        <thead>
+            <tr>
+                <th>Avatar</th>
+                <th>Name</th>
+                <th>Free rooms</th>
+            </tr>
+        </thead>
+        <tbody>
+            @foreach (var h in Model.Hotels)
+
+            {
+                <tr>
+                    <td>@Html.DisplayFor(m => h.Avatar)</td>
+                    <td>@Html.ActionLink(h.Name, "View", "Entity", new { entityID = h.ID }, null)</td>
+                    <td>@h.FreeRooms</td>
+                </tr>
+            }
+        </tbody>
+    </table>
+</div>
+
+<script>
+    $(function () {
+        $("#RegionID").change(function (e) {
+            Sociatis.UI.BlockUI();
+            location.href = "/Hotels/" + e.target.value;
+        });
+    });
+</script>

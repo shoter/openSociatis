@@ -1,0 +1,183 @@
+﻿@import "definitions.scss";
+.giftWho
+{
+    &Desc
+        {
+            padding-right:1rem;
+        }
+    }
+.giftTable, #tradeView
+{
+    margin-top: 1rem;
+
+    .tabs-title-1
+    {
+        width: 100%;
+    }
+
+    .tabs-title-2
+    {
+        width: 50%;
+    }
+
+    .tabs-title-3
+    {
+        width: 33.33333%;
+    }
+
+    .tabs-title
+    {
+        a
+        {
+            font-size: large;
+            text-align: center;
+        }
+    }
+
+    .tabs-content
+    {
+        .exchangeItem
+        {
+            background-color: rgba($rowBackground, 0.41);
+
+            @include respond-to-only(pc)
+            {
+                padding: 1rem 2rem;
+            }
+
+            @include respond-to-only(tablet)
+            {
+                padding: 0.5rem 1rem;
+            }
+
+            @include respond-to-only(mobile)
+            {
+                padding: 0.25rem 0.5rem;
+            }
+
+            border: 1px solid rgba($rowBorder, 0.2);
+            border-top: none;
+
+            &:first-child
+            {
+                border-top: 1px solid rgba($rowBorder, 0.2);
+            }
+
+            button.max
+            {
+                white-space: nowrap;
+                margin-bottom: 0;
+                margin-left: 0.5rem;
+
+                @include respond-to-only(pc)
+                {
+                    margin-left: 1rem;
+                }
+            }
+
+            button.green
+            {
+                white-space: nowrap;
+                margin-bottom: 0;
+                margin-left: 0.5rem;
+
+                @include respond-to-only(pc)
+                {
+                    margin-left: 1rem;
+                }
+
+                .fuelCost
+                {
+                    margin-top: 0.25rem;
+                }
+            }
+        }
+
+        .exchangeMoney
+        {
+            .money
+            {
+                @include respond-to-only(mobile)
+                {
+                    display: none;
+                }
+
+                display: inline-block;
+            }
+
+            .moneyAmount
+            {
+                padding-left: 1rem;
+            }
+
+            .exchangeMoneyAmount
+            {
+                input[type=range]
+                {
+                    width: 100%;
+                    max-width: none;
+                }
+            }
+
+            input
+            {
+                width: calc(15vw + 1rem);
+            }
+
+            width: 100%;
+        }
+
+        .exchangeProduct
+        {
+            input
+            {
+                width: calc(10vw + 1rem);
+            }
+
+
+            &Image
+            {
+                @include respond-to-only(mobile)
+                {
+                    display: none;
+                }
+
+                border-bottom: none;
+                @include productImageStyle;
+                margin-right: 1rem;
+                padding: 0.25rem;
+                width: 5rem;
+
+                @include respond-to-only(tablet)
+                {
+                    width: 3rem;
+                }
+
+                img
+                {
+                    width: 4rem;
+
+                    @include respond-to-only(tablet)
+                    {
+                        width: 2rem;
+                    }
+
+                    height: auto;
+                }
+
+                .quality
+                {
+                    @include productQuality;
+                    font-size: x-small;
+                }
+            }
+
+
+
+            .inputInfo
+            {
+                min-width: 9em;
+            }
+        }
+    }
+}

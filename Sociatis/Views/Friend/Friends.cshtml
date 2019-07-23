@@ -1,0 +1,19 @@
+﻿@model Sociatis.Models.Friends.FriendsViewModel
+@{
+    ViewBag.Title = Model.Info.CitizenName + "'s friends";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+@Html.Partial("~/Views/Citizen/DisplayTemplates/CitizenInfoViewModel.cshtml", Model.Info)
+
+
+<div class="ContentBox">
+    <h3>@ViewBag.Title</h3>
+    <div class="row small-up-3 medium-up-4 large-up-6">
+        @foreach (var friend in Model.Friends)
+        {
+            <div class="column column-block">
+                @Html.DisplayFor(m => friend)
+            </div>
+        }
+    </div>
+</div>

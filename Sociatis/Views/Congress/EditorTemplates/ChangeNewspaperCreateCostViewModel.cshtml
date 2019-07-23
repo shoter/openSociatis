@@ -1,0 +1,9 @@
+﻿@model Sociatis.Models.Congress.ChangeNewspaperCreateCostViewModel
+
+@{
+    ViewData.TemplateInfo.HtmlFieldPrefix = "";
+}
+
+@Html.LabelFor(m => m.NewCreateCost)
+@Html.TextBoxFor(m => m.NewCreateCost)
+@Html.ValidationMessageFor(m => m.NewCreateCost)

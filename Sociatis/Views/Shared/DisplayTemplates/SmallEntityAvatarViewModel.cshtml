@@ -1,0 +1,34 @@
+﻿@model Sociatis.Models.Entit.SmallEntityAvatarViewModel
+@if (Model.ID.HasValue)
+{
+<div
+     @Html.Raw(string.IsNullOrWhiteSpace(Model.Classname) ? "" : "class=\"" + Model.Classname + "\"")
+     >
+    <div class="smallEntityAvatar">
+        <a href="@Url.Action("View", "Entity", new { entityID = Model.ID })">
+            @Html.DisplayFor(m => m.Avatar)
+        </a>
+    </div>
+    @if (Model.IncludeName)
+    {
+     <div class="text-center smallEntityName">
+        @Html.ActionLink(Model.Name, "View", "Entity", new { entityID = Model.ID }, null)
+    </div>
+    }
+</div>
+}
+else
+{
+    <div 
+         @Html.Raw(string.IsNullOrWhiteSpace(Model.Classname) ? "" : "class=\"" + Model.Classname + "\"")>
+        <div class="smallEntityAvatar">
+            @Html.DisplayFor(m => m.Avatar)
+        </div>
+        @if (Model.IncludeName)
+        {
+            <div class="text-center smallEntityName">
+                Unknown
+            </div>
+        }
+    </div>
+}

@@ -1,0 +1,17 @@
+﻿@model Sociatis.Models.Houses.HouseBedFurnitureViewModel
+
+@{
+    Layout = "~/Views/House/DisplayTemplates/HouseBaseFurnitureViewModel.cshtml";
+}
+
+@section furnitureSpecific
+{
+    Healed Hp @Model.HealedHP (Max. @Model.MaximumHealedHP)
+}
+@if (Model.CanUpgrade)
+{
+    @section newLevelDescription
+{
+        <div> Next level maximum HP healed: @Model.MaximumHealedHpNextLevel</div>
+    }
+}

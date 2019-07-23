@@ -1,0 +1,12 @@
+﻿<script id="shoutboxChannelTemplate" type="text/x-jsrender">
+    <div data-channelid="{{:channelID}}" onclick="Sociatis.Shoutbox.OpenChannel({{:channelID}})" class="shoutboxChannel {{if active}}active{{/if}}">
+        {{if closeAble}}
+        @*<div class="shoutboxClose">
+            <i onclick="closeChannel({{:channelID}}, event)" class="fa fa-close"></i>
+        </div>*@
+        {{/if}}
+        <div class="shoutboxChannelName centerVerticalFlex">
+            {{:channelName}}
+        </div>
+    </div>
+</script>

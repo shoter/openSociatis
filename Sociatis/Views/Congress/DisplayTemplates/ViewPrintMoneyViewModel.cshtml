@@ -1,0 +1,4 @@
+﻿@model Sociatis.Models.Congress.Votings.ViewPrintMoneyViewModel
+
+<h4>Proposition #@Model.VotingID : Print <b>@Model.MoneyAmount</b> @(Model.CurrencySymbol). It cost @Model.GoldCost gold.</h4>
+by @Html.ActionLink(Model.CreatorName, "View", "Citizen", new { citizenID = Model.CreatorID }, null)

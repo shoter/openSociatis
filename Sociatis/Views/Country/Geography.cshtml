@@ -1,0 +1,140 @@
+﻿@model Sociatis.Models.Country.CountryRegionsListViewModel
+@using Entities.enums;
+@{
+    ViewBag.Title = Model.Info.CountryName;
+    string hideClass = "";
+}
+
+@Html.DisplayFor(m => m.Info)
+
+<div id="geogrpahyView" class="contentBoxNew">
+    <div class="geoDropdown">
+        <div class="list colasped">
+            @foreach (var region in Model.Regions)
+            {
+                <div class="regionOnList" onclick="Sociatis.Geography.SelectRegionToDisplay(@region.RegionID)">
+                    @region.Name
+                </div>
+            }
+        </div>
+        <i id="regionExpander" onclick="Sociatis.Geography.OnExpanderClick()" class="fa fa-chevron-down"></i>
+
+    </div>
+    @foreach (var region in Model.Regions)
+    {
+        <div class="region @hideClass" data-regionid="@region.RegionID">
+            <div class="regionHeader">
+                <h3>@Html.ActionLink(region.Name, "View", "Region", new { regionID = region.RegionID }, null)</h3>
+                @if (Model.Info.IsPresident)
+                {
+                    @Html.RenderPaddle("region" + region.RegionID + "spawn", "Spawn enabled", "Spawn disabled", region.SpawnEnabled,
+                   new { onchange = "Sociatis.Geography.ChangeSpawnOption(event, this," + region.RegionID + ")" },
+                   new { id = "region" + region.RegionID + "paddle" })
+                    @*<input id="region@(region.RegionID)spawn" onchange="Sociatis.Geography.ChangeSpawnOption(this, @region.RegionID)" type="hidden" />
+                        <div data-paddle data-paddle-linkedid="region@(region.RegionID)spawn" class="paddle disabled">
+                            <div class="paddle-active paddle-state">Spawn enabled</div>
+                            <div class="paddle-inactive paddle-state">spawn disabled</div>
+                            <div class="paddle-block"></div>
+                        </div>*@
+                }
+            </div>
+            <div class="regionInfo">
+                <div class="row">
+                    <div class="small-12 medium-6 columns">
+                        <div class="resources">
+                            <div class="row small-up-3 medium-up-2">
+                                @foreach (var resource in region.Resources)
+                                {
+                                    <div class="column column-block">
+                                        <div class="regionResource" title="@resource.ResourceName - @resource.ResourceQuality.ToHumanReadable()">
+                                            <div class="regionResourceImage">
+                                                @Html.DisplayFor(m => resource.ResourceImage)
+                                            </div>
+                                            <div class="regionResourceQuality">
+                                                @for (int i = 0; i < (int)resource.ResourceQuality; ++i)
+                                                {
+                                                    <i class="fa fa-star"></i>
+                                                }
+                                            </div>
+
+                                        </div>
+                                    </div>
+
+                                }
+                            </div>
+                        </div>
+                        <div class="services">
+                            <h4>Services</h4>
+
+                            @if (region.Hospital != null)
+                            {
+                                <div class="hospitalInfo">
+                                    <div class="hospitalLeft">
+                                        @Html.DisplayFor(m => region.Hospital.Avatar)
+                                        <div class="hospitalQuality">
+                                            @for (int i = 0; i < (int)region.Hospital.Quality; ++i)
+                                            {
+                                                <i class="fa fa-star"></i>
+                                            }
+                                        </div>
+                                    </div>
+                                    <div class="regionHospitalName">
+                                        @Html.EntityView(region.Hospital.HospitalName, region.Hospital.HospitalID)
+
+                                    </div>
+                                </div>
+                            }
+
+                            @if (region.DefenseSystemQuality > 0)
+                            {
+                                <div class="defenseSystem">
+                                    <div class="dsLeft">
+                                        <div class="smallEntityAvatar">
+                                            @Html.DisplayFor(m => Images.DefenseSystem.VM)
+                                        </div>
+                                        <div class="qualityStars">
+                                            @for (int i = 0; i < region.DefenseSystemQuality; ++i)
+                                            {
+                                                <i class="fa fa-star"></i>
+                                            }
+                                        </div>
+                                    </div>
+                                    <div class="dsright">
+                                        Defense system
+                                    </div>
+                                </div>
+                            }
+
+                        </div>
+
+                    </div>
+                    <div class="small-12 medium-6 columns">
+
+                        <label class="bar-label text-center">Development</label>
+                        <div class="container-bar">
+                            <div class="bar" style="width : @(region.Developement * 20.0)%; background-color : blue">
+                            </div>
+                        </div>
+
+                        <h5>Connected to</h5>
+                        @foreach (var passage in region.Passages)
+                        {
+                            <div class="smallFont">
+                                <label class="bar-label text-center">@passage.ConnectedToName (@passage.Distance Km)</label>
+                                <div class="container-bar">
+                                    <div class="bar" style="width : @(passage.Developement * 20.0)%; background-color : blue">
+                                    </div>
+                                </div>
+                            </div>
+                        }
+                    </div>
+                </div>
+
+
+            </div>
+        </div>
+        hideClass = "hide";
+    }
+</div>
+
+<script src="~/Scripts/country/sociatis.country.geography.js"></script>

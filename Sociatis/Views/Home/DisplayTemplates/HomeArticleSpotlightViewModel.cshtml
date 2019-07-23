@@ -1,0 +1,27 @@
+﻿@model Sociatis.Models.Home.HomeArticleSpotlightViewModel
+
+<div class="articleSpotlight">
+    <div class="day small-2 columns">
+        <text>
+            Day @Model.Day
+        </text>
+    </div>
+    <div class="score small-2 large-1 columns">
+        <text>
+            @Model.Score
+        </text>
+    </div>
+    <div class="miniAvatars small-2 large-2 columns">
+        @Html.DisplayFor(m => m.ArticleImage)
+        <div class="flag">
+            @Html.DisplayFor(m => m.CountryFlag)
+        </div>
+    </div>
+    <a href="@Url.Action("ReadArticle", "Newspaper", new { articleID = Model.ID })" class="centerVerticalFlex small-6 large-7 columns">
+        <text >
+            @Model.Title
+        </text>
+    </a>
+</div>
+
+<hr/>

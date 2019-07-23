@@ -1,0 +1,42 @@
+﻿@model Sociatis.Models.Calculator.CalculateFuelCostViewModel
+@{
+    
+}
+@using (Html.BeginForm(RouteDataHelper.ActionName, RouteDataHelper.ControllerName, FormMethod.Post))
+{
+<div class="contentBox">
+    <h4>Fuel Cost Calculator</h4>
+
+    @Html.ValidationSummary()
+
+    <label>Product</label>
+    @Html.DropDownListFor(m => m.ProductID, Model.Products)
+
+    <label>Quality</label>
+    @Html.TextBoxFor(m => m.Quality)
+
+    <label>Amount</label>
+    @Html.TextBoxFor(m => m.Amount)
+
+    <label>Distance</label>
+    @Html.TextBoxFor(m => m.Distance)
+
+    <label>Use regions instead of distance. (Distance will be ignored)</label>
+    @Html.CheckBoxFor(m => m.UseRegions)
+    <label>Start Region</label>
+    @Html.DropDownListFor(m => m.StartRegionID, Model.Regions)
+    <label>End Region</label>
+    @Html.DropDownListFor(m => m.EndRegionID, Model.Regions)
+    <br/>
+    <button class="button blue">Calculate</button>
+
+    @if (Model.Result.HasValue)
+    {
+        <hr/>
+        <h4>Result</h4>
+        @Model.Result @:fuel <br/>
+        <label>Distance</label>
+        @Model.Distance @:km
+    }
+</div>
+}

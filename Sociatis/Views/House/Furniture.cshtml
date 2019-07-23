@@ -1,0 +1,17 @@
+﻿@model Sociatis.Models.Houses.HouseFurnitureListViewModel
+
+@{
+    ViewBag.Title = "Furniture";
+}
+
+@Html.DisplayFor(m => m.Info)
+
+<div class="contentBox">
+    <h3>Furniture</h3>
+    @if (Model.Info.HouseRights.CanModifyHouse)
+    {
+        <a href="@Url.Action("CreateFurniture", "House", new { houseID = Model.Info.HouseID })" class="button blue">Create new furniture</a>
+    }
+
+    @Html.DisplayFor(m => m.Furnitures)
+</div>

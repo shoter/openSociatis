@@ -1,0 +1,63 @@
+﻿@model Sociatis.Models.Country.PresidentCandidatesListViewModel
+@{
+    ViewBag.Title = Model.Info.CountryName;
+}
+
+@Html.DisplayFor(m => m.Info)
+
+<div class="ContentBox">
+    <h3>Candidates for upcoming elections</h3>
+    @if (!Model.IsElectionDay)
+    {
+     <p>Elections will be held at day @Model.ElectionDay.</p>
+    }
+    else
+    {
+        <p>Today is election day in @Model.Info.CountryName.</p>
+    }
+
+    @foreach(var candidate in Model.Candidates)
+    {
+        <div class="candidateInfo">
+            <div class="miniAvatars">
+                @Html.DisplayFor(m => candidate.CandidateAvatar)
+            </div>
+            @Html.ActionLink(candidate.CandidateName, "View", "Citizen", new { citizenID = candidate.CitizenID }, null)
+            @if(Model.IsElectionDay && Model.CanVote)
+            {
+                using (Html.BeginForm("VoteOnPresident", RouteDataHelper.ControllerName, FormMethod.Post, null))
+                {
+                    <input type="hidden" name="candidateID" value="@candidate.CandidateID" />
+                    <button class="button blue">Vote</button>
+
+                }
+            }
+        </div>
+    }
+    @if (Model.Candidates.Any() == false)
+    {
+        <div>There are no candidates for the upcoming presidental elections.
+        @if (Model.CanCandidate)
+        {
+            @: You can become one and steer fate of your country
+        }
+        
+        </div><br />
+    }
+
+    @if (Model.CanCandidate)
+    {
+
+        using (Html.BeginForm("CandidateAsPresident", RouteDataHelper.ControllerName, FormMethod.Post))
+        {
+            <input type="hidden" name="countryID" value="@Model.Info.CountryID" />
+            <button class="button green">Candidate</button>
+        }
+
+    }
+    else
+    {
+        <button disabled class="button disabled green" data-tooltip title="@Model.CannotCandidateReason" >Candidate</button>
+    }
+</div>
+

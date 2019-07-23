@@ -1,0 +1,441 @@
+﻿citizenHPBarbody {
+    padding-bottom: 20px;
+    background-color: #eeeeee
+}
+
+html,body
+{
+    height : 100%;
+}
+
+html, body, #container { height: 100%;  }
+body > #container { height: auto; min-height: 100%; }
+
+/* Set padding to keep content from hitting the edges */
+
+/* Override the default bootstrap behavior where horizontal description lists 
+   will truncate terms that are too long to fit in the left column 
+*/
+.dl-horizontal dt {
+    white-space: normal;
+}
+
+/* Set width on the form input elements since they're 100% wide by default */
+input,
+select,
+textarea {
+    max-width: 280px;
+}
+
+p img {
+    margin : 4px;
+    margin-top : 6px;
+}
+
+table
+{
+    width: 100%;
+}
+
+
+
+.ContentBox {
+    background-color : #ffffff;
+    border : 1px solid rgba(128, 128, 128, 0.3);
+    -webkit-box-shadow: 1px 1px 1px 1px rgba(194,194,194,0.3);
+    -moz-box-shadow: 1px 1px 1px 1px rgba(194,194,194,0.3);
+    box-shadow: 1px 1px 1px 1px rgba(194,194,194,0.3);
+    border-radius : 5px;
+    margin : 2px 5px 5px 2px;
+    padding : 5px 10px;
+    padding-left : 1rem;
+    padding-right : 1rem;
+}
+
+.ContentBox:first-child
+{
+    padding-top : 0.5rem;
+}
+
+
+
+.Currency
+ {
+    border: 1px solid rgba(0, 0, 0, 0.5);
+    box-shadow: -1px 0.8px 0.5px 0 rgba(0,0,0,0.2);
+    width: 30px;
+    height: 18px;
+ }
+
+.ListAvatar img
+{
+    width: 4rem;
+}
+
+.TableCell
+{
+    border-left : 1px solid rgba(135, 135, 135, 0.51);
+    border-right : 1px solid rgba(135, 135, 135, 0.51);
+    display: table-cell;
+    background:green;
+}
+
+.TableMiniature img
+{
+    width: 3rem;
+}
+
+.fullWidth {
+   width: 100%;
+   margin-left: auto;
+   margin-right: auto;
+   max-width: initial;
+}
+
+td .minSize
+{
+    width:1%;
+}
+
+td .button
+{
+    margin-top : 0.5rem;
+    margin-bottom : 0.5rem;
+}
+.gameBody
+{
+    margin-top : 1rem;
+}
+
+.moneyAsBlock .money
+{
+    display: block;
+}
+
+.money img
+{
+    width:2.5rem;
+    border: 1px solid gray;
+    margin: 1px;
+}
+
+.marketFee
+{
+    margin-right: 1rem
+}
+
+.popupMessage
+{
+    border : 1px double black;
+    border-radius: 0.3rem;
+    padding : 5px 10px; 
+    margin : 3px 0 10px 0;
+    padding-left : 1rem;
+    font-size:x-large;
+    overflow:hidden;
+}
+
+.popupMessage i
+{
+    color:Gray;
+    font-size:large;
+  
+}
+
+.popupMessage i:hover
+{
+    color :#9d9c7b;
+    cursor:pointer;
+}
+
+.popupMessage .message
+{
+    float: left;
+}
+
+.popupMessage.error
+{
+    background-color : #F2DEDE;
+    color: #AB4442;
+}
+
+.popupMessage.success
+{
+    background-color: #DFF0D8;
+    color: #3C763D;
+}
+
+.popupMessage.warning
+{
+    background-color : #FCF8E3;
+    color: #8A6D3B;
+}
+
+.popupMessage.info
+{
+    background-color : #D9EDF7;
+    color:#31708F;
+}
+
+
+.popupMessage .close
+{
+    float : right;
+    display:flex;
+    flex-direction:row;
+    justify-content:center;
+
+}
+
+.inventory h1
+{
+    padding : 0.1em 0 0 0.5em;
+}
+
+.equipmentItem
+{
+    border : 1px solid rgba(128, 128, 128, 0.32);
+    -webkit-box-shadow: 2px 2px 2px 1px rgba(194,194,194,0.3);
+    -moz-box-shadow: 2px 2px 2px 1px rgba(194,194,194,0.3);
+    box-shadow: 2px 2px 2px 1px rgba(194,194,194,0.3);
+    border-radius : 0.5em 0.5em;
+}
+
+.equipmentAmount
+{
+    float : right;
+    margin-top : -10px;
+    margin-right : -10px;
+    background-color : rgba(0, 0, 255, 0.73);
+    border : 1px solid rgba(0, 0, 0, 0.73);
+    color : white;
+    border-radius : 3px;
+    min-width : 18px;
+    text-align : center;
+    font-size : small;
+    padding : 0 2px;
+}
+
+.equipmentExpand
+{
+    float : left;
+    margin-top : -11px;
+    margin-left : -6px;
+    border-radius : 3px;
+    font-size : large;
+}
+.equipmentImage
+{
+    margin-top : 12px;
+    margin-left : 10px;
+    margin-right : 10px;
+    background-color : rgba(128, 128, 128, 0.11);
+    padding : 5px;
+    float : none;
+
+
+    border : 1px solid rgba(0, 0, 0, 0.32);
+    border-radius : 3px;
+}
+
+.equipmentImage img
+{
+    display:block;
+    margin-left : auto;
+    margin-right : auto;
+}
+
+.equipmentQuality
+{
+    text-align : center;
+    color : yellow;
+    text-shadow: -1px 0 black, 0 1px black, 1px 0 black, 0 -1px black;
+    height: 1.2em;
+
+}
+
+.equipmentRow
+{
+    margin-bottom : 5px;
+}
+
+.equipment
+{
+    padding : 10px 5px;
+    
+}
+
+.equipmenButtons {
+    margin-left: 10px;
+    margin-right: 10px;
+    margin-top: 0.3rem;
+    display: flex;
+    justify-content: center;
+    margin-bottom:0.2rem;
+
+}
+
+.equipmenButtons button {
+    position: relative;
+    display: block;
+    margin-top: 0;
+    padding: 6px;
+    margin-bottom: 0.1rem;
+}
+
+.equipmenButtons form
+{
+    margin-left: 1rem;
+}
+
+.equipmenButtons > div {
+    margin-left: 1rem;
+}
+
+.equipmenButtons form:nth-child(1)
+{
+    margin-left:0;
+}
+
+
+
+
+.equipmentItem .dropdown-pane
+{
+    width : auto;
+    padding : 0.2rem 0.1rem;
+}
+
+.infoIcons
+{
+    margin-left : auto;
+    margin-right : auto;
+    display : flex;
+    position : relative;
+}
+
+.infoIcon
+{
+    margin-left : auto;
+    margin-right : auto;
+    font-size:large;
+    display : block; 
+    position:relative;
+}
+
+.infoIcon .eating
+{
+    color : red;
+    display : inline;
+    position: absolute;
+    top: -8px;
+    left: calc(100% - 8px);
+}
+
+.infoIcon .eating.done
+{
+    color : #04a304;
+}
+
+.infoIcon .eating.notDone
+{
+    color : red;
+}
+
+.infoIcon .training
+{
+    color : red;
+    position: absolute;
+    top: -8px;
+    left: calc(100% - 8px);
+}
+
+.infoIcon .training.done
+{
+    color :#04a304;
+}
+
+.infoIcon .training.notDone
+{
+    color : red;
+}
+
+.infoIcon img
+{
+    border : 1px solid rgba(0, 0, 0, 0.4);
+    margin-left : auto;
+    margin-right : auto;
+    display : block;
+}
+
+.productRequirement
+{
+    border : 1px solid rgba(128, 128, 128, 0.32);
+    -webkit-box-shadow: 2px 2px 2px 1px rgba(194,194,194,0.3);
+    -moz-box-shadow: 2px 2px 2px 1px rgba(194,194,194,0.3);
+    box-shadow: 2px 2px 2px 1px rgba(194,194,194,0.3);
+    background-color : rgba(128, 128, 128, 0.11);
+    border-radius : 0.5em 0.5em;
+    padding : 5px 5px;
+}
+
+
+
+.productRequirementImage img
+{
+    display : block;
+    margin-right : auto;
+    margin-left : auto;
+}
+
+.productRequirementAmount
+{
+    border : 1px solid rgba(0, 0, 0, 0.73);
+    color : white;
+    border-radius : 3px;
+    min-width : 18px;
+    text-align : center;
+    font-size : small;
+    padding : 2px 10px;
+    margin-left : 15%;
+    margin-right : 15%
+}
+
+.productRequirementAmount.unmet
+{
+    background-color : rgba(255, 0, 0, 0.8);
+}
+
+.productRequirementAmount.met
+{
+    background-color : rgba(0, 255, 0, 0.8);
+}
+
+
+
+
+
+.productRequirementCurrentAmount
+{
+    float : right;
+    margin-top : -10px;
+    margin-right : -10px;
+    background-color : rgba(0, 0, 255, 0.73);
+    border : 1px solid rgba(0, 0, 0, 0.73);
+    color : white;
+    border-radius : 3px;
+    min-width : 18px;
+    text-align : center;
+    font-size : small;
+    padding : 0 2px;
+}
+
+.centerVertical {
+    position: relative;
+    top: 50%;
+    -moz-transform: translateY(-50%);
+    -ms-transform: translateY(-50%);
+    -o-transform: translateY(-50%);
+    -webkit-transform: translateY(-50%);
+    transform: translateY(-50%);
+}

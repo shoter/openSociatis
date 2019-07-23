@@ -1,0 +1,15 @@
+﻿@model Sociatis.Models.Admin.CountryColorViewModel
+<div>
+    <div class="row">
+        <div class="small-4 columns">
+            @Model.CountryName
+        </div>
+        <div class="small-4 columns">
+            @Html.HiddenFor(m => m.CountryID)
+            @Model.CountryName
+        </div>
+        <div class="small-4 columns">
+            @Html.TextBoxFor(m => m.CountryColor, new { data_color = true })
+        </div>
+    </div>
+</div>

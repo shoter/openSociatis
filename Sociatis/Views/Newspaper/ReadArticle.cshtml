@@ -1,0 +1,140 @@
+﻿@model Sociatis.Models.Newspapers.ArticleViewModel
+@using HeyRed.MarkdownSharp;
+@using NRights = Entities.enums.NewspaperRightsEnum;
+
+@{
+    ViewBag.Title = Model.Title;
+    Markdown mark = new Markdown();
+}
+
+@Html.DisplayFor(m => m.Info)
+
+<article class="row ContentBox">
+    <div class="score">
+        @if (Model.CanVote)
+        {
+            using (Html.BeginForm("Vote", "Newspaper", new { articleID = Model.ID, positive = true }, FormMethod.Post))
+            {
+                <i class="fa fa-caret-up @(Model.VoteScore > 0 ? "disabled" : "")" @(Model.VoteScore > 0 ? "" : "onclick=$(this).closest(\'form\').submit()")></i>
+            }
+        }
+        <text>
+            @Model.Score
+        </text>
+        @if (Model.CanVote)
+        {
+            using (Html.BeginForm("Vote", "Newspaper", new { articleID = Model.ID, positive = false }, FormMethod.Post))
+            {
+                <i class="fa fa-caret-down @(Model.VoteScore < 0 ? "disabled" : "")" @(Model.VoteScore < 0 ? "" : "onclick=$(this).closest(\'form\').submit()")></i>
+            }
+        }
+    </div>
+
+    @if (Model.Info.NewspaperRights.HasFlag(NRights.CanWriteArticles))
+    {
+        <h2 class="articleTitle">
+            @Model.Title
+            <a href="@Url.Action("EditArticle", new { articleID = Model.ID })" class="button blue pull-right">Edit article</a>
+        </h2>
+    }
+
+
+
+    <hr />
+
+    <div id="articleContent" class="articleContent">
+        @Html.Raw(mark.Transform(Model.Content))
+    </div>
+
+    @if (Model.CanSeePayContent && Model.Price.HasValue)
+    {
+        <br />
+        <div class="articleContent">
+            @Html.Raw(mark.Transform(Model.PayOnlyContent))
+        </div>
+    }
+    else if (Model.Price.HasValue)
+    {
+        <div class="small-12 columns">
+
+            <div class="lockedContent">
+                <span class="fa-stack fa-lg">
+                    <i class="fa fa-circle-o fa-stack-2x"></i>
+                    <i class="fa fa-stack-1x fa-lock"></i>
+                </span>
+                <text>
+                    This article have pay only content.
+                </text>
+
+            </div>
+            <div class="lockedContentUnlock">
+                <text>To read the rest of the article first you need to buy it.</text>
+                @using (Html.BeginForm("BuyPayOnlyContent", RouteDataHelper.ControllerName, FormMethod.Post))
+                {
+                    <input type="hidden" name="articleID" value="@Model.ID" />
+                    <button class="button blue">Buy for @Model.Price @Model.CurrencySymbol</button>
+                }
+            </div>
+        </div>
+
+    }
+
+</article>
+
+<section class="articleComments">
+    <div class="ContentBox" style="min-width:80%">
+        <h3>Article Comments</h3>
+
+
+        @foreach (var comment in Model.Comments)
+        {
+            <div class="articleComment flex">
+                <div class="commentAuthor">
+                    <a class="miniAvatars" href="@Url.Action("View", "Entity", new { EntityID = comment.AuthorID })">
+                        @Html.DisplayFor(m => comment.AuthorImage)
+                    </a>
+                </div>
+                <div>
+                    <div class="flex">
+                        <a href="@Url.Action("View", "Entity", new { EntityID = comment.AuthorID })">@comment.AuthorName</a>
+                        <div class="commentDate">
+                            <text>@comment.Date</text>
+                        </div>
+                    </div>
+                    <div class="commentContent">
+                        @comment.Content
+                    </div>
+                </div>
+            </div>
+        }
+        @PagingParamHtmlHelper.Render(Model.PagingParam)
+        <hr />
+        <div class="articleWriteComment">
+            @using (Html.BeginForm("WriteComment", "Newspaper", FormMethod.Post))
+            {
+                @Html.Hidden("ArticleID", Model.ID)
+                <textarea name="content" maxlength="500" placeholder="Write your comment here"></textarea>
+                <button class="button blue">Send</button>
+            }
+        </div>
+    </div>
+</section>
+
+
+
+
+
+
+
+
+
+
+
+@Scripts.Render("https://cdn.jsdelivr.net/ace/1.2.6/min/ace.js")
+@Scripts.Render("~/bundles/markdown")
+@Styles.Render("~/Content/markdown")
+
+@section scripts
+{
+    @Scripts.Render("~/Scripts/newspapers/sociatis.newspaper.write.js")
+}

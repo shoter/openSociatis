@@ -1,0 +1,40 @@
+﻿@model Sociatis.Models.Congress.TransferCashToCompanyViewModel
+
+@{
+    ViewData.TemplateInfo.HtmlFieldPrefix = "";
+}
+
+<div class="row">
+    <div class="small-12 large-4 columns">
+        @Html.LabelFor(m => m.CompanyID)
+        @Html.Render(Model.Companies)
+        @Html.ValidationMessageFor(m => m.CompanyID)
+    </div>
+    <div class="small-12 large-4 columns">
+        @Html.LabelFor(m => m.CurrencyID)
+        @Html.DropDownListFor(m => m.CurrencyID, Model.Currencies)
+        @Html.ValidationMessageFor(m => m.CurrencyID)
+    </div>
+    <div class="small-12 large-4 columns">
+        @Html.LabelFor(m => m.Amount)
+        @Html.TextBoxFor(m => m.Amount)
+        @Html.ValidationMessageFor(m => m.Amount)
+    </div>
+</div>
+
+
+<script>
+    function formatTransferData(params)
+    {
+        return {
+            Query: params.term, // search term
+            PageSize: this.pageSize,
+            PageNumber: params.page,
+            countryID: @Model.CountryID
+        };
+    }
+
+    Common.Select2.initialize($("#CompanyID"));
+
+    
+</script>

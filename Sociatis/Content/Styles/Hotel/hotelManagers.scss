@@ -1,0 +1,14 @@
+﻿@import "../definitions.scss";
+
+.hotelManager
+{
+    padding: 0.5rem 2rem;
+    margin-top: 1rem;
+    border: 1px rgba($rowBorder, 0.42) solid;
+    background-color: $itemBackground;
+
+    .rights
+    {
+        margin-top:1rem;
+    }
+}

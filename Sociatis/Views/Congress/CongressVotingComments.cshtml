@@ -1,0 +1,40 @@
+﻿@model Sociatis.Models.Congress.CongressVotingCommentListViewModel
+
+
+@using (Ajax.BeginForm("CongressVotingComments", new AjaxOptions() {
+    OnBegin = "Sociatis.AjaxBegin()",
+    OnComplete = "Sociatis.AjaxEnd()",
+    OnFailure = "Sociatis.AjaxError(xhr.responseText)",
+    UpdateTargetId = "comments"
+
+}))
+{
+    @Html.HiddenFor(m => m.CongressVotingID)
+    foreach (var comment in Model.Comments)
+    {
+    <div class="congressComment">
+        <div class="row">
+            <div class="small-6 medium-3 large-2 columns ">
+                <div class="congressCommentAuthor miniAvatars">
+                    @Html.DisplayFor(m => comment.AuthorAvatar)
+                    <br />
+                    <div class="congressCommentAuthorName">
+                        @comment.AuthorName
+                    </div>
+                </div>
+            </div>
+            <div class="small-6 medium-9 large-10 columns">
+                @comment.Ago
+                <hr />
+                <div class="congressCommentMessage">
+
+                    @comment.Message
+                    <br />
+                </div>
+            </div>
+        </div>
+    </div>
+    }
+
+    @PagingParamHtmlHelper.Render(Model.PagingParam)
+}

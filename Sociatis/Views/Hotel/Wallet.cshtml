@@ -1,0 +1,6 @@
+﻿@model Sociatis.Models.Hotels.HotelWalletViewModel
+@{
+    ViewBag.Title = Model.Info.Name + "'s wallet";
+}
+@Html.DisplayFor(m => m.Info)
+@Html.Partial("~/Views/Wallet/DisplayTemplates/WalletViewModel.cshtml", Model)

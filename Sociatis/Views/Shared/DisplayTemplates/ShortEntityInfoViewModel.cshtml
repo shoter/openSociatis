@@ -1,0 +1,6 @@
+﻿@model Sociatis.Models.ShortEntityInfoViewModel
+
+<p>
+    @Html.DisplayFor(m => m.Avatar)
+    @Html.ActionLink(Model.Name, "View", "Entity", new { entityID = Model.EntityID }, null)
+</p>

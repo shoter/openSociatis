@@ -1,0 +1,17 @@
+﻿@model Sociatis.Models.Houses.HouseChestFurnitureViewModel
+
+@{
+    Layout = "~/Views/House/DisplayTemplates/HouseBaseFurnitureViewModel.cshtml";
+}
+
+@section furnitureSpecific
+{
+    <div>Capacity: @Model.Capacity </div>
+}
+@if (Model.CanUpgrade)
+{
+    @section newLevelDescription
+{
+        <div>Next level capacity: @Model.NextLevelCapacity</div>
+    }
+}

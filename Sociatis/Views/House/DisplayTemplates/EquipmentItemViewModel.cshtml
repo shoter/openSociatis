@@ -1,0 +1,82 @@
+﻿@model Sociatis.Models.Equipment.EquipmentItemViewModel
+
+@{
+    bool isChest = ((bool?)ViewData["isChest"]) == true;
+    var icon = isChest ? "fa-caret-square-o-up" : "fa-caret-square-o-down";
+    var action = isChest ? "TransferToCitizen" : "TransferToChest";
+    var prefix = isChest ? "c" + Model.Quality + "_" : "e";
+    long houseID = (long)ViewData["houseID"];
+}
+
+<div class="equipmentItem">
+    <div class="equipmentImage">
+        <span class="equipmentAmount">@Model.Amount</span>
+        <div class="centerHorizontalFlex">
+            @Html.DisplayFor(m => m.Image)
+        </div>
+        <div class="equipmentQuality">
+            @if (Model.CanShowQuality)
+            {
+                for (int i = 0; i < Model.Quality; ++i)
+                {
+                    <i class="fa fa-star"></i>
+                }
+            }
+        </div>
+    </div>
+    <div>
+        <div class="equipmenButtons">
+            <button type="button" onclick="showTransfer('@prefix@Model.ID', this)" title="Transfer" class="button blue highlight eqButton">
+                <i class="fa @icon" aria-hidden="true"></i>
+            </button>
+            @if (isChest)
+            {
+                <button type="button" onclick="showDrop('@prefix@Model.ID', this)" title="Drop" class="button red highlight eqButton">
+                    <i class="fa fa-trash-o" aria-hidden="true"></i>
+                </button>
+            }
+        </div>
+        @using (Html.BeginForm(action, "House", new { itemID = Model.ID, houseID = houseID }, FormMethod.Post, new { }))
+        {
+            <div data-transfer_itemid="@prefix@Model.ID" style="display:none">
+                <div>
+                    <div class="slider" data-slider data-start=1 data-initial-start="1" data-end="@(Model.Amount)">
+                        <span class="slider-handle" data-slider-handle role="slider" tabindex="1" aria-controls="product@(Model.ID)"></span>
+                        <span class="slider-fill" data-slider-fill></span>
+                    </div>
+                </div>
+                <div class="flex" style="margin-left:0.2rem;margin-right:0.2rem">
+                    <input id="product@(Model.ID)" style="min-width:0" type="number" name="amount">
+                    <div class="relative">
+                        <button title="Transfer" class="button blue highlight eqButton inputSize" style="padding:6px">
+                            <i class="fa @icon" aria-hidden="true"></i>
+                        </button>
+                    </div>
+                </div>
+            </div>
+        }
+        @if (isChest)
+        {
+            using (Html.BeginForm("DropItem", "House", new { itemID = Model.ID, houseID = houseID }, FormMethod.Post, new { }))
+            {
+                <div data-drop_itemid="@prefix@Model.ID" style="display:none">
+                    <div>
+                        <div class="slider" data-slider data-start=1 data-initial-start="1" data-end="@(Model.Amount)">
+                            <span class="slider-handle" data-slider-handle role="slider" tabindex="1" aria-controls="drop@(Model.ID)"></span>
+                            <span class="slider-fill" data-slider-fill></span>
+                        </div>
+                    </div>
+                    <div class="flex" style="margin-left:0.2rem;margin-right:0.2rem">
+                        <input id="drop@(Model.ID)" style="min-width:0" type="number" name="amount">
+                        <div class="relative">
+                            <button title="Transfer" class="button red highlight eqButton inputSize" style="padding:6px">
+                                <i class="fa fa-trash-o" aria-hidden="true"></i>
+                            </button>
+                        </div>
+                    </div>
+                </div>
+            }
+        }
+
+    </div>
+</div>

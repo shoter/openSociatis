@@ -1,0 +1,26 @@
+﻿.simplebar-horizontal-only
+{
+    .simplebar-track.vertical
+    {
+        display: none !important;
+    }
+
+    .simplebar-scroll-content
+    {
+        padding-right: 0 !important;
+        overflow-y: hidden;
+    }
+
+    .simplebar-content
+    {
+        margin-right: 0 !important;
+    }
+}
+
+.simplebar-vertical-only
+{
+    .simplebar-track.horizontal
+    {
+        display: none !important;
+    }
+}

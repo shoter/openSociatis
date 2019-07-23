@@ -1,0 +1,9 @@
+﻿@model Sociatis.Models.Congress.ChangeCompanyCreationLawHolderViewModel
+
+@{
+    ViewData.TemplateInfo.HtmlFieldPrefix = "";
+}
+
+@Html.LabelFor(m => m.LawHolderID)
+@Html.DropDownListFor(m => m.LawHolderID, Model.LawHolderSelect)
+@Html.ValidationMessageFor(m => m.LawHolderID)

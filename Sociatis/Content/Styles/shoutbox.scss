@@ -1,0 +1,288 @@
+﻿@import "definitions.scss";
+.shoutboxColumn
+{
+    padding: 0 0 !important;
+
+    #shoutbox.contentBox
+    {
+        padding: 0.5rem 0 0 0 !important;
+
+        h4
+        {
+            margin-left: 0.5rem;
+        }
+
+        .shoutbox
+        {
+
+            .shoutboxChannels
+            {
+                .simplebar-content
+                {
+                    display: flex;
+                    min-height: 0 !important;
+                }
+
+                white-space: nowrap;
+                overflow-y: hidden;
+                padding-bottom: 0.5rem;
+
+                .shoutboxChannel
+                {
+                    display: inline-block;
+                    position: relative;
+                    //padding: 0.2rem 1.5rem 0.2rem 0.5rem;
+                    padding: 0.2rem 0.5rem 0.2rem 0.5rem;
+                    border: 2px solid rgba($rowBorder, 0.4);
+                    border-top-left-radius: 0.3rem;
+                    border-top-right-radius: 0.3rem;
+                    margin-right: -2px;
+                    border-right-width: 2px;
+                    background-color: #f6f6f2;
+                    @include transition(background-color 0.1s ease-in-out);
+                    @include no-select;
+
+                    &.active
+                    {
+                        background-color: #9dc9e1;
+
+                        &:hover
+                        {
+                            background-color: #aed8ee;
+                        }
+
+                        &:active
+                        {
+                            background-color: #82afc8;
+                        }
+                    }
+
+                    &:hover
+                    {
+                        background-color: #e2e2bd;
+                        cursor: pointer;
+                    }
+
+                    &:active
+                    {
+                        background-color: #bdd5e2;
+                        cursor: pointer;
+                    }
+
+                    &:last-child
+                    {
+                        border-right-width: 2px;
+                    }
+
+                    .shoutboxClose
+                    {
+                        position: absolute;
+                        padding: 0.1rem 0.1rem 0 0.1rem;
+                        right: 0;
+                        top: 0;
+                        border: 2px solid rgba($rowBorder, 0.4);
+                        border-right: none;
+                        border-top: none;
+                        @include transition(background-color 0.1s ease-in-out);
+                        @include transition(color 0.1s ease-in-out);
+
+                        &:hover
+                        {
+                            background-color: rgba(red, 0.05);
+                            color: red;
+                            cursor: pointer;
+                        }
+
+                        &:active
+                        {
+                            background-color: rgba(#ff3800, 0.05);
+                            color: #ff6363;
+                            cursor: pointer;
+                        }
+                    }
+
+                    .shoutboxChannelName
+                    {
+                        text-align: center;
+                    }
+                }
+            }
+
+            .shoutboxNewMessage
+            {
+                textarea
+                {
+                    @include box-sizing(border-box);
+                    width: 100%;
+                    max-width: none;
+                    resize: vertical;
+                    border-left: none;
+                    border-right: none;
+                    margin: 0;
+                    max-height: 30vh;
+
+                    @include placeholder
+                    {
+                        color: black !important;
+                    }
+                }
+            }
+
+            .shoutboxContent
+            {
+                height: 65vh;
+                border-top: 1px solid rgba($rowBorder, 0.2);
+
+                .shoutboxSubscribe
+                {
+                    @include no-select;
+                    background: rgba($rowBackground, 0.41);
+                    border: 1px solid rgba($rowBorder, 0.2);
+                    border-left: none;
+                    border-right: none;
+                    border-bottom: none;
+                    margin: 0;
+                    padding: 0.4rem 0.8rem;
+                    overflow: hidden;
+                    display: flex;
+
+                    &:first-child
+                    {
+                        border-top: none;
+                    }
+
+                    &:last-child
+                    {
+                        border-bottom: 1px solid rgba($rowBorder, 0.2);
+                    }
+
+                    .shoutboxSubscribeName
+                    {
+                        width: 75%;
+                        float: left;
+                        font-size: large;
+                    }
+
+                    .shoutboxSubscribeChange
+                    {
+                        width: 25%;
+                        float: left;
+                        border-left: 1px solid rgba($rowBorder, 0.2);
+                    }
+
+                    .shoutboxSubscribeAdd
+                    {
+                        $baseColor: green;
+                        background-color: rgba($baseColor, 0.1);
+
+                        &:hover
+                        {
+                            cursor: pointer;
+                            background-color: rgba(darken($baseColor, 5%), 0.1);
+                        }
+
+                        &:active
+                        {
+                            background-color: rgba(darken($baseColor, 15%), 0.3);
+                            color: darken($baseColor, 10%);
+                        }
+                    }
+
+                    .shoutboxSubscribeRemove
+                    {
+                        $baseColor: red;
+                        background-color: rgba($baseColor, 0.1);
+
+                        &:hover
+                        {
+                            cursor: pointer;
+                            background-color: rgba(darken($baseColor, 5%), 0.1);
+                        }
+
+                        &:active
+                        {
+                            background-color: rgba(darken($baseColor, 15%), 0.3);
+                            color: darken($baseColor, 10%);
+                        }
+                    }
+                }
+
+                .shoutboxMessage
+                {
+                    background: rgba($rowBackground, 0.41);
+                    border: 1px solid rgba($rowBorder, 0.2);
+                    border-left: none;
+                    border-right: none;
+                    margin: 0.5rem 0;
+                    padding: 0.4rem 0 0 0;
+
+                    &:first-child
+                    {
+                        margin-top: 0;
+                        border-top: none;
+                    }
+
+                    .shoutboxHeader
+                    {
+                        overflow: hidden;
+                        position: relative;
+
+                        .shoutboxAvatar
+                        {
+                            display: flex;
+                            justify-content: center;
+                            margin-left: 1rem;
+                            float: left;
+
+                            img
+                            {
+                                width: 3rem;
+                                height: 3rem;
+                                border: 1px solid gray;
+                            }
+
+                            .shoutboxName
+                            {
+                                position: absolute;
+                                bottom: 0;
+                                left: 0.5rem + 3rem + 1rem;
+                            }
+                        }
+
+
+
+                        .shoutboxDate
+                        {
+                            position: absolute;
+                            color: $hintColor;
+                            right: 0.5rem;
+                            top: 0.2rem;
+                        }
+                    }
+
+
+                    .shoutboxMessageContent
+                    {
+                        margin-top: 0.5rem;
+                        margin-bottom: 0.5rem;
+                        padding: 0 1rem;
+                        font-size: small;
+                    }
+
+
+
+                    .shoutboxFooter
+                    {
+                        overflow: hidden;
+
+                        .shoutboxExpand
+                        {
+                            float: right;
+                            padding: 0.2rem 0.5rem
+                        }
+                    }
+                }
+            }
+        }
+    }
+} 

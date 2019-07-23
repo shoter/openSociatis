@@ -1,0 +1,92 @@
+﻿@model Sociatis.Models.Navigation.NavigationViewModel
+@using Sociatis.Helpers
+@using Weber.Helpers
+
+<div class="title-bar" style="display:none" data-responsive-toggle="responsive-menu" data-hide-for="medium">
+    <button class="menu-icon" type="button" data-toggle="responsive-menu"></button>
+    <div class="title-bar-title">Menu</div>
+</div>
+
+<div class="top-bar" id="responsive-menu">
+    <div class="top-bar-left">
+        <ul class="dropdown vertical medium-horizontal menu" data-close-on-click-inside="false" data-dropdown-menu>
+            <li class="menu-text">@Html.ActionLink("Sociatis", "Index", "Home") </li>
+
+            @foreach (var navigationSection in Model.MainSections)
+            {
+                <li class="border">
+
+                </li>
+                <li data-is-click="false" class="has-submenu">
+                    <a href="#">@navigationSection.Name</a>
+                    <ul class="menu vertical" style="display:none" data-submenu>
+                        @Html.DisplayFor(m => navigationSection.Children)
+                    </ul>
+                </li>
+
+            }
+
+        </ul>
+    </div>
+
+    <div class="top-bar stacked-for-small">
+
+        <div class="searchBox">
+            @using (Html.BeginForm("PostSearch", "Search", FormMethod.Post))
+            {
+                <input placeholder="Search" name="query" />
+
+                <i class="fa fa-search"></i>
+
+            }
+        </div><br />
+        <div class="show-for-small-only">
+            <br/>
+            @Html.RenderCurrentTime()
+        </div>
+
+    </div>
+</div>
+
+@*<div class="top-bar-right flex">
+        <div class="searchBox">
+            @using (Html.BeginForm("PostSearch", "Search", FormMethod.Post))
+            {
+                <input placeholder="Search" name="query" />
+
+                <i class="fa fa-search"></i>
+
+            }
+        </div>
+    </div>*@
+</div>
+
+@*<div id="navigationTop" class="top-bar noselect" data-topbar>
+        <div class="top-bar-left">
+            <ul class="dropdown menu" data-dropdown-menu>
+                <li class="menu-text">@Html.ActionLink("Sociatis", "Index", "Home") </li>
+                <li class="menu-text">day @Model.Day @DateTime.Now.ToShortTimeString()</li>
+
+                @foreach (var navigationSection in Model.MainSections)
+                {
+                    <li>
+                        <a href="#">@navigationSection.Name</a>
+                        <ul class="menu vertical">
+                            @Html.DisplayFor(m => navigationSection.Children)
+                        </ul>
+                    </li>
+                }
+            </ul>
+        </div>
+        <div class="top-bar-right centerVerticalFlex">
+            <div class="pull-right-flex searchBox">
+                @using (Html.BeginForm("PostSearch", "Search", FormMethod.Post))
+                {
+                    <input placeholder="Search" name="query" />
+
+                    <i class="fa fa-search"></i>
+
+                }
+            </div>
+        </div>
+    </div>*@

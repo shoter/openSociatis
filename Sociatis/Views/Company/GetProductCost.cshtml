@@ -1,0 +1,39 @@
+﻿@model Sociatis.Models.Companies.ProductCostViewModel
+
+<div class="productCost">
+    <div>Base income: @Model.BasePrice @(Model.IsForeignVat ? Model.SellingCountrySymbol : Model.HomeCountrySymbol)</div>
+    @if (Model.Vat.HasValue)
+    {
+    <div>Overall Vat cost : @Model.Vat @(Model.IsForeignVat ? Model.SellingCountrySymbol : Model.HomeCountrySymbol)</div>
+    }
+    @if (Model.ExportTax.HasValue)
+    {
+    <div>Export tax : @Model.ExportTax @Model.HomeCountrySymbol</div>
+    }
+    @if(Model.ImportTax.HasValue)
+    {
+    <div>Import tax : @Model.ImportTax @Model.SellingCountrySymbol</div>
+    }
+    @if (Model.HomeCost > 0 || Model.ForeignCost > 0)
+    {
+        <div>
+            Total cost:
+            @if (Model.HomeCost > 0)
+            {
+                @Model.HomeCost @Model.HomeCountrySymbol
+            }
+            @if (Model.ForeignCost > 0)
+            {
+                @Model.ForeignCost @Model.SellingCountrySymbol
+            }
+        </div>
+    }
+    <div>
+        Price for client: @Model.ClientCost @(Model.IsForeignVat ? Model.SellingCountrySymbol : Model.HomeCountrySymbol)
+    </div>
+   
+
+    <text class="hint">You pay immediately only import and export tax. Your clients will pay VAT during their shopping process. <br/>VAT is not constant and may be changed by goverment after offer is placed on the market.</text>
+
+
+</div>

@@ -1,0 +1,250 @@
+﻿@{
+    // Layout = null;
+    //Layout = "~/Views/Shared/_Layout.cshtml";
+}
+@*<!DOCTYPE HTML>
+<html>
+<head>*@
+    <script src="http://www.webglearth.com/v2/api.js"></script>
+    <script>
+        function initialize() {
+            var earth = new WE.map('earth_div');
+
+            //WE.tileLayer('http://localhost:38120/Content/map/{z}/{x}/{y}.png', {
+            //    attribution: '© OpenStreetMap contributors'
+            //}).addTo(earth);
+
+            var mapBounds = [[-85, -179.99999755],
+            [85, 179.98204259]];
+            var mapMinZoom = 0;
+            var mapMaxZoom = 3;
+
+            var layer = WE.tileLayer('http://localhost:38120/Content/map/{z}/{x}/{y}.png', {
+                bounds: mapBounds,
+                minZoom: mapMinZoom,
+                maxZoom: mapMaxZoom,
+                opacity: 1.0//0.6
+            });
+            layer.addTo(earth);
+
+            function addWERegion(region) {
+
+            }
+
+            function createWERegion(region) {
+                region.Polygon = region.Polygon.addTo(earth);
+                return region;
+            }
+
+
+            var polygon;
+            var info;
+            var region;
+
+            polygon = WE.polygon(
+                [[52.8580981693, 9.9115251510,], [52.6539624526, 7.0588180832,], [53.0485463116, 7.2920802126,], [53.5491798875, 6.7629644429,], [53.8653545064, 8.4231562305,], [55.1231290368, 8.0319183143,], [54.8813011889, 8.5871048404,], [54.8254423925, 9.3239482609,], [54.8159941757, 9.9575106613,], [54.4983033556, 10.5625833415,], [54.4379898880, 11.1716750487,], [54.0106649959, 10.7949206165,], [53.9672327203, 11.3433850125,], [54.4244074790, 12.4805459474,], [54.6167736615, 13.5304487005,], [54.0163538183, 14.2241796778,], [53.2024119003, 14.4298347791,], [52.8692871332, 11.0870736578,],],
+                {
+                    color: "#FFFF00",
+                    opacity: 1,
+                    fillColor: "#ff4242",
+                    fillOpacity: 0.5,
+                    editable: false,
+                    weight: 2,
+                });
+
+            info = {
+                regionID: 1002,
+                polygonID: 13,
+                color: "#FFFF00",
+                opacity: 1,
+                fillColor: "#ff4242",
+                fillOpacity: 0.5,
+                editable: false,
+                weight: 2
+            };
+
+            region = { Polygon: polygon, Info: info };
+
+            addWERegion(
+                createWERegion(region)
+            );
+
+
+
+
+            polygon = WE.polygon(
+                [[52.8344720465, 14.1370696920,], [52.6255419213, 14.5677490410,], [52.2964317236, 14.5688908586,], [51.9886610431, 14.7718453157,], [51.7333633985, 14.6921168013,], [51.5620391426, 13.8145625136,], [51.4386782592, 13.1088020366,], [51.3348953581, 11.7296005601,], [52.8680135451, 10.8734364081,], [52.8692102109, 11.0871542094,], [53.0464844162, 12.7394238119,], [53.2019248944, 14.4126144022,], [53.0797859087, 14.3760562749,], [52.9546187357, 14.1460888023,],],
+                {
+                    color: "#FFFF00",
+                    opacity: 1,
+                    fillColor: "#ff4242",
+                    fillOpacity: 0.5,
+                    editable: false,
+                    weight: 2,
+                });
+
+            info = {
+                regionID: 1003,
+                polygonID: 14,
+                color: "#FFFF00",
+                opacity: 1,
+                fillColor: "#ff4242",
+                fillOpacity: 0.5,
+                editable: false,
+                weight: 2
+            };
+
+            region = { Polygon: polygon, Info: info };
+
+            addWERegion(
+                createWERegion(region)
+            );
+
+
+
+
+            polygon = WE.polygon(
+                [[47.6720810202, 12.6908551295,], [47.5733263669, 11.7820536520,], [47.4242935810, 11.2572091666,], [47.2756151329, 10.1847935089,], [47.6831974207, 8.8754816851,], [47.5281347555, 7.8736080079,], [47.6655604101, 7.5334579732,], [47.9599540250, 7.6061775819,], [48.1199115389, 9.0150174172,], [48.5654188188, 10.7064223847,], [49.0388936314, 11.3609717119,], [49.0037357615, 12.3260477067,], [49.3417398138, 12.8103426232,], [49.1681974991, 13.1816599533,], [49.0171987896, 13.4057482290,], [48.8542846070, 13.7899266699,], [48.6081756146, 13.8266933028,], [48.4270573812, 13.5554509171,], [48.1214602252, 12.7992869857,], [47.5080394807, 13.0456496238,],],
+                {
+                    color: "#FFFF00",
+                    opacity: 1,
+                    fillColor: "#ff4242",
+                    fillOpacity: 0.5,
+                    editable: false,
+                    weight: 2,
+                });
+
+            info = {
+                regionID: 1004,
+                polygonID: 17,
+                color: "#FFFF00",
+                opacity: 1,
+                fillColor: "#ff4242",
+                fillOpacity: 0.5,
+                editable: false,
+                weight: 2
+            };
+
+            region = { Polygon: polygon, Info: info };
+
+            addWERegion(
+                createWERegion(region)
+            );
+
+
+
+
+            polygon = WE.polygon(
+                [[51.8669648391, 11.4539709125,], [51.3376139996, 11.7302589636,], [50.4384652665, 11.1036507395,], [50.6693145698, 8.2997061716,], [50.3285274245, 6.3842945641,], [50.6432264494, 6.2593059589,], [50.8430860582, 6.0362975109,], [51.2155787433, 6.0656241440,], [51.4428615569, 6.2742545824,], [51.6768596626, 6.0038737297,], [51.8505592754, 6.0613064182,], [51.9268837684, 6.8253234987,], [52.6511170660, 7.0571605519,], [52.7640209040, 8.4858779460,], [52.8619833552, 9.8836811992,], [52.8526715357, 10.8736855649,],],
+                {
+                    color: "#FFFF00",
+                    opacity: 1,
+                    fillColor: "#ff9c24",
+                    fillOpacity: 0.5,
+                    editable: false,
+                    weight: 2,
+                });
+
+            info = {
+                regionID: 1005,
+                polygonID: 15,
+                color: "#FFFF00",
+                opacity: 1,
+                fillColor: "#ff9c24",
+                fillOpacity: 0.5,
+                editable: false,
+                weight: 2
+            };
+
+            region = { Polygon: polygon, Info: info };
+
+            addWERegion(
+                createWERegion(region)
+            );
+
+
+
+
+            polygon = WE.polygon(
+                [[51.7337448334, 14.6929566457,], [51.2472813146, 15.0587121114,], [50.8538548022, 14.7809769087,], [50.6589223781, 13.4694247642,], [50.1441669053, 12.3138475549,], [49.7367917503, 12.4511152633,], [49.3422066080, 12.8096289833,], [49.0040030321, 12.3256572087,], [49.0389129535, 11.3609679641,], [50.4384716352, 11.1038204962,], [51.3340802173, 11.7295771538,], [51.4484140970, 13.1424352066,],],
+                {
+                    color: "#FFFF00",
+                    opacity: 1,
+                    fillColor: "#ff9c24",
+                    fillOpacity: 0.5,
+                    editable: false,
+                    weight: 2,
+                });
+
+            info = {
+                regionID: 1006,
+                polygonID: 12,
+                color: "#FFFF00",
+                opacity: 1,
+                fillColor: "#ff9c24",
+                fillOpacity: 0.5,
+                editable: false,
+                weight: 2
+            };
+
+            region = { Polygon: polygon, Info: info };
+
+            addWERegion(
+                createWERegion(region)
+            );
+
+
+
+
+            polygon = WE.polygon(
+                [[48.1199878174, 9.0150312830,], [47.9602242588, 7.6063658218,], [48.3209181694, 7.7170162834,], [48.9770762522, 8.1622153463,], [49.1738866706, 7.4908768436,], [49.1300374282, 7.2671621926,], [49.1526084905, 6.7196407565,], [49.4399425826, 6.5201240300,], [49.4760289716, 6.3831442901,], [49.6076008129, 6.4101979382,], [49.7985383755, 6.5139795945,], [49.9834539867, 6.1567331158,], [50.1629167521, 6.1579400646,], [50.2589693770, 6.2343594898,], [50.3276817100, 6.3804472524,], [50.6686227289, 8.3006071337,], [50.4383326413, 11.1037822434,], [49.0389170088, 11.3609758737,], [48.5654723971, 10.7064241779,],],
+                {
+                    color: "#FFFF00",
+                    opacity: 1,
+                    fillColor: "#ff4242",
+                    fillOpacity: 0.5,
+                    editable: false,
+                    weight: 2,
+                });
+
+            info = {
+                regionID: 1007,
+                polygonID: 16,
+                color: "#FFFF00",
+                opacity: 1,
+                fillColor: "#ff4242",
+                fillOpacity: 0.5,
+                editable: false,
+                weight: 2
+            };
+
+            region = { Polygon: polygon, Info: info };
+
+            addWERegion(
+                createWERegion(region)
+            );
+
+            earth.setView([48, 6], 5);
+        }
+    </script>
+    <style>
+        html, body {
+            padding: 0;
+            margin: 0;
+        }
+
+        #earth_div {
+            top: 0;
+            right: 0;
+            bottom: 0;
+            left: 0;
+            background-color: #000;
+            position: absolute !important;
+        }
+    </style>
+@*</head>*@
+@*<body ">*@
+    <div id="earth_div"></div>
+<script>initialize();</script>
+@*</body>*@
+@*</html>*@

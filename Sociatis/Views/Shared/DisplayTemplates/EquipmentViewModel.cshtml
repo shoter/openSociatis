@@ -1,0 +1,14 @@
+﻿@model Sociatis.Models.Equipment.EquipmentViewModel
+<div class="equipment">
+
+    <div class="row small-up-2 medium-up-3 large-up-4 equipmentRow">
+        @foreach (var item in Model.Items)
+            {
+            <div class="column column-block">
+                @Html.Partial("~/Views/Equipment/DisplayTemplates/EquipmentItemViewModel.cshtml", item)
+            </div>
+        }
+    </div>
+</div>
+
+<script async src="~/Scripts/equipment/sociatis.equipment.inventory.js" ></script>

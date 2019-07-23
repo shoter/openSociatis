@@ -1,0 +1,56 @@
+﻿@model Sociatis.Models.Messages.ViewThreadViewModel
+<div class="ContentBox">
+    <div class="threadBar">
+        <h3>@Model.ThreadName</h3>
+
+        <div class="threadRecipients">
+            Recipients : <br />
+            <div class="row small-up-1 medium-up-3 large-up-5">
+                @foreach (var recipient in Model.Recipients)
+            {
+                    <div class="column column-block">
+                        @Html.DisplayFor(m => recipient)
+                    </div>
+                }
+            </div>
+        </div>
+    </div> 
+    <hr/>
+    @foreach (var message in Model.Messages)
+    {
+        <div class="message">
+            @Html.DisplayFor(m => message)
+        </div>
+    }
+
+</div>
+
+<div class="ContentBox">
+    <h4>Reply</h4>
+    @using (Html.BeginForm("SendMessage", "Message", FormMethod.Post))
+    {
+        @Html.Hidden("threadID", Model.ThreadID)
+        @Html.Hidden("pageSize", Model.Paging.RecordsPerPage)
+
+        @Html.TextArea("content", new { @class = "fullWidth" })
+
+        <button class="button">Send</button>
+    }
+
+    <hr/>
+
+    <h4>Add recipient</h4>
+    @using (Html.BeginForm("AddRecipient", "Message", FormMethod.Post))
+    {
+        @Html.Hidden("threadID", Model.ThreadID, new { @class = "inlineDisplay" })
+
+        @Html.Render(Model.AddRecipientSelector)
+
+        <button class="button noMargin">Add</button>
+    }
+</div>
+
+
+@section scripts
+{
+}

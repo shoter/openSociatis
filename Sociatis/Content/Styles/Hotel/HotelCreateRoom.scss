@@ -1,0 +1,18 @@
+﻿@import "../definitions.scss";
+
+#hotelCreateRoom
+{
+    display: flex;
+    justify-content: space-between;
+    align-content: center;
+
+    .cost, .quality
+    {
+        text-align:center;
+    }
+
+    select, button
+    {
+        margin: 0;
+    }
+}

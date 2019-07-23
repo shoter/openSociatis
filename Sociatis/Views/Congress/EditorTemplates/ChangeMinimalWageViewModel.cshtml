@@ -1,0 +1,9 @@
+﻿@model Sociatis.Models.Congress.ChangeMinimalWageViewModel
+
+@{
+    ViewData.TemplateInfo.HtmlFieldPrefix = "";
+}
+
+@Html.LabelFor(m => m.NewMinimalWage)
+@Html.TextBoxFor(m => m.NewMinimalWage)
+@Html.ValidationMessageFor(m => m.NewMinimalWage)

@@ -1,0 +1,40 @@
+﻿@model Sociatis.Models.Newspapers.WriteArticleViewModel
+@using NRights = Entities.enums.NewspaperRightsEnum
+
+@{
+    ViewBag.Title = "Write article - " + Model.Info.Name;
+}
+
+@Html.DisplayFor(m => m.Info)
+@using (Html.BeginForm(RouteDataHelper.ActionName, RouteDataHelper.ControllerName, FormMethod.Post, new { enctype = "multipart/form-data" }))
+{
+<div class="row ContentBox">
+
+    @if(ViewData.ModelState.IsValid == false)
+    {
+        @Html.ValidationSummary();
+        <hr/>
+    }
+
+    @Html.EditorFor(m => m)
+
+    <div class="small-12 columns">
+        @if (Model.Info.NewspaperRights.HasFlag(NRights.CanManageArticles))
+        {
+            <button class="button green" name="publish" value="true">Write and publish</button>
+        }
+        <button class="button blue">Write</button>
+    </div>
+</div>
+
+}
+
+
+
+@section scripts
+{
+    @Scripts.Render("https://cdn.jsdelivr.net/ace/1.2.6/min/ace.js")
+    @Scripts.Render("~/bundles/markdown")
+    @Styles.Render("~/Content/markdown")
+    @Scripts.Render("~/Scripts/newspapers/sociatis.newspaper.write.js") 
+}

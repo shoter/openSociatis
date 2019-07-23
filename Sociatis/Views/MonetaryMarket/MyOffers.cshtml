@@ -1,0 +1,37 @@
+﻿@model Sociatis.Models.MonetaryMarket.MyOffersViewModel
+
+@Html.DisplayFor(m => m.Info)
+
+<div class="ContentBox row">
+    <table>
+        <thead>
+            <tr>
+                <th>Offer type</th>
+                <th>Buy currency</th>
+                <th>Sell currency</th>
+                <th>Amount</th>
+                <th>Rate</th>
+                <th>Reserved money</th>
+            </tr>
+        </thead>
+        <tbody>
+            @foreach(var offer in Model.Offers)
+            {
+                <tr>
+                    <td>@(offer.OfferType == Entities.enums.MonetaryOfferTypeEnum.Buy ? "Buy" : "Sell")</td>
+                    <td>@offer.BuyCurrency</td>
+                    <td>@offer.SellCurrency</td>
+                    <td>@offer.Amount</td>
+                    <td>@offer.Rate @offer.SellCurrency</td>
+                    <td>@offer.ReservedMoney @offer.SellerCurrency</td>
+                    <td><button data-ID="@offer.OfferID" name="removeOffer" class="button red">Remove</button></td>
+                </tr>
+            }
+        </tbody>
+    </table>
+</div>
+
+@section scripts
+{
+    @Scripts.Render("~/Scripts/MonetaryMarket/sociatis.monetary_market.my_offers.js")    
+}

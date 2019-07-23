@@ -1,0 +1,106 @@
+﻿@model Sociatis.Models.DevIssues.DevIssueViewModel
+
+@{
+    ViewBag.TItle = Model.Name;
+}
+
+<div id="devIssueView" class="ContentBox">
+    <div class="top">
+        <div class="votings">
+            @if (Model.CanVote)
+            {
+                using (Html.BeginForm("Vote", RouteDataHelper.ControllerName, new { issueID = Model.ID }))
+                {
+                    <a onclick="Sociatis.SubmitByLink(this)">
+                        <i class="fa fa-arrow-up notVoted"></i>
+                    </a>
+                }
+            }
+            <div class="score">@Model.Score</div>
+            @if (Model.CanUnvote)
+            {
+                using (Html.BeginForm("Unvote", RouteDataHelper.ControllerName, new { issueID = Model.ID }))
+                {
+                    <a onclick="Sociatis.SubmitByLink(this)">
+                        <i class="fa fa-arrow-down voted"></i>
+                    </a>
+                }
+            }
+        </div>
+        @Html.DisplayFor(m => m.Avatar)
+        <div class="header">
+            <h4>
+                @Model.Name
+                @foreach (var label in Model.Labels)
+            {
+                    <span class="sociatisLabel @label.Classname">@label.Text</span>
+                }
+            </h4>
+            <h6 class="hint">Day @Model.Day @Model.Time</h6>
+        </div>
+    </div>
+
+    <div class="content">@Model.Content</div>
+
+    <label class="uploadedFilesLabel">Included files:</label>
+    <ul class="uploadedFiles">
+        @foreach (var file in Model.Files)
+        {
+            <li class="uploadedFile">@Html.ActionLink(file.OriginalFilename, "DownloadFile", "DevIssue", new { issueID = Model.ID, fileID = file.ID }, null) </li>
+        }
+    </ul>
+
+    @if (Model.PlayerType >= Entities.enums.PlayerTypeEnum.Moderator)
+    {
+        <h5>Moderator tools</h5>
+        using (Html.BeginForm("SaveModOptions", "DevIssue", new { issueID = Model.ID }, FormMethod.Post))
+        {
+            <div class="row">
+                <div class="small-12 medium-6 columns">
+                    <label>Labels:</label>
+                    @Html.ListBoxFor(m => m.labelIDs, Model.LabelTypes)
+                </div>
+                <div class="small-12 medium-6 columns">
+                    <label>Visibility: </label>
+                    @Html.DropDownList("visibility", Model.VisiblityOptions)
+                </div>
+            </div>
+            <button class="green button">Save</button>
+        }
+
+    }
+</div>
+@foreach (var comment in Model.Comments)
+{
+    <div class="issueComment ContentBox">
+        <div class="top">
+            @Html.DisplayFor(m => comment.Avatar)
+            <div class="header">
+                <h6 class="hint">Day @comment.Day @comment.Hour</h6>
+                @if (Model.PlayerType >= Entities.enums.PlayerTypeEnum.Moderator)
+                {
+                    <h6 class="hint">Visibility: @comment.Visibility</h6>
+                }
+            </div>
+        </div>
+
+        <div class="content">@comment.Content</div>
+    </div>
+}
+
+@using (Html.BeginForm("WriteComment", RouteDataHelper.ControllerName, new { issueID = Model.ID }, FormMethod.Post))
+{
+    Model.VisiblityOptions.ForEach(v => v.Selected = false);
+    <div id="issueWriteComment" class="ContentBox writeComment">
+        <h5>New comment</h5>
+
+        @if (Model.PlayerType >= Entities.enums.PlayerTypeEnum.Moderator)
+        {
+            <label>Visibility option(mod and admin only):</label>
+            @Html.DropDownList("visibility", Model.VisiblityOptions)
+        }
+        <label>Message: </label>
+        <textarea name="message"></textarea>
+        <button class="green button pull-right">Send</button>
+    </div>
+}

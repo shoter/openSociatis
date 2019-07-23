@@ -1,0 +1,27 @@
+﻿@model Sociatis.Models.Houses.HouseBuyCMViewModel
+
+@{
+    ViewBag.Title = "Buy House Supplies";
+    ScriptInjector.AddScript("~/Scripts/market/sociatis.market.js");
+}
+
+@Html.DisplayFor(m => m.Info)
+
+<div class="ContentBox">
+    <h3>@Model.Info.CountryName Market offers</h3>
+    <div class="marketOffersList">
+        @for (int i = 0; i < Model.Market.Offers.Count; ++i)
+        {
+            var offer = Model.Market.Offers[i];
+            @Html.DisplayFor(m => offer, new { houseID = Model.Info.HouseID })
+        }
+    </div>
+
+    <hr />
+
+    @using (Html.BeginForm(RouteDataHelper.ActionName + "Post", RouteDataHelper.ControllerName, new { houseID = Model.Info.HouseID, quality = Model.Market.Quality, productID = Model.Market.ProductID }, FormMethod.Post, null))
+    {
+        @PagingParamHtmlHelper.Render(Model.Market.PagingParam)
+    }
+
+</div>

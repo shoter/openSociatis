@@ -1,0 +1,43 @@
+﻿@import "definitions.scss";
+
+.sociatisLabel
+{
+    font-size: small;
+    padding: 0.2rem 0.6rem;
+    border: 1px solid gray;
+    border-radius: 2px;
+    margin: 0 0.1rem;
+
+    &.red
+    {
+        vertical-align: top;
+        color: darken($dangerColor,8%);
+        background-color: $dangerBackground;
+        border-color: $dangerBorder;
+    }
+
+    &.green
+    {
+        vertical-align: top;
+        color: darken($successColor,8%);
+        background-color: $successBackground;
+        border-color: $successBorder;
+    }
+
+    &.blue
+    {
+        vertical-align: top;
+        color: darken($infoColor,8%);
+        background-color: $infoBackground;
+        border-color: $infoBorder;
+    }
+
+    &.orange
+    {
+        vertical-align: top;
+        color: darken($dangerColor,8%);
+        background-color: $dangerBackground;
+        border-color: $dangerBorder;
+    }
+}
+

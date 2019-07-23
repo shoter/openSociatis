@@ -1,0 +1,40 @@
+﻿@model Sociatis.Models.Party.PartyMemberListViewModel
+
+@{
+
+    ViewBag.Title = Model.Info.PartyName + " members";
+}
+
+@Html.DisplayFor(m => m.Info)
+
+<div class="ContentBox">
+    @if (Model.President != null)
+    {
+        <h4 class="text-center">President</h4>
+        <div class="centerHorizontalFlex">
+            @Html.DisplayFor(m => m.President)
+        </div>
+    }
+    @if (Model.Managers.Count > 0)
+    {
+        <h5>Managers</h5>
+        <div class="row small-up-1 medium-up-3 large-up-4">
+            @foreach (var manager in Model.Managers)
+            {
+                <div class="column column-block">
+                    @Html.DisplayFor(m => manager)
+                </div>
+            }
+        </div>
+    }
+    <h6>Members</h6>
+    <div class="row small-up-2 medium-up-4 large-up-6">
+        @foreach (var member in Model.Members)
+            {
+            <div class="column column-block">
+                @Html.DisplayFor(m => member)
+            </div>
+        }
+    </div>
+
+</div>

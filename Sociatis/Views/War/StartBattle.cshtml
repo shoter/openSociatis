@@ -1,0 +1,44 @@
+﻿@model Sociatis.Models.War.StartBattleViewModel
+
+@Html.DisplayFor(m => m.Info)
+
+<div class="ContentBox">
+    <h3>Start battle</h3>
+    @using (Html.BeginForm(RouteDataHelper.ActionName, RouteDataHelper.ControllerName, new { warID = Model.Info.Info.WarID }, FormMethod.Post,
+        new { onsubmit = "return validateStartBattleForm();" }))
+    {
+    <div class="row">
+        <div class="small-4 columns">
+            Region to attack:
+        </div>
+        <div class="small-4 columns">
+            @Html.DropDownListFor(m => m.SelectedRegionID, Model.ConquerableRegions)
+        </div>
+        <div class="small-4 columns">
+            &nbsp;
+        </div>
+    </div>
+
+    <h4>Battle start informations :</h4>
+    <div id="StartInformations">
+
+    </div>
+
+    <div class="row">
+        <div class="small-2 float-right">
+            <button class="button red">Start battle!</button>
+        </div>
+    </div>
+    }
+
+</div>
+
+@section scripts
+{
+    <script type="text/javascript">
+        WarID = "@Model.Info.Info.WarID";
+    </script>
+
+    @Scripts.Render("~/Scripts/Battle/sociatis.battle.start_battle.js")
+
+}

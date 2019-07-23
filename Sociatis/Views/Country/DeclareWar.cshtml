@@ -1,0 +1,44 @@
+﻿@model Sociatis.Models.Country.DeclareWarViewModel
+
+@{
+ 
+}
+
+@Html.DisplayFor(m => m.Info)
+
+<div class="ContentBox row">
+    <h3>Declare war</h3>
+    @using (Html.BeginForm(RouteDataHelper.ActionName, RouteDataHelper.ControllerName, FormMethod.Post,
+
+        new Dictionary<string, object>() { { "vm.AttackerCountryID", Model.AttackerCountryID.ToString() } }))
+    {
+        @Html.HiddenFor(m => m.AttackerCountryID)
+    <div class="row">
+        <div class="small-4 columns">
+            Countries :
+        </div>
+        <div class="small-4 columns">
+            @Html.DropDownListFor(m => m.SelectedCountryID, Model.NeighboursCountries)
+        </div>
+        <div class="small-4 columns">
+            <button class="button red">Declare war!</button>
+        </div>
+    </div>
+    }
+
+    <h4>War declaration informations :</h4>
+    <div id="DeclareInformations">
+
+    </div>
+
+</div>
+
+@section scripts
+{
+    <script type="text/javascript">
+        CountryID = "@Model.Info.CountryID";
+    </script>
+
+@Scripts.Render("~/Scripts/Country/sociatis.country.declare_war.js")
+
+}

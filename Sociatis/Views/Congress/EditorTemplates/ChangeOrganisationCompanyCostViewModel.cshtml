@@ -1,0 +1,9 @@
+﻿@model Sociatis.Models.Congress.ChangeOrganisationCompanyCostViewModel
+
+@{
+    ViewData.TemplateInfo.HtmlFieldPrefix = "";
+}
+
+@Html.LabelFor(m => m.CreationCost)
+@Html.TextBoxFor(m => m.CreationCost)
+@Html.ValidationMessageFor(m => m.CreationCost)

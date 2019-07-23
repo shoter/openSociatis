@@ -1,0 +1,100 @@
+﻿@import "../definitions.scss";
+
+#bestCitizensView
+{
+    #bestCitizens_wrapper
+    {
+        @include respond-to-only(mobile)
+        {
+            .row
+            {
+                .small-6
+                {
+                    width: 100%;
+
+                    &:last-child
+                    {
+                        margin-top:0.5rem;
+                        label
+                        {
+                            float: left;
+                        }
+
+                        float: left;
+                    }
+                }
+            }
+        }
+
+        table
+        {
+            @include respond-to-only(mobile)
+            {
+                display: block;
+
+                thead, tbody, th, td, tr
+                {
+                    display: block;
+                }
+
+                thead > tr
+                {
+                    position: absolute;
+                    top: -9999px;
+                    left: -9999px;
+                }
+
+                tr
+                {
+                    border: 1px solid #ccc;
+                }
+
+                td
+                {
+                    /* Behave like a "row" */
+                    border: none;
+                    border-bottom: 1px solid #eee;
+                    position: relative;
+                    padding-left: 50vw;
+                }
+
+                td:before
+                {
+                    /* Now like a table header */
+                    position: absolute;
+                    /* Top/left values mimic padding */
+                    top: 6px;
+                    left: 6px;
+                    min-width: 45%;
+                    padding-right: 5px;
+                    white-space: nowrap;
+                }
+
+                td.col_avatar:before
+                {
+                    content: "Avatar";
+                }
+
+                td.col_name:before
+                {
+                    content: "Name";
+                }
+
+                td.col_exp:before
+                {
+                    content: "Experience";
+                }
+
+                td.col_mr:before
+                {
+                    content: "Military Rank";
+                }
+
+                td.col_medals:before
+                {
+                    content: "Medals";
+                }
+            }
+        }
+    }
+}
